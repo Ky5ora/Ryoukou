@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - RYOKOU Rental Motor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <div class="d-flex">
+        <!-- Sidebar Kiri -->
+        <div class="sidebar p-3 d-flex flex-column justify-content-between">
+            <div>
+                <div class="d-flex align-items-center mb-4 ps-2">
+                    <img src="../assets/1.logo-Ryokou.png" width="40" alt="Logo" class="me-2">
+                    <div>
+                        <h6 class="fw-bold mb-0 text-white">RYOKOU</h6>
+                        <small class="text-white-50" style="font-size: 0.7rem;">RENTAL MOTOR</small>
+                    </div>
+                </div>
+
+                <ul class="nav nav-pills flex-column">
+                    <li class="nav-item">
+                        <a href="4.dashboard utama.html" class="nav-link active d-flex align-items-center">
+                            <img src="../assets/icon-dashboard.svg" width="18" class="me-2" alt="icon">
+                            Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link d-flex align-items-center">
+                            <img src="../assets/icon-motor.svg" width="18" class="me-2" alt="icon">
+                            Katalog Motor
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link d-flex align-items-center">
+                            <img src="../assets/icon-pemesanan-kunci.svg" width="18" class="me-2" alt="icon">
+                            Unit yang Disewa
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link d-flex align-items-center">
+                            <img src="../assets/icon-pengembalian.svg" width="18" class="me-2" alt="icon">
+                            Pengembalian
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link d-flex align-items-center">
+                            <img src="../assets/icon-setting.svg" width="18" class="me-2" alt="icon">
+                            Pengaturan
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <a href="../halaman login.html" class="nav-link text-white d-flex align-items-center ps-2">
+                    <img src="../assets/icon-log-out.svg" width="18" class="me-2" alt="icon">
+                    Keluar
+                </a>
+            </div>
+        </div>
+
+        <!-- Konten Utama Kanan -->
+        <div class="main-content flex-grow-1 p-4">
+            <!-- Header Topbar -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div class="input-group style-search bg-white rounded-pill px-3 py-1 shadow-sm" style="max-width: 400px;">
+                    <span class="input-group-text bg-white border-0 ps-0">
+                        <img src="../assets/icon-pencarian.svg" width="16" alt="icon">
+                    </span>
+                    <input type="text" class="form-control border-0 bg-white shadow-none" placeholder="Pencarian">
+                </div>
+
+                <div class="d-flex align-items-center gap-3">
+                    <div class="position-relative">
+                        <img src="../assets/icon-bel-notif.svg" width="22" alt="icon">
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.6rem;">3</span>
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                        <img src="../assets/icon-profil-user.svg" width="32" class="rounded-circle" alt="icon">
+                        <div>
+                            <div class="fw-bold small mb-0">@User123</div>
+                            <div class="text-muted" style="font-size: 0.75rem;">Pelanggan</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Banner Promo dengan Gambar Tiga Motor -->
+            <div class="banner-promo mb-4 p-4 rounded-4 position-relative" style="background-color: #0E4B5B; color: white;">
+                <div class="row align-items-center">
+                    <div class="col-md-7">
+                        <span class="badge bg-white text-dark mb-2 px-3 py-1" style="font-size: 0.7rem;">PROMO SPESIAL</span>
+                        <h4 class="fw-bold mb-1">Butuh Motor?</h4>
+                        <h2 class="fw-bold mb-2">Rental Motor di RYOKOU Solusinya</h2>
+                        <p class="small text-white-50 mb-3">Dijamin Amanah dan Terpercaya 100%!</p>
+                        <button class="btn btn-light btn-sm rounded-pill fw-semibold px-3 py-2">Klik disini untuk memulai</button>
+                    </div>
+                    <div class="col-md-5 text-end d-none d-md-block">
+                        <img src="../assets/2.gambar-tiga-motor.png" class="img-fluid" alt="Tiga Motor" style="max-height: 160px;">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grid Unit Populer -->
+            <h5 class="fw-bold mb-1">Unit Populer</h5>
+            <p class="text-muted small mb-3">Pilihan terfavorit pelanggan minggu ini</p>
+
+            <div class="row g-3">
+                <!-- Card 1: Vario Tersedia -->
+                <div class="col-md-3">
+                    <div class="card card-unit p-3">
+                        <span class="badge-tersedia w-auto align-self-start mb-2">Tersedia</span>
+                        <img src="../assets/3.Produk Vario 125 Street.png" class="img-fluid my-2" alt="Vario">
+                        <h6 class="fw-bold mb-0">Honda Vario 125 Street</h6>
+                        <small class="text-muted">Tahun 2024 • Matic 125cc</small>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <div>
+                                <small class="text-muted d-block" style="font-size: 0.7rem;">Harga Sewa</small>
+                                <span class="fw-bold text-dark small">Rp 120rb</span><small class="text-muted">/hari</small>
+                            </div>
+                            <a href="5.detail produk vario.html" class="btn btn-sewa btn-sm">Sewa</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Vario Disewa -->
+                <div class="col-md-3">
+                    <div class="card card-unit p-3">
+                        <span class="badge-disewa w-auto align-self-start mb-2">Disewa</span>
+                        <img src="../assets/3.Produk Vario 125 Street.png" class="img-fluid my-2 opacity-75" alt="Vario">
+                        <h6 class="fw-bold mb-0">Honda Vario 125 Street</h6>
+                        <small class="text-muted">Tahun 2024 • Matic 125cc</small>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <div>
+                                <small class="text-muted d-block" style="font-size: 0.7rem;">Harga Sewa</small>
+                                <span class="fw-bold text-dark small">Rp 120rb</span><small class="text-muted">/hari</small>
+                            </div>
+                            <button class="btn btn-disewa-disabled btn-sm" disabled>Disewa</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 & 4 (Vario Tersedia) -->
+                <div class="col-md-3">
+                    <div class="card card-unit p-3">
+                        <span class="badge-tersedia w-auto align-self-start mb-2">Tersedia</span>
+                        <img src="../assets/3.Produk Vario 125 Street.png" class="img-fluid my-2" alt="Vario">
+                        <h6 class="fw-bold mb-0">Honda Vario 125 Street</h6>
+                        <small class="text-muted">Tahun 2024 • Matic 125cc</small>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <div>
+                                <small class="text-muted d-block" style="font-size: 0.7rem;">Harga Sewa</small>
+                                <span class="fw-bold text-dark small">Rp 120rb</span><small class="text-muted">/hari</small>
+                            </div>
+                            <a href="5.detail produk vario.html" class="btn btn-sewa btn-sm">Sewa</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card card-unit p-3">
+                        <span class="badge-tersedia w-auto align-self-start mb-2">Tersedia</span>
+                        <img src="../assets/3.Produk Vario 125 Street.png" class="img-fluid my-2" alt="Vario">
+                        <h6 class="fw-bold mb-0">Honda Vario 125 Street</h6>
+                        <small class="text-muted">Tahun 2024 • Matic 125cc</small>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <div>
+                                <small class="text-muted d-block" style="font-size: 0.7rem;">Harga Sewa</small>
+                                <span class="fw-bold text-dark small">Rp 120rb</span><small class="text-muted">/hari</small>
+                            </div>
+                            <a href="5.detail produk vario.html" class="btn btn-sewa btn-sm">Sewa</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card BeAT Street -->
+                <div class="col-md-3">
+                    <div class="card card-unit p-3">
+                        <span class="badge-tersedia w-auto align-self-start mb-2">Tersedia</span>
+                        <img src="../assets/4.Produk BeAT Deluxe Street.png" class="img-fluid my-2" alt="BeAT">
+                        <h6 class="fw-bold mb-0">Honda BeAT Street</h6>
+                        <small class="text-muted">Tahun 2024 • Matic 110cc</small>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <div>
+                                <small class="text-muted d-block" style="font-size: 0.7rem;">Harga Sewa</small>
+                                <span class="fw-bold text-dark small">Rp 85rb</span><small class="text-muted">/hari</small>
+                            </div>
+                            <button class="btn btn-sewa btn-sm">Sewa</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card card-unit p-3">
+                        <span class="badge-tersedia w-auto align-self-start mb-2">Tersedia</span>
+                        <img src="../assets/4.Produk BeAT Deluxe Street.png" class="img-fluid my-2" alt="BeAT">
+                        <h6 class="fw-bold mb-0">Honda BeAT Street</h6>
+                        <small class="text-muted">Tahun 2024 • Matic 110cc</small>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <div>
+                                <small class="text-muted d-block" style="font-size: 0.7rem;">Harga Sewa</small>
+                                <span class="fw-bold text-dark small">Rp 85rb</span><small class="text-muted">/hari</small>
+                            </div>
+                            <button class="btn btn-sewa btn-sm">Sewa</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card card-unit p-3">
+                        <span class="badge-tersedia w-auto align-self-start mb-2">Tersedia</span>
+                        <img src="../assets/4.Produk BeAT Deluxe Street.png" class="img-fluid my-2" alt="BeAT">
+                        <h6 class="fw-bold mb-0">Honda BeAT Street</h6>
+                        <small class="text-muted">Tahun 2024 • Matic 110cc</small>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <div>
+                                <small class="text-muted d-block" style="font-size: 0.7rem;">Harga Sewa</small>
+                                <span class="fw-bold text-dark small">Rp 85rb</span><small class="text-muted">/hari</small>
+                            </div>
+                            <button class="btn btn-sewa btn-sm">Sewa</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card card-unit p-3">
+                        <span class="badge-disewa w-auto align-self-start mb-2">Disewa</span>
+                        <img src="../assets/4.Produk BeAT Deluxe Street.png" class="img-fluid my-2 opacity-75" alt="BeAT">
+                        <h6 class="fw-bold mb-0">Honda BeAT Street</h6>
+                        <small class="text-muted">Tahun 2024 • Matic 110cc</small>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <div>
+                                <small class="text-muted d-block" style="font-size: 0.7rem;">Harga Sewa</small>
+                                <span class="fw-bold text-dark small">Rp 85rb</span><small class="text-muted">/hari</small>
+                            </div>
+                            <button class="btn btn-disewa-disabled btn-sm" disabled>Disewa</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

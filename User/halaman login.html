@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masuk - Rental Motor Ryokou</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="d-flex align-items-center justify-content-center py-4">
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 col-xl-9">
+                <div class="card auth-card">
+                    <div class="row g-0">
+                        
+                        <div class="col-md-6 p-4 p-md-5 d-flex flex-column justify-content-center">
+                            <h3 class="fw-bold mb-1">Masuk</h3>
+                            <p class="text-muted small mb-4">Gunakan akun Rental anda.</p>
+
+                            <form>
+                                <div class="mb-3">
+                                    <label class="form-label fw-semibold small">Email</label>
+                                    <input type="email" class="form-control form-control-custom" placeholder="@contoh123" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label fw-semibold small">Password</label>
+                                    <input type="password" id="inputSandi" class="form-control form-control-custom" placeholder="•••••" required>
+                                </div>
+                                <div class="mb-4 form-check">
+                                    <input type="checkbox" class="form-check-input" id="lihatSandi">
+                                    <label class="form-check-label small" for="lihatSandi">Tampilkan Sandi</label>
+                                </div>
+
+                                <button type="submit" class="btn btn-dark-custom w-100 mb-3">LOGIN SEKARANG</button>
+
+                                <div class="text-center small">
+                                    <p class="mb-1">Lupa password? <a href="html/1.verifikasi email login.html" class="link-blue">klik disini</a></p>
+                                    <p class="mb-0">Belum punya akun? <a href="html/3.halaman daftar.html" class="link-blue">klik disini</a></p>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="col-md-6 hero-section">
+                            <div class="hero-shape-1"></div>
+                            <div class="hero-shape-2"></div>
+                            <h4 class="fw-bold text-white mb-4">Selamat Datang!</h4>
+                            <h1 class="display-5 fw-bold text-white">Rental Motor<br>Ryokou</h1>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('lihatSandi').addEventListener('change', function() {
+            const inputSandi = document.getElementById('inputSandi');
+            inputSandi.type = this.checked ? 'text' : 'password';
+        });
+    </script>
+</body>
+</html>
