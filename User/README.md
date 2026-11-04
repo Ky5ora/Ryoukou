@@ -5,7 +5,7 @@
 - `1.verifikasi email login.html` — verifikasi email/username
 - `2.membuat password baru.html` — buat dan konfirmasi password baru
 - `3.halaman daftar.html` — pendaftaran akun
-- `4.dashboard utama.html` — dashboard user yang berisi pop up dan produk populer dari RYOKOU
+- `4.dashboard utama.html` — dashboard user yang berisi pop up dan produk populer dari Ryokou
 
 ## File utama
 - `auth.css` dan `auth.js` untuk halaman login, daftar, dan pemulihan sandi
