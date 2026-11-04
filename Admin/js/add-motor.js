@@ -35,7 +35,7 @@ document.getElementById("addMotorForm").addEventListener("submit", (event) => {
       data.harga.toLocaleString("id-ID") +
       "\nStatus: " +
       data.status +
-      "\n\nUntuk menyimpan permanen, hubungkan ke backend/database.",
+      "\n\nUntuk menyimpan permanen, ubungkan ke backend/database.",
   );
   location.href = "motor-list.html";
 });
