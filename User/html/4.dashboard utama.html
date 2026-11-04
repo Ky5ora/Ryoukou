@@ -27,7 +27,7 @@
                             <img src="../assets/icon-dashboard.svg" width="18" class="me-2" alt="icon">
                             Dashboard
                         </a>
-                    </li>
+                    </li> 
                     <li class="nav-item">
                         <a href="#" class="nav-link d-flex align-items-center">
                             <img src="../assets/icon-motor.svg" width="18" class="me-2" alt="icon">
@@ -56,40 +56,34 @@
             </div>
 
             <div>
-                <a href="../halaman login.html" class="nav-link text-white d-flex align-items-center ps-2">
+                <a href="0.halaman login.html" class="nav-link text-white d-flex align-items-center ps-2">
                     <img src="../assets/icon-log-out.svg" width="18" class="me-2" alt="icon">
                     Keluar
                 </a>
             </div>
         </div>
 
-        <!-- Konten Utama Kanan -->
+
         <div class="main-content flex-grow-1 p-4">
-            <!-- Header Topbar -->
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <div class="input-group style-search bg-white rounded-pill px-3 py-1 shadow-sm" style="max-width: 400px;">
                     <span class="input-group-text bg-white border-0 ps-0">
                         <img src="../assets/icon-pencarian.svg" width="16" alt="icon">
                     </span>
-                    <input type="text" class="form-control border-0 bg-white shadow-none" placeholder="Pencarian">
+                    <input type="text" id="inputPencarian" class="form-control border-0 bg-white shadow-none" placeholder="Cari nama motor (misal: Vario, BeAT)...">
                 </div>
-
+                
                 <div class="d-flex align-items-center gap-3">
-                    <div class="position-relative">
-                        <img src="../assets/icon-bel-notif.svg" width="22" alt="icon">
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.6rem;">3</span>
-                    </div>
                     <div class="d-flex align-items-center gap-2">
                         <img src="../assets/icon-profil-user.svg" width="32" class="rounded-circle" alt="icon">
                         <div>
-                            <div class="fw-bold small mb-0">@User123</div>
+                            <div class="fw-bold small mb-0" id="namaUserDisplay">@User123</div>
                             <div class="text-muted" style="font-size: 0.75rem;">Pelanggan</div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Banner Promo dengan Gambar Tiga Motor -->
             <div class="banner-promo mb-4 p-4 rounded-4 position-relative" style="background-color: #0E4B5B; color: white;">
                 <div class="row align-items-center">
                     <div class="col-md-7">
@@ -100,7 +94,7 @@
                         <button class="btn btn-light btn-sm rounded-pill fw-semibold px-3 py-2">Klik disini untuk memulai</button>
                     </div>
                     <div class="col-md-5 text-end d-none d-md-block">
-                        <img src="../assets/2.gambar-tiga-motor.png" class="img-fluid" alt="Tiga Motor" style="max-height: 160px;">
+                        <img src="../assets/2.gambar-tiga-motor.png" class="img-fluid" alt="Tiga Motor" style="max-height: 300px;">
                     </div>
                 </div>
             </div>
@@ -109,13 +103,14 @@
             <h5 class="fw-bold mb-1">Unit Populer</h5>
             <p class="text-muted small mb-3">Pilihan terfavorit pelanggan minggu ini</p>
 
-            <div class="row g-3">
+            <!-- Container Grid Motor dengan ID agar bisa difilter via JS -->
+            <div class="row g-3" id="gridMotor">
                 <!-- Card 1: Vario Tersedia -->
-                <div class="col-md-3">
+                <div class="col-md-3 item-motor">
                     <div class="card card-unit p-3">
                         <span class="badge-tersedia w-auto align-self-start mb-2">Tersedia</span>
                         <img src="../assets/3.Produk Vario 125 Street.png" class="img-fluid my-2" alt="Vario">
-                        <h6 class="fw-bold mb-0">Honda Vario 125 Street</h6>
+                        <h6 class="fw-bold mb-0 nama-motor">Honda Vario 125 Street</h6>
                         <small class="text-muted">Tahun 2024 • Matic 125cc</small>
                         <div class="d-flex justify-content-between align-items-center mt-3">
                             <div>
@@ -128,11 +123,11 @@
                 </div>
 
                 <!-- Card 2: Vario Disewa -->
-                <div class="col-md-3">
+                <div class="col-md-3 item-motor">
                     <div class="card card-unit p-3">
                         <span class="badge-disewa w-auto align-self-start mb-2">Disewa</span>
                         <img src="../assets/3.Produk Vario 125 Street.png" class="img-fluid my-2 opacity-75" alt="Vario">
-                        <h6 class="fw-bold mb-0">Honda Vario 125 Street</h6>
+                        <h6 class="fw-bold mb-0 nama-motor">Honda Vario 125 Street</h6>
                         <small class="text-muted">Tahun 2024 • Matic 125cc</small>
                         <div class="d-flex justify-content-between align-items-center mt-3">
                             <div>
@@ -144,12 +139,12 @@
                     </div>
                 </div>
 
-                <!-- Card 3 & 4 (Vario Tersedia) -->
-                <div class="col-md-3">
+                <!-- Card 3 -->
+                <div class="col-md-3 item-motor">
                     <div class="card card-unit p-3">
                         <span class="badge-tersedia w-auto align-self-start mb-2">Tersedia</span>
                         <img src="../assets/3.Produk Vario 125 Street.png" class="img-fluid my-2" alt="Vario">
-                        <h6 class="fw-bold mb-0">Honda Vario 125 Street</h6>
+                        <h6 class="fw-bold mb-0 nama-motor">Honda Vario 125 Street</h6>
                         <small class="text-muted">Tahun 2024 • Matic 125cc</small>
                         <div class="d-flex justify-content-between align-items-center mt-3">
                             <div>
@@ -161,11 +156,12 @@
                     </div>
                 </div>
 
-                <div class="col-md-3">
+                <!-- Card 4 -->
+                <div class="col-md-3 item-motor">
                     <div class="card card-unit p-3">
                         <span class="badge-tersedia w-auto align-self-start mb-2">Tersedia</span>
                         <img src="../assets/3.Produk Vario 125 Street.png" class="img-fluid my-2" alt="Vario">
-                        <h6 class="fw-bold mb-0">Honda Vario 125 Street</h6>
+                        <h6 class="fw-bold mb-0 nama-motor">Honda Vario 125 Street</h6>
                         <small class="text-muted">Tahun 2024 • Matic 125cc</small>
                         <div class="d-flex justify-content-between align-items-center mt-3">
                             <div>
@@ -177,12 +173,12 @@
                     </div>
                 </div>
 
-                <!-- Card BeAT Street -->
-                <div class="col-md-3">
+                <!-- Card 5 -->
+                <div class="col-md-3 item-motor">
                     <div class="card card-unit p-3">
                         <span class="badge-tersedia w-auto align-self-start mb-2">Tersedia</span>
                         <img src="../assets/4.Produk BeAT Deluxe Street.png" class="img-fluid my-2" alt="BeAT">
-                        <h6 class="fw-bold mb-0">Honda BeAT Street</h6>
+                        <h6 class="fw-bold mb-0 nama-motor">Honda BeAT Street</h6>
                         <small class="text-muted">Tahun 2024 • Matic 110cc</small>
                         <div class="d-flex justify-content-between align-items-center mt-3">
                             <div>
@@ -194,11 +190,12 @@
                     </div>
                 </div>
 
-                <div class="col-md-3">
+                <!-- Card 6 -->
+                <div class="col-md-3 item-motor">
                     <div class="card card-unit p-3">
                         <span class="badge-tersedia w-auto align-self-start mb-2">Tersedia</span>
                         <img src="../assets/4.Produk BeAT Deluxe Street.png" class="img-fluid my-2" alt="BeAT">
-                        <h6 class="fw-bold mb-0">Honda BeAT Street</h6>
+                        <h6 class="fw-bold mb-0 nama-motor">Honda BeAT Street</h6>
                         <small class="text-muted">Tahun 2024 • Matic 110cc</small>
                         <div class="d-flex justify-content-between align-items-center mt-3">
                             <div>
@@ -210,11 +207,12 @@
                     </div>
                 </div>
 
-                <div class="col-md-3">
+                <!-- Card 7 -->
+                <div class="col-md-3 item-motor">
                     <div class="card card-unit p-3">
                         <span class="badge-tersedia w-auto align-self-start mb-2">Tersedia</span>
                         <img src="../assets/4.Produk BeAT Deluxe Street.png" class="img-fluid my-2" alt="BeAT">
-                        <h6 class="fw-bold mb-0">Honda BeAT Street</h6>
+                        <h6 class="fw-bold mb-0 nama-motor">Honda BeAT Street</h6>
                         <small class="text-muted">Tahun 2024 • Matic 110cc</small>
                         <div class="d-flex justify-content-between align-items-center mt-3">
                             <div>
@@ -226,11 +224,12 @@
                     </div>
                 </div>
 
-                <div class="col-md-3">
+                <!-- Card 8 -->
+                <div class="col-md-3 item-motor">
                     <div class="card card-unit p-3">
                         <span class="badge-disewa w-auto align-self-start mb-2">Disewa</span>
                         <img src="../assets/4.Produk BeAT Deluxe Street.png" class="img-fluid my-2 opacity-75" alt="BeAT">
-                        <h6 class="fw-bold mb-0">Honda BeAT Street</h6>
+                        <h6 class="fw-bold mb-0 nama-motor">Honda BeAT Street</h6>
                         <small class="text-muted">Tahun 2024 • Matic 110cc</small>
                         <div class="d-flex justify-content-between align-items-center mt-3">
                             <div>
@@ -241,10 +240,11 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
 
+    <!-- Panggil file JavaScript terpisah -->
+    <script src="../js/4.dashboard utama.js"></script>
 </body>
 </html>

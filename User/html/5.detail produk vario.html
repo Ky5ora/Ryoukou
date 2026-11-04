@@ -56,7 +56,7 @@
             </div>
 
             <div>
-                <a href="../halaman login.html" class="nav-link text-white d-flex align-items-center ps-2">
+                <a href="0.halaman login.html" class="nav-link text-white d-flex align-items-center ps-2">
                     <img src="../assets/icon-log-out.svg" width="18" class="me-2" alt="icon">
                     Keluar
                 </a>
@@ -67,19 +67,14 @@
         <div class="main-content flex-grow-1 p-4">
             <!-- Topbar -->
             <div class="d-flex justify-content-between align-items-center mb-3">
-                <div class="input-group style-search bg-white rounded-pill px-3 py-1 shadow-sm" style="max-width: 400px;">
-                    <span class="input-group-text bg-white border-0 ps-0">
-                        <img src="../assets/icon-pencarian.svg" width="16" alt="icon">
-                    </span>
-                    <input type="text" class="form-control border-0 bg-white shadow-none" placeholder="Pencarian">
+                <div class="input-group" style="max-width: 400px;">
                 </div>
-
+                
                 <div class="d-flex align-items-center gap-3">
-                    <img src="../assets/icon-bel-notif.svg" width="22" alt="icon">
                     <div class="d-flex align-items-center gap-2">
                         <img src="../assets/icon-profil-user.svg" width="32" class="rounded-circle" alt="icon">
                         <div>
-                            <div class="fw-bold small mb-0">@User123</div>
+                            <div class="fw-bold small mb-0" id="namaUserDisplay">@User123</div>
                             <div class="text-muted" style="font-size: 0.75rem;">Pelanggan</div>
                         </div>
                     </div>
@@ -92,21 +87,18 @@
             </a>
 
             <div class="row g-4">
-                <!-- Sisi Kiri: Galeri & Detail -->
                 <div class="col-lg-7">
                     <div class="row g-3">
-                        <!-- Thumbnail Samping -->
-                        <div class="col-md-3 d-flex flex-column gap-2 order-2 order-md-1">
-                            <div class="p-2 bg-white border rounded-3 text-center cursor-pointer" onclick="gantiGambar('../assets/3.Produk Vario Segala POV.png')">
-                                <img src="../assets/3.Produk Vario 125 Street.png" class="img-fluid" alt="thumb">
+                        <!-- Thumbnail Samping (Murni Tampilan Visual Statis) -->
+                        <div class="col-md-3 d-flex flex-column gap-2">
+                            <div class="p-3 bg-white border rounded-3 text-center" style="min-height: 280px;">
+                                <img src="../assets/3.Produk Vario 125 Street.png" class="img-fluid gambar-utama-produk" alt="thumb 1">
                             </div>
-
                         </div>
-                        <!-- Gambar Utama -->
-                        <div class="col-md-9 order-1 order-md-2">
-                            <div class="position-relative bg-light p-4 rounded-4 text-center">
-                                <span class="badge-tersedia position-absolute top-0 start-0 m-3">Tersedia</span>
-                                <img id="gambarUtama" src="../assets/3.Produk Vario Segala POV.png" class="img-fluid" style="max-height: 260px;" alt="Vario">
+                        
+                        <div class="col-md-9">
+                            <div class="position-relative bg-light p-4 rounded-4 text-center d-flex align-items-center justify-content-center" style="min-height: 280px;">
+                                <img src="../assets/3.Produk Vario Segala POV.png" class="img-fluid" alt="Vario">
                             </div>
                         </div>
                     </div>
@@ -181,7 +173,6 @@
                                 <div class="input-group">
                                     <input type="date" class="form-control bg-light border-0">
                                     <span class="input-group-text bg-light border-0">
-                                        <img src="../assets/icon-pemesanan-tanggal-ambil.svg" width="16" alt="icon">
                                     </span>
                                 </div>
                             </div>
@@ -192,14 +183,12 @@
                                     <div class="input-group">
                                         <input type="time" class="form-control bg-light border-0">
                                         <span class="input-group-text bg-light border-0">
-                                            <img src="../assets/icon-pemesanan-jam-pertemuan.svg" width="16" alt="icon">
                                         </span>
                                     </div>
                                     <span>-</span>
                                     <div class="input-group">
                                         <input type="time" class="form-control bg-light border-0">
                                         <span class="input-group-text bg-light border-0">
-                                            <img src="../assets/icon-pemesanan-jam-pertemuan.svg" width="16" alt="icon">
                                         </span>
                                     </div>
                                 </div>
@@ -242,29 +231,7 @@
         </div>
     </div>
 
-    <script>
-        function gantiGambar(pathGambar) {
-            document.getElementById('gambarUtama').src = pathGambar;
-        }
-
-        function switchTab(tabName) {
-            const tabDesk = document.getElementById('tabDeskripsi');
-            const tabSpes = document.getElementById('tabSpesifikasi');
-            const kontenDesk = document.getElementById('kontenDeskripsi');
-            const kontenSpes = document.getElementById('kontenSpesifikasi');
-
-            if (tabName === 'deskripsi') {
-                tabDesk.classList.add('active');
-                tabSpes.classList.remove('active');
-                kontenDesk.classList.remove('d-none');
-                kontenSpes.classList.add('d-none');
-            } else {
-                tabSpes.classList.add('active');
-                tabDesk.classList.remove('active');
-                kontenSpes.classList.remove('d-none');
-                kontenDesk.classList.add('d-none');
-            }
-        }
-    </script>
+    <!-- Panggil file JavaScript khusus halaman detail produk -->
+    <script src="../js/5.detail produk vario.js"></script>
 </body>
 </html>

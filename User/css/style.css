@@ -215,3 +215,21 @@ body {
     max-height: 280px;
     object-fit: contain;
 }
+
+.kotak-tampilan-utama {
+    min-height: 320px;
+    background-color: #f8f9fa;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 1rem;
+    overflow: hidden; /* Supaya kalau gambar besar tidak keluar kotak */
+}
+
+.gambar-utama-produk {
+    height: 280px !important;  /* Memaksa tinggi gambar jadi besar */
+    width: auto !important;    /* Lebar menyesuaikan otomatis agar tidak gepeng */
+    object-fit: contain;
+}
