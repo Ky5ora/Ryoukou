@@ -1,0 +1,345 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+}
+
+.auth-card {
+    border: none;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    background-color: #ffffff;
+}
+
+.hero-section {
+    background-color: #176B87;
+    color: #ffffff;
+    position: relative;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-shape-1 {
+    position: absolute;
+    top: -40px;
+    left: -40px;
+    width: 150px;
+    height: 150px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+}
+
+.hero-shape-2 {
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: 180px;
+    height: 180px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+}
+
+.form-control-custom {
+    border: 1px solid #ced4da;
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 0.95rem;
+}
+
+.form-control-custom:focus {
+    border-color: #176B87;
+    box-shadow: 0 0 0 0.25rem rgba(23, 107, 135, 0.15);
+}
+
+.password-container {
+    position: relative;
+}
+
+.password-container .form-control-custom {
+    padding-right: 45px;
+}
+
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-dark-custom {
+    background-color: #000000;
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 10px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.btn-dark-custom:hover {
+    background-color: #222222;
+    color: #ffffff;
+}
+
+.link-blue {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.link-blue:hover {
+    text-decoration: underline;
+}
+
+.sidebar {
+    width: 260px;
+    background-color: #0E4B5B;
+    min-height: 100vh;
+    color: #ffffff;
+}
+
+.sidebar .nav-link {
+    color: rgba(255, 255, 255, 0.8);
+    padding: 10px 20px;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+}
+
+.sidebar .nav-link:hover, .sidebar .nav-link.active {
+    background-color: #ffffff;
+    color: #0E4B5B;
+    font-weight: 600;
+}
+
+.main-content {
+    background-color: #F4F6F8;
+    min-height: 100vh;
+}
+
+.banner-promo {
+    background-color: #0E4B5B;
+    border-radius: 16px;
+    color: white;
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-unit {
+    border: 1px solid #E2E8F0;
+    border-radius: 16px;
+    transition: all 0.2s ease;
+}
+
+.card-unit:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.badge-tersedia {
+    background-color: #D1E7DD;
+    color: #0F5132;
+    font-weight: 600;
+    font-size: 0.75rem;
+    padding: 4px 12px;
+    border-radius: 12px;
+}
+
+.badge-disewa {
+    background-color: #F8D7DA;
+    color: #842029;
+    font-weight: 600;
+    font-size: 0.75rem;
+    padding: 4px 12px;
+    border-radius: 12px;
+}
+
+.btn-sewa {
+    background-color: #0E4B5B;
+    color: white;
+    border-radius: 8px;
+    padding: 6px 16px;
+    font-weight: 600;
+}
+
+.btn-disewa-disabled {
+    background-color: #E2E8F0;
+    color: #0E4B5B;
+    border: 1px solid #0E4B5B;
+    border-radius: 8px;
+    padding: 6px 16px;
+    font-weight: 600;
+    pointer-events: none;
+}
+
+.tab-deskripsi {
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    font-weight: 600;
+    color: #6C757D;
+    padding-bottom: 8px;
+}
+
+.tab-deskripsi.active {
+    border-color: #0E4B5B;
+    color: #0E4B5B;
+}
+
+.gambar-utama-container {
+    background-color: #f8f9fa;
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    min-height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gambar-utama-container img {
+    max-width: 100%;
+    max-height: 280px;
+    object-fit: contain;
+}
+
+.kotak-tampilan-utama {
+    min-height: 320px;
+    background-color: #f8f9fa;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 1rem;
+    overflow: hidden;
+}
+
+.gambar-utama-produk {
+    height: 500px !important;
+    width: auto !important;
+    object-fit: contain;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 260px;
+    min-height: 100vh;
+    background-color: #085a6b;
+}
+
+/* Custom Nav Link (Sidebar) */
+.sidebar .nav-link-custom {
+    color: rgba(255, 255, 255, 0.8);
+    background-color: transparent;
+    border-radius: 8px;
+    padding: 10px 16px;
+    transition: all 0.2s ease-in-out;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+/* Efek Hover Nav Link - Biru redup elegan, TIDAK FULL PUTIH */
+.sidebar .nav-link-custom:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* State Aktif Nav Link */
+.sidebar .nav-link-custom.active {
+    color: #085a6b;
+    background-color: #ffffff;
+    font-weight: bold;
+}
+
+/* Tombol Keluar / Logout */
+.sidebar .btn-logout {
+    color: rgba(255, 255, 255, 0.85);
+    background-color: transparent;
+    border-radius: 8px;
+    padding: 10px 16px;
+    transition: all 0.2s ease-in-out;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar .btn-logout:hover {
+    color: #ff4d4d;
+    background-color: rgba(255, 77, 77, 0.15);
+}
+
+/* Brand Filter Cards (Katalog) */
+.brand-card {
+    background-color: #e0e0e0;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border: 2px solid transparent;
+}
+
+.brand-card:hover {
+    transform: translateY(-2px);
+    background-color: #d0d0d0;
+}
+
+.brand-card.active {
+    background-color: #085a6b;
+    color: #ffffff;
+}
+
+.brand-card.active img {
+    filter: brightness(0) invert(1);
+}
+
+/* Badges Status */
+.badge-tersedia {
+    background-color: #d1e7dd;
+    color: #0f5132;
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.badge-disewa {
+    background-color: #f8d7da;
+    color: #842029;
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.btn-sewa {
+    background-color: #085a6b;
+    color: white;
+    border-radius: 8px;
+    padding: 6px 16px;
+}
+
+.btn-sewa:hover {
+    background-color: #064552;
+    color: white;
+}
+
+.btn-disewa-disabled {
+    background-color: #cccccc;
+    color: #666666;
+    border-radius: 8px;
+    padding: 6px 16px;
+}

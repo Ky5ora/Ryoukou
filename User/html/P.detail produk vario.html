@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Produk - Honda Vario 125 Street</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <div class="d-flex">
+        <!-- Sidebar Kiri -->
+        <div class="sidebar p-3 d-flex flex-column justify-content-between">
+            <div>
+                <div class="d-flex align-items-center mb-4 ps-2">
+                    <img src="../assets/1.logo-Ryokou.png" width="40" alt="Logo" class="me-2">
+                    <div>
+                        <h6 class="fw-bold mb-0 text-white">RYOKOU</h6>
+                        <small class="text-white-50" style="font-size: 0.7rem;">RENTAL MOTOR</small>
+                    </div>
+                </div>
+
+                <ul class="nav nav-pills flex-column">
+                    <li class="nav-item">
+                        <a href="4.dashboard utama.html" class="nav-link active d-flex align-items-center">
+                            <img src="../assets/icon-dashboard.svg" width="18" class="me-2" alt="icon">
+                            Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link d-flex align-items-center">
+                            <img src="../assets/icon-motor.svg" width="18" class="me-2" alt="icon">
+                            Katalog Motor
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link d-flex align-items-center">
+                            <img src="../assets/icon-pemesanan-kunci.svg" width="18" class="me-2" alt="icon">
+                            Unit yang Disewa
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link d-flex align-items-center">
+                            <img src="../assets/icon-pengembalian.svg" width="18" class="me-2" alt="icon">
+                            Pengembalian
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link d-flex align-items-center">
+                            <img src="../assets/icon-setting.svg" width="18" class="me-2" alt="icon">
+                            Pengaturan
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <a href="0.halaman login.html" class="nav-link text-white d-flex align-items-center ps-2">
+                    <img src="../assets/icon-log-out.svg" width="18" class="me-2" alt="icon">
+                    Keluar
+                </a>
+            </div>
+        </div>
+
+        <!-- Konten Utama Kanan -->
+        <div class="main-content flex-grow-1 p-4">
+            <!-- Topbar -->
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <div class="input-group" style="max-width: 400px;">
+                </div>
+                
+                <div class="d-flex align-items-center gap-3">
+                    <div class="d-flex align-items-center gap-2">
+                        <img src="../assets/icon-profil-user.svg" width="32" class="rounded-circle" alt="icon">
+                        <div>
+                            <div class="fw-bold small mb-0" id="namaUserDisplay">@User123</div>
+                            <div class="text-muted" style="font-size: 0.75rem;">Pelanggan</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tombol Kembali -->
+            <a href="4.dashboard utama.html" class="btn btn-sm btn-dark mb-3 d-inline-flex align-items-center gap-1 px-3 py-2 rounded-3">
+                <img src="../assets/icon-button-kembali.svg" width="14" alt="icon"> Kembali
+            </a>
+
+            <div class="row g-4">
+                <div class="col-lg-7">
+                    <div class="row g-3">
+                        <div class="col-md-3 d-flex flex-column gap-2">
+                            <div class= style="min-height: 500px;">
+                                <img src="../assets/Frame Vario Street.png" class="img-fluid gambar-utama-produk" alt="thumb 1">
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-9">
+                            <div class="position-relative bg-light p-4 rounded-4 text-center d-flex align-items-center justify-content-center" style="min-height: 280px;">
+                                <img src="../assets/A.Vario Segala POV.png" class="img-fluid" alt="Vario">
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4 class="fw-bold mb-0 mt-3">Honda Vario 125 Street</h4>
+                    <small class="text-muted d-block mb-3">Tahun 2024 • Matic 125cc</small>
+
+                    <!-- Navigasi Tab Deskripsi / Spesifikasi -->
+                    <div class="d-flex gap-4 border-bottom mb-3">
+                        <span id="tabDeskripsi" class="tab-deskripsi active" onclick="switchTab('deskripsi')">Deskripsi</span>
+                        <span id="tabSpesifikasi" class="tab-deskripsi" onclick="switchTab('spesifikasi')">Spesifikasi</span>
+                    </div>
+
+                    <!-- Konten Tab 1: Deskripsi -->
+                    <div id="kontenDeskripsi" class="d-block">
+                        <ul class="list-unstyled d-flex flex-column gap-2 text-secondary">
+                            <li class="d-flex align-items-center gap-2">
+                                <img src="../assets/icon-deskripsi-perisai-centang.svg" width="18" alt="icon">
+                                Motor dalam kondisi prima, dan servis rutin
+                            </li>
+                            <li class="d-flex align-items-center gap-2">
+                                <img src="../assets/icon-deskripsi-perisai-centang.svg" width="18" alt="icon">
+                                Rem CBS, lampu LED terang
+                            </li>
+                            <li class="d-flex align-items-center gap-2">
+                                <img src="../assets/icon-deskripsi-mesin.svg" width="18" alt="icon">
+                                Mesin eSP bertenaga, irit bahan bakar
+                            </li>
+                            <li class="d-flex align-items-center gap-2">
+                                <img src="../assets/icon-deskripsi-kursi.svg" width="18" alt="icon">
+                                Jok ergonomis, bagasi luas 18L
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Konten Tab 2: Spesifikasi -->
+                    <div id="kontenSpesifikasi" class="d-none">
+                        <div class="row g-3 text-secondary">
+                            <div class="col-6 d-flex align-items-center gap-2">
+                                <img src="../assets/icon-spesifikasi-kalender-motor.svg" width="20" alt="icon">
+                                <div><small class="d-block text-muted">Tahun</small><strong>Tahun 2024</strong></div>
+                            </div>
+                            <div class="col-6 d-flex align-items-center gap-2">
+                                <img src="../assets/icon-spesifikasi-mesin.svg" width="20" alt="icon">
+                                <div><small class="d-block text-muted">Mesin</small><strong>Mesin 125cc eSP</strong></div>
+                            </div>
+                            <div class="col-6 d-flex align-items-center gap-2">
+                                <img src="../assets/icon-spesifikasi-kapasitas-bagasi.svg" width="20" alt="icon">
+                                <div><small class="d-block text-muted">Bagasi</small><strong>Kapasitas 18 Liter</strong></div>
+                            </div>
+                            <div class="col-6 d-flex align-items-center gap-2">
+                                <img src="../assets/icon-spesifikasi-pengereman.svg" width="20" alt="icon">
+                                <div><small class="d-block text-muted">Pengereman</small><strong>CBS (Combi Brake System)</strong></div>
+                            </div>
+                            <div class="col-6 d-flex align-items-center gap-2">
+                                <img src="../assets/icon-spesifikasi-transmisi.svg" width="20" alt="icon">
+                                <div><small class="d-block text-muted">Transmisi</small><strong>Otomatis/Matic</strong></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sisi Kanan: Form Pemesanan -->
+                <div class="col-lg-5">
+                    <div class="card border-0 shadow-sm rounded-4 p-4">
+                        <small class="text-muted">Mulai dari</small>
+                        <h3 class="fw-bold text-dark mb-4">Rp 120.000 <span class="fs-6 text-muted fw-normal">/ Hari</span></h3>
+
+                        <form>
+                            <div class="mb-3">
+                                <label class="form-label small fw-semibold">Tanggal Ambil</label>
+                                <div class="input-group">
+                                    <input type="date" class="form-control bg-light border-0">
+                                    <span class="input-group-text bg-light border-0">
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label small fw-semibold">Jam Pertemuan</label>
+                                <div class="d-flex gap-2 align-items-center">
+                                    <div class="input-group">
+                                        <input type="time" class="form-control bg-light border-0">
+                                        <span class="input-group-text bg-light border-0">
+                                        </span>
+                                    </div>
+                                    <span>-</span>
+                                    <div class="input-group">
+                                        <input type="time" class="form-control bg-light border-0">
+                                        <span class="input-group-text bg-light border-0">
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label small fw-semibold">Jumlah Hari Peminjaman</label>
+                                <div class="input-group">
+                                    <button class="btn btn-outline-secondary border-0 bg-light" type="button">
+                                        <img src="../assets/icon-pemesanan-minus.svg" width="12" alt="icon">
+                                    </button>
+                                    <input type="text" class="form-control text-center bg-light border-0" value="1">
+                                    <button class="btn btn-outline-secondary border-0 bg-light" type="button">
+                                        <img src="../assets/icon-pemesanan-plus.svg" width="12" alt="icon">
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <label class="form-label small fw-semibold mb-0">Lokasi Pertemuan</label>
+                                    <a href="#" class="small text-decoration-none">Lihat di Peta</a>
+                                </div>
+                                <div class="d-flex align-items-center gap-2 mt-2 bg-light p-2 rounded-3">
+                                    <img src="../assets/2.gambar-peta-pertemuan.png" width="45" class="rounded-2" alt="peta">
+                                    <div>
+                                        <strong class="d-block small">Kota Malang,</strong>
+                                        <small class="text-muted">Mall Dinoyo</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-sewa w-100 py-2 d-flex align-items-center justify-content-center gap-2">
+                                <img src="../assets/icon-pemesanan-kunci.svg" width="16" alt="icon"> Pesan / Sewa Sekarang
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Panggil file JavaScript khusus halaman detail produk -->
+    <script src="../js/5.detail produk vario.js"></script>
+</body>
+</html>
