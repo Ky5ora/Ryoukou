@@ -19,20 +19,22 @@
                             <h3 class="fw-bold mb-1">Masuk</h3>
                             <p class="text-muted small mb-4">Gunakan akun Rental anda.</p>
 
-                            <!-- Tambahkan id="formLogin" disini -->
                             <form id="formLogin">
+                                <!-- Diubah menjadi Email -->
                                 <div class="mb-3">
-                                    <label class="form-label fw-semibold small">Username</label>
-                                    <!-- Tambahkan id="inputUsername" disini -->
-                                    <input type="text" id="inputUsername" class="form-control form-control-custom" placeholder="@contoh123" required>
+                                    <label class="form-label fw-semibold small">Email</label>
+                                    <input type="email" id="inputEmailLogin" class="form-control form-control-custom" placeholder="contoh123@gmail.com" maxlength="50" required>
                                 </div>
-                                <div class="mb-3">
+
+                                <!-- Password dengan ikon mata di dalam kotak -->
+                                <div class="mb-4">
                                     <label class="form-label fw-semibold small">Password</label>
-                                    <input type="password" id="inputSandi" class="form-control form-control-custom" placeholder="•••••" required>
-                                </div>
-                                <div class="mb-4 form-check">
-                                    <input type="checkbox" class="form-check-input" id="lihatSandi">
-                                    <label class="form-check-label small" for="lihatSandi">Tampilkan Sandi</label>
+                                    <div class="password-container">
+                                        <input type="password" id="inputSandiLogin" class="form-control form-control-custom" placeholder="•••••" minlength="6" maxlength="30" required>
+                                        <button type="button" class="toggle-password" onclick="toggleSandi('inputSandiLogin', 'imgMataLogin')">
+                                            <img id="imgMataLogin" src="../assets/icon-mata-terbuka.svg" width="20" height="20" alt="Toggle Password">
+                                        </button>
+                                    </div>
                                 </div>
 
                                 <button type="submit" class="btn btn-dark-custom w-100 mb-3">LOGIN SEKARANG</button>
@@ -57,16 +59,16 @@
         </div>
     </div>
 
-    
+    <!-- Panggil file JavaScript eksternal -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            const formLogin = document.getElementById("formLogin");
+            const formDaftar = document.getElementById("formDaftar");
 
-            if (formLogin) {
-                formLogin.addEventListener("submit", function(event) {
+            if (formDaftar) {
+                formDaftar.addEventListener("submit", function(event) {
                     event.preventDefault();
 
-                    let inputNama = document.getElementById("inputUsername").value;
+                    let inputNama = document.getElementById("inputUsernameDaftar").value;
                     localStorage.setItem("namaPengguna", inputNama);
 
                     // Pindah paksa ke halaman dashboard
@@ -75,5 +77,7 @@
             }
         });
     </script>
+
+    <script src="../js/0.halaman login.js"></script>
 </body>
 </html>

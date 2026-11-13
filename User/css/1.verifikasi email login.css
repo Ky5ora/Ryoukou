@@ -77,3 +77,15 @@ body {
     color: #ffffff;
     transform: translateY(-1px);
 }
+
+/* Link Biru */
+.link-blue {
+    color: #176B87;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.link-blue:hover {
+    text-decoration: underline;
+    color: #0E4B5B;
+}

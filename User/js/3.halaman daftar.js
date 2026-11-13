@@ -1,3 +1,4 @@
+// Fungsi untuk toggle lihat/sembunyikan sandi
 function toggleSandi(idInput, idImg) {
     const input = document.getElementById(idInput);
     const img = document.getElementById(idImg);
@@ -12,16 +13,25 @@ function toggleSandi(idInput, idImg) {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    const formLogin = document.getElementById("formLogin");
-    
-    if (formLogin) {
-        formLogin.addEventListener("submit", function(event) {
+    const formDaftar = document.getElementById("formDaftar");
+
+    if (formDaftar) {
+        formDaftar.addEventListener("submit", function(event) {
             event.preventDefault();
 
-            let inputNama = document.getElementById("inputNamaUser").value;
+            let password = document.getElementById("inputSandiDaftar").value;
+            let confirmPassword = document.getElementById("inputKonfirmasiDaftar").value;
 
+            // Validasi apakah password dan konfirmasi password sama
+            if (password !== confirmPassword) {
+                alert("Password dan Konfirmasi Password tidak sama! Silakan cek kembali.");
+                return;
+            }
+
+            let inputNama = document.getElementById("inputUsernameDaftar").value;
             localStorage.setItem("namaPengguna", inputNama);
 
+            // Pindah paksa ke halaman dashboard utama setelah berhasil daftar
             window.location.href = "4.dashboard utama.html";
         });
     }

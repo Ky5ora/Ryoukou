@@ -1,7 +1,16 @@
-document.getElementById('lihatSandi').addEventListener('change', function() {
-    const inputSandi = document.getElementById('inputSandi');
-    inputSandi.type = this.checked ? 'text' : 'password';
-});
+// Fungsi untuk toggle lihat/sembunyikan sandi dengan ikon mata
+function toggleSandi(idInput, idImg) {
+    const input = document.getElementById(idInput);
+    const img = document.getElementById(idImg);
+    
+    if (input.type === "password") {
+        input.type = "text";
+        img.src = "../assets/icon-mata-tertutup.svg";
+    } else {
+        input.type = "password";
+        img.src = "../assets/icon-mata-terbuka.svg";
+    }
+}
 
 document.addEventListener("DOMContentLoaded", function() {
     const formLogin = document.getElementById("formLogin");
@@ -10,10 +19,13 @@ document.addEventListener("DOMContentLoaded", function() {
         formLogin.addEventListener("submit", function(event) {
             event.preventDefault();
             
-            let inputNama = document.getElementById("inputNamaUser").value;
+            // Mengambil nilai email yang diinput untuk disimpan sebagai nama/pengenal user di dashboard
+            let inputEmail = document.getElementById("inputEmailLogin").value;
             
-            localStorage.setItem("namaPengguna", inputNama);
+            // Menyimpan data ke localStorage agar terbaca di dashboard utama
+            localStorage.setItem("namaPengguna", inputEmail);
             
+            // Pindah ke halaman dashboard utama
             window.location.href = "4.dashboard utama.html";
         });
     }
