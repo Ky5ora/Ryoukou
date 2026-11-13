@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     
+    // 1. Atur minimal tanggal sewa (mulai besok)
     const inputTanggal = document.querySelector('input[type="date"]');
     if (inputTanggal) {
         const besok = new Date();
@@ -8,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
         inputTanggal.setAttribute('min', besokStr);
     }
 
+    // 2. Logika Jam Mulai dan Jam Selesai
     const inputJamMulai = document.querySelectorAll('input[type="time"]')[0];
     const inputJamSelesai = document.querySelectorAll('input[type="time"]')[1];
 
@@ -40,6 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
+    // 3. Logika Tombol Plus-Minus Jumlah Hari Peminjaman
     const tombolMinus = document.querySelectorAll('.card form button')[0];
     const tombolPlus = document.querySelectorAll('.card form button')[1];
     const inputJumlahHari = document.querySelector('.card form input[type="text"]');
@@ -73,6 +76,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
+    // 4. Sinkronisasi Nama User dari LocalStorage
     const namaUser = localStorage.getItem("namaPengguna") || localStorage.getItem("username") || "@User123";
     const displayElemen = document.getElementById("namaUserDisplay");
     if (displayElemen) {
@@ -80,6 +84,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
+// 5. Fungsi Navigasi Tab Deskripsi & Spesifikasi
 function switchTab(target) {
     const tabDeskripsi = document.getElementById('tabDeskripsi');
     const tabSpesifikasi = document.getElementById('tabSpesifikasi');
@@ -88,7 +93,7 @@ function switchTab(target) {
 
     if (target === 'deskripsi') {
         tabDeskripsi.classList.add('active', 'pb-2');
-        tabDeskripsi.style.borderBottom = '2px solid #0d6efd';
+        tabDeskripsi.style.borderBottom = '2px solid #085a6b';
         tabDeskripsi.classList.remove('text-muted');
         
         tabSpesifikasi.classList.remove('active', 'pb-2');
@@ -99,7 +104,7 @@ function switchTab(target) {
         kontenSpesifikasi.classList.replace('d-block', 'd-none');
     } else {
         tabSpesifikasi.classList.add('active', 'pb-2');
-        tabSpesifikasi.style.borderBottom = '2px solid #0d6efd';
+        tabSpesifikasi.style.borderBottom = '2px solid #085a6b';
         tabSpesifikasi.classList.remove('text-muted');
         
         tabDeskripsi.classList.remove('active', 'pb-2');
@@ -110,11 +115,3 @@ function switchTab(target) {
         kontenDeskripsi.classList.replace('d-block', 'd-none');
     }
 }
-
-document.addEventListener("DOMContentLoaded", function() {
-    const namaUser = localStorage.getItem("namaPengguna") || localStorage.getItem("username") || "@User123";
-    const displayElemen = document.getElementById("namaUserDisplay");
-    if (displayElemen) {
-        displayElemen.textContent = namaUser.startsWith("@") ? namaUser : "@" + namaUser;
-    }
-});

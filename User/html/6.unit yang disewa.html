@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit yang Disewa - RYOKOU</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/6.unit yang disewa.css">
+</head>
+<body>
+
+    <div class="d-flex">
+        <!-- Sidebar Kiri -->
+        <div class="sidebar p-3 d-flex flex-column justify-content-between">
+            <div>
+                <div class="d-flex align-items-center mb-4 ps-2">
+                    <img src="../assets/1.logo-Ryokou.png" width="40" alt="Logo" class="me-2">
+                    <div>
+                        <h6 class="fw-bold mb-0 text-white">RYOKOU</h6>
+                        <small class="text-white-50" style="font-size: 0.7rem;">RENTAL MOTOR</small>
+                    </div>
+                </div>
+
+                <ul class="nav nav-pills flex-column">
+                    <li class="nav-item">
+                        <a href="4.dashboard utama.html" class="nav-link d-flex align-items-center">
+                            <img src="../assets/icon-dashboard.svg" width="18" class="me-2" alt="icon">
+                            Dashboard
+                        </a>
+                    </li> 
+                    <li class="nav-item">
+                        <a href="5.katalog motor.html" class="nav-link d-flex align-items-center">
+                            <img src="../assets/icon-motor.svg" width="18" class="me-2" alt="icon">
+                            Katalog Motor
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="6.unit yang disewa.html" class="nav-link active d-flex align-items-center">
+                            <img src="../assets/icon-motor.svg" width="18" class="me-2" alt="icon">
+                            Unit yang Disewa
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link d-flex align-items-center">
+                            <img src="../assets/icon-pengembalian.svg" width="18" class="me-2" alt="icon">
+                            Pengembalian
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link d-flex align-items-center">
+                            <img src="../assets/icon-setting.svg" width="18" class="me-2" alt="icon">
+                            Pengaturan
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <a href="0.halaman login.html" class="nav-link text-white d-flex align-items-center ps-2">
+                    <img src="../assets/icon-log-out.svg" width="18" class="me-2" alt="icon">
+                    Keluar
+                </a>
+            </div>
+        </div>
+
+        <div class="main-content flex-grow-1 p-4">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div class="input-group style-search bg-white rounded-pill px-3 py-1 shadow-sm" style="max-width: 400px;">
+                    <span class="input-group-text bg-white border-0 ps-0">
+                        <img src="../assets/icon-pencarian.svg" width="16" alt="icon">
+                    </span>
+                    <input type="text" id="inputPencarian" class="form-control border-0 bg-white shadow-none" placeholder="Pencarian...">
+                </div>
+                
+                <div class="d-flex align-items-center gap-3">
+                    <div class="d-flex align-items-center gap-2">
+                        <img src="../assets/icon-profil-user.svg" width="32" class="rounded-circle" alt="icon">
+                        <div>
+                            <div class="fw-bold small mb-0" id="namaUserDisplay">@User123</div>
+                            <div class="text-muted" style="font-size: 0.75rem;">Pelanggan</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Container -->
+            <div class="p-4">
+                <h5 class="fw-bold mb-4">Unit yang Disewa</h5>
+
+                <!-- Grid Item Unit Disewa -->
+                <div class="row g-3" id="containerUnitDisewa">
+
+                    <!-- Contoh Card Unit Aktif -->
+                    <div class="col-md-4">
+                        <div class="card border-0 shadow-sm rounded-4 p-3 bg-white">
+                            <!-- Status Badge -->
+                            <div class="badge text-white py-2 rounded-3 mb-3 fw-semibold w-100 text-center" style="font-size: 0.8rem; background-color: #0E8388;">
+                                Sewa Aktif (Sedang Berjalan)
+                            </div>
+
+                            <!-- Gambar Motor & Logo Merek -->
+                            <div class="text-center position-relative my-2">
+                                <img src="../assets/B.Beat Logo.png" alt="Logo" height="20" class="position-absolute top-0 start-0">
+                                <img src="../assets/3.BeAT Deluxe.png" class="img-fluid" style="max-height: 120px;" alt="Motor">
+                            </div>
+
+                            <!-- Nama Motor (Bisa diisi manual nanti) -->
+                            <h6 class="fw-bold text-center mb-3">Honda BeAT Deluxe</h6>
+
+                            <!-- Informasi Durasi Waktu -->
+                            <div class="row g-2 text-center small mb-3 border-top border-bottom py-2" style="font-size: 0.75rem;">
+                                <div class="col-6">
+                                    <span class="text-muted d-block">Tanggal Mulai</span>
+                                    <strong class="text-dark">11 November 2026</strong>
+                                    <span class="text-muted d-block mt-1">Jam Mulai</span>
+                                    <strong class="text-dark">09:30 AM</strong>
+                                </div>
+                                <div class="col-6">
+                                    <span class="text-muted d-block">Tanggal Berakhir</span>
+                                    <strong class="text-dark">21 November 2026</strong>
+                                    <span class="text-muted d-block mt-1">Jam Berakhir</span>
+                                    <strong class="text-dark">11:30 AM</strong>
+                                </div>
+                            </div>
+
+                            <!-- Sisa Waktu -->
+                            <div class="text-center fw-bold small text-dark mb-3">
+                                Sisa Waktu: <span class="text-danger">9 Hari, 20 Jam</span>
+                            </div>
+
+                            <!-- Tombol Aksi -->
+                            <div class="d-flex gap-2">
+                                <button class="btn btn-sm text-white w-50 rounded-pill fw-semibold" style="background-color: #085a6b;">Rincian Sewa</button>
+                                <button class="btn btn-sm btn-outline-secondary w-50 rounded-pill fw-semibold">Perpanjang</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contoh Card Kedua: Honda Vario 125 CBS -->
+                    <div class="col-md-4">
+                        <div class="card border-0 shadow-sm rounded-4 p-3 bg-white">
+                            <!-- Status Badge -->
+                            <div class="badge text-white py-2 rounded-3 mb-3 fw-semibold w-100 text-center" style="font-size: 0.8rem; background-color: #0E8388;">
+                                Sewa Aktif (Sedang Berjalan)
+                            </div>
+
+                            <!-- Gambar Motor & Logo Merek Vario -->
+                            <div class="text-center position-relative my-2">
+                                <img src="../assets/B.Vario Logo.png" alt="Logo Vario" height="20" class="position-absolute top-0 start-0">
+                                <img src="../assets/4.Vario 125.png" class="img-fluid" style="max-height: 120px;" alt="Vario 125">
+                            </div>
+
+                            <!-- Nama Motor -->
+                            <h6 class="fw-bold text-center mb-3">Honda Vario 125 CBS</h6>
+
+                            <!-- Informasi Durasi Waktu -->
+                            <div class="row g-2 text-center small mb-3 border-top border-bottom py-2" style="font-size: 0.75rem;">
+                                <div class="col-6">
+                                    <span class="text-muted d-block">Tanggal Mulai</span>
+                                    <strong class="text-dark">11 November 2026</strong>
+                                    <span class="text-muted d-block mt-1">Jam Mulai</span>
+                                    <strong class="text-dark">09:30 AM</strong>
+                                </div>
+                                <div class="col-6">
+                                    <span class="text-muted d-block">Tanggal Berakhir</span>
+                                    <strong class="text-dark">14 November 2026</strong>
+                                    <span class="text-muted d-block mt-1">Jam Berakhir</span>
+                                    <strong class="text-dark">11:30 AM</strong>
+                                </div>
+                            </div>
+
+                            <!-- Sisa Waktu -->
+                            <div class="text-center fw-bold small text-dark mb-3">
+                                Sisa Waktu: <span class="text-danger">2 Hari, 20 Jam</span>
+                            </div>
+
+                            <!-- Tombol Aksi -->
+                            <div class="d-flex gap-2">
+                                <button class="btn btn-sm text-white w-50 rounded-pill fw-semibold" style="background-color: #085a6b;">Rincian Sewa</button>
+                                <button class="btn btn-sm btn-outline-secondary w-50 rounded-pill fw-semibold">Perpanjang</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Panggil file JavaScript terpisah -->
+    <script src="../js/6.unit yang disewa.js"></script>
+</body>
+</html>
