@@ -42,8 +42,8 @@
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link d-flex align-items-center">
-                            <img src="../assets/icon-pengembalian.svg" width="18" class="me-2" alt="icon">
-                            Pengembalian
+                            <img src="../assets/icon-riwayat-aktivitas.svg" width="18" class="me-2" alt="icon">
+                            Riwayat Aktivitas
                         </a>
                     </li>
                     <li class="nav-item">
@@ -88,8 +88,9 @@
             
             <div class="row g-4">
                 <div class="col-lg-7">
-                    <div class="position-relative bg-light p-4 rounded-4 d-flex align-items-center mb-3" style="min-height: 380px; justify-content: flex-start !important; padding-left: 1px !important;">
-                        <img src="../assets/A.BeAT Deluxe.png" class="img-fluid gambar-utama-produk" alt="Honda BeAT Deluxe">
+                    <!-- Kotak Gambar Melebar Menutupi Sisi Putih -->
+                    <div class="position-relative bg-light rounded-4 overflow-hidden mb-3 d-flex align-items-center justify-content-center box-gambar-motor">
+                        <img src="../assets/A.BeAT Deluxe.png" class="img-fluid gambar-motor-lebar" alt="Honda BeAT Deluxe">
                     </div>
                     
                     <h4 class="fw-bold mb-0 mt-3">Honda BeAT Deluxe</h4>
@@ -146,6 +147,10 @@
                                 <img src="../assets/icon-spesifikasi-transmisi.svg" width="20" alt="icon">
                                 <div><small class="d-block text-muted">Transmisi</small><strong>Otomatis/Matic</strong></div>
                             </div>
+                            <div class="col-6 d-flex align-items-center gap-2">
+                                <img src="../assets/icon-spesifikasi-color.svg" width="20" alt="icon">
+                                <div><small class="d-block text-muted">Varian Warna</small><strong>Deluxe Black (Hitam mengkilap/glossy)</strong></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -160,7 +165,7 @@
                             <div class="mb-3">
                                 <label class="form-label small fw-semibold">Tanggal Ambil</label>
                                 <div class="input-group">
-                                    <input type="date" class="form-control bg-light border-0">
+                                    <input type="date" lang="id-ID" class="form-control bg-light border-0">
                                     <span class="input-group-text bg-light border-0"></span>
                                 </div>
                             </div>
@@ -207,7 +212,7 @@
                                 </div>
                             </div>
 
-                            <button type="submit" class="btn btn-sewa w-100 py-2 d-flex align-items-center justify-content-center gap-2">
+                            <button type="submit" class="btn btn-sewa w-100 py-2 d-flex align-items-center justify-content-center gap-2 text-white" style="background-color: #085a6b;">
                                 <img src="../assets/icon-pemesanan-kunci.svg" width="16" alt="icon"> Pesan / Sewa Sekarang
                             </button>
                         </form>
@@ -218,6 +223,7 @@
     </div>
 
     <!-- Panggil file JavaScript khusus halaman detail produk -->
+
     <script src="../js/P.detail produk beat deluxe.js"></script>
 </body>
 </html>

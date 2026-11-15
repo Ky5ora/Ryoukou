@@ -19,14 +19,35 @@ document.addEventListener("DOMContentLoaded", function() {
         formLogin.addEventListener("submit", function(event) {
             event.preventDefault();
             
-            // Mengambil nilai email yang diinput untuk disimpan sebagai nama/pengenal user di dashboard
-            let inputEmail = document.getElementById("inputEmailLogin").value;
+            let inputEmail = document.getElementById("inputEmailLogin").value.trim();
+            let inputSandi = document.getElementById("inputSandiLogin").value;
             
-            // Menyimpan data ke localStorage agar terbaca di dashboard utama
-            localStorage.setItem("namaPengguna", inputEmail);
+            // Ambil database akun dari localStorage
+            let daftarAkun = JSON.parse(localStorage.getItem("databaseAkun")) || [];
             
-            // Pindah ke halaman dashboard utama
-            window.location.href = "4.dashboard utama.html";
+            // Cari apakah email tersebut ada di database
+            let akunDitemukan = daftarAkun.find(akun => akun.email === inputEmail);
+            
+            if (!akunDitemukan) {
+                alert("Email belum terdaftar! Silakan buat akun terlebih dahulu.");
+                window.location.href = "3.halaman daftar.html";
+                return;
+            }
+            
+            // Opsional: Cek apakah passwordnya cocok
+            if (akunDitemukan.password !== inputSandi) {
+                alert("Password salah! Silakan coba lagi.");
+                return;
+            }
+            
+            // Jika akun valid, simpan username/nama pengguna asli yang tersimpan
+            localStorage.setItem("namaPengguna", akunDitemukan.username);
+            
+            // Set tujuan setelah OTP berhasil (menuju OTP universal lalu ke dashboard)
+            localStorage.setItem("tujuanSetelahOtp", "4.dashboard utama.html");
+            
+            // Pindah ke halaman OTP universal
+            window.location.href = "0.halaman otp universal.html";
         });
     }
 });

@@ -15,17 +15,15 @@
                 <div class="card auth-card">
                     <div class="row g-0">
                         
-                        <div class="col-md-6 p-4 p-md-5 d-flex flex-column justify-content-center">
-                            <h4 class="fw-bold mb-4">Verifikasi Email Anda</h4>
+                        <!-- Kolom Form Verifikasi (Di HP turun ke bawah, di Laptop di kiri) -->
+                        <div class="col-md-6 p-4 p-md-5 d-flex flex-column justify-content-center order-2 order-md-1">
+                            <h4 class="fw-bold mb-2">Verifikasi Email Anda</h4>
+                            <p class="text-muted small mb-4">Masukkan email terdaftar untuk reset password.</p>
 
-                            <form action="2.membuat password baru.html">
-                                <div class="mb-3">
-                                    <label class="form-label fw-semibold small">Username:</label>
-                                    <input type="text" class="form-control form-control-custom" placeholder="@contoh123" required>
-                                </div>
+                            <form id="formVerifikasiEmail">
                                 <div class="mb-4">
-                                    <label class="form-label fw-semibold small">Email:</label>
-                                    <input type="email" class="form-control form-control-custom" placeholder="contoh123@gmail.com" required>
+                                    <label class="form-label fw-semibold small">Email</label>
+                                    <input type="email" id="inputEmailReset" class="form-control form-control-custom" placeholder="contoh123@gmail.com" maxlength="50" required>
                                 </div>
 
                                 <button type="submit" class="btn btn-dark-custom w-100 mb-3">Konfirmasi</button>
@@ -36,11 +34,12 @@
                             </form>
                         </div>
 
-                        <div class="col-md-6 hero-section">
+                        <!-- Kolom Banner Selamat Datang (Di HP naik ke ATAS, di Laptop di kanan) -->
+                        <div class="col-md-6 hero-section order-1 order-md-2">
                             <div class="hero-shape-1"></div>
                             <div class="hero-shape-2"></div>
-                            <h4 class="fw-bold text-white mb-4">Selamat Datang!</h4>
-                            <h1 class="display-5 fw-bold text-white">Rental Motor<br>Ryokou</h1>
+                            <h4 class="fw-bold text-white mb-2 mb-md-4">Selamat Datang!</h4>
+                            <h1 class="display-6 display-md-5 fw-bold text-white">Rental Motor<br>Ryokou</h1>
                         </div>
 
                     </div>
@@ -49,5 +48,7 @@
         </div>
     </div>
 
+    <!-- Panggil file JavaScript eksternal -->
+    <script src="../js/1.verifikasi email login.js"></script>
 </body>
 </html>

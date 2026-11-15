@@ -6,19 +6,23 @@ body {
     min-height: 100vh;
 }
 
-/* Sidebar Styling (Sudah Disamakan, Anti-Gencet & Sticky) */
+/* Warna Sidebar Mobile & Desktop */
+.bg-sidebar-mobile, .sidebar {
+    background-color: #085a6b;
+}
+
+/* Sidebar Styling (Desktop) */
 .sidebar {
     width: 260px;
     min-width: 260px;
     flex-shrink: 0;
     height: 100vh;
-    background-color: #085a6b;
     position: sticky;
     top: 0;
     overflow-y: auto;
 }
 
-.sidebar .nav-link {
+.sidebar .nav-link, .offcanvas .nav-link {
     color: rgba(255, 255, 255, 0.8);
     background-color: transparent;
     border-radius: 8px;
@@ -29,12 +33,12 @@ body {
     margin-bottom: 5px;
 }
 
-.sidebar .nav-link:hover {
+.sidebar .nav-link:hover, .offcanvas .nav-link:hover {
     color: #ffffff;
     background-color: rgba(255, 255, 255, 0.15);
 }
 
-.sidebar .nav-link.active {
+.sidebar .nav-link.active, .offcanvas .nav-link.active {
     color: #085a6b;
     background-color: #ffffff;
     font-weight: 600;
@@ -47,7 +51,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Banner Promo & Efek Pintu Tertutup Smooth (GPU-Accelerated) */
+/* Banner Promo & Efek Pintu Tertutup Smooth */
 .banner-promo {
     background-color: #0E4B5B;
     border-radius: 16px;
@@ -66,6 +70,36 @@ body {
     margin-bottom: 0 !important;
 }
 
+/* Penyesuaian Banner saat di Mobile */
+@media (max-width: 767.98px) {
+    .banner-promo {
+        padding: 20px;
+    }
+}
+
+/* Penyesuaian Teks Profil di Layar HP agar Tidak Berdempetan & Tetap Muncul */
+@media (max-width: 767.98px) {
+    .username-display {
+        font-size: 0.72rem !important;
+        max-width: 95px !important;
+    }
+    .user-role {
+        font-size: 0.6rem !important;
+    }
+    #guestButtons .btn {
+        font-size: 0.72rem;
+        padding: 4px 10px !important;
+    }
+}
+
+.username-display {
+    font-size: 0.85rem;
+}
+
+.user-role {
+    font-size: 0.75rem;
+}
+
 /* Card Unit Motor */
 .card-unit {
     border: 1px solid #E2E8F0;
@@ -79,11 +113,51 @@ body {
     transform: translateY(-2px);
 }
 
+/* Penyesuaian Elemen di dalam Card agar Ringkas dan Proporsional di Layar HP */
+@media (max-width: 767.98px) {
+    .card-unit {
+        padding: 10px !important;
+        border-radius: 12px;
+    }
+    .card-img-motor {
+        max-height: 75px !important;
+        object-fit: contain;
+    }
+    .card-unit .nama-motor {
+        font-size: 0.78rem !important;
+        line-height: 1.15;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    .card-specs {
+        font-size: 0.62rem !important;
+    }
+    .price-label {
+        font-size: 0.55rem !important;
+    }
+    .price-value {
+        font-size: 0.7rem !important;
+    }
+    .price-unit {
+        font-size: 0.55rem !important;
+    }
+    .badge-tersedia, .badge-disewa {
+        font-size: 0.6rem !important;
+        padding: 2px 8px !important;
+    }
+    .btn-sewa, .btn-disewa-disabled {
+        font-size: 0.68rem !important;
+        padding: 3px 6px !important;
+        border-radius: 6px;
+    }
+}
+
 /* Badge Status */
 .badge-tersedia {
     background-color: #d1e7dd;
     color: #0f5132;
-    font-size: 0.75rem;
+    font-size: 0.70rem;
     padding: 4px 10px;
     border-radius: 20px;
     font-weight: 600;
@@ -92,7 +166,7 @@ body {
 .badge-disewa {
     background-color: #f8d7da;
     color: #842029;
-    font-size: 0.75rem;
+    font-size: 0.70rem;
     padding: 4px 10px;
     border-radius: 20px;
     font-weight: 600;
@@ -103,8 +177,9 @@ body {
     background-color: #085a6b;
     color: white;
     border-radius: 8px;
-    padding: 6px 16px;
+    padding: 6px 14px;
     font-weight: 600;
+    font-size: 0.85rem;
 }
 
 .btn-sewa:hover {
@@ -116,18 +191,42 @@ body {
     background-color: #cccccc;
     color: #666666;
     border-radius: 8px;
-    padding: 6px 16px;
+    padding: 6px 14px;
     font-weight: 600;
+    font-size: 0.85rem;
     border: none;
 }
 
-/* Container Header Unit Populer & Garis Abu-abu Ber-corner (Rounded) yang Bisa Diklik */
+/* Warna Tombol Khusus Masuk & Daftar */
+.btn-teal {
+    background-color: #085a6b;
+    border-color: #085a6b;
+    transition: all 0.2s ease;
+}
+
+.btn-teal:hover {
+    background-color: #064552;
+    border-color: #064552;
+}
+
+.btn-outline-teal {
+    color: #085a6b;
+    border-color: #085a6b;
+    background-color: transparent;
+    transition: all 0.2s ease;
+}
+
+.btn-outline-teal:hover {
+    background-color: #085a6b;
+    color: #ffffff;
+}
+
+/* Container Header Unit Populer & Garis Abu-abu Ber-corner */
 #headerUnitPopuler {
     position: relative;
     transition: padding-top 0.3s ease;
 }
 
-/* Saat garis aktif, kursor berubah jadi telunjuk (bisa diklik) */
 #headerUnitPopuler.garis-aktif {
     cursor: pointer;
     padding-top: 16px !important;  
@@ -139,17 +238,25 @@ body {
     top: 0;
     left: 0;
     width: 100%;             
-    height: 6px;             /* Ketebalan garis abu-abu */
-    background-color: #9CA3AF; /* Warna abu-abu */
-    border-radius: 4px;      /* Sudut lengkung (rounded corner) */
+    height: 6px;             
+    background-color: #9CA3AF; 
+    border-radius: 4px;      
     transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-/* Efek saat garis abu-abunya disorot (hover) atau ditekan */
 #headerUnitPopuler.garis-aktif:hover::before {
     background-color: #6B7280; 
 }
 
 #headerUnitPopuler.garis-aktif:active::before {
     transform: scaleY(0.8);
+}
+
+/* Efek agar logo/ikon ikut berubah warna menyesuaikan status aktif menu */
+.sidebar .nav-link img, .offcanvas .nav-link img {
+    transition: filter 0.2s ease-in-out;
+}
+
+.sidebar .nav-link.active img, .offcanvas .nav-link.active img {
+    filter: brightness(0) saturate(100%) invert(26%) sepia(43%) saturate(542%) hue-rotate(149deg) brightness(95%) contrast(93%);
 }

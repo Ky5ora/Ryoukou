@@ -1,12 +1,15 @@
 document.addEventListener("DOMContentLoaded", function() {
     
-    // 1. Atur minimal tanggal sewa (mulai besok)
+    // 1. Atur minimal tanggal sewa (mulai besok) serta format bahasa Indonesia
     const inputTanggal = document.querySelector('input[type="date"]');
     if (inputTanggal) {
         const besok = new Date();
         besok.setDate(besok.getDate() + 1);
         const besokStr = besok.toISOString().split('T')[0];
         inputTanggal.setAttribute('min', besokStr);
+
+        // Paksa browser merender input tanggal menggunakan locale Indonesia (ID)
+        inputTanggal.setAttribute('lang', 'id-ID');
     }
 
     // 2. Logika Jam Mulai dan Jam Selesai
@@ -25,21 +28,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 inputJamSelesai.value = '';
             }
         });
-
-        if (inputTanggal) {
-            inputTanggal.addEventListener('change', function() {
-                const selectedDate = this.value;
-                const besok = new Date();
-                besok.setDate(besok.getDate() + 1);
-                const besokStr = besok.toISOString().split('T')[0];
-
-                if (selectedDate === besokStr) {
-                    inputJamMulai.min = "";
-                } else {
-                    inputJamMulai.min = "";
-                }
-            });
-        }
     }
 
     // 3. Logika Tombol Plus-Minus Jumlah Hari Peminjaman
@@ -115,3 +103,13 @@ function switchTab(target) {
         kontenDeskripsi.classList.replace('d-block', 'd-none');
     }
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    const inputTanggal = document.querySelector('input[type="date"]');
+    if (inputTanggal) {
+        const besok = new Date();
+        besok.setDate(besok.getDate() + 1);
+        inputTanggal.setAttribute('min', besok.toISOString().split('T')[0]);
+        inputTanggal.setAttribute('lang', 'id-ID');
+    }
+});

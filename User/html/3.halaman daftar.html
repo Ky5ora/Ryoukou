@@ -15,7 +15,8 @@
                 <div class="card auth-card">
                     <div class="row g-0">
                         
-                        <div class="col-md-6 p-4 p-md-5 d-flex flex-column justify-content-center">
+                        <!-- Kolom Form Daftar (Di HP turun ke bawah, di Laptop tetap di kiri) -->
+                        <div class="col-md-6 p-4 p-md-5 d-flex flex-column justify-content-center order-2 order-md-1">
                             <h3 class="fw-bold mb-1">Daftar</h3>
                             <p class="text-muted small mb-4">Silahkan Buat Akun</p>
 
@@ -62,11 +63,12 @@
                             </form>
                         </div>
 
-                        <div class="col-md-6 hero-section">
+                        <!-- Kolom Banner Selamat Datang (Di HP naik ke ATAS, di Laptop tetap di kanan) -->
+                        <div class="col-md-6 hero-section order-1 order-md-2">
                             <div class="hero-shape-1"></div>
                             <div class="hero-shape-2"></div>
-                            <h4 class="fw-bold text-white mb-4">Selamat Datang!</h4>
-                            <h1 class="display-5 fw-bold text-white">Rental Motor<br>Ryokou</h1>
+                            <h4 class="fw-bold text-white mb-2 mb-md-4">Selamat Datang!</h4>
+                            <h1 class="display-6 display-md-5 fw-bold text-white">Rental Motor<br>Ryokou</h1>
                         </div>
 
                     </div>
@@ -76,7 +78,7 @@
     </div>
 
     <!-- Panggil file JS eksternal -->
-    <script>
+     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const formDaftar = document.getElementById("formDaftar");
 

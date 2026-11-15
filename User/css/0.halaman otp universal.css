@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Kartu Mengapung (Toast) OTP di Pojok Kanan Atas */
+.otp-toast-card {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #ffffff;
+    border-left: 5px solid #176B87;
+    border-radius: 12px;
+    padding: 12px 18px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    z-index: 1080;
+    min-width: 200px;
+}
+
+/* Kelas Animasi Turun (Triggered via JavaScript setiap kali kirim ulang) */
+.toast-animate-down {
+    animation: slideInDown 0.4s ease-out;
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tracking-widest {
+    letter-spacing: 3px;
+}
+
+/* Styling Kotak OTP */
+.otp-box {
+    width: 45px;
+    height: 50px;
+    text-align: center;
+    font-size: 1.25rem;
+    border-radius: 10px;
+}
+
+.otp-box:disabled {
+    background-color: #e9ecef;
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Card Utama Auth */
+.auth-card {
+    border: none;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    background-color: #ffffff;
+}
+
+/* Bagian Banner Selamat Datang */
+.hero-section {
+    background-color: #176B87;
+    color: #ffffff;
+    position: relative;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-shape-1 {
+    position: absolute;
+    top: -40px;
+    left: -40px;
+    width: 150px;
+    height: 150px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+}
+
+.hero-shape-2 {
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: 180px;
+    height: 180px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+}
+
+/* Form Input Custom */
+.form-control-custom {
+    border: 1px solid #ced4da;
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 0.95rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.form-control-custom:focus {
+    border-color: #176B87;
+    box-shadow: 0 0 0 0.25rem rgba(23, 107, 135, 0.15);
+}
+
+/* Tombol Aksi */
+.btn-dark-custom {
+    background-color: #000000;
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 10px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.btn-dark-custom:hover {
+    background-color: #222222;
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+/* Link Biru */
+.link-blue {
+    color: #176B87;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.link-blue:hover {
+    text-decoration: underline;
+    color: #0E4B5B;
+    cursor: pointer;
+}
+
+/* ================================================= */
+/* RESPONSIF OTOMATIS KHUSUS HALAMAN OTP (MOBILE)     */
+/* ================================================= */
+
+@media (max-width: 768px) {
+    .otp-toast-card {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        min-width: auto;
+        padding: 10px 15px;
+    }
+
+    body {
+        padding-top: 70px !important;
+    }
+
+    .otp-box {
+        width: 38px;
+        height: 45px;
+        font-size: 1.1rem;
+    }
+
+    .hero-section {
+        padding: 1.5rem 1.25rem !important;
+        text-align: center;
+    }
+
+    .hero-section h4 {
+        font-size: 1rem !important;
+        margin-bottom: 0.25rem !important;
+    }
+
+    .hero-section h1 {
+        font-size: 1.4rem !important;
+        line-height: 1.2;
+        margin-bottom: 0 !important;
+    }
+
+    .hero-shape-1, .hero-shape-2 {
+        width: 80px;
+        height: 80px;
+    }
+
+    .auth-card .p-4 {
+        padding: 1.35rem 1.25rem !important;
+    }
+
+    .auth-card h4.fw-bold {
+        font-size: 1.2rem;
+    }
+
+    .auth-card p.mb-4 {
+        margin-bottom: 0.85rem !important;
+    }
+
+    .auth-card .mb-4 {
+        margin-bottom: 1rem !important;
+    }
+
+    .btn-dark-custom {
+        padding: 9px;
+        font-size: 0.9rem;
+    }
+}
