@@ -8,7 +8,7 @@ body {
 
 /* Warna Sidebar Mobile & Desktop */
 .bg-sidebar-mobile, .sidebar {
-    background-color: #085a6b;
+    background-color: #104652;
 }
 
 /* Sidebar Styling (Desktop) */
@@ -39,7 +39,7 @@ body {
 }
 
 .sidebar .nav-link.active, .offcanvas .nav-link.active {
-    color: #085a6b;
+    color: #104652;
     background-color: #ffffff;
     font-weight: 600;
 }
@@ -74,7 +74,7 @@ body {
 }
 
 .brand-card.active {
-    background-color: #085a6b;
+    background-color: #104652;
     color: #ffffff;
 }
 
@@ -186,7 +186,7 @@ body {
 
 /* Tombol Aksi */
 .btn-sewa {
-    background-color: #085a6b;
+    background-color: #104652;
     color: white;
     border-radius: 8px;
     padding: 6px 14px;
@@ -196,7 +196,7 @@ body {
 }
 
 .btn-sewa:hover {
-    background-color: #064552;
+    background-color: #104652;
     color: white;
 }
 
