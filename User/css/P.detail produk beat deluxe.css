@@ -46,27 +46,28 @@ body {
     min-height: 100vh;
 }
 
-/* Perbaikan Ukuran Kotak & Gambar Motor agar Proporsional (Tidak Terlalu Besar) */
+/* Kotak Gambar Motor */
 .box-gambar-motor {
     width: 100%;
-    height: 320px; /* Dikecilkan sedikit agar pas dan proporsional */
+    height: 320px;
     background-color: #F8F9FA;
     position: relative;
     overflow: hidden;
     border-radius: 16px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start !important;
+    padding-left: 10px !important;
 }
 
 .gambar-motor-lebar {
-    max-height: 260px; /* Membatasi tinggi maksimum motor agar tidak terlalu besar */
+    max-height: 260px;
     width: auto;
-    object-fit: contain; /* Menampilkan seluruh badan motor dengan pas tanpa terpotong */
-    object-position: center;
+    object-fit: contain;
+    object-position: left center;
 }
 
-/* Galeri Gambar Produk Utama (Cadangan/Alternatif Lama) */
+/* Galeri Gambar Produk Utama */
 .gambar-utama-produk {
     height: 340px !important;
     width: 100% !important;
@@ -109,9 +110,18 @@ body {
     transform: translateY(-1px);
 }
 
-/* Wrapper Penyelaras Kotak Gambar */
-.wrapper-gambar-beat {
-    display: flex;
-    justify-content: flex-start !important;
-    padding-left: 0 !important;
+/* Penyesuaian Tampilan Khusus Mobile */
+@media (max-width: 767.98px) {
+    .box-gambar-motor {
+        height: 240px; /* Disesuaikan agar pas di layar HP */
+        padding-left: 20px !important;
+    }
+    
+    .gambar-motor-lebar {
+        max-height: 190px;
+    }
+
+    .main-content {
+        padding: 15px !important;
+    }
 }
