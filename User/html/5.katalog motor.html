@@ -3,70 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Katalog Motor - RYOKOU</title>
+    <title>Katalog Motor - RYOKOU Rental Motor</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/5.katalog motor.css">
 </head>
 <body>
 
-    <!-- Tombol Hamburger khusus tampilan Mobile di bagian atas -->
-    <nav class="navbar navbar-dark bg-sidebar-mobile d-md-none px-3 py-2">
-        <div class="container-fluid">
-            <div class="d-flex alaign-items-center">
-                <img src="../assets/1.logo-Ryokou.png" width="32" alt="Logo" class="me-2">
-                <span class="fw-bold text-white fs-6">RYOKOU RENTAL MOTOR</span>
-            </div>
-            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMobile" aria-controls="sidebarMobile">
+    <!-- Navbar Mobile (Muncul hanya di HP/Tablet kecil) -->
+    <nav class="navbar navbar-dark bg-sidebar-mobile d-md-none px-3 py-2 sticky-top shadow-sm">
+        <div class="container-fluid d-flex justify-content-between align-items-center px-0">
+            <button class="navbar-toggler border-0 shadow-none p-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMobile" aria-controls="sidebarMobile">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
+            <div class="d-flex align-items-center">
+                <img src="../assets/1.logo-Ryokou.png" width="30" alt="Logo" class="me-2">
+                <div class="lh-1">
+                    <span class="fw-bold fs-6" style="color: #F6D057;">RYOKOU</span>
+                    <span class="fw-bold text-white fs-6 ms-1">RENTAL</span>
+                </div>
+            </div>
         </div>
     </nav>
 
     <!-- Offcanvas Sidebar untuk Mobile -->
     <div class="offcanvas offcanvas-start bg-sidebar-mobile text-white" tabindex="-1" id="sidebarMobile" aria-labelledby="sidebarMobileLabel">
-        <div class="offcanvas-header border-bottom border-light border-opacity-10">
-            <img src="../assets/1.logo-Ryokou.png" width="32" alt="Logo" class="me-2">
-            <h5 class="offcanvas-title fw-bold" id="sidebarMobileLabel">RYOKOU RENTAL MOTOR</h5>
+        <div class="offcanvas-header border-bottom border-light border-opacity-10 py-3">
+            <div class="d-flex align-items-center">
+                <img src="../assets/1.logo-Ryokou.png" width="34" alt="Logo" class="me-2">
+                <div>
+                    <h6 class="offcanvas-title fw-bold mb-0" style="color: #F6D057;" id="sidebarMobileLabel">RYOKOU</h6>
+                    <small class="text-white-50" style="font-size: 0.68rem;">RENTAL MOTOR</small>
+                </div>
+            </div>
             <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body d-flex flex-column justify-content-between p-3">
             <div>
+                <div class="sidebar-menu-label mt-1">Menu Utama</div>
                 <ul class="nav nav-pills flex-column">
                     <li class="nav-item">
                         <a href="4.dashboard utama.html" class="nav-link text-white d-flex align-items-center">
-                            <img src="../assets/icon-dashboard.svg" width="18" class="me-2" alt="icon">
+                            <img src="../assets/icon-dashboard.svg" width="18" class="me-3" alt="icon">
                             Dashboard
                         </a>
                     </li> 
                     <li class="nav-item">
                         <a href="5.katalog motor.html" class="nav-link active d-flex align-items-center">
-                            <img src="../assets/icon-motor.svg" width="18" class="me-2" alt="icon">
+                            <img src="../assets/icon-motor.svg" width="18" class="me-3" alt="icon">
                             Katalog Motor
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="6.unit yang disewa.html" class="nav-link text-white d-flex align-items-center">
-                            <img src="../assets/icon-kalender.svg" width="18" class="me-2" alt="icon">
+                            <img src="../assets/icon-kalender.svg" width="18" class="me-3" alt="icon">
                             Unit yang Disewa
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link text-white d-flex align-items-center">
-                            <img src="../assets/icon-riwayat-aktivitas.svg" width="18" class="me-2" alt="icon">
+                            <img src="../assets/icon-riwayat-aktivitas.svg" width="18" class="me-3" alt="icon">
                             Riwayat Aktivitas
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link text-white d-flex align-items-center">
-                            <img src="../assets/icon-setting.svg" width="18" class="me-2" alt="icon">
+                            <img src="../assets/icon-setting.svg" width="18" class="me-3" alt="icon">
                             Pengaturan
                         </a>
                     </li>
                 </ul>
             </div>
-            <div>
-                <a href="0.halaman login.html" class="nav-link text-white d-flex align-items-center ps-2">
-                    <img src="../assets/icon-log-out.svg" width="18" class="me-2" alt="icon">
+            <div class="pt-3 border-top border-light border-opacity-10">
+                <a href="0.halaman login.html" id="btnKeluarMobile" class="nav-link text-white d-flex align-items-center">
+                    <img src="../assets/icon-log-out.svg" width="18" class="me-3" alt="icon">
                     Keluar
                 </a>
             </div>
@@ -75,248 +85,288 @@
 
     <div class="d-flex">
         <!-- Sidebar Kiri (Desktop) -->
-        <div class="sidebar p-3 d-none d-md-flex flex-column justify-content-between">
+        <aside class="sidebar p-3 d-none d-md-flex flex-column justify-content-between">
             <div>
-                <div class="d-flex align-items-center mb-4 ps-2">
-                    <img src="../assets/1.logo-Ryokou.png" width="40" alt="Logo" class="me-2">
+                <div class="sidebar-brand-box d-flex align-items-center mb-4">
+                    <img src="../assets/1.logo-Ryokou.png" width="40" alt="Logo" class="me-3">
                     <div>
-                        <h6 class="fw-bold mb-0" style="color: #F6D057;">RYOKOU</h6>
-                        <small class="text-white-50" style="font-size: 0.7rem;">RENTAL MOTOR</small>
+                        <h6 class="fw-bold mb-0" style="color: #F6D057; letter-spacing: 0.5px;">RYOKOU</h6>
+                        <small class="text-white-50" style="font-size: 0.68rem; letter-spacing: 1px;">RENTAL MOTOR</small>
                     </div>
                 </div>
 
+                <div class="sidebar-menu-label">Navigasi</div>
                 <ul class="nav nav-pills flex-column">
                     <li class="nav-item">
                         <a href="4.dashboard utama.html" class="nav-link d-flex align-items-center">
-                            <img src="../assets/icon-dashboard.svg" width="18" class="me-2" alt="icon">
+                            <img src="../assets/icon-dashboard.svg" width="18" class="me-3" alt="icon">
                             Dashboard
                         </a>
                     </li> 
                     <li class="nav-item">
                         <a href="5.katalog motor.html" class="nav-link active d-flex align-items-center">
-                            <img src="../assets/icon-motor.svg" width="18" class="me-2" alt="icon">
+                            <img src="../assets/icon-motor.svg" width="18" class="me-3" alt="icon">
                             Katalog Motor
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="6.unit yang disewa.html" class="nav-link d-flex align-items-center">
-                            <img src="../assets/icon-kalender.svg" width="18" class="me-2" alt="icon">
+                            <img src="../assets/icon-kalender.svg" width="18" class="me-3" alt="icon">
                             Unit yang Disewa
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link d-flex align-items-center">
-                            <img src="../assets/icon-riwayat-aktivitas.svg" width="18" class="me-2" alt="icon">
+                            <img src="../assets/icon-riwayat-aktivitas.svg" width="18" class="me-3" alt="icon">
                             Riwayat Aktivitas
                         </a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link d-flex align-items-center">
-                            <img src="../assets/icon-setting.svg" width="18" class="me-2" alt="icon">
+                            <img src="../assets/icon-setting.svg" width="18" class="me-3" alt="icon">
                             Pengaturan
                         </a>
                     </li>
                 </ul>
             </div>
 
-            <div>
-                <a href="0.halaman login.html" class="nav-link text-white d-flex align-items-center ps-2">
-                    <img src="../assets/icon-log-out.svg" width="18" class="me-2" alt="icon">
+            <div class="pt-3 border-top border-light border-opacity-10">
+                <a href="0.halaman login.html" id="btnKeluarDesktop" class="nav-link text-white d-flex align-items-center">
+                    <img src="../assets/icon-log-out.svg" width="18" class="me-3" alt="icon">
                     Keluar
                 </a>
             </div>
-        </div>
+        </aside>
 
-        <div class="main-content flex-grow-1 p-3 p-md-4">
+        <!-- Konten Utama Katalog -->
+        <main class="main-content flex-grow-1 p-3 p-md-4">
             
-            <!-- Topbar: Pencarian dan Profil -->
-            <div class="row align-items-center mb-4 g-2">
-                <div class="col-7 col-md-6">
-                    <div class="input-group style-search bg-white rounded-pill px-3 py-1 shadow-sm">
-                        <span class="input-group-text bg-white border-0 ps-0">
-                            <img src="../assets/icon-pencarian.svg" width="16" alt="icon">
-                        </span>
-                        <input type="text" id="inputPencarian" class="form-control border-0 bg-white shadow-none" placeholder="Pencarian...">
+            <!-- 1. Floating Topbar: Pencarian & Akun (Persis Dashboard, Tanpa Selamat Datang) -->
+            <div class="topbar-wrapper mb-4">
+                <div class="row align-items-center justify-content-between g-2">
+                    <div class="col-8 col-md-7 col-lg-6">
+                        <div class="input-group style-search rounded-pill px-3 py-1">
+                            <span class="input-group-text bg-transparent border-0 ps-0">
+                                <img src="../assets/icon-pencarian.svg" width="16" alt="icon">
+                            </span>
+                            <input type="text" id="inputPencarian" class="form-control border-0 bg-transparent shadow-none" style="font-size: 0.88rem;" placeholder="Cari model motor impianmu (BeAT, Vario, dll)...">
+                        </div>
                     </div>
-                </div>
-                
-                <div class="col-5 col-md-6 d-flex justify-content-end align-items-center">
-                    <div class="d-flex align-items-center gap-2">
-                        <img src="../assets/icon-profil-user.svg" width="30" height="30" class="rounded-circle object-fit-cover flex-shrink-0" alt="icon">
-                        <div class="text-truncate">
-                            <div class="fw-bold username-display text-truncate" id="namaUserDisplay">@User123</div>
-                            <div class="text-muted user-role">Pelanggan</div>
+                    
+                    <div class="col-4 col-md-5 col-lg-6 d-flex justify-content-end align-items-center">
+                        <!-- Guest Mode -->
+                        <div id="guestButtons" class="d-none align-items-center gap-2">
+                            <a href="0.halaman login.html" class="btn btn-outline-teal btn-sm rounded-pill fw-semibold px-3">Masuk</a>
+                            <a href="3.halaman daftar.html" class="btn btn-teal btn-sm rounded-pill fw-semibold px-3 text-white">Daftar</a>
+                        </div>
+
+                        <!-- Logged In Mode -->
+                        <div id="loggedInProfile" class="d-flex align-items-center gap-2 user-profile-box bg-light px-3 py-1 rounded-pill border">
+                            <img src="../assets/icon-profil-user.svg" width="30" height="30" class="rounded-circle object-fit-cover flex-shrink-0" alt="icon">
+                            <div class="text-truncate">
+                                <div class="fw-bold username-display text-truncate" id="namaUserDisplay">@User123</div>
+                                <div class="text-muted user-role">Pelanggan</div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Content Container -->
-            <div class="p-2 p-md-3">
-                <h5 class="fw-bold mb-3">Pilihan Merek Motor</h5>
+            <!-- HERO HEADER KATALOG (Dengan Dekorasi Lingkaran & Ilustrasi ala Dashboard) -->
+            <div class="banner-promo p-4 p-md-5 mb-4 rounded-4 text-white position-relative overflow-hidden shadow-sm">
+                <div class="row align-items-center">
+                    <div class="col-md-7 position-relative z-2">
+                        <div class="badge-promo-gold mb-2">
+                            <span>⭐ KOLEKSI ARMADA TERBARU</span>
+                        </div>
+                        <h2 class="fw-bold mb-2 lh-sm">Katalog Pilihan <span style="color: #F6D057;">RYOKOU</span> Rental Motor</h2>
+                        <p class="small text-white-50 mb-0" style="max-width: 480px;">
+                            Semua unit dalam kondisi prima, siap pakai, lengkap dengan helm & jas hujan bersih untuk kenyamanan perjalanan harianmu.
+                        </p>
+                    </div>
+                </div>
+            </div>
 
-                <!-- Filter Brands -->
-                <div class="row g-2 g-md-3 mb-4">
-                    <div class="col-3">
-                        <div class="brand-card active p-2 p-md-3 text-center" onclick="filterMerek('beat', this)" style="cursor: pointer;">
+            <!-- SECTION FILTER MEREK MOTOR -->
+            <div class="mb-4">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    <h5 class="fw-bold mb-0 text-dark">Pilihan Merek Motor</h5>
+                    <span class="text-muted small">Klik logo untuk memfilter</span>
+                </div>
+
+                <div class="row g-2 g-md-3">
+                    <div class="col-6 col-md-3">
+                        <div class="brand-card active p-3 text-center" onclick="filterMerek('beat', this)">
                             <img src="../assets/B.Beat Logo.png" alt="BeAT" class="img-fluid brand-logo-img">
                         </div>
                     </div>
-                    <div class="col-3">
-                        <div class="brand-card p-2 p-md-3 text-center" onclick="filterMerek('vario', this)" style="cursor: pointer;">
+                    <div class="col-6 col-md-3">
+                        <div class="brand-card p-3 text-center" onclick="filterMerek('vario', this)">
                             <img src="../assets/B.Vario Logo.png" alt="Vario" class="img-fluid brand-logo-img">
                         </div>
                     </div>
-                    <div class="col-3">
-                        <div class="brand-card p-2 p-md-3 text-center" onclick="filterMerek('scoopy', this)" style="cursor: pointer;">
+                    <div class="col-6 col-md-3">
+                        <div class="brand-card p-3 text-center" onclick="filterMerek('scoopy', this)">
                             <img src="../assets/B.Scoopy Logo.png" alt="Scoopy" class="img-fluid brand-logo-img">
                         </div>
                     </div>
-                    <div class="col-3">
-                        <div class="brand-card p-2 p-md-3 text-center" onclick="filterMerek('crf', this)" style="cursor: pointer;">
+                    <div class="col-6 col-md-3">
+                        <div class="brand-card p-3 text-center" onclick="filterMerek('crf', this)">
                             <img src="../assets/B.CRF Logo.png" alt="CRF" class="img-fluid brand-logo-img">
                         </div>
                     </div>
                 </div>
-
-                <!-- Grid Item Motor -->
-                <div class="row g-2 g-md-3" id="containerMotor">
-
-                    <!-- ================= KATEGORI BEAT ================= -->
-                    <div class="col-6 col-md-3 item-motor" data-merek="beat">
-                        <div class="card card-unit p-2 p-md-3 h-100 d-flex flex-column justify-content-between">
-                            <div>
-                                <span class="badge-tersedia w-auto align-self-start mb-1 mb-md-2">Tersedia</span>
-                                <div class="text-center py-1">
-                                    <img src="../assets/3.BeAT Deluxe.png" class="card-img-motor img-fluid" alt="BeAT Deluxe">
-                                </div>
-                                <h6 class="fw-bold mb-0 nama-motor mt-1">Honda BeAT Deluxe</h6>
-                                <small class="text-muted card-specs">Tahun 2023 • Matic 110cc</small>
-                            </div>
-                            <div class="mt-2 pt-2 border-top border-light-subtle d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-1 gap-md-2">
-                                <div>
-                                    <small class="text-muted d-block price-label">Harga Sewa</small>
-                                    <span class="fw-bold text-dark price-value">Rp 83.000</span><small class="text-muted price-unit">/hari</small>
-                                </div>
-                                <a href="5.detail produk vario.html" class="btn btn-sewa btn-sm w-100 w-md-auto text-center">Sewa</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-6 col-md-3 item-motor" data-merek="beat">
-                        <div class="card card-unit p-2 p-md-3 h-100 d-flex flex-column justify-content-between">
-                            <div>
-                                <span class="badge-tersedia w-auto align-self-start mb-1 mb-md-2">Tersedia</span>
-                                <div class="text-center py-1">
-                                    <img src="../assets/3.BeAT Deluxe Street.png" class="card-img-motor img-fluid" alt="BeAT Deluxe">
-                                </div>
-                                <h6 class="fw-bold mb-0 nama-motor mt-1">Honda BeAT Deluxe</h6>
-                                <small class="text-muted card-specs">Tahun 2023 • Matic 110cc</small>
-                            </div>
-                            <div class="mt-2 pt-2 border-top border-light-subtle d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-1 gap-md-2">
-                                <div>
-                                    <small class="text-muted d-block price-label">Harga Sewa</small>
-                                    <span class="fw-bold text-dark price-value">Rp 85.000</span><small class="text-muted price-unit">/hari</small>
-                                </div>
-                                <a href="5.detail produk vario.html" class="btn btn-sewa btn-sm w-100 w-md-auto text-center">Sewa</a>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <!-- ================= KATEGORI VARIO ================= -->
-                    <div class="col-6 col-md-3 item-motor" data-merek="vario" style="display: none;">
-                        <div class="card card-unit p-2 p-md-3 h-100 d-flex flex-column justify-content-between">
-                            <div>
-                                <span class="badge-tersedia w-auto align-self-start mb-1 mb-md-2">Tersedia</span>
-                                <div class="text-center py-1">
-                                    <img src="../assets/4.Vario 125.png" class="card-img-motor img-fluid" alt="Vario 125">
-                                </div>
-                                <h6 class="fw-bold mb-0 nama-motor mt-1">Honda Vario 125 CBS</h6>
-                                <small class="text-muted card-specs">Tahun 2023 • Matic 125cc</small>
-                            </div>
-                            <div class="mt-2 pt-2 border-top border-light-subtle d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-1 gap-md-2">
-                                <div>
-                                    <small class="text-muted d-block price-label">Harga Sewa</small>
-                                    <span class="fw-bold text-dark price-value">Rp 110.000</span><small class="text-muted price-unit">/hari</small>
-                                </div>
-                                <a href="5.detail produk vario.html" class="btn btn-sewa btn-sm w-100 w-md-auto text-center">Sewa</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-6 col-md-3 item-motor" data-merek="vario" style="display: none;">
-                        <div class="card card-unit p-2 p-md-3 h-100 d-flex flex-column justify-content-between">
-                            <div>
-                                <span class="badge-tersedia w-auto align-self-start mb-1 mb-md-2">Tersedia</span>
-                                <div class="text-center py-1">
-                                    <img src="../assets/4.Vario 125 Street.png" class="card-img-motor img-fluid" alt="Vario Street">
-                                </div>
-                                <h6 class="fw-bold mb-0 nama-motor mt-1">Honda Vario 125 Street</h6>
-                                <small class="text-muted card-specs">Tahun 2024 • Matic 125cc</small>
-                            </div>
-                            <div class="mt-2 pt-2 border-top border-light-subtle d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-1 gap-md-2">
-                                <div>
-                                    <small class="text-muted d-block price-label">Harga Sewa</small>
-                                    <span class="fw-bold text-dark price-value">Rp 120.000</span><small class="text-muted price-unit">/hari</small>
-                                </div>
-                                <a href="5.detail produk vario.html" class="btn btn-sewa btn-sm w-100 w-md-auto text-center">Sewa</a>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <!-- ================= KATEGORI SCOOPY ================= -->
-                    <div class="col-6 col-md-3 item-motor" data-merek="scoopy" style="display: none;">
-                        <div class="card card-unit p-2 p-md-3 h-100 d-flex flex-column justify-content-between">
-                            <div>
-                                <span class="badge-tersedia w-auto align-self-start mb-1 mb-md-2">Tersedia</span>
-                                <div class="text-center py-1">
-                                    <img src="../assets/5.Scoopy Prestige.png" class="card-img-motor img-fluid" alt="Scoopy Prestige">
-                                </div>
-                                <h6 class="fw-bold mb-0 nama-motor mt-1">Honda Scoopy Prestige</h6>
-                                <small class="text-muted card-specs">Tahun 2023 • Matic 110cc</small>
-                            </div>
-                            <div class="mt-2 pt-2 border-top border-light-subtle d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-1 gap-md-2">
-                                <div>
-                                    <small class="text-muted d-block price-label">Harga Sewa</small>
-                                    <span class="fw-bold text-dark price-value">Rp 100.000</span><small class="text-muted price-unit">/hari</small>
-                                </div>
-                                <a href="5.detail produk vario.html" class="btn btn-sewa btn-sm w-100 w-md-auto text-center">Sewa</a>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <!-- ================= KATEGORI CRF ================= -->
-                    <div class="col-6 col-md-3 item-motor" data-merek="crf" style="display: none;">
-                        <div class="card card-unit p-2 p-md-3 h-100 d-flex flex-column justify-content-between">
-                            <div>
-                                <span class="badge-tersedia w-auto align-self-start mb-1 mb-md-2">Tersedia</span>
-                                <div class="text-center py-1">
-                                    <img src="../assets/6.CRF 150L.png" class="card-img-motor img-fluid" alt="CRF 150L">
-                                </div>
-                                <h6 class="fw-bold mb-0 nama-motor mt-1">Honda Trail by CRF 150L</h6>
-                                <small class="text-muted card-specs">Tahun 2024 • Kopling 150cc</small>
-                            </div>
-                            <div class="mt-2 pt-2 border-top border-light-subtle d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-1 gap-md-2">
-                                <div>
-                                    <small class="text-muted d-block price-label">Harga Sewa</small>
-                                    <span class="fw-bold text-dark price-value">Rp 215.000</span><small class="text-muted price-unit">/hari</small>
-                                </div>
-                                <a href="5.detail produk vario.html" class="btn btn-sewa btn-sm w-100 w-md-auto text-center">Sewa</a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
             </div>
-        </div>
+
+            <!-- GRID KARTU UNIT MOTOR -->
+            <div class="row g-3" id="containerMotor">
+
+                <!-- Card BeAT Deluxe Tersedia -->
+                <div class="col-6 col-md-3 item-motor" data-status="tersedia" data-cc="110cc">
+                    <div class="card card-unit p-3 h-100 d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="badge-tersedia">Tersedia</span>
+                                <span class="spec-chip">110cc</span>
+                            </div>
+                            <div class="motor-stage-box">
+                                <img src="../assets/3.BeAT Deluxe.png" class="card-img-motor img-fluid" alt="BeAT Deluxe">
+                            </div>
+                            <h6 class="fw-bold mb-1 nama-motor">Honda BeAT Deluxe</h6>
+                            <small class="text-muted card-specs d-block">Tahun 2024 • Matic Irit BBM</small>
+                        </div>
+                        <div class="pt-2 border-top border-light-subtle d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-2">
+                            <div>
+                                <small class="text-muted d-block price-label">Harga Sewa</small>
+                                <span class="fw-bold text-dark price-value">Rp 83.000</span><small class="text-muted price-unit">/hari</small>
+                            </div>
+                            <a href="P.detail produk beat deluxe.html" class="btn btn-sewa btn-sm text-center">Sewa Unit</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card BeAT Deluxe Street Tersedia -->
+                <div class="col-6 col-md-3 item-motor" data-merek="beat" style="display: none;" data-status="tersedia" data-cc="110cc">
+                    <div class="card card-unit p-3 h-100 d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="badge-tersedia">Tersedia</span>
+                                <span class="spec-chip">110cc</span>
+                            </div>
+                            <div class="motor-stage-box">
+                                <img src="../assets/3.BeAT Deluxe Street.png" class="card-img-motor img-fluid" alt="BeAT Deluxe Street">
+                            </div>
+                            <h6 class="fw-bold mb-1 nama-motor">Honda BeAT Deluxe Street</h6>
+                            <small class="text-muted card-specs d-block">Tahun 2024 • Naked Handlebar</small>
+                        </div>
+                        <div class="pt-2 border-top border-light-subtle d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-2">
+                            <div>
+                                <small class="text-muted d-block price-label">Harga Sewa</small>
+                                <span class="fw-bold text-dark price-value">Rp 85.000</span><small class="text-muted price-unit">/hari</small>
+                            </div>
+                            <a href="P.detail produk beat deluxe street.html" class="btn btn-sewa btn-sm text-center">Sewa Unit</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card Vario 125 Tersedia -->
+                <div class="col-6 col-md-3 item-motor" data-merek="vario" style="display: none;" data-status="tersedia" data-cc="125cc">
+                    <div class="card card-unit p-3 h-100 d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="badge-tersedia">Tersedia</span>
+                                <span class="spec-chip">125cc</span>
+                            </div>
+                            <div class="motor-stage-box">
+                                <img src="../assets/4.Vario 125.png" class="card-img-motor img-fluid" alt="Vario 125">
+                            </div>
+                            <h6 class="fw-bold mb-1 nama-motor">Honda Vario 125</h6>
+                            <small class="text-muted card-specs d-block">Tahun 2024 • Sporty & Bertenaga</small>
+                        </div>
+                        <div class="pt-2 border-top border-light-subtle d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-2">
+                            <div>
+                                <small class="text-muted d-block price-label">Harga Sewa</small>
+                                <span class="fw-bold text-dark price-value">Rp 115.000</span><small class="text-muted price-unit">/hari</small>
+                            </div>
+                            <a href="P.detail produk vario 125.html" class="btn btn-sewa btn-sm text-center">Sewa Unit</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Card Vario 125 Street Tersedia -->
+                <div class="col-6 col-md-3 item-motor" data-merek="vario" style="display: none;" data-status="tersedia" data-cc="125cc">
+                    <div class="card card-unit p-3 h-100 d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span class="badge-tersedia">Tersedia</span>
+                                <span class="spec-chip">125cc</span>
+                            </div>
+                            <div class="motor-stage-box">
+                                <img src="../assets/4.Vario 125 Street.png" class="card-img-motor img-fluid" alt="Vario 125 Street">
+                            </div>
+                            <h6 class="fw-bold mb-1 nama-motor">Honda Vario 125 Street</h6>
+                            <small class="text-muted card-specs d-block">Tahun 2024 • Edisi Spesial</small>
+                        </div>
+                        <div class="pt-2 border-top border-light-subtle d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-2">
+                            <div>
+                                <small class="text-muted d-block price-label">Harga Sewa</small>
+                                <span class="fw-bold text-dark price-value">Rp 120.000</span><small class="text-muted price-unit">/hari</small>
+                            </div>
+                            <a href="P.detail produk vario 125 street.html" class="btn btn-sewa btn-sm text-center">Sewa Unit</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ITEM 5: SCOOPY PRESTIGE -->
+                <div class="col-6 col-md-3 item-motor" data-merek="scoopy" style="display: none;">
+                    <div class="card card-unit p-3 h-100 d-flex flex-column justify-content-between">
+                        <div>
+                            <span class="badge-tersedia d-inline-block mb-2">Tersedia</span>
+                            <div class="text-center py-3">
+                                <img src="../assets/5.Scoopy Prestige.png" class="card-img-motor img-fluid" alt="Scoopy Prestige">
+                            </div>
+                            <h6 class="fw-bold mb-1 nama-motor text-dark">Honda Scoopy Prestige</h6>
+                            <small class="text-muted card-specs d-block mb-3">Tahun 2023 • Matic 110cc</small>
+                        </div>
+                        <div class="pt-2 border-top border-light-subtle d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-2">
+                            <div>
+                                <small class="text-muted d-block price-label">Harga Sewa</small>
+                                <span class="fw-bold text-dark price-value">Rp 100.000</span><small class="text-muted price-unit">/hari</small>
+                            </div>
+                            <a href="5.detail produk vario.html" class="btn btn-sewa btn-sm text-center">Sewa Unit</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ITEM 6: CRF 150L -->
+                <div class="col-6 col-md-3 item-motor" data-merek="crf" style="display: none;">
+                    <div class="card card-unit p-3 h-100 d-flex flex-column justify-content-between">
+                        <div>
+                            <span class="badge-tersedia d-inline-block mb-2">Tersedia</span>
+                            <div class="text-center py-3">
+                                <img src="../assets/6.CRF 150L.png" class="card-img-motor img-fluid" alt="CRF 150L">
+                            </div>
+                            <h6 class="fw-bold mb-1 nama-motor text-dark">Honda Trail CRF 150L</h6>
+                            <small class="text-muted card-specs d-block mb-3">Tahun 2024 • Kopling 150cc</small>
+                        </div>
+                        <div class="pt-2 border-top border-light-subtle d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-2">
+                            <div>
+                                <small class="text-muted d-block price-label">Harga Sewa</small>
+                                <span class="fw-bold text-dark price-value">Rp 215.000</span><small class="text-muted price-unit">/hari</small>
+                            </div>
+                            <a href="5.detail produk vario.html" class="btn btn-sewa btn-sm text-center">Sewa Unit</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
     </div>
 
     <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Panggil file JavaScript terpisah -->
     <script src="../js/5.katalog motor.js"></script>
 </body>
 </html>
