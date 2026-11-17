@@ -1,189 +1,470 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Dashboard Pegawai | RYOKOU</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="../css/dashboard.css" />
-  </head>
-  <body>
-    <div class="admin-layout">
-      <!-- SIDEBAR PEGAWAI -->
-      <aside class="sidebar" id="sidebar">
-        <div class="side-brand">
-          <div class="logo-badge"><i class="bi bi-scooter"></i></div>
-          <b>RYOKOU</b>
-        </div>
-        <div class="sidebar-section-title">PROWUTERS</div>
-        <nav class="side-nav">
-          <a class="active" href="#dashboard"><i class="bi bi-grid-fill"></i>Dashboard</a>
-          <a href="#penyewaan"><i class="bi bi-calendar2-check"></i>Info Penyewaan</a>
-          <a href="#pembayaran"><i class="bi bi-credit-card-fill"></i>Pembayaran</a>
-          <a href="#denda"><i class="bi bi-exclamation-triangle"></i>Denda</a>
-          <a href="#pengembalian"><i class="bi bi-arrow-return-left"></i>Pengembalian</a>
-          <a href="#riwayat"><i class="bi bi-clock-history"></i>Riwayat Penyewaan</a>
-        </nav>
-        <div class="sidebar-section-title">LAPORAN</div>
-        <nav class="side-nav">
-          <a href="#pengaturan"><i class="bi bi-gear"></i>Pengaturan</a>
-        </nav>
-        <a href="login.html" class="logout"><i class="bi bi-box-arrow-left"></i>Keluar</a>
-      </aside>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RYOKOU Oto Rent — Dashboard Pegawai</title>
 
-      <!-- MAIN CONTENT -->
-      <main class="main-content">
-        <header class="topbar">
-          <button class="mobile-menu" id="mobileMenu" aria-label="Buka menu">
-            <i class="bi bi-list"></i>
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              dark: '#0C4651',
+              darker: '#093841',
+              light: '#16606E',
+              gold: '#F4CE5C',
+              cream: '#F5F2DC',
+              bg: '#F4F7F8',
+            }
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../css/dashboard.css" />
+</head>
+<body class="bg-[#F4F7F8] text-[#111827] antialiased selection:bg-[#0C4651] selection:text-white">
+
+  <!-- Backdrop Mobile Drawer -->
+  <div id="mobileBackdrop" class="fixed inset-0 bg-slate-900/50 backdrop-blur-[1px] z-30 hidden lg:hidden transition-opacity"></div>
+
+  <div class="flex min-h-screen w-full overflow-x-clip">
+
+    <!-- ==================== SIDEBAR ==================== -->
+    <aside id="sidebar" class="sidebar-expanded fixed lg:sticky top-0 left-0 z-40 h-screen bg-[#0C4651] text-white flex flex-col justify-between shrink-0 select-none shadow-xl lg:shadow-none -translate-x-full lg:translate-x-0">
+
+      <div>
+        <!-- Brand Header -->
+        <div id="brandHeader" class="flex items-center justify-between px-5 pt-6 pb-5">
+          <div class="flex items-center gap-3.5 min-w-0">
+            <!-- Custom SVG Logo RYOKOU -->
+            <div class="w-12 h-12 shrink-0 flex items-center justify-center" title="RYOKOU Oto Rent">
+              <svg viewBox="0 0 220 220" class="w-full h-full drop-shadow-sm" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <path id="topArc" d="M 46,96 A 64,64 0 0,1 174,96" />
+                </defs>
+                <!-- Outer Scalloped Badge -->
+                <path d="M110,8 C122,8 128,18 140,21 C152,24 164,20 173,29 C182,38 179,50 185,61 C191,72 203,77 205,89 C207,101 199,111 199,123 C199,135 207,145 204,157 C201,169 189,173 182,183 C175,193 177,205 166,211 C155,217 144,210 132,213 C120,216 116,224 110,224 C104,224 100,216 88,213 C76,210 65,217 54,211 C43,205 45,193 38,183 C31,173 19,169 16,157 C13,145 21,135 21,123 C21,111 13,101 15,89 C17,77 29,72 35,61 C41,50 38,38 47,29 C56,20 68,24 80,21 C92,18 98,8 110,8 Z"
+                      transform="scale(0.92) translate(9.5, 5)"
+                      fill="#0C4651" stroke="#F5F2DC" stroke-width="4.5" />
+                <!-- Curved OTO RENT Text -->
+                <text fill="#F4CE5C" font-size="16" font-weight="800" letter-spacing="3.5" font-family="Plus Jakarta Sans, sans-serif">
+                  <textPath href="#topArc" startOffset="50%" text-anchor="middle">OTO RENT</textPath>
+                </text>
+                <!-- Front Scooter Illustration -->
+                <g stroke="#F5F2DC" stroke-width="4.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="83" cy="70" r="8.5" />
+                  <circle cx="137" cy="70" r="8.5" />
+                  <path d="M91.5,70 Q98,70 101,75" />
+                  <path d="M128.5,70 Q122,70 119,75" />
+                  <rect x="85" y="82" width="12" height="6" rx="2.5" />
+                  <rect x="123" y="82" width="12" height="6" rx="2.5" />
+                  <path d="M101,75 C101,64 119,64 119,75" />
+                  <circle cx="110" cy="86" r="11" fill="#0C4651" />
+                  <circle cx="110" cy="86" r="4.5" />
+                  <path d="M96,90 C91,99 90,115 94,126 L126,126 C130,115 129,99 124,90" />
+                  <path d="M97,94 L110,114 L123,94" />
+                  <rect x="86" y="106" width="6" height="17" rx="3" />
+                  <rect x="128" y="106" width="6" height="17" rx="3" />
+                  <path d="M99,122 C99,112 121,112 121,122 Z" fill="#0C4651" />
+                  <rect x="102" y="122" width="16" height="23" rx="7" fill="#0C4651" />
+                  <line x1="110" y1="123" x2="110" y2="144" stroke-width="3" />
+                  <line x1="103" y1="130" x2="107" y2="130" stroke-width="2.5" />
+                  <line x1="113" y1="130" x2="117" y2="130" stroke-width="2.5" />
+                  <line x1="103" y1="137" x2="107" y2="137" stroke-width="2.5" />
+                  <line x1="113" y1="137" x2="117" y2="137" stroke-width="2.5" />
+                </g>
+                <!-- ESTD Box -->
+                <rect x="36" y="114" width="44" height="24" rx="5" fill="#0C4651" stroke="#F5F2DC" stroke-width="3.2" />
+                <text x="58" y="131" fill="#F4CE5C" font-size="13.5" font-weight="800" text-anchor="middle" letter-spacing="0.8">ESTD</text>
+                <!-- 2023 Box -->
+                <rect x="140" y="114" width="44" height="24" rx="5" fill="#0C4651" stroke="#F5F2DC" stroke-width="3.2" />
+                <text x="162" y="131" fill="#F4CE5C" font-size="13.5" font-weight="800" text-anchor="middle" letter-spacing="0.5">2023</text>
+                <!-- RYOKOU Main Text -->
+                <circle cx="57" cy="161" r="3.5" fill="#F5F2DC" />
+                <text x="110" y="167" fill="#F4CE5C" font-size="22" font-weight="800" text-anchor="middle" letter-spacing="1.5">RYOKOU</text>
+                <circle cx="163" cy="161" r="3.5" fill="#F5F2DC" />
+                <!-- BY : M2 -->
+                <text x="110" y="185" fill="#F4CE5C" font-size="11.5" font-weight="800" text-anchor="middle" letter-spacing="1">BY : M<tspan dy="-3" font-size="8">2</tspan></text>
+              </svg>
+            </div>
+            <span class="sidebar-label text-[#F4CE5C] font-extrabold text-[20px] tracking-wider uppercase truncate">RYOKOU</span>
+          </div>
+
+          <!-- Tombol Tutup Drawer di Mobile -->
+          <button id="closeMobileSidebarBtn" class="lg:hidden p-1.5 rounded-lg text-white/75 hover:text-white hover:bg-white/10 transition" aria-label="Tutup Menu">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
           </button>
-          <div class="search-top">
-            <i class="bi bi-search"></i>
-            <input id="globalSearch" placeholder="Quantification" />
-          </div>
-          <div class="top-user">
-            <button class="notification" id="notificationBtn" aria-label="Notifikasi">
-              <i class="bi bi-bell"></i><span>3</span>
+        </div>
+
+        <!-- Section: MENU UTAMA -->
+        <div class="px-3.5 mt-2">
+          <p class="sidebar-section-title px-3 mb-2.5 text-[10px] font-bold tracking-[0.12em] text-white/60 uppercase">MENU UTAMA</p>
+          <nav class="space-y-1.5" id="mainNav">
+            <button data-nav="dashboard" data-tooltip="Dashboard" class="nav-item active w-full flex items-center gap-3.5 px-3.5 py-2.5 rounded-xl text-[13.5px] font-semibold bg-white text-[#0C4651] shadow-sm transition-all">
+              <svg class="w-[18px] h-[18px] shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <rect x="3" y="3" width="7" height="7" rx="1.5" />
+                <rect x="14" y="3" width="7" height="7" rx="1.5" />
+                <rect x="3" y="14" width="7" height="7" rx="1.5" />
+                <rect x="14" y="14" width="7" height="7" rx="1.5" />
+              </svg>
+              <span class="sidebar-label truncate">Dashboard</span>
             </button>
-            <div class="avatar"><i class="bi bi-person-fill"></i></div>
-            <div>
-              <b>Pegawai_001</b>
-              <small>Pegawai</small>
-            </div>
-            <button class="more-btn" aria-label="Menu lainnya">⌄</button>
-          </div>
-        </header>
 
-        <div class="dashboard-content" id="dashboard">
-          <!-- STATS GRID ATAS -->
-          <section class="stats-grid-pegawai">
-            <div class="stat-card-action">
-              <div class="stat-label-action">
-                <span>Cek Status Unit</span>
-                <i class="bi bi-search"></i>
-              </div>
-              <p>Cek monit motor for specific merificates.</p>
-            </div>
-            <div class="stat-card-green">
-              <div class="stat-header-flex">
-                <span>Unit Tersedia</span>
-                <i class="bi bi-check-circle-fill"></i>
-              </div>
-              <strong>6</strong>
-            </div>
-            <div class="stat-card-yellow">
-              <div class="stat-header-flex">
-                <span>Disewa</span>
-                <i class="bi bi-key-fill"></i>
-              </div>
-              <strong>4</strong>
-            </div>
-          </section>
+            <button data-nav="penyewaan" data-tooltip="Info Penyewaan" class="nav-item w-full flex items-center gap-3.5 px-3.5 py-2.5 rounded-xl text-[13.5px] font-medium text-white/85 hover:bg-white/10 hover:text-white transition-all">
+              <svg class="w-[18px] h-[18px] shrink-0" fill="none" stroke="currentColor" stroke-width="1.9" viewBox="0 0 24 24">
+                <rect x="3" y="4" width="18" height="18" rx="2.5" />
+                <path stroke-linecap="round" d="M16 2v4M8 2v4M3 10h18M9 15h.01M12 15h.01M15 15h.01" />
+              </svg>
+              <span class="sidebar-label truncate">Info Penyewaan</span>
+            </button>
 
-          <!-- DASHBOARD GRID TENGAH -->
-          <div class="dashboard-grid">
-            <!-- PANEL KIRI: STATUS UNIT TERKINI (Ganti Peta) -->
-            <section class="panel chart-panel">
-              <h3>Status Unit Terkini & Operasional</h3>
-              <div class="status-terkini-box p-3 bg-light rounded">
-                <div class="d-flex align-items-center gap-2 mb-2"><span class="dot teal"></span><small>Vario 125 #1 - Available (Tersedia)</small></div>
-                <div class="d-flex align-items-center gap-2 mb-2"><span class="dot yellow"></span><small>Vario 125 #2 - Rented (Disewa)</small></div>
-                <div class="d-flex align-items-center gap-2"><span class="dot red"></span><small>Beat #1 - Under Repair (Perbaikan)</small></div>
-              </div>
-            </section>
+            <button data-nav="pembayaran" data-tooltip="Pembayaran" class="nav-item w-full flex items-center gap-3.5 px-3.5 py-2.5 rounded-xl text-[13.5px] font-medium text-white/85 hover:bg-white/10 hover:text-white transition-all">
+              <svg class="w-[18px] h-[18px] shrink-0" fill="none" stroke="currentColor" stroke-width="1.9" viewBox="0 0 24 24">
+                <rect x="2" y="6" width="20" height="12" rx="2.5" />
+                <circle cx="12" cy="12" r="2.5" />
+                <path stroke-linecap="round" d="M6 12h.01M18 12h.01" />
+              </svg>
+              <span class="sidebar-label truncate">Pembayaran</span>
+            </button>
 
-            <!-- PANEL KANAN: RINGKASAN STATUS UNIT -->
-            <section class="panel status-panel">
-              <h3>Status Unit Motor</h3>
-              <div class="status-list-item">
-                <span><i class="dot teal"></i> Tersedia</span>
-                <strong>Rp 4.000</strong>
-              </div>
-              <div class="status-list-item">
-                <span><i class="dot yellow"></i> Disewa</span>
-                <strong>rp 3.000</strong>
-              </div>
-              <div class="status-list-item">
-                <span><i class="dot red"></i> Perbaikan</span>
-                <strong>fp 1.500</strong>
-              </div>
-            </section>
+            <button data-nav="pengembalian" data-tooltip="Pengembalian" class="nav-item w-full flex items-center gap-3.5 px-3.5 py-2.5 rounded-xl text-[13.5px] font-medium text-white/85 hover:bg-white/10 hover:text-white transition-all">
+              <svg class="w-[18px] h-[18px] shrink-0" fill="none" stroke="currentColor" stroke-width="1.9" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" />
+              </svg>
+              <span class="sidebar-label truncate">Pengembalian</span>
+            </button>
 
-            <!-- PANEL BAWAH: TUGAS PENGEMBALIAN & DENDA -->
-            <section class="transactions panel-full" id="transaksi">
-              <h3>Daftar Tugas Pengembalian & Denda</h3>
-              
-              <div class="sub-section-title mb-2">Daftar Pengembalian Hari Ini</div>
-              <div class="table-responsive mb-3">
-                <table class="table align-middle">
-                  <thead>
-                    <tr>
-                      <th>No</th>
-                      <th>Nama Pengguna</th>
-                      <th>Motor</th>
-                      <th>Waktu Selesai</th>
-                      <th>Status</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>Nash Aurela</td>
-                      <td>Vario 125 #1</td>
-                      <td>19 Oktober 2026</td>
-                      <td><span class="status active">Aktif</span></td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Reyno Putri</td>
-                      <td>Vario 125 #2</td>
-                      <td>20 Oktober 2026</td>
-                      <td><span class="status warning">Rented</span></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+            <button data-nav="riwayat" data-tooltip="Riwayat Penyewaan" class="nav-item w-full flex items-center gap-3.5 px-3.5 py-2.5 rounded-xl text-[13.5px] font-medium text-white/85 hover:bg-white/10 hover:text-white transition-all">
+              <svg class="w-[18px] h-[18px] shrink-0" fill="none" stroke="currentColor" stroke-width="1.9" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.05 11a9 9 0 1 1 .5 4m-.5 5v-5h5" />
+              </svg>
+              <span class="sidebar-label truncate">Riwayat Penyewaan</span>
+            </button>
+          </nav>
+        </div>
 
-              <div class="sub-section-title mb-2">Verifikasi Denda Tertunda</div>
-              <div class="table-responsive">
-                <table class="table align-middle">
-                  <thead>
-                    <tr>
-                      <th>No</th>
-                      <th>Nama Pengguna</th>
-                      <th>Motor</th>
-                      <th>Total Denda</th>
-                      <th>Status</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>Sora Mahendra</td>
-                      <td>Vario 125 #2</td>
-                      <td>Rp10.000</td>
-                      <td><span class="status done">Selesai</span></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </section>
+        <!-- Section: LAINNYA -->
+        <div class="px-3.5 mt-7">
+          <p class="sidebar-section-title px-3 mb-2.5 text-[10px] font-bold tracking-[0.12em] text-white/60 uppercase">LAINNYA</p>
+          <button data-nav="pengaturan" data-tooltip="Pengaturan" class="nav-item w-full flex items-center gap-3.5 px-3.5 py-2.5 rounded-xl text-[13.5px] font-medium text-white/85 hover:bg-white/10 hover:text-white transition-all">
+            <svg class="w-[18px] h-[18px] shrink-0" fill="none" stroke="currentColor" stroke-width="1.9" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="3" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9c.26.604.852.997 1.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z" />
+            </svg>
+            <span class="sidebar-label truncate">Pengaturan</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Bottom Logout Button -->
+      <div class="p-3.5">
+        <button id="sidebarLogoutBtn" data-tooltip="Keluar" class="w-full flex items-center gap-3 px-4 py-3 rounded-xl bg-white/10 hover:bg-white/15 text-white/90 text-[13.5px] font-medium transition-all">
+          <svg class="w-[18px] h-[18px] shrink-0 text-[#F87171]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+          </svg>
+          <span class="sidebar-label truncate">Keluar</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- ==================== MAIN CONTENT WRAPPER (100% FULL WIDTH) ==================== -->
+    <div class="flex-1 flex flex-col min-w-0 w-full">
+
+      <!-- Top Header Bar -->
+      <header class="bg-white border-b border-gray-100 px-4 sm:px-7 py-3.5 flex items-center justify-between gap-4 sticky top-0 z-20 w-full">
+        <div class="flex items-center gap-3 flex-1 max-w-2xl">
+          <!-- Tombol Buka/Tutup Sidebar -->
+          <button id="toggleSidebarBtn" type="button" title="Buka / Tutup Menu Sidebar" class="p-2.5 rounded-xl bg-[#F3F2F0] hover:bg-[#E7E5E2] text-[#0C4651] transition-colors shrink-0 flex items-center justify-center">
+            <svg id="toggleIconOpen" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <rect x="3" y="4" width="18" height="16" rx="2.5" />
+              <line x1="9" y1="4" x2="9" y2="20" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l-2 2 2 2" />
+            </svg>
+            <svg id="toggleIconClosed" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <rect x="3" y="4" width="18" height="16" rx="2.5" />
+              <line x1="9" y1="4" x2="9" y2="20" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 10l2 2-2 2" />
+            </svg>
+          </button>
+
+          <!-- Search Input -->
+          <div class="relative flex-1">
+            <svg class="w-[18px] h-[18px] text-gray-500 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="7" />
+              <path stroke-linecap="round" d="M20 20l-3.5-3.5" />
+            </svg>
+            <input
+              id="searchInput"
+              type="text"
+              placeholder="Pencarian"
+              class="w-full bg-[#F3F2F0] hover:bg-[#ECEAE7] focus:bg-white focus:ring-2 focus:ring-[#0C4651]/20 focus:border-[#0C4651] border border-transparent rounded-xl pl-11 pr-4 py-2.5 text-[13.5px] text-gray-800 placeholder-gray-400 outline-none transition-all"
+            />
           </div>
         </div>
+
+        <!-- Admin Profile & Popover Trigger -->
+        <div class="relative shrink-0">
+          <button id="profileTrigger" class="flex items-center gap-3 py-1 px-2 rounded-xl hover:bg-gray-50 transition-colors text-left">
+            <div class="w-10 h-10 rounded-full bg-[#0C4651] text-white font-bold text-[13.5px] flex items-center justify-center shrink-0">
+              P1
+            </div>
+            <div class="hidden sm:block leading-tight">
+              <div class="text-[13px] font-bold text-gray-900">Pegawai_001</div>
+              <div class="text-[11px] font-medium text-gray-500">Staff</div>
+            </div>
+            <svg id="profileChevron" class="w-4 h-4 text-gray-500 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+
+          <!-- Profile Dropdown Card -->
+          <div id="profilePopover" class="hidden absolute right-0 mt-2.5 w-64 bg-white rounded-2xl shadow-xl border border-gray-100 p-5 z-50">
+            <div class="flex items-center gap-3.5 pb-4 border-b border-gray-100">
+              <div class="w-11 h-11 rounded-full bg-[#0C4651] text-white font-bold text-[14px] flex items-center justify-center shrink-0">
+                P1
+              </div>
+              <div class="min-w-0">
+                <div class="text-[14px] font-bold text-gray-900 truncate">Pegawai_001</div>
+                <div class="text-[11.5px] text-gray-400 truncate">pegawai001@gmail.com</div>
+                <span class="inline-block mt-1.5 px-2.5 py-0.5 rounded-full bg-[#DCFCE7] text-[#15803D] text-[10.5px] font-bold">
+                  Staff
+                </span>
+              </div>
+            </div>
+            <button id="popoverLogoutBtn" class="mt-3.5 w-full flex items-center gap-2.5 px-2 py-2 rounded-lg text-[13px] font-semibold text-[#EF4444] hover:bg-red-50 transition-colors">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+              </svg>
+              Keluar Sistem
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- ==================== VIEW: DASHBOARD (100% FULL WIDTH) ==================== -->
+      <!-- ==================== VIEW: DASHBOARD (100% FULL WIDTH) ==================== -->
+      <main id="view-dashboard" class="w-full p-4 sm:p-6 lg:px-7 lg:py-6 space-y-5 flex-1">
+
+        <!-- Row 1: 4 Summary KPI Cards -->
+        <section class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
+          <!-- Card 1: Total Unit Motor -->
+          <div class="bg-white rounded-2xl p-5 card-shadow border border-gray-100/80 flex flex-col justify-between">
+            <div class="flex items-start justify-between">
+              <span class="text-[13px] font-semibold text-gray-600">Total Unit Motor</span>
+              <div class="w-9 h-9 rounded-xl bg-[#E6F2F4] text-[#0C4651] flex items-center justify-center">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <circle cx="5.5" cy="17.5" r="3" />
+                  <circle cx="18.5" cy="17.5" r="3" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M8.5 17.5h5l2.5-6h-5l-2 3.5H5.5M14 11.5l-1.5-3.5H10m6 3.5l2.5 6" />
+                </svg>
+              </div>
+            </div>
+            <div class="my-3 flex items-baseline gap-2.5">
+              <span class="text-[28px] font-extrabold text-gray-900 leading-none">13</span>
+            </div>
+            <div class="flex items-center gap-2 text-[11px] text-gray-400 font-medium">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#0C4651]"></span>
+              <span>Total armada terdaftar aktif</span>
+            </div>
+          </div>
+
+          <!-- Card 2: Tersedia -->
+          <div class="bg-white rounded-2xl p-5 card-shadow border border-gray-100/80 flex flex-col justify-between">
+            <div class="flex items-start justify-between">
+              <span class="text-[13px] font-semibold text-gray-600">Tersedia</span>
+              <div class="w-9 h-9 rounded-xl bg-[#E8F8F0] text-[#10B981] flex items-center justify-center">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+            </div>
+            <div class="my-3 flex items-center gap-2.5">
+              <span class="text-[28px] font-extrabold text-gray-900 leading-none">6</span>
+              <span class="px-2.5 py-0.5 rounded-full bg-[#DCFCE7] text-[#15803D] text-[10.5px] font-bold">Siap Sewa</span>
+            </div>
+            <div class="flex items-center gap-2 text-[11px] text-gray-400 font-medium">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#10B981]"></span>
+              <span>46% dari total kapasitas</span>
+            </div>
+          </div>
+
+          <!-- Card 3: Disewa -->
+          <div class="bg-white rounded-2xl p-5 card-shadow border border-gray-100/80 flex flex-col justify-between">
+            <div class="flex items-start justify-between">
+              <span class="text-[13px] font-semibold text-gray-600">Disewa</span>
+              <div class="w-9 h-9 rounded-xl bg-[#FEF6E6] text-[#E59500] flex items-center justify-center">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <circle cx="8" cy="15" r="3" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 13L19 4.5M16 7.5l2 2M18 5.5l2 2" />
+                </svg>
+              </div>
+            </div>
+            <div class="my-3 flex items-center gap-2.5">
+              <span class="text-[28px] font-extrabold text-gray-900 leading-none">4</span>
+              <span class="px-2.5 py-0.5 rounded-full bg-[#FEF3C7] text-[#B45309] text-[10.5px] font-bold">Masih dalam Sewa</span>
+            </div>
+            <div class="flex items-center gap-2 text-[11px] text-gray-400 font-medium">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#E59500]"></span>
+              <span>Tingkat utilisasi 31%</span>
+            </div>
+          </div>
+
+          <!-- Card 4: Perbaikan -->
+          <div class="bg-white rounded-2xl p-5 card-shadow border border-gray-100/80 flex flex-col justify-between">
+            <div class="flex items-start justify-between">
+              <span class="text-[13px] font-semibold text-gray-600">Perbaikan</span>
+              <div class="w-9 h-9 rounded-xl bg-[#FEECEC] text-[#EF4444] flex items-center justify-center">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" />
+                </svg>
+              </div>
+            </div>
+            <div class="my-3 flex items-center gap-2.5">
+              <span class="text-[28px] font-extrabold text-gray-900 leading-none">3</span>
+              <span class="px-2.5 py-0.5 rounded-full bg-[#FEE2E2] text-[#DC2626] text-[10.5px] font-bold">Perbaikan</span>
+            </div>
+            <div class="flex items-center gap-2 text-[11px] text-gray-400 font-medium">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#EF4444]"></span>
+              <span>Servis berkala di bengkel</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Row 2: Grid Sejajar (Tabel Transaksi di Kiri + Status Unit Motor di Kanan) -->
+        <section class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
+
+          <!-- Left Column (8 cols): Transaksi Terbaru Card -->
+          <div class="lg:col-span-8 bg-white rounded-2xl p-6 card-shadow border border-gray-100/80 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <h2 class="text-[15.5px] font-bold text-[#0C4651]">Transaksi Terbaru</h2>
+                <span id="searchBadge" class="hidden text-[11.5px] font-semibold text-[#0C4651] bg-[#E6F2F4] px-2.5 py-1 rounded-lg"></span>
+              </div>
+
+              <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse min-w-[600px]">
+                  <thead>
+                    <tr class="bg-[#0C4651] text-white text-[12.5px] font-semibold">
+                      <th class="py-3 px-4 rounded-l-xl w-14 text-center">No</th>
+                      <th class="py-3 px-4">Nama Pengguna</th>
+                      <th class="py-3 px-4">Motor</th>
+                      <th class="py-3 px-4">Tanggal Sewa</th>
+                      <th class="py-3 px-4 text-center">Status</th>
+                      <th class="py-3 px-4 rounded-r-xl text-right pr-6">Total</th>
+                    </tr>
+                  </thead>
+                  <tbody id="transactionTableBody" class="divide-y divide-gray-100 text-[13px] font-semibold text-gray-800">
+                    <!-- Populated via JS -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Pagination Footer -->
+            <div class="mt-5 pt-4 border-t border-gray-100 flex flex-wrap items-center justify-between gap-3">
+              <p id="paginationInfo" class="text-[11.5px] font-medium text-gray-400">
+                Menampilkan 1 - 5 dari 13 data
+              </p>
+
+              <div class="flex items-center gap-1.5" id="paginationControls">
+                <!-- Populated via JS -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column (4 cols): Donut Chart Status Unit Motor -->
+          <div class="lg:col-span-4 bg-white rounded-2xl p-6 card-shadow border border-gray-100/80 flex flex-col justify-between">
+            <!-- SVG Donut Chart -->
+            <div class="relative w-48 h-48 mx-auto my-2 flex items-center justify-center">
+              <svg viewBox="0 0 180 180" class="w-full h-full -rotate-90">
+                <!-- Tersedia: 46% (#0C4651) -->
+                <circle cx="90" cy="90" r="64" fill="transparent" stroke="#0C4651" stroke-width="26"
+                        stroke-dasharray="185.0 402.12" stroke-dashoffset="0" />
+                <!-- Disewa: 31% (#E59500) -->
+                <circle cx="90" cy="90" r="64" fill="transparent" stroke="#E59500" stroke-width="26"
+                        stroke-dasharray="124.7 402.12" stroke-dashoffset="-185.0" />
+                <!-- Perbaikan: 23% (#FF0000) -->
+                <circle cx="90" cy="90" r="64" fill="transparent" stroke="#FF0000" stroke-width="26"
+                        stroke-dasharray="92.5 402.12" stroke-dashoffset="-309.7" />
+              </svg>
+
+              <!-- Percentage Labels on Arcs -->
+              <span class="absolute right-[14px] top-[76px] text-[10px] font-bold text-white">46%</span>
+              <span class="absolute left-[26px] bottom-[38px] text-[10px] font-bold text-white">31%</span>
+              <span class="absolute left-[34px] top-[28px] text-[10px] font-bold text-white">23%</span>
+
+              <!-- Center Text -->
+              <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+                <span class="text-[24px] font-extrabold text-[#0C4651] leading-tight">13</span>
+                <span class="text-[11px] font-semibold text-gray-400">Total Unit</span>
+              </div>
+            </div>
+
+            <div>
+              <!-- Title + Clock Icon -->
+              <div class="flex items-center justify-between mt-5 mb-4">
+                <h3 class="text-[15px] font-bold text-gray-900">Status Unit Motor</h3>
+                <div class="w-8 h-8 rounded-lg border border-gray-200 text-gray-500 flex items-center justify-center">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="9" />
+                    <path stroke-linecap="round" d="M12 7v5l3 2" />
+                  </svg>
+                </div>
+              </div>
+
+              <!-- Legend List -->
+              <div class="space-y-3 text-[13px]">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-2.5">
+                    <span class="w-2.5 h-2.5 rounded-full bg-[#0C4651]"></span>
+                    <span class="font-medium text-gray-600">Tersedia</span>
+                  </div>
+                  <div class="font-bold text-gray-900">6 <span class="font-medium text-gray-400 text-[12px]">(46%)</span></div>
+                </div>
+
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-2.5">
+                    <span class="w-2.5 h-2.5 rounded-full bg-[#E59500]"></span>
+                    <span class="font-medium text-gray-600">Disewa</span>
+                  </div>
+                  <div class="font-bold text-gray-900">4 <span class="font-medium text-gray-400 text-[12px]">(31%)</span></div>
+                </div>
+
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-2.5">
+                    <span class="w-2.5 h-2.5 rounded-full bg-[#FF0000]"></span>
+                    <span class="font-medium text-gray-600">Perbaikan</span>
+                  </div>
+                  <div class="font-bold text-gray-900">3 <span class="font-medium text-gray-400 text-[12px]">(23%)</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </section>
       </main>
     </div>
-    <script src="../js/dashboard.js"></script>
-  </body>
+  </div>
+
+  <!-- Custom JS -->
+  <script src="../js/dashboard.js"></script>
+</body>
 </html>

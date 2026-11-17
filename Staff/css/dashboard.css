@@ -1,337 +1,85 @@
-/* ==========================================================================
-   1. Reset & General Styles
-   ========================================================================== */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
+/* Base Font & Reset */
 body {
-  margin: 0;
-  background: #e9e9e9;
-  color: #12252b;
-  font-family: Poppins, Arial, sans-serif;
-  font-size: 11px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
-.admin-layout {
-  display: flex;
-  min-height: 100vh;
+/* Custom Subtle Card Shadow */
+.card-shadow {
+  box-shadow: 0 2px 14px rgba(15, 23, 42, 0.035);
 }
 
-/* ==========================================================================
-   2. Sidebar Styles
-   ========================================================================== */
-.sidebar {
-  width: 140px;
-  background: #104955;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  flex-shrink: 0;
-  min-height: 100vh;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 100;
-  transition: left 0.2s;
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
 }
 
-.side-brand {
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  border-bottom: 1px solid #ffffff15;
-  color: #ffd34f;
-  font-size: 12px;
+::-webkit-scrollbar-track {
+  background: transparent;
 }
 
-.logo-badge {
-  width: 29px;
-  height: 29px;
-  border: 1px solid #ffd34f;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  color: #ffd34f;
-  font-size: 14px;
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
 }
 
-.sidebar-section-title {
-  font-size: 7px;
-  color: #79a3aa;
-  padding: 10px 10px 4px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
+/* ==================== SIDEBAR COLLAPSE TRANSITIONS ==================== */
+#sidebar {
+  transition: width 0.28s cubic-bezier(0.4, 0, 0.2, 1), transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.side-nav {
-  padding: 4px 5px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+.sidebar-expanded {
+  width: 250px;
 }
 
-.side-nav a,
-.logout {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: #fff;
-  text-decoration: none;
-  padding: 9px 8px;
-  border-radius: 4px;
-  font-size: 9px;
-  font-weight: 600;
-  white-space: nowrap;
+.sidebar-collapsed {
+  width: 82px;
 }
 
-.side-nav a i,
-.logout i {
-  font-size: 13px;
+/* Sembunyikan teks label saat sidebar ditutup di desktop */
+@media (min-width: 1024px) {
+  .sidebar-collapsed .sidebar-label,
+  .sidebar-collapsed .sidebar-section-title {
+    display: none;
+  }
+
+  .sidebar-collapsed #brandHeader {
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .sidebar-collapsed .nav-item,
+  .sidebar-collapsed #sidebarLogoutBtn {
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
-.side-nav a.active {
-  background: #fff;
-  color: #0e4b59;
-  box-shadow: 0 1px 3px #0002;
+/* Tooltip saat hover di mode collapsed */
+.sidebar-collapsed .nav-item,
+.sidebar-collapsed #sidebarLogoutBtn {
   position: relative;
 }
 
-.side-nav a.active:before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 5px;
-  bottom: 5px;
-  width: 3px;
-  background: #18a6bc;
-  border-radius: 3px;
-}
-
-.logout {
-  margin: auto 5px 8px;
-  background: #ffffff10;
-  color: #e6eff1;
-}
-
-/* ==========================================================================
-   3. Main Content & Topbar
-   ========================================================================== */
-.main-content {
-  min-width: 0;
-  flex: 1;
-  margin-left: 140px; /* Menyesuaikan lebar sidebar fixed */
-}
-
-.topbar {
-  height: 53px;
-  background: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 16px;
-  gap: 18px;
-  box-shadow: 0 1px 3px #00000008;
-}
-
-.search-top {
-  height: 31px;
-  width: min(235px, 45%);
-  background: #f3f3f4;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 0 10px;
-  color: #444;
-}
-
-.search-top input {
-  width: 100%;
-  border: 0;
-  outline: 0;
-  background: transparent;
-  font: 10px Poppins, sans-serif;
-}
-
-.top-user {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-}
-
-.notification {
-  position: relative;
-  border: 0;
-  background: transparent;
-  font-size: 18px;
-  color: #15191b;
-  margin-right: 6px;
-}
-
-.notification span {
-  position: absolute;
-  top: -3px;
-  right: -2px;
-  background: red;
-  color: #fff;
-  border-radius: 50%;
-  font: 700 7px Poppins;
-  width: 13px;
-  height: 13px;
-  display: grid;
-  place-items: center;
-}
-
-.avatar {
-  width: 19px;
-  height: 19px;
-  border-radius: 50%;
-  background: #c5d0d2;
-  color: #104955;
-  display: grid;
-  place-items: center;
-  font-size: 8px;
-  font-weight: 700;
-}
-
-.top-user b,
-.top-user small {
-  display: block;
-}
-
-.top-user b {
-  font-size: 9px;
-}
-
-.top-user small {
-  font-size: 8px;
-  color: #777;
-}
-
-.more-btn {
-  border: 0;
-  background: none;
-  font-size: 18px;
-  color: #666;
-  margin-left: 14px;
-}
-
-.mobile-menu {
-  display: none;
-  border: 0;
-  background: transparent;
-  font-size: 20px;
-}
-
-/* ==========================================================================
-   4. Dashboard Content & Grid Pegawai
-   ========================================================================== */
-.dashboard-content {
-  padding: 12px 12px 16px;
-}
-
-.stats-grid-pegawai {
-  background: #104955;
-  padding: 16px 13px;
-  border-radius: 12px;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 10px;
-}
-
-.stat-card-action {
-  background: #195b69;
-  color: #fff;
-  border-radius: 6px;
-  padding: 12px 14px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.stat-label-action {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 11px;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 4px;
-}
-
-.stat-card-action p {
-  font-size: 8px;
-  color: #b0d1d6;
-  margin: 0;
-}
-
-.stat-card-green,
-.stat-card-yellow {
-  background: #fff;
-  border-radius: 6px;
-  padding: 12px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  box-shadow: 0 2px 3px #0001;
-}
-
-.stat-header-flex {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 9px;
-  font-weight: 700;
-  color: #086078;
-}
-
-.stat-header-flex i.bi-check-circle-fill {
-  color: #2ec4b6;
-  font-size: 14px;
-}
-
-.stat-header-flex i.bi-key-fill {
-  color: #f7c846;
-  font-size: 14px;
-}
-
-.stat-card-green strong,
-.stat-card-yellow strong {
-  font-size: 22px;
-  font-weight: 700;
-  color: #116276;
-}
-
-/* Dashboard Grid Tengah & Bawah */
-.dashboard-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.9fr) minmax(175px, 0.85fr);
-  gap: 8px;
-  margin-top: 8px;
-  align-items: start;
-}
-
-.panel {
-  background: #fff;
-  border-radius: 2px;
-  padding: 12px 10px;
-  box-shadow: 0 1px 3px #0002;
-  min-width: 0;
-}
-
-.panel h3 {
-  font-size: 9px;
-  color: #096078;
-  font-weight: 700;
-  margin: 0 0 10px;
-}
-
-.panel-full {
-  grid-column: 1 / 3;
+@media (min-width: 1024px) {
+  .sidebar-collapsed .nav-item:hover::after,
+  .sidebar-collapsed #sidebarLogoutBtn:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    left: calc(100% + 12px);
+    top: 50%;
+    transform: translateY(-50%);
+    background: #093841;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 8px;
+    white-space: nowrap;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.16);
+    z-index: 60;
+    pointer-events: none;
+  }
 }
