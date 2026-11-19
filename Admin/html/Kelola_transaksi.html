@@ -1,0 +1,840 @@
+
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kelola Transaksi | RYOKOU</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/kelola_transaksi.css">
+</head>
+
+<body>
+
+<div class="app-shell">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+
+    <a class="brand" href="dashboard.html">
+      <span class="brand-mark">
+        
+      </span>
+      <span>RYOKOU</span>
+    </a>
+
+    <div class="side-caption">MENU UTAMA</div>
+
+    <nav class="side-nav">
+
+      <a href="dashboard.html" class="nav-item">
+        <i class="bi bi-grid"></i>
+        <span>Dashboard</span>
+      </a>
+
+      <a href="Kelola_data_motor.html" class="nav-item">
+        <i class="bi bi-bicycle"></i>
+        <span>Kelola Data Motor</span>
+      </a>
+
+      <a href="Kelola_transaksi.html" class="nav-item active">
+        <i class="bi bi-clipboard-check"></i>
+        <span>Kelola Transaksi</span>
+      </a>
+
+      <a href="Info_penyewaan.html" class="nav-item">
+        <i class="bi bi-calendar2-week"></i>
+        <span>Info Penyewaan</span>
+      </a>
+
+      <a href="Pembayaran.html" class="nav-item">
+        <i class="bi bi-cash-stack"></i>
+        <span>Pembayaran</span>
+      </a>
+
+      <a href="Pengembalian.html" class="nav-item">
+        <i class="bi bi-arrow-return-left"></i>
+        <span>Pengembalian</span>
+      </a>
+
+      <a href="Riwayat_penyewaan.html" class="nav-item">
+        <i class="bi bi-clock-history"></i>
+        <span>Riwayat Penyewaan</span>
+      </a>
+
+      <a href="Laporan_data_motor.html" class="nav-item">
+        <i class="bi bi-file-earmark-text"></i>
+        <span>Laporan Data Motor</span>
+      </a>
+
+      <a href="Pengaturan.html" class="nav-item">
+        <i class="bi bi-gear"></i>
+        <span>Pengaturan</span>
+      </a>
+
+    </nav>
+
+    <button class="logout-btn" id="logoutBtn">
+      <i class="bi bi-box-arrow-left"></i>
+      <span>Keluar</span>
+    </button>
+
+  </aside>
+
+
+  <!-- MAIN CONTENT -->
+  <main class="main-area">
+
+    <!-- NAVBAR -->
+    <header class="topbar">
+
+      <button class="icon-btn sidebar-toggle" id="sidebarToggle">
+        <i class="bi bi-layout-sidebar"></i>
+      </button>
+
+      <div class="top-search">
+        <i class="bi bi-search"></i>
+        <input id="globalSearch" placeholder="Pencaharian">
+      </div>
+
+      <div class="profile-wrap">
+
+        <button class="profile-button" id="profileButton">
+
+          <span class="avatar-small">A1</span>
+
+          <span class="profile-text">
+            <b>Admin_001</b>
+            <small>Admin/Owner</small>
+          </span>
+
+          <i class="bi bi-chevron-down"></i>
+
+        </button>
+
+        <div class="profile-menu" id="profileMenu">
+
+          <div class="profile-menu-head">
+
+            <span class="avatar-large">A1</span>
+
+            <div>
+              <b>Admin_001</b>
+              <small>admin001@gmail.com</small>
+              <em>Admin/Owner</em>
+            </div>
+
+          </div>
+
+          <a href="Pengaturan.html">
+            <i class="bi bi-gear"></i>
+            Pengaturan
+          </a>
+
+          <button id="profileLogout">
+            <i class="bi bi-box-arrow-right"></i>
+            Keluar dari Admin
+          </button>
+
+        </div>
+
+      </div>
+
+    </header>
+
+
+    <!-- HALAMAN DAFTAR TRANSAKSI -->
+    <section class="page-content" id="listPage">
+
+      <!-- FILTER DAN TOMBOL -->
+      <div class="toolbar">
+
+        <div class="toolbar-filters">
+
+          <label class="filter-control">
+            <i class="bi bi-calendar3"></i>
+
+            <select id="dateFilter">
+              <option value="">Semua Tanggal (Nov 2026)</option>
+              <option>November 2026</option>
+              <option>Oktober 2026</option>
+            </select>
+
+            <i class="bi bi-chevron-down"></i>
+          </label>
+
+          <label class="filter-control">
+
+            <select id="statusFilter">
+              <option value="">Semua Status</option>
+              <option>Menunggu</option>
+              <option>Diproses</option>
+              <option>Terkonfirmasi</option>
+              <option>Selesai</option>
+              <option>Dibatalkan</option>
+            </select>
+
+            <i class="bi bi-chevron-down"></i>
+
+          </label>
+
+        </div>
+
+        <div class="toolbar-actions">
+
+          <button class="btn-primary" id="newTransactionBtn">
+            <i class="bi bi-plus-lg"></i>
+            Transaksi Baru
+          </button>
+
+          <button class="btn-outline-light" id="walkinBtn">
+            <i class="bi bi-plus-lg"></i>
+            Transaksi Walk-in
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- STATISTIK -->
+      <div class="stat-grid">
+
+        <div class="stat-card">
+          <span class="stat-icon teal">
+            <i class="bi bi-scooter"></i>
+          </span>
+
+          <div>
+            <strong id="totalCount">10</strong>
+            <small>Total Transaksi</small>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <span class="stat-icon orange">
+            <i class="bi bi-stopwatch"></i>
+          </span>
+
+          <div>
+            <strong id="waitingCount">2</strong>
+            <small>Menunggu Verifikasi</small>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <span class="stat-icon blue">
+            <i class="bi bi-calendar-check"></i>
+          </span>
+
+          <div>
+            <strong>4</strong>
+            <small>Dalam Penyewaan</small>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <span class="stat-icon coral">
+            <i class="bi bi-arrow-return-left"></i>
+          </span>
+
+          <div>
+            <strong>2</strong>
+            <small>Menunggu Pengembalian</small>
+          </div>
+        </div>
+
+      </div>
+
+
+      <!-- TABEL DAN DETAIL -->
+      <div class="workspace">
+
+        <!-- DAFTAR TRANSAKSI -->
+        <section class="table-panel">
+
+          <div class="panel-heading">
+
+            <h2>Daftar Transaksi</h2>
+
+            <div class="table-tools">
+
+              <select id="tableStatus">
+                <option value="">Semua Status</option>
+                <option>Menunggu</option>
+                <option>Diproses</option>
+                <option>Terkonfirmasi</option>
+                <option>Selesai</option>
+                <option>Dibatalkan</option>
+              </select>
+
+              <div class="mini-search">
+                <i class="bi bi-search"></i>
+                <input id="tableSearch" placeholder="Cari transaksi...">
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="table-responsive">
+
+            <table class="transaction-table">
+
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>ID Transaksi</th>
+                  <th>Nama Pelanggan</th>
+                  <th>Motor</th>
+                  <th>Tanggal Sewa</th>
+                  <th>Status</th>
+                  <th>Aksi</th>
+                </tr>
+              </thead>
+
+              <tbody id="transactionRows"></tbody>
+
+            </table>
+
+          </div>
+
+          <div class="table-footer">
+
+            <span id="rowInfo">
+              Menampilkan 1–10 dari 10 data
+            </span>
+
+            <div>
+              <button class="page-btn" disabled>
+                <i class="bi bi-chevron-left"></i>
+              </button>
+
+              <button class="page-btn current">1</button>
+              <button class="page-btn">2</button>
+
+              <button class="page-btn">
+                <i class="bi bi-chevron-right"></i>
+              </button>
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- DETAIL TRANSAKSI -->
+        <section class="detail-panel" id="detailPanel">
+
+          <div class="detail-title">
+            <h2>Detail Transaksi</h2>
+            <span class="transaction-id" id="detailId">TRX-001</span>
+          </div>
+
+          <!-- TAB MENU -->
+          <div class="detail-tabs">
+
+            <button class="detail-tab active" data-tab="info">
+              Informasi Transaksi
+            </button>
+
+            <button class="detail-tab" data-tab="documents">
+              Dokumen Data
+            </button>
+
+            <button class="detail-tab" data-tab="motor">
+              Konfirmasi Motor
+            </button>
+
+            <button class="detail-tab" data-tab="payment">
+              Pembayaran & Denda
+            </button>
+
+          </div>
+
+
+          <!-- TAB INFORMASI -->
+          <div class="tab-content active" id="tab-info">
+
+            <h3>Data Pelanggan</h3>
+
+            <div class="customer-block">
+
+              <div class="customer-photo">
+                <i class="bi bi-person"></i>
+              </div>
+
+              <div class="customer-data">
+
+                <b id="detailCustomer">
+                  Valentina Alexsandra
+                </b>
+
+                <span>
+                  <i class="bi bi-telephone"></i>
+                  0811 2345 6789
+                </span>
+
+                <span>
+                  <i class="bi bi-geo-alt"></i>
+                  Jl. Diponegoro No. 12, Kota Malang
+                </span>
+
+              </div>
+
+            </div>
+
+            <h3>Data Penyewaan</h3>
+
+            <div class="rental-block">
+
+              <div class="motor-picture">
+                <i class="bi bi-scooter"></i>
+              </div>
+
+              <div class="rental-data">
+
+                <div>
+                  <span>Unit Motor</span>
+                  <b id="detailMotor">Honda Beat Deluxe 2023/2024</b>
+                </div>
+
+                <div>
+                  <span>Tanggal Sewa</span>
+                  <b id="detailDate">3 November 2026 (2 Hari)</b>
+                </div>
+
+                <div>
+                  <span>Lokasi Ambil</span>
+                  <b>Rental Motor RYOKOU</b>
+                </div>
+
+                <div>
+                  <span>Total Biaya</span>
+                  <b id="detailPrice">Rp 166.000</b>
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="detail-actions">
+
+              <button class="btn-danger-outline" id="rejectBtn">
+                <i class="bi bi-x-lg"></i>
+                Tolak Transaksi
+              </button>
+
+              <button class="btn-primary" id="verifyBtn">
+                <i class="bi bi-check2"></i>
+                Lanjut Ke Verifikasi
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <!-- TAB DOKUMEN -->
+          <div class="tab-content" id="tab-documents">
+
+            <h3>Dokumen Identitas (KTP)</h3>
+
+            <div class="document-card">
+              <div class="document-preview">
+                <i class="bi bi-card-image"></i>
+              </div>
+
+              <div>
+                <b>ktp_pelanggan.jpg</b>
+                <small>Foto identitas pelanggan</small>
+              </div>
+
+              <button class="small-outline">Lihat Gambar</button>
+            </div>
+
+            <h3>Foto Pengguna</h3>
+
+            <div class="document-card">
+              <div class="document-preview portrait">
+                <i class="bi bi-person"></i>
+              </div>
+
+              <div>
+                <b>foto_pengguna.jpg</b>
+                <small>Foto pengguna</small>
+              </div>
+
+              <button class="small-outline">Lihat Gambar</button>
+            </div>
+
+            <h3>Foto SIM C</h3>
+
+            <div class="document-card">
+              <div class="document-preview">
+                <i class="bi bi-card-heading"></i>
+              </div>
+
+              <div>
+                <b>sim_c.jpg</b>
+                <small>Foto SIM C</small>
+              </div>
+
+              <button class="small-outline">Lihat Gambar</button>
+            </div>
+
+          </div>
+
+
+          <!-- TAB KONFIRMASI MOTOR -->
+          <div class="tab-content" id="tab-motor">
+
+            <h3>Foto Motor Saat Serah Terima</h3>
+
+            <div class="photo-grid">
+              <div><i class="bi bi-scooter"></i></div>
+              <div><i class="bi bi-scooter"></i></div>
+              <div><i class="bi bi-scooter"></i></div>
+              <div><i class="bi bi-scooter"></i></div>
+            </div>
+
+            <h3>Foto Motor Saat Pengembalian</h3>
+
+            <div class="photo-grid">
+              <div><i class="bi bi-scooter"></i></div>
+              <div><i class="bi bi-scooter"></i></div>
+              <div><i class="bi bi-scooter"></i></div>
+              <div><i class="bi bi-scooter"></i></div>
+            </div>
+
+            <label class="form-label mt-3">
+              Kondisi Saat Ini
+            </label>
+
+            <select class="form-select">
+              <option>Baik</option>
+              <option>Perlu Pemeriksaan</option>
+              <option>Rusak</option>
+            </select>
+
+          </div>
+
+
+          <!-- TAB PEMBAYARAN -->
+          <div class="tab-content" id="tab-payment">
+
+            <label class="form-label">Status Pembayaran</label>
+
+            <select class="form-select">
+              <option>Sudah dibayar</option>
+              <option>Belum dibayar</option>
+            </select>
+
+            <label class="form-label mt-3">
+              Metode Pembayaran
+            </label>
+
+            <select class="form-select">
+              <option>Cash</option>
+              <option>Transfer Bank</option>
+              <option>QRIS</option>
+            </select>
+
+            <label class="form-label mt-3">
+              Denda (Jika Ada)
+            </label>
+
+            <div class="fine-row">
+              <span>Keterlambatan</span>
+              <input value="Rp 0">
+            </div>
+
+            <div class="fine-row">
+              <span>Pelanggaran Wilayah</span>
+              <input value="Rp 0">
+            </div>
+
+            <div class="fine-row">
+              <span>Kerusakan Unit</span>
+              <input value="Rp 0">
+            </div>
+
+            <div class="fine-total">
+              <b>Total Denda</b>
+              <strong>Rp 0</strong>
+            </div>
+
+          </div>
+
+        </section>
+
+      </div>
+
+    </section>
+
+
+    <!-- HALAMAN TRANSAKSI BARU -->
+    <section class="page-content form-page d-none" id="formPage">
+
+      <div class="form-card">
+
+        <button class="back-link" id="backToList">
+          <i class="bi bi-arrow-left"></i>
+          <span>Transaksi Baru</span>
+        </button>
+
+        <p class="form-intro" id="formIntro">
+          Proses pemesanan untuk pelanggan melalui website.
+        </p>
+
+        <div class="mode-switch">
+
+          <button class="mode-button active" data-mode="online">
+            <i class="bi bi-globe"></i>
+
+            <span>
+              <b>Transaksi Baru</b>
+              <small>Pelanggan melakukan reservasi online</small>
+            </span>
+          </button>
+
+          <button class="mode-button" data-mode="walkin">
+            <i class="bi bi-person-walking"></i>
+
+            <span>
+              <b>Transaksi Walk-in</b>
+              <small>Pelanggan datang langsung</small>
+            </span>
+          </button>
+
+        </div>
+
+
+        <form id="transactionForm">
+
+          <div class="form-section" id="bookingSection">
+
+            <h3>1. Data Pesanan</h3>
+
+            <div class="input-with-button">
+              <input class="form-control" placeholder="PSN-001" id="bookingCode">
+              <button type="button" class="btn-primary" id="findBooking">
+                Cari
+              </button>
+            </div>
+
+            <div class="booking-info">
+              <span>
+                ID Pesanan
+                <strong>PSN-001</strong>
+              </span>
+
+              <span>
+                Tanggal Pesan
+                <strong>26 Apr 2025, 10:15</strong>
+              </span>
+
+              <span>
+                Status
+                <strong class="text-warning">Menunggu Verifikasi</strong>
+              </span>
+            </div>
+
+          </div>
+
+
+          <div class="form-section">
+
+            <h3>2. Data Pelanggan</h3>
+
+            <div class="form-grid">
+
+              <div>
+                <label>Nama Lengkap <em>*</em></label>
+                <input class="form-control" id="customerName" placeholder="Masukkan nama pelanggan" required>
+              </div>
+
+              <div>
+                <label>Nomor HP <em>*</em></label>
+                <input class="form-control" id="customerPhone" placeholder="Masukkan nomor handphone" required>
+              </div>
+
+              <div class="wide">
+                <label>Alamat <em>*</em></label>
+                <textarea class="form-control" id="customerAddress" rows="2" placeholder="Masukkan alamat lengkap" required></textarea>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="form-section">
+
+            <h3>3. Bukti Pendukung</h3>
+
+            <label class="upload-box">
+
+              <i class="bi bi-cloud-arrow-up"></i>
+              <b>Upload KTP / SIM</b>
+              <small>Format JPG/PNG, maksimal 2 MB</small>
+
+              <input type="file" accept="image/*">
+
+            </label>
+
+          </div>
+
+
+          <div class="form-section">
+
+            <h3>4. Pilih Motor</h3>
+
+            <select class="form-select" id="motorSelect">
+              <option>Honda Beat Deluxe - Rp 83.000 / hari</option>
+              <option>Honda Vario 125 - Rp 90.000 / hari</option>
+              <option>Yamaha NMAX - Rp 120.000 / hari</option>
+            </select>
+
+            <div class="motor-options">
+
+              <label class="motor-option selected">
+                <input type="radio" name="motor" checked>
+                <i class="bi bi-scooter"></i>
+
+                <span>
+                  <b>Honda Beat</b>
+                  <small>Rp 83.000 / hari</small>
+                </span>
+              </label>
+
+              <label class="motor-option">
+                <input type="radio" name="motor">
+                <i class="bi bi-scooter"></i>
+
+                <span>
+                  <b>Vario 125</b>
+                  <small>Rp 90.000 / hari</small>
+                </span>
+              </label>
+
+              <label class="motor-option">
+                <input type="radio" name="motor">
+                <i class="bi bi-scooter"></i>
+
+                <span>
+                  <b>Honda Vario</b>
+                  <small>Rp 86.000 / hari</small>
+                </span>
+              </label>
+
+            </div>
+
+          </div>
+
+
+          <div class="form-section">
+
+            <h3>5. Tanggal Sewa</h3>
+
+            <div class="form-grid three">
+
+              <div>
+                <label>Tanggal Mulai</label>
+                <input class="form-control" type="date" required>
+              </div>
+
+              <div>
+                <label>Tanggal Selesai</label>
+                <input class="form-control" type="date" required>
+              </div>
+
+              <div>
+                <label>Durasi</label>
+
+                <select class="form-select">
+                  <option>1 Hari</option>
+                  <option>2 Hari</option>
+                  <option>3 Hari</option>
+                  <option>4 Hari</option>
+                </select>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="form-section">
+
+            <h3>6. Lokasi Pengembalian</h3>
+
+            <select class="form-select">
+              <option>Pilih lokasi</option>
+              <option>Rental Motor RYOKOU</option>
+              <option>Pool Malang Pusat</option>
+            </select>
+
+          </div>
+
+
+          <div class="form-section">
+
+            <h3>7. Rincian Biaya</h3>
+
+            <div class="cost-line">
+              <span>Harga Sewa per Hari</span>
+              <b>Rp 83.000</b>
+            </div>
+
+            <div class="cost-line">
+              <span>Biaya Layanan</span>
+              <b>Rp 10.000</b>
+            </div>
+
+            <div class="cost-line total">
+              <span>Total Biaya</span>
+              <b>Rp 93.000</b>
+            </div>
+
+          </div>
+
+
+          <div class="form-actions">
+
+            <button type="button" class="btn-muted" id="cancelForm">
+              Batal
+            </button>
+
+            <button type="submit" class="btn-primary">
+              <i class="bi bi-save"></i>
+              Simpan Transaksi
+            </button>
+
+          </div>
+
+        </form>
+
+      </div>
+
+    </section>
+
+  </main>
+
+</div>
+
+<div class="toast-message" id="toastMessage"></div>
+
+<script src="../js/kelola_transaksi.js"></script>
+
+</body>
+</html>

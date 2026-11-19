@@ -65,3 +65,17 @@ body {
         pointer-events: none;
       }
     }
+    /* Menu sidebar normal */
+.nav-item {
+    background: transparent;
+    color: rgba(255, 255, 255, 0.85);
+    transition: all 0.2s ease;
+}
+
+/* Menu yang sedang aktif atau dipilih */
+.nav-item.active {
+    background: #ffffff;
+    color: #0C4651;
+    font-weight: 700;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}

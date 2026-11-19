@@ -573,3 +573,17 @@
     // Inisialisasi Awal
     renderDashboardWidgets();
     renderMotorTable();
+// Mengatur menu aktif
+document.querySelectorAll(".nav-item").forEach(item => {
+    item.addEventListener("click", function () {
+
+        // Hilangkan putih dari semua menu
+        document.querySelectorAll(".nav-item").forEach(menu => {
+            menu.classList.remove("active");
+        });
+
+        // Putihkan hanya menu yang diklik
+        this.classList.add("active");
+
+    });
+});

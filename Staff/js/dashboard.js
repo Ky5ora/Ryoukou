@@ -243,6 +243,8 @@ window.addEventListener("resize", () => {
 
 // ==================== NAVIGASI MENU SIDEBAR ====================
 const viewDashboard = document.getElementById("view-dashboard");
+// Buat atau siapkan elemen penampung view info penyewaan di HTML Anda (misal: id="view-penyewaan")
+const viewPenyewaan = document.getElementById("view-penyewaan"); 
 const navItems = document.querySelectorAll(".nav-item");
 
 function switchNavigation(targetKey) {
@@ -257,19 +259,37 @@ function switchNavigation(targetKey) {
     }
   });
 
-  if (viewDashboard) {
-    if (targetKey === "dashboard") {
-      viewDashboard.classList.remove("hidden");
-    } else {
-      viewDashboard.classList.add("hidden");
+  // Logika Atur Tampilan (Show/Hide View berdasarkan targetKey)
+  if (targetKey === "dashboard") {
+    if (viewDashboard) viewDashboard.classList.remove("hidden");
+    if (viewPenyewaan) viewPenyewaan.classList.add("hidden");
+  } else if (targetKey === "penyewaan") {
+    if (viewDashboard) viewDashboard.classList.add("hidden");
+    if (viewPenyewaan) {
+      viewPenyewaan.classList.remove("hidden");
+      // Opsional: Jika kontennya ingin diload dinamis via fetch/innerHTML, bisa ditaruh di sini
     }
   }
+  // Tambahkan kondisi else if untuk menu lain (pembayaran, riwayat, dll) jika ada
 
-  if (!isDesktop()) closeMobileSidebar();
+  if (typeof isDesktop === "function" && !isDesktop()) {
+    if (typeof closeMobileSidebar === "function") closeMobileSidebar();
+  }
 }
 
 navItems.forEach(btn => {
-  btn.addEventListener("click", () => switchNavigation(btn.dataset.nav));
+  btn.addEventListener("click", () => {
+    const target = btn.dataset.nav;
+    
+    // Jika ingin tetap menggunakan sistem multi-file (pindah halaman HTML terpisah):
+    if (target === "penyewaan") {
+      window.location.href = "info_penyewaan.html"; // Sesuaikan path file HTML-nya
+      return;
+    }
+    
+    // Jika menggunakan sistem 1 halaman (SPA), jalankan fungsi switch:
+    switchNavigation(target);
+  });
 });
 
 // ==================== AKSI KELUAR SISTEM ====================

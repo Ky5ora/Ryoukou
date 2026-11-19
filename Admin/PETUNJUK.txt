@@ -1,0 +1,20 @@
+PROJECT ADMIN RYOKOU - HASIL PERBAIKAN
+
+CARA MENJALANKAN
+1. Ekstrak folder Admin.
+2. Buka folder Admin di VS Code.
+3. Jalankan html/login.html untuk halaman login admin.
+4. Untuk melihat dashboard langsung, buka html/dashboard.html.
+5. Halaman website pelanggan berada di html/index.html.
+
+PERBAIKAN
+- Link Sidebar di halaman transaksi diarahkan ke halaman yang sesuai.
+- Halaman menu yang sebelumnya belum tersedia sudah dibuat agar tidak menghasilkan halaman 404.
+- Sidebar halaman tambahan memiliki menu aktif, tombol buka/tutup untuk layar kecil, dan tombol keluar.
+- Memperbaiki lokasi file CSS Kelola Data Motor.
+- Menghapus pemanggilan file konfigurasi Tailwind yang tidak tersedia.
+- Memperbaiki lokasi gambar motor pada halaman website pelanggan.
+- Menghapus tombol navigasi duplikat yang tersisa di bagian bawah halaman Kelola Data Motor.
+
+CATATAN
+Halaman Info Penyewaan, Pembayaran, Pengembalian, Riwayat Penyewaan, Laporan Data Motor, dan Pengaturan saat ini merupakan halaman dasar yang sudah terhubung melalui Sidebar. Isi fitur pengelolaannya belum dibuat karena belum ada rancangan/konten khusus pada file awal.

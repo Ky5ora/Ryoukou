@@ -1,7 +1,3 @@
-// ==========================================
-// 4. DASHBOARD UTAMA - JAVASCRIPT LOGIC
-// ==========================================
-
 document.addEventListener("DOMContentLoaded", function() {
 
     // 1. Fitur Pencarian Motor
@@ -110,5 +106,74 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
     }
+
+    // ==================== BUKA / TUTUP SIDEBAR (DESKTOP & MOBILE) ====================
+    const sidebar = document.getElementById("sidebar");
+    const mobileBackdrop = document.getElementById("mobileBackdrop");
+    const toggleSidebarBtn = document.getElementById("toggleSidebarBtn");
+    const closeMobileSidebarBtn = document.getElementById("closeMobileSidebarBtn");
+    const toggleIconOpen = document.getElementById("toggleIconOpen");
+    const toggleIconClosed = document.getElementById("toggleIconClosed");
+    
+    let isDesktopCollapsed = false;
+    
+    function isDesktop() {
+        return window.innerWidth >= 1024;
+    }
+    
+    function updateToggleIcons() {
+        if (isDesktop()) {
+            toggleIconOpen.classList.toggle("hidden", isDesktopCollapsed);
+            toggleIconClosed.classList.toggle("hidden", !isDesktopCollapsed);
+        } else {
+            const isMobileOpen = !sidebar.classList.contains("-translate-x-full");
+            toggleIconOpen.classList.toggle("hidden", !isMobileOpen);
+            toggleIconClosed.classList.toggle("hidden", isMobileOpen);
+        }
+    }
+    
+    function openMobileSidebar() {
+        sidebar.classList.remove("-translate-x-full");
+        mobileBackdrop.classList.remove("hidden");
+        updateToggleIcons();
+    }
+    function closeMobileSidebar() {
+        sidebar.classList.add("-translate-x-full");
+        mobileBackdrop.classList.add("hidden");
+        updateToggleIcons();
+    }
+    
+    toggleSidebarBtn.addEventListener("click", () => {
+        if (isDesktop()) {
+            isDesktopCollapsed = !isDesktopCollapsed;
+            sidebar.classList.toggle("sidebar-collapsed", isDesktopCollapsed);
+            sidebar.classList.toggle("sidebar-expanded", !isDesktopCollapsed);
+            updateToggleIcons();
+        } else {
+            
+            const isClosed = sidebar.classList.contains("-translate-x-full");
+            if (isClosed) {
+                openMobileSidebar();
+            } else {
+                closeMobileSidebar();
+            }
+        }
+    });
+    
+    closeMobileSidebarBtn.addEventListener("click", closeMobileSidebar);
+    mobileBackdrop.addEventListener("click", closeMobileSidebar);
+    
+    window.addEventListener("resize", () => {
+        if (isDesktop()) {
+            mobileBackdrop.classList.add("hidden");
+            sidebar.classList.remove("-translate-x-full");
+            sidebar.classList.toggle("sidebar-collapsed", isDesktopCollapsed);
+            sidebar.classList.toggle("sidebar-expanded", !isDesktopCollapsed);
+        } else {
+            sidebar.classList.remove("sidebar-collapsed");
+            sidebar.classList.add("sidebar-expanded", "-translate-x-full");
+        }
+        updateToggleIcons();
+    });
 
 });
