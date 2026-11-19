@@ -1,0 +1,394 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --teal-primary: #104652;
+    --teal-secondary: #0E4B5B;
+    --teal-btn: #085a6b;
+    --teal-dark: #064552;
+    --gold-accent: #F6D057;
+    --bg-canvas: #F4F6F8;
+    --surface-white: #ffffff;
+    --border-soft: #E2E8F0;
+    --text-dark: #1E293B;
+    --text-muted: #64748B;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-canvas);
+    color: var(--text-dark);
+    min-height: 100vh;
+}
+
+/* ================= SIDEBAR & NAVBAR MOBILE ================= */
+.bg-sidebar-mobile, .sidebar {
+    background-color: var(--teal-primary);
+}
+
+.sidebar {
+    width: 265px;
+    min-width: 265px;
+    flex-shrink: 0;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    overflow-y: auto;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    z-index: 1020;
+}
+
+.sidebar-brand-box {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 14px 16px;
+}
+
+.sidebar-menu-label {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: rgba(255, 255, 255, 0.45);
+    font-weight: 600;
+    padding-left: 14px;
+    margin-bottom: 8px;
+}
+
+.sidebar .nav-link, .offcanvas .nav-link {
+    color: rgba(255, 255, 255, 0.78);
+    background-color: transparent;
+    border-radius: 12px;
+    padding: 11px 16px;
+    transition: all 0.22s ease;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+
+.sidebar .nav-link:hover, .offcanvas .nav-link:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.12);
+    transform: translateX(4px);
+}
+
+.sidebar .nav-link.active, .offcanvas .nav-link.active {
+    color: var(--teal-primary);
+    background-color: #ffffff;
+    font-weight: 700;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.14);
+}
+
+.sidebar .nav-link img, .offcanvas .nav-link img {
+    transition: filter 0.2s ease-in-out;
+}
+
+.sidebar .nav-link.active img, .offcanvas .nav-link.active img {
+    filter: brightness(0) saturate(100%) invert(26%) sepia(43%) saturate(542%) hue-rotate(149deg) brightness(95%) contrast(93%);
+}
+
+/* ================= MAIN CONTENT & TOPBAR ================= */
+.main-content {
+    background-color: var(--bg-canvas);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.topbar-wrapper {
+    background-color: var(--surface-white);
+    border: 1px solid var(--border-soft);
+    border-radius: 18px;
+    padding: 12px 18px;
+    box-shadow: 0 4px 20px rgba(16, 70, 82, 0.04);
+}
+
+.style-search {
+    background-color: var(--bg-canvas) !important;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.style-search:focus-within {
+    background-color: #ffffff !important;
+    border-color: var(--teal-primary);
+    box-shadow: 0 0 0 3px rgba(16, 70, 82, 0.1);
+}
+
+.username-display {
+    font-size: 0.88rem;
+    color: var(--text-dark);
+}
+
+.user-role {
+    font-size: 0.72rem;
+}
+
+/* BANNER PROMO DENGAN DEKORASI LINGKARAN (ALA DASHBOARD) */
+.banner-promo {
+    background: linear-gradient(135deg, #104652 0%, #0E4B5B 100%);
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    color: #ffffff;
+    box-shadow: 0 10px 25px rgba(16, 70, 82, 0.15);
+}
+
+.banner-promo::before {
+    content: '';
+    position: absolute;
+    right: -50px;
+    bottom: -60px;
+    width: 280px;
+    height: 280px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.banner-promo::after {
+    content: '';
+    position: absolute;
+    right: 120px;
+    top: -40px;
+    width: 180px;
+    height: 180px;
+    background: rgba(246, 208, 87, 0.1);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.badge-promo-gold {
+    display: inline-block;
+    background: rgba(246, 208, 87, 0.2);
+    color: #F6D057;
+    border: 1px solid rgba(246, 208, 87, 0.4);
+    padding: 4px 12px;
+    border-radius: 30px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.hero-motor-img {
+    max-height: 160px;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.25));
+    transition: transform 0.3s ease;
+}
+
+.banner-promo:hover .hero-motor-img {
+    transform: scale(1.03);
+}
+
+/* Brand Filter Cards */
+.brand-card {
+    background-color: #ffffff;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    border: 2px solid #E2E8F0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+}
+
+.brand-card:hover {
+    transform: translateY(-3px);
+    border-color: #104652;
+    box-shadow: 0 6px 15px rgba(16, 70, 82, 0.08);
+}
+
+.brand-card.active {
+    background-color: #104652;
+    color: #ffffff;
+    border-color: #104652;
+    box-shadow: 0 6px 15px rgba(16, 70, 82, 0.2);
+}
+
+.brand-card.active img {
+    filter: brightness(0) invert(1);
+}
+
+.brand-logo-img {
+    height: 28px;
+    object-fit: contain;
+    transition: transform 0.2s ease;
+}
+
+@media (min-width: 768px) {
+    .brand-logo-img {
+        height: 32px;
+    }
+}
+
+/* ================= SHOWROOM MOTOR CARDS ================= */
+.card-unit {
+    border: 1px solid var(--border-soft);
+    border-radius: 20px;
+    background-color: #ffffff;
+    transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.02);
+}
+
+.card-unit:hover {
+    box-shadow: 0 16px 32px rgba(16, 70, 82, 0.1);
+    transform: translateY(-5px);
+    border-color: rgba(16, 70, 82, 0.25);
+}
+
+/* Panggung Latar Foto Motor */
+.motor-stage-box {
+    background: linear-gradient(180deg, #F4F6F8 0%, #ffffff 100%);
+    border-radius: 14px;
+    padding: 14px 10px;
+    margin-bottom: 12px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 135px;
+}
+
+.card-img-motor {
+    max-height: 115px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.card-unit:hover .card-img-motor {
+    transform: scale(1.07);
+}
+
+.spec-chip {
+    background-color: #F4F6F8;
+    color: var(--teal-primary);
+    font-size: 0.68rem;
+    font-weight: 600;
+    padding: 3px 9px;
+    border-radius: 6px;
+    display: inline-block;
+}
+
+/* Badge Status */
+.badge-tersedia {
+    background-color: #d1e7dd;
+    color: #0f5132;
+    font-size: 0.70rem;
+    padding: 4px 11px;
+    border-radius: 50px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.badge-tersedia::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #0f5132;
+}
+
+.badge-disewa {
+    background-color: #f8d7da;
+    color: #842029;
+    font-size: 0.70rem;
+    padding: 4px 11px;
+    border-radius: 50px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.badge-disewa::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #842029;
+}
+
+/* Tombol Sewa & Auth */
+.btn-sewa {
+    background-color: var(--teal-btn);
+    color: white;
+    border-radius: 10px;
+    padding: 7px 16px;
+    font-weight: 600;
+    font-size: 0.82rem;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.btn-sewa:hover {
+    background-color: var(--teal-dark);
+    color: white;
+    box-shadow: 0 4px 12px rgba(8, 90, 107, 0.25);
+}
+
+.btn-disewa-disabled {
+    background-color: #e2e8f0;
+    color: #64748b;
+    border-radius: 10px;
+    padding: 7px 16px;
+    font-weight: 600;
+    font-size: 0.82rem;
+    border: none;
+}
+
+.btn-teal {
+    background-color: var(--teal-primary);
+    border-color: var(--teal-primary);
+    transition: all 0.2s ease;
+}
+
+.btn-teal:hover {
+    background-color: var(--teal-dark);
+    border-color: var(--teal-dark);
+}
+
+.btn-outline-teal {
+    color: var(--teal-primary);
+    border-color: var(--teal-primary);
+    background-color: transparent;
+    transition: all 0.2s ease;
+}
+
+.btn-outline-teal:hover {
+    background-color: var(--teal-primary);
+    color: #ffffff;
+}
+
+/* Responsif HP */
+@media (max-width: 767.98px) {
+    .card-unit {
+        padding: 10px !important;
+        border-radius: 12px;
+    }
+    .card-img-motor {
+        max-height: 80px !important;
+    }
+    .card-unit .nama-motor {
+        font-size: 0.78rem !important;
+    }
+    .card-specs {
+        font-size: 0.62rem !important;
+        margin-bottom: 8px !important;
+    }
+    .price-label {
+        font-size: 0.55rem !important;
+    }
+    .price-value {
+        font-size: 0.72rem !important;
+    }
+    .price-unit {
+        font-size: 0.55rem !important;
+    }
+    .btn-sewa {
+        font-size: 0.68rem !important;
+        padding: 4px 8px !important;
+    }
+    .banner-promo {
+        padding: 20px !important;
+    }
+}

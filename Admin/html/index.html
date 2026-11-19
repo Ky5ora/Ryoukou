@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelola Transaksi & Verifikasi (Admin) - MotoRent</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Font Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 font-sans text-gray-900 antialiased">
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="fixed top-5 right-5 z-50 flex flex-col space-y-2"></div>
+
+    <div class="flex h-screen overflow-hidden">
+        
+        <!-- Sidebar -->
+        <aside class="hidden md:flex md:flex-shrink-0">
+            <div class="flex flex-col w-64 bg-slate-900 text-white">
+                <!-- Brand Header -->
+                <div class="flex items-center justify-center h-16 bg-slate-950 px-4">
+                    <div class="flex items-center space-x-2">
+                        <div class="bg-indigo-600 p-2 rounded-lg text-white">
+                            <i class="fa-solid fa-motorcycle text-xl"></i>
+                        </div>
+                        <span class="text-xl font-bold tracking-wide">MotoRent <span class="text-indigo-400 text-xs uppercase px-1.5 py-0.5 bg-indigo-950 rounded border border-indigo-800">Admin</span></span>
+                    </div>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="flex flex-col flex-grow px-4 py-6 space-y-1">
+                    <a href="#" class="flex items-center px-4 py-3 text-sm font-medium rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">
+                        <i class="fa-solid fa-chart-pie w-5 mr-3"></i> Dashboard
+                    </a>
+                    <a href="#" class="flex items-center px-4 py-3 text-sm font-medium rounded-lg bg-indigo-600 text-white shadow-md shadow-indigo-900/50">
+                        <i class="fa-solid fa-file-invoice-dollar w-5 mr-3"></i> Transaksi & Verifikasi
+                    </a>
+                    <a href="#" class="flex items-center px-4 py-3 text-sm font-medium rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">
+                        <i class="fa-solid fa-motorcycle w-5 mr-3"></i> Armada Motor
+                    </a>
+                    <a href="#" class="flex items-center px-4 py-3 text-sm font-medium rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">
+                        <i class="fa-solid fa-users w-5 mr-3"></i> Pelanggan
+                    </a>
+                    <a href="#" class="flex items-center px-4 py-3 text-sm font-medium rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">
+                        <i class="fa-solid fa-shield-halved w-5 mr-3"></i> Denda & Keamanan
+                    </a>
+                    <a href="#" class="flex items-center px-4 py-3 text-sm font-medium rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">
+                        <i class="fa-solid fa-chart-line w-5 mr-3"></i> Laporan Keuangan
+                    </a>
+                </div>
+
+                <!-- Admin Profile Footer -->
+                <div class="p-4 bg-slate-950 flex items-center justify-between border-t border-slate-800">
+                    <div class="flex items-center space-x-3">
+                        <img class="w-9 h-9 rounded-full bg-slate-700 object-cover" src="https://placehold.co/100x100/4f46e5/ffffff?text=AD" alt="Admin Avatar">
+                        <div>
+                            <p class="text-sm font-medium text-white">Budi Santoso</p>
+                            <p class="text-xs text-slate-400">Super Admin</p>
+                        </div>
+                    </div>
+                    <button onclick="showToast('Berhasil keluar sesi', 'info')" class="text-slate-400 hover:text-white transition-colors">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <div class="flex flex-col flex-1 h-full overflow-hidden">
+            
+            <!-- Top Navbar -->
+            <header class="flex items-center justify-between h-16 px-6 bg-white border-b border-gray-200 z-10 shadow-xs">
+                <div class="flex items-center space-x-4">
+                    <button class="md:hidden text-gray-500 hover:text-gray-700 focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                    <div>
+                        <h1 class="text-lg font-bold text-gray-800">Kelola Transaksi & Verifikasi</h1>
+                        <p class="text-xs text-gray-500 hidden sm:block">Pusat kendali pemesanan, verifikasi identitas, kondisi unit, dan denda penyewaan.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <!-- Walk-in Action Button -->
+                    <button onclick="openWalkInModal()" class="inline-flex items-center px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium rounded-lg shadow-sm transition-all transform active:scale-95">
+                        <i class="fa-solid fa-plus-circle mr-2"></i> Transaksi Walk-In
+                    </button>
+                    <!-- Notification Bell -->
+                    <div class="relative">
+                        <button class="p-2 text-gray-400 hover:text-gray-600 relative focus:outline-none">
+                            <span class="absolute top-1 right-1 w-2 h-2 bg-rose-500 rounded-full animate-ping"></span>
+                            <span class="absolute top-1 right-1 w-2 h-2 bg-rose-500 rounded-full"></span>
+                            <i class="fa-regular fa-bell text-xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Scrollable Page Body -->
+            <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-50 p-6">
+                
+                <!-- 1. Statistik Ringkas -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-6">
+                    <!-- Total Transaksi -->
+                    <div class="bg-white p-5 rounded-xl border border-gray-100 shadow-xs flex items-center justify-between">
+                        <div>
+                            <p class="text-xs font-semibold uppercase tracking-wider text-gray-500">Total Transaksi</p>
+                            <h3 class="text-2xl font-bold text-gray-800 mt-1" id="stat-total">128</h3>
+                            <span class="text-xs text-emerald-600 font-medium inline-flex items-center mt-1">
+                                <i class="fa-solid fa-arrow-trend-up mr-1"></i> +12% bulan ini
+                            </span>
+                        </div>
+                        <div class="p-3 bg-indigo-50 text-indigo-600 rounded-xl">
+                            <i class="fa-solid fa-file-invoice text-xl"></i>
+                        </div>
+                    </div>
+
+                    <!-- Menunggu Verifikasi -->
+                    <div class="bg-white p-5 rounded-xl border border-gray-100 shadow-xs flex items-center justify-between">
+                        <div>
+                            <p class="text-xs font-semibold uppercase tracking-wider text-gray-500">Menunggu Verifikasi</p>
+                            <h3 class="text-2xl font-bold text-amber-600 mt-1" id="stat-pending">5</h3>
+                            <span class="text-xs text-amber-600 font-medium inline-flex items-center mt-1">
+                                <i class="fa-solid fa-clock mr-1"></i> Perlu tindakan segera
+                            </span>
+                        </div>
+                        <div class="p-3 bg-amber-50 text-amber-600 rounded-xl">
+                            <i class="fa-solid fa-triangle-exclamation text-xl"></i>
+                        </div>
+                    </div>
+
+                    <!-- Unit Disewa -->
+                    <div class="bg-white p-5 rounded-xl border border-gray-100 shadow-xs flex items-center justify-between">
+                        <div>
+                            <p class="text-xs font-semibold uppercase tracking-wider text-gray-500">Unit Sedang Disewa</p>
+                            <h3 class="text-2xl font-bold text-blue-600 mt-1" id="stat-active">42</h3>
+                            <span class="text-xs text-blue-600 font-medium inline-flex items-center mt-1">
+                                <i class="fa-solid fa-motorcycle mr-1"></i> Armada aktif di jalan
+                            </span>
+                        </div>
+                        <div class="p-3 bg-blue-50 text-blue-600 rounded-xl">
+                            <i class="fa-solid fa-key text-xl"></i>
+                        </div>
+                    </div>
+
+                    <!-- Total Denda -->
+                    <div class="bg-white p-5 rounded-xl border border-gray-100 shadow-xs flex items-center justify-between">
+                        <div>
+                            <p class="text-xs font-semibold uppercase tracking-wider text-gray-500">Total Denda Tercatat</p>
+                            <h3 class="text-2xl font-bold text-rose-600 mt-1" id="stat-fines">Rp 1.250.000</h3>
+                            <span class="text-xs text-gray-500 font-medium inline-flex items-center mt-1">
+                                <i class="fa-solid fa-receipt mr-1"></i> Akumulasi bulan ini
+                            </span>
+                        </div>
+                        <div class="p-3 bg-rose-50 text-rose-600 rounded-xl">
+                            <i class="fa-solid fa-wallet text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Daftar Transaksi & Filter Section -->
+                <div class="bg-white rounded-xl border border-gray-200 shadow-xs overflow-hidden mb-8">
+                    <!-- Header Table & Filters -->
+                    <div class="p-5 border-b border-gray-200 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                        <div class="flex items-center space-x-3">
+                            <h2 class="text-base font-bold text-gray-800">Daftar Seluruh Transaksi</h2>
+                            <span id="transaction-count-badge" class="px-2.5 py-0.5 text-xs font-semibold bg-indigo-50 text-indigo-700 rounded-full">6 Transaksi Ditampilkan</span>
+                        </div>
+                        
+                        <!-- Search & Status Filter Controls -->
+                        <div class="flex flex-wrap items-center gap-3">
+                            <!-- Search Bar -->
+                            <div class="relative">
+                                <span class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-400">
+                                    <i class="fa-solid fa-magnifying-glass text-sm"></i>
+                                </span>
+                                <input type="text" id="search-input" onkeyup="filterTransactions()" placeholder="Cari nama, ID, atau motor..." class="w-full sm:w-64 pl-9 pr-4 py-2 text-sm bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:bg-white focus:outline-none transition-all">
+                            </div>
+
+                            <!-- Status Filter Dropdown -->
+                            <select id="status-filter" onchange="filterTransactions()" class="px-3 py-2 text-sm bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:bg-white focus:outline-none transition-all">
+                                <option value="ALL">Semua Status</option>
+                                <option value="Pending">Pending (Verifikasi)</option>
+                                <option value="Terverifikasi">Terverifikasi</option>
+                                <option value="Berlangsung">Berlangsung (Disewa)</option>
+                                <option value="Selesai">Selesai</option>
+                                <option value="Dibatalkan">Dibatalkan</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Table Responsive -->
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse" id="transactions-table">
+                            <thead>
+                                <tr class="bg-gray-50 text-gray-600 text-xs font-semibold uppercase tracking-wider border-b border-gray-200">
+                                    <th class="py-3 px-4">ID Transaksi</th>
+                                    <th class="py-3 px-4">Pelanggan</th>
+                                    <th class="py-3 px-4">Unit Motor</th>
+                                    <th class="py-3 px-4">Tanggal Sewa</th>
+                                    <th class="py-3 px-4">Pembayaran</th>
+                                    <th class="py-3 px-4">Status Pesanan</th>
+                                    <th class="py-3 px-4 text-center">Aksi / Verifikasi</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200 text-sm" id="transaction-tbody">
+                                <!-- Populated dynamically by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Pagination Footer -->
+                    <div class="p-4 bg-gray-50 border-t border-gray-200 flex items-center justify-between text-xs text-gray-500">
+                        <span>Menampilkan 1-6 dari total 128 transaksi</span>
+                        <div class="flex space-x-1">
+                            <button class="px-3 py-1 bg-white border border-gray-300 rounded-md hover:bg-gray-100 disabled:opacity-50" disabled>Sebelumnya</button>
+                            <button class="px-3 py-1 bg-indigo-600 text-white rounded-md">1</button>
+                            <button class="px-3 py-1 bg-white border border-gray-300 rounded-md hover:bg-gray-100">2</button>
+                            <button class="px-3 py-1 bg-white border border-gray-300 rounded-md hover:bg-gray-100">3</button>
+                            <button class="px-3 py-1 bg-white border border-gray-300 rounded-md hover:bg-gray-100">Selanjutnya</button>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- 3. MODAL DETAIL TRANSAKSI & VERIFIKASI -->
+    <div id="detail-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs hidden p-4 overflow-y-auto">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-4xl overflow-hidden transform transition-all my-8">
+            
+            <!-- Modal Header -->
+            <div class="flex items-center justify-between px-6 py-4 bg-slate-900 text-white">
+                <div class="flex items-center space-x-3">
+                    <div class="bg-indigo-600 p-2 rounded-lg text-white">
+                        <i class="fa-solid fa-clipboard-check"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-bold" id="modal-title">Detail Transaksi #TRX-1024</h3>
+                        <p class="text-xs text-slate-400">Kelola verifikasi identitas, cek fisik motor, dan status pembayaran.</p>
+                    </div>
+                </div>
+                <button onclick="closeModal()" class="text-slate-400 hover:text-white p-2 rounded-lg transition-colors">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <!-- Modal Navigation Tabs -->
+            <div class="flex border-b border-gray-200 bg-gray-50 px-6">
+                <button onclick="switchTab(1)" id="tab-btn-1" class="py-3 px-4 font-semibold text-sm border-b-2 border-indigo-600 text-indigo-600 focus:outline-none transition-all flex items-center space-x-2">
+                    <i class="fa-regular fa-id-card"></i> <span>1. Data & Dokumen Pelanggan</span>
+                </button>
+                <button onclick="switchTab(2)" id="tab-btn-2" class="py-3 px-4 font-semibold text-sm border-b-2 border-transparent text-gray-500 hover:text-gray-800 focus:outline-none transition-all flex items-center space-x-2">
+                    <i class="fa-solid fa-camera-retro"></i> <span>2. Cek Fisik & Kondisi Motor</span>
+                </button>
+                <button onclick="switchTab(3)" id="tab-btn-3" class="py-3 px-4 font-semibold text-sm border-b-2 border-transparent text-gray-500 hover:text-gray-800 focus:outline-none transition-all flex items-center space-x-2">
+                    <i class="fa-solid fa-file-invoice-dollar"></i> <span>3. Pembayaran & Denda</span>
+                </button>
+            </div>
+
+            <!-- Modal Body Content -->
+            <div class="p-6 max-h-[70vh] overflow-y-auto">
+                
+                <!-- TAB 1: DATA & DOKUMEN PELANGGAN -->
+                <div id="tab-content-1" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Customer Info Card -->
+                        <div class="md:col-span-1 bg-gray-50 p-4 rounded-xl border border-gray-200 space-y-4">
+                            <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider">Profil Penyewa</h4>
+                            <div class="flex items-center space-x-3">
+                                <img id="detail-cust-photo" src="https://placehold.co/100x100/e2e8f0/475569?text=User" class="w-14 h-14 rounded-full object-cover border border-gray-300" alt="Foto Pelanggan">
+                                <div>
+                                    <h5 class="font-bold text-gray-800" id="detail-name">Ahmad Fauzi</h5>
+                                    <p class="text-xs text-gray-500" id="detail-phone">+62 812-3456-7890</p>
+                                    <span class="inline-block mt-1 px-2 py-0.5 text-[10px] font-semibold bg-emerald-100 text-emerald-800 rounded">Pelanggan Terverifikasi</span>
+                                </div>
+                            </div>
+                            <div class="text-xs space-y-2 pt-2 border-t border-gray-200">
+                                <p><span class="text-gray-500">No. KTP/NIK:</span> <span class="font-medium text-gray-800" id="detail-nik">3507123456780002</span></p>
+                                <p><span class="text-gray-500">Email:</span> <span class="font-medium text-gray-800">ahmad.fauzi@gmail.com</span></p>
+                                <p><span class="text-gray-500">Tipe Sewa:</span> <span class="font-medium text-gray-800" id="detail-type">Online Booking</span></p>
+                            </div>
+
+                            <!-- Live/Transaction User Photo Capture Simulation -->
+                            <div class="pt-3 border-t border-gray-200">
+                                <label class="block text-xs font-semibold text-gray-700 mb-1">Unggah/Ambil Foto Pengguna Saat Transaksi:</label>
+                                <div class="flex items-center space-x-2">
+                                    <input type="file" id="user-live-photo" class="text-xs text-gray-500 file:mr-2 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100">
+                                </div>
+                                <p class="text-[10px] text-gray-400 mt-1">Foto wajah pelanggan saat penyerahan unit di basecamp.</p>
+                            </div>
+                        </div>
+
+                        <!-- Documents Preview & Verification -->
+                        <div class="md:col-span-2 space-y-4">
+                            <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider">Verifikasi Dokumen Pendukung (KTP & SIM C)</h4>
+                            
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <!-- KTP Card -->
+                                <div class="border border-gray-200 rounded-xl p-3 bg-white flex flex-col justify-between">
+                                    <div>
+                                        <div class="flex justify-between items-center mb-2">
+                                            <span class="text-xs font-bold text-gray-700">Foto KTP Asli</span>
+                                            <span class="px-2 py-0.5 text-[10px] font-bold bg-amber-100 text-amber-800 rounded" id="ktp-status-badge">Menunggu Review</span>
+                                        </div>
+                                        <div class="bg-gray-100 rounded-lg h-36 flex items-center justify-center overflow-hidden relative border border-gray-200">
+                                            <img src="https://placehold.co/400x250/cbd5e1/475569?text=KTP+Pelanggan" alt="KTP" class="w-full h-full object-cover">
+                                        </div>
+                                    </div>
+                                    <div class="mt-3 flex space-x-2">
+                                        <button onclick="verifyDoc('ktp', 'approved')" class="flex-1 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold rounded-lg transition-all">
+                                            <i class="fa-solid fa-check mr-1"></i> Setujui KTP
+                                        </button>
+                                        <button onclick="verifyDoc('ktp', 'rejected')" class="flex-1 py-1.5 bg-rose-600 hover:bg-rose-700 text-white text-xs font-semibold rounded-lg transition-all">
+                                            <i class="fa-solid fa-xmark mr-1"></i> Tolak
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- SIM C Card -->
+                                <div class="border border-gray-200 rounded-xl p-3 bg-white flex flex-col justify-between">
+                                    <div>
+                                        <div class="flex justify-between items-center mb-2">
+                                            <span class="text-xs font-bold text-gray-700">Foto SIM C Aktif</span>
+                                            <span class="px-2 py-0.5 text-[10px] font-bold bg-amber-100 text-amber-800 rounded" id="sim-status-badge">Menunggu Review</span>
+                                        </div>
+                                        <div class="bg-gray-100 rounded-lg h-36 flex items-center justify-center overflow-hidden relative border border-gray-200">
+                                            <img src="https://placehold.co/400x250/cbd5e1/475569?text=SIM+C+Pelanggan" alt="SIM" class="w-full h-full object-cover">
+                                        </div>
+                                    </div>
+                                    <div class="mt-3 flex space-x-2">
+                                        <button onclick="verifyDoc('sim', 'approved')" class="flex-1 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold rounded-lg transition-all">
+                                            <i class="fa-solid fa-check mr-1"></i> Setujui SIM
+                                        </button>
+                                        <button onclick="verifyDoc('sim', 'rejected')" class="flex-1 py-1.5 bg-rose-600 hover:bg-rose-700 text-white text-xs font-semibold rounded-lg transition-all">
+                                            <i class="fa-solid fa-xmark mr-1"></i> Tolak
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-indigo-50 border border-indigo-100 p-3 rounded-lg flex items-start space-x-3">
+                                <i class="fa-solid fa-circle-info text-indigo-600 mt-0.5"></i>
+                                <p class="text-xs text-indigo-900">
+                                    Pastikan nama pada KTP dan SIM C sesuai dengan data diri penyewa serta masa berlaku dokumen masih aktif sebelum menyetujui verifikasi.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 2: CEK FISIK & FOTO KONDISI MOTOR -->
+                <div id="tab-content-2" class="space-y-6 hidden">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center pb-3 border-b border-gray-200 gap-2">
+                        <div>
+                            <h4 class="text-sm font-bold text-gray-800">Cek Fisik & Dokumentasi Kondisi Motor</h4>
+                            <p class="text-xs text-gray-500">Catat kondisi fisik dan unggah 4 foto wajib saat Penyerahan (Handover) & Pengembalian (Return).</p>
+                        </div>
+                        <div class="flex bg-gray-100 p-1 rounded-lg">
+                            <button onclick="setConditionPhase('penyerahan')" id="phase-penyerahan-btn" class="px-3 py-1.5 text-xs font-bold bg-white text-indigo-600 rounded-md shadow-xs transition-all">Penyerahan Unit</button>
+                            <button onclick="setConditionPhase('pengembalian')" id="phase-pengembalian-btn" class="px-3 py-1.5 text-xs font-bold text-gray-600 rounded-md transition-all">Pengembalian Unit</button>
+                        </div>
+                    </div>
+
+                    <!-- Catatan Kondisi Fisik -->
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-700 mb-1">Catatan Kondisi Fisik / Baret / Kelengkapan (Helm, STNK, Jas Hujan):</label>
+                        <textarea id="condition-notes" rows="3" class="w-full text-sm p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none" placeholder="Contoh: Kondisi mulus, ada baret halus di spakbor depan sebelah kiri. Helm 2 unit lengkap, STNK ada di dalam jok. BBM Full bar.">Kondisi fisik normal mulus, baret ringan di bagian body samping kanan. Kelengkapan: 2 Helm SNI, Jas Hujan 1 pcs, STNK asli.</textarea>
+                    </div>
+
+                    <!-- 4 Wajib Foto Kondisi Motor -->
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-700 mb-2">Unggah 4 Foto Wajib Kondisi Motor (<span id="current-phase-label" class="text-indigo-600 font-bold">Penyerahan</span>):</label>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <!-- Tampak Depan -->
+                            <div class="border border-dashed border-gray-300 rounded-xl p-3 text-center bg-gray-50 hover:bg-gray-100 transition-all flex flex-col justify-between">
+                                <div>
+                                    <p class="text-xs font-bold text-gray-700 mb-2"><i class="fa-solid fa-arrow-up mr-1 text-indigo-600"></i> Tampak Depan</p>
+                                    <div class="h-28 bg-white rounded-lg border border-gray-200 flex items-center justify-center overflow-hidden mb-2">
+                                        <img src="https://placehold.co/200x200/e2e8f0/475569?text=Depan" alt="Depan" class="w-full h-full object-cover">
+                                    </div>
+                                </div>
+                                <input type="file" class="text-[10px] text-gray-500 file:w-full file:py-1 file:px-2 file:rounded file:border-0 file:text-[10px] file:font-semibold file:bg-indigo-50 file:text-indigo-700">
+                            </div>
+
+                            <!-- Tampak Belakang -->
+                            <div class="border border-dashed border-gray-300 rounded-xl p-3 text-center bg-gray-50 hover:bg-gray-100 transition-all flex flex-col justify-between">
+                                <div>
+                                    <p class="text-xs font-bold text-gray-700 mb-2"><i class="fa-solid fa-arrow-down mr-1 text-indigo-600"></i> Tampak Belakang</p>
+                                    <div class="h-28 bg-white rounded-lg border border-gray-200 flex items-center justify-center overflow-hidden mb-2">
+                                        <img src="https://placehold.co/200x200/e2e8f0/475569?text=Belakang" alt="Belakang" class="w-full h-full object-cover">
+                                    </div>
+                                </div>
+                                <input type="file" class="text-[10px] text-gray-500 file:w-full file:py-1 file:px-2 file:rounded file:border-0 file:text-[10px] file:font-semibold file:bg-indigo-50 file:text-indigo-700">
+                            </div>
+
+                            <!-- Samping Kiri -->
+                            <div class="border border-dashed border-gray-300 rounded-xl p-3 text-center bg-gray-50 hover:bg-gray-100 transition-all flex flex-col justify-between">
+                                <div>
+                                    <p class="text-xs font-bold text-gray-700 mb-2"><i class="fa-solid fa-arrow-left mr-1 text-indigo-600"></i> Samping Kiri</p>
+                                    <div class="h-28 bg-white rounded-lg border border-gray-200 flex items-center justify-center overflow-hidden mb-2">
+                                        <img src="https://placehold.co/200x200/e2e8f0/475569?text=Samping+Kiri" alt="Kiri" class="w-full h-full object-cover">
+                                    </div>
+                                </div>
+                                <input type="file" class="text-[10px] text-gray-500 file:w-full file:py-1 file:px-2 file:rounded file:border-0 file:text-[10px] file:font-semibold file:bg-indigo-50 file:text-indigo-700">
+                            </div>
+
+                            <!-- Samping Kanan -->
+                            <div class="border border-dashed border-gray-300 rounded-xl p-3 text-center bg-gray-50 hover:bg-gray-100 transition-all flex flex-col justify-between">
+                                <div>
+                                    <p class="text-xs font-bold text-gray-700 mb-2"><i class="fa-solid fa-arrow-right mr-1 text-indigo-600"></i> Samping Kanan</p>
+                                    <div class="h-28 bg-white rounded-lg border border-gray-200 flex items-center justify-center overflow-hidden mb-2">
+                                        <img src="https://placehold.co/200x200/e2e8f0/475569?text=Samping+Kanan" alt="Kanan" class="w-full h-full object-cover">
+                                    </div>
+                                </div>
+                                <input type="file" class="text-[10px] text-gray-500 file:w-full file:py-1 file:px-2 file:rounded file:border-0 file:text-[10px] file:font-semibold file:bg-indigo-50 file:text-indigo-700">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 3: PEMBAYARAN & DENDA -->
+                <div id="tab-content-3" class="space-y-6 hidden">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Status Pembayaran & Pemesanan -->
+                        <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 space-y-4">
+                            <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider">Status Keuangan & Pesanan</h4>
+                            
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 mb-1">Status Pembayaran:</label>
+                                <select id="edit-payment-status" class="w-full text-sm p-2.5 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+                                    <option value="Lunas">Lunas (Paid)</option>
+                                    <option value="DP">DP / Uang Muka (Partial)</option>
+                                    <option value="Belum Lunas">Belum Lunas (Unpaid)</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-700 mb-1">Status Pemesanan / Transaksi:</label>
+                                <select id="edit-order-status" class="w-full text-sm p-2.5 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+                                    <option value="Pending">Pending</option>
+                                    <option value="Terverifikasi">Terverifikasi</option>
+                                    <option value="Berlangsung">Berlangsung (Disewa)</option>
+                                    <option value="Selesai">Selesai</option>
+                                    <option value="Dibatalkan">Dibatalkan</option>
+                                </select>
+                            </div>
+
+                            <div class="pt-2 border-t border-gray-200 text-xs space-y-1">
+                                <div class="flex justify-between"><span class="text-gray-500">Harga Sewa (3 Hari):</span> <span class="font-medium">Rp 225.000</span></div>
+                                <div class="flex justify-between"><span class="text-gray-500">Metode Pembayaran:</span> <span class="font-medium">Transfer BCA</span></div>
+                                <div class="flex justify-between text-sm font-bold pt-2 border-t border-gray-200"><span>Total Tagihan:</span> <span class="text-indigo-600">Rp 225.000</span></div>
+                            </div>
+                        </div>
+
+                        <!-- Pencatatan Denda -->
+                        <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 space-y-4">
+                            <h4 class="text-xs font-bold text-gray-500 uppercase tracking-wider">Pencatatan Denda (Jika Ada)</h4>
+                            
+                            <div class="space-y-3">
+                                <div>
+                                    <label class="block text-xs font-semibold text-gray-700 mb-1">Jenis Pelanggaran / Keterangan Denda:</label>
+                                    <input type="text" id="fine-reason" placeholder="Contoh: Keterlambatan 2 Jam / Baret Body" class="w-full text-sm p-2.5 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none" value="Keterlambatan pengembalian 1 jam">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-gray-700 mb-1">Nominal Denda (Rp):</label>
+                                    <input type="number" id="fine-amount" placeholder="0" class="w-full text-sm p-2.5 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none" value="50000">
+                                </div>
+                                <button onclick="addFineItem()" class="w-full py-2 bg-slate-800 hover:bg-slate-900 text-white text-xs font-semibold rounded-lg transition-all">
+                                    <i class="fa-solid fa-plus mr-1"></i> Catat / Tambah Denda
+                                </button>
+                            </div>
+
+                            <!-- List Denda Aktif -->
+                            <div class="pt-2 border-t border-gray-200">
+                                <p class="text-xs font-semibold text-gray-700 mb-2">Riwayat Denda Transaksi Ini:</p>
+                                <div id="fine-list" class="space-y-1 text-xs">
+                                    <div class="flex justify-between items-center bg-white p-2 rounded border border-gray-200">
+                                        <span>Keterlambatan pengembalian 1 jam</span>
+                                        <span class="font-bold text-rose-600">Rp 50.000</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Modal Footer Buttons -->
+            <div class="flex items-center justify-between px-6 py-4 bg-gray-50 border-t border-gray-200">
+                <button onclick="closeModal()" class="px-4 py-2 bg-white border border-gray-300 hover:bg-gray-100 text-gray-700 text-sm font-semibold rounded-lg transition-all">
+                    Batal
+                </button>
+                <button onclick="saveTransactionChanges()" class="px-5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold rounded-lg shadow-sm transition-all transform active:scale-95">
+                    <i class="fa-solid fa-floppy-disk mr-1"></i> Simpan Perubahan Transaksi
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 4. MODAL TRANSAKSI WALK-IN -->
+    <div id="walkin-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs hidden p-4 overflow-y-auto">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl overflow-hidden transform transition-all my-8">
+            <div class="flex items-center justify-between px-6 py-4 bg-slate-900 text-white">
+                <div class="flex items-center space-x-3">
+                    <div class="bg-indigo-600 p-2 rounded-lg text-white">
+                        <i class="fa-solid fa-user-plus"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-bold">Proses Transaksi Walk-In Baru</h3>
+                        <p class="text-xs text-slate-400">Pencatatan penyewaan langsung untuk pelanggan di basecamp.</p>
+                    </div>
+                </div>
+                <button onclick="closeWalkInModal()" class="text-slate-400 hover:text-white p-2 rounded-lg transition-colors">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <div class="p-6 space-y-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-700 mb-1">Nama Lengkap Pelanggan:</label>
+                        <input type="text" id="walkin-name" placeholder="cth: Rian Pratama" class="w-full text-sm p-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-700 mb-1">Nomor WhatsApp / HP:</label>
+                        <input type="text" id="walkin-phone" placeholder="cth: 08123456789" class="w-full text-sm p-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-700 mb-1">Nomor KTP / NIK:</label>
+                        <input type="text" id="walkin-nik" placeholder="cth: 3507112233440001" class="w-full text-sm p-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-700 mb-1">Pilih Unit Motor:</label>
+                        <select id="walkin-motor" class="w-full text-sm p-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+                            <option value="Honda Beat Street (N 4521 AB)">Honda Beat Street (N 4521 AB) - Rp 75rb/hr</option>
+                            <option value="Yamaha NMax 155 (N 2210 XY)">Yamaha NMax 155 (N 2210 XY) - Rp 125rb/hr</option>
+                            <option value="Honda Vario 160 (N 8899 JJ)">Honda Vario 160 (N 8899 JJ) - Rp 100rb/hr</option>
+                            <option value="Honda Scoopy Prestige (N 1102 BC)">Honda Scoopy Prestige (N 1102 BC) - Rp 90rb/hr</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-700 mb-1">Durasi Sewa:</label>
+                        <select id="walkin-duration" class="w-full text-sm p-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+                            <option value="1">1 Hari (24 Jam)</option>
+                            <option value="2">2 Hari</option>
+                            <option value="3">3 Hari</option>
+                            <option value="7">1 Minggu</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-700 mb-1">Metode Pembayaran Langsung:</label>
+                        <select id="walkin-payment-method" class="w-full text-sm p-2.5 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+                            <option value="Tunai (Cash)">Tunai (Cash)</option>
+                            <option value="QRIS Basecamp">QRIS Basecamp</option>
+                            <option value="Transfer Bank">Transfer Bank</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="bg-indigo-50 border border-indigo-100 p-3 rounded-lg flex items-center justify-between text-xs">
+                    <span class="text-indigo-900 font-medium">Status otomatis: <strong class="text-indigo-700">Berlangsung (Unit Diserahterimakan)</strong></span>
+                    <span class="text-indigo-900 font-bold text-sm" id="walkin-estimated-total">Est. Total: Rp 75.000</span>
+                </div>
+            </div>
+
+            <div class="flex items-center justify-between px-6 py-4 bg-gray-50 border-t border-gray-200">
+                <button onclick="closeWalkInModal()" class="px-4 py-2 bg-white border border-gray-300 hover:bg-gray-100 text-gray-700 text-sm font-semibold rounded-lg transition-all">
+                    Batal
+                </button>
+                <button onclick="submitWalkIn()" class="px-5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold rounded-lg shadow-sm transition-all transform active:scale-95">
+                    <i class="fa-solid fa-check mr-1"></i> Proses & Serahkan Unit
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Interactive Logic -->
+    <script>
+        // Mock Database of Transactions
+        let transactions = [
+            {
+                id: "TRX-1024",
+                name: "Ahmad Fauzi",
+                phone: "+62 812-3456-7890",
+                nik: "3507123456780002",
+                motor: "Honda Vario 160 (N 2841 AA)",
+                date: "18 Nov 2026 - 21 Nov 2026",
+                paymentStatus: "Lunas",
+                orderStatus: "Pending",
+                type: "Online Booking",
+                photo: "https://placehold.co/100x100/4f46e5/ffffff?text=AF"
+            },
+            {
+                id: "TRX-1023",
+                name: "Siti Rahma",
+                phone: "+62 851-9988-7766",
+                nik: "3573012233440005",
+                motor: "Honda Scoopy (N 1982 BC)",
+                date: "17 Nov 2026 - 19 Nov 2026",
+                paymentStatus: "DP",
+                orderStatus: "Terverifikasi",
+                type: "Online Booking",
+                photo: "https://placehold.co/100x100/ec4899/ffffff?text=SR"
+            },
+            {
+                id: "TRX-1022",
+                name: "Dimas Anggara",
+                phone: "+62 813-2211-4455",
+                nik: "3507051122330009",
+                motor: "Yamaha NMax 155 (N 4102 ZZ)",
+                date: "16 Nov 2026 - 20 Nov 2026",
+                paymentStatus: "Lunas",
+                orderStatus: "Berlangsung",
+                type: "Walk-In",
+                photo: "https://placehold.co/100x100/0ea5e9/ffffff?text=DA"
+            },
+            {
+                id: "TRX-1021",
+                name: "Rina Melati",
+                phone: "+62 878-5544-3322",
+                nik: "3573045566770001",
+                motor: "Honda Beat Street (N 6671 KL)",
+                date: "15 Nov 2026 - 16 Nov 2026",
+                paymentStatus: "Lunas",
+                orderStatus: "Selesai",
+                type: "Online Booking",
+                photo: "https://placehold.co/100x100/10b981/ffffff?text=RM"
+            },
+            {
+                id: "TRX-1020",
+                name: "Joko Susilo",
+                phone: "+62 822-1133-5577",
+                nik: "3507089988770003",
+                motor: "Honda Genio (N 3342 TT)",
+                date: "14 Nov 2026 - 15 Nov 2026",
+                paymentStatus: "Belum Lunas",
+                orderStatus: "Dibatalkan",
+                type: "Online Booking",
+                photo: "https://placehold.co/100x100/64748b/ffffff?text=JS"
+            },
+            {
+                id: "TRX-1019",
+                name: "Kevin Sanjaya",
+                phone: "+62 811-7788-9900",
+                nik: "3573023344550008",
+                motor: "Yamaha Aerox 155 (N 9901 XX)",
+                date: "18 Nov 2026 - 22 Nov 2026",
+                paymentStatus: "Lunas",
+                orderStatus: "Pending",
+                type: "Online Booking",
+                photo: "https://placehold.co/100x100/f59e0b/ffffff?text=KS"
+            }
+        ];
+
+        let currentActiveTrxId = null;
+
+        // Initialize on page load
+        window.onload = function() {
+            renderTable(transactions);
+        };
+
+        // Toast Notification System
+        function showToast(message, type = 'success') {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            
+            let bgCol = 'bg-slate-900 text-white';
+            let icon = '<i class="fa-solid fa-circle-check text-emerald-400 mr-2"></i>';
+            if(type === 'error') {
+                bgCol = 'bg-rose-600 text-white';
+                icon = '<i class="fa-solid fa-circle-xmark mr-2"></i>';
+            } else if(type === 'info') {
+                bgCol = 'bg-indigo-600 text-white';
+                icon = '<i class="fa-solid fa-circle-info mr-2"></i>';
+            }
+
+            toast.className = `flex items-center px-4 py-3 rounded-xl shadow-lg text-sm font-medium ${bgCol} transform transition-all duration-300 translate-y-2 opacity-0`;
+            toast.innerHTML = `${icon} <span>${message}</span>`;
+            
+            container.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.classList.remove('translate-y-2', 'opacity-0');
+            }, 10);
+
+            setTimeout(() => {
+                toast.classList.add('translate-y-2', 'opacity-0');
+                setTimeout(() => toast.remove(), 300);
+            }, 3500);
+        }
+
+        // Render Transaction Table
+        function renderTable(data) {
+            const tbody = document.getElementById('transaction-tbody');
+            tbody.innerHTML = '';
+
+            if(data.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="7" class="text-center py-8 text-gray-400">Tidak ada transaksi yang ditemukan.</td></tr>`;
+                document.getElementById('transaction-count-badge').innerText = `0 Transaksi`;
+                return;
+            }
+
+            document.getElementById('transaction-count-badge').innerText = `${data.length} Transaksi Ditampilkan`;
+
+            data.forEach(trx => {
+                // Status Badges Styling
+                let orderBadgeClass = 'bg-gray-100 text-gray-800';
+                if(trx.orderStatus === 'Pending') orderBadgeClass = 'bg-amber-100 text-amber-800 border border-amber-200';
+                if(trx.orderStatus === 'Terverifikasi') orderBadgeClass = 'bg-indigo-100 text-indigo-800 border border-indigo-200';
+                if(trx.orderStatus === 'Berlangsung') orderBadgeClass = 'bg-blue-100 text-blue-800 border border-blue-200';
+                if(trx.orderStatus === 'Selesai') orderBadgeClass = 'bg-emerald-100 text-emerald-800 border border-emerald-200';
+                if(trx.orderStatus === 'Dibatalkan') orderBadgeClass = 'bg-rose-100 text-rose-800 border border-rose-200';
+
+                let payBadgeClass = 'bg-gray-100 text-gray-800';
+                if(trx.paymentStatus === 'Lunas') payBadgeClass = 'bg-emerald-100 text-emerald-800';
+                if(trx.paymentStatus === 'DP') payBadgeClass = 'bg-amber-100 text-amber-800';
+                if(trx.paymentStatus === 'Belum Lunas') payBadgeClass = 'bg-rose-100 text-rose-800';
+
+                const tr = document.createElement('tr');
+                tr.className = 'hover:bg-gray-50/80 transition-colors border-b border-gray-100';
+                tr.innerHTML = `
+                    <td class="py-3 px-4 font-semibold text-indigo-600">${trx.id}</td>
+                    <td class="py-3 px-4">
+                        <div class="flex items-center space-x-3">
+                            <img src="${trx.photo}" class="w-8 h-8 rounded-full object-cover" alt="">
+                            <div>
+                                <p class="font-medium text-gray-900">${trx.name}</p>
+                                <p class="text-xs text-gray-500">${trx.phone}</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="py-3 px-4 text-gray-700 font-medium">${trx.motor}</td>
+                    <td class="py-3 px-4 text-xs text-gray-600">${trx.date}</td>
+                    <td class="py-3 px-4"><span class="px-2.5 py-1 text-xs font-semibold rounded-md ${payBadgeClass}">${trx.paymentStatus}</span></td>
+                    <td class="py-3 px-4"><span class="px-2.5 py-1 text-xs font-semibold rounded-md ${orderBadgeClass}">${trx.orderStatus}</span></td>
+                    <td class="py-3 px-4 text-center">
+                        <button onclick="openModal('${trx.id}')" class="px-3 py-1.5 bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold rounded-lg shadow-xs transition-all">
+                            <i class="fa-solid fa-pen-to-square mr-1"></i> Detail & Verifikasi
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        // Filter Transactions by Search & Status
+        function filterTransactions() {
+            const query = document.getElementById('search-input').value.toLowerCase();
+            const status = document.getElementById('status-filter').value;
+
+            const filtered = transactions.filter(trx => {
+                const matchQuery = trx.id.toLowerCase().includes(query) || trx.name.toLowerCase().includes(query) || trx.motor.toLowerCase().includes(query);
+                const matchStatus = (status === 'ALL' || trx.orderStatus === status);
+                return matchQuery && matchStatus;
+            });
+
+            renderTable(filtered);
+        }
+
+        // Open Detail Modal
+        function openModal(trxId) {
+            currentActiveTrxId = trxId;
+            const trx = transactions.find(t => t.id === trxId);
+            if(!trx) return;
+
+            document.getElementById('modal-title').innerText = `Detail Transaksi #${trx.id}`;
+            document.getElementById('detail-name').innerText = trx.name;
+            document.getElementById('detail-phone').innerText = trx.phone;
+            document.getElementById('detail-nik').innerText = trx.nik;
+            document.getElementById('detail-type').innerText = trx.type;
+            document.getElementById('detail-cust-photo').src = trx.photo;
+            document.getElementById('edit-payment-status').value = trx.paymentStatus;
+            document.getElementById('edit-order-status').value = trx.orderStatus;
+
+            // Reset tab to 1
+            switchTab(1);
+
+            document.getElementById('detail-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('detail-modal').classList.add('hidden');
+            currentActiveTrxId = null;
+        }
+
+        // Modal Tab Switcher
+        function switchTab(tabNumber) {
+            for(let i=1; i<=3; i++) {
+                const content = document.getElementById(`tab-content-${i}`);
+                const btn = document.getElementById(`tab-btn-${i}`);
+                if(i === tabNumber) {
+                    content.classList.remove('hidden');
+                    btn.className = "py-3 px-4 font-semibold text-sm border-b-2 border-indigo-600 text-indigo-600 focus:outline-none transition-all flex items-center space-x-2";
+                } else {
+                    content.classList.add('hidden');
+                    btn.className = "py-3 px-4 font-semibold text-sm border-b-2 border-transparent text-gray-500 hover:text-gray-800 focus:outline-none transition-all flex items-center space-x-2";
+                }
+            }
+        }
+
+        // Document Verification Action (KTP/SIM)
+        function verifyDoc(docType, action) {
+            const badge = document.getElementById(`${docType}-status-badge`);
+            if(action === 'approved') {
+                badge.className = "px-2 py-0.5 text-[10px] font-bold bg-emerald-100 text-emerald-800 rounded";
+                badge.innerText = "Disetujui (Valid)";
+                showToast(`Dokumen ${docType.toUpperCase()} berhasil disetujui`, 'success');
+            } else {
+                badge.className = "px-2 py-0.5 text-[10px] font-bold bg-rose-100 text-rose-800 rounded";
+                badge.innerText = "Ditolak (Invalid)";
+                showToast(`Dokumen ${docType.toUpperCase()} ditolak. Pelanggan diminta mengunggah ulang.`, 'error');
+            }
+        }
+
+        // Condition Phase Switcher (Penyerahan vs Pengembalian)
+        function setConditionPhase(phase) {
+            const btnPenyerahan = document.getElementById('phase-penyerahan-btn');
+            const btnPengembalian = document.getElementById('phase-pengembalian-btn');
+            const label = document.getElementById('current-phase-label');
+
+            if(phase === 'penyerahan') {
+                btnPenyerahan.className = "px-3 py-1.5 text-xs font-bold bg-white text-indigo-600 rounded-md shadow-xs transition-all";
+                btnPengembalian.className = "px-3 py-1.5 text-xs font-bold text-gray-600 rounded-md transition-all";
+                label.innerText = "Penyerahan";
+            } else {
+                btnPengembalian.className = "px-3 py-1.5 text-xs font-bold bg-white text-indigo-600 rounded-md shadow-xs transition-all";
+                btnPenyerahan.className = "px-3 py-1.5 text-xs font-bold text-gray-600 rounded-md transition-all";
+                label.innerText = "Pengembalian";
+            }
+        }
+
+        // Add Fine Item
+        function addFineItem() {
+            const reason = document.getElementById('fine-reason').value;
+            const amount = document.getElementById('fine-amount').value;
+
+            if(!reason || !amount) {
+                showToast('Mohon lengkapi keterangan dan nominal denda', 'error');
+                return;
+            }
+
+            const fineList = document.getElementById('fine-list');
+            const formattedAmount = parseInt(amount).toLocaleString('id-ID');
+            
+            const item = document.createElement('div');
+            item.className = "flex justify-between items-center bg-white p-2 rounded border border-gray-200 animate-pulse";
+            item.innerHTML = `
+                <span>${reason}</span>
+                <span class="font-bold text-rose-600">Rp ${formattedAmount}</span>
+            `;
+            fineList.appendChild(item);
+            
+            setTimeout(() => item.classList.remove('animate-pulse'), 1000);
+
+            document.getElementById('fine-reason').value = '';
+            document.getElementById('fine-amount').value = '';
+            showToast('Denda berhasil dicatat ke transaksi', 'success');
+        }
+
+        // Save Transaction Changes
+        function saveTransactionChanges() {
+            if(!currentActiveTrxId) return;
+
+            const newPayStatus = document.getElementById('edit-payment-status').value;
+            const newOrderStatus = document.getElementById('edit-order-status').value;
+
+            const trx = transactions.find(t => t.id === currentActiveTrxId);
+            if(trx) {
+                trx.paymentStatus = newPayStatus;
+                trx.orderStatus = newOrderStatus;
+            }
+
+            renderTable(transactions);
+            closeModal();
+            showToast(`Perubahan untuk #${currentActiveTrxId} berhasil disimpan!`, 'success');
+        }
+
+        // Walk-In Modal Functions
+        function openWalkInModal() {
+            document.getElementById('walkin-modal').classList.remove('hidden');
+        }
+
+        function closeWalkInModal() {
+            document.getElementById('walkin-modal').classList.add('hidden');
+        }
+
+        function submitWalkIn() {
+            const name = document.getElementById('walkin-name').value;
+            const phone = document.getElementById('walkin-phone').value;
+            const nik = document.getElementById('walkin-nik').value;
+            const motor = document.getElementById('walkin-motor').value;
+
+            if(!name || !phone || !nik) {
+                showToast('Mohon lengkapi data diri pelanggan walk-in', 'error');
+                return;
+            }
+
+            const newId = `TRX-10${Math.floor(10 + Math.random() * 90)}`;
+            const newTrx = {
+                id: newId,
+                name: name,
+                phone: phone,
+                nik: nik,
+                motor: motor,
+                date: "Hari Ini (Walk-In)",
+                paymentStatus: "Lunas",
+                orderStatus: "Berlangsung",
+                type: "Walk-In",
+                photo: `https://placehold.co/100x100/6366f1/ffffff?text=${name.charAt(0)}`
+            };
+
+            transactions.unshift(newTrx);
+            renderTable(transactions);
+            closeWalkInModal();
+            showToast(`Transaksi Walk-In ${newId} berhasil diproses dan unit diserahkan!`, 'success');
+        }
+    </script>
+</body>
+</html>

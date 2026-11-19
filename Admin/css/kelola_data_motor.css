@@ -1,0 +1,81 @@
+body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .card-shadow {
+      box-shadow: 0 2px 14px rgba(15, 23, 42, 0.035);
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 9999px;
+    }
+    #sidebar {
+      transition: width 0.28s cubic-bezier(0.4, 0, 0.2, 1), transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .sidebar-expanded {
+      width: 250px;
+    }
+    .sidebar-collapsed {
+      width: 82px;
+    }
+    @media (min-width: 1024px) {
+      .sidebar-collapsed .sidebar-label,
+      .sidebar-collapsed .sidebar-section-title {
+        display: none;
+      }
+      .sidebar-collapsed #brandHeader {
+        justify-content: center;
+        padding-left: 0;
+        padding-right: 0;
+      }
+      .sidebar-collapsed .nav-item,
+      .sidebar-collapsed #sidebarLogoutBtn {
+        justify-content: center;
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+    .sidebar-collapsed .nav-item,
+    .sidebar-collapsed #sidebarLogoutBtn {
+      position: relative;
+    }
+    @media (min-width: 1024px) {
+      .sidebar-collapsed .nav-item:hover::after,
+      .sidebar-collapsed #sidebarLogoutBtn:hover::after {
+        content: attr(data-tooltip);
+        position: absolute;
+        left: calc(100% + 12px);
+        top: 50%;
+        transform: translateY(-50%);
+        background: #093841;
+        color: #fff;
+        font-size: 12px;
+        font-weight: 600;
+        padding: 6px 12px;
+        border-radius: 8px;
+        white-space: nowrap;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.16);
+        z-index: 60;
+        pointer-events: none;
+      }
+    }
+    /* Menu sidebar normal */
+.nav-item {
+    background: transparent;
+    color: rgba(255, 255, 255, 0.85);
+    transition: all 0.2s ease;
+}
+
+/* Menu yang sedang aktif atau dipilih */
+.nav-item.active {
+    background: #ffffff;
+    color: #0C4651;
+    font-weight: 700;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
