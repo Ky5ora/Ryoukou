@@ -19,15 +19,26 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // 2. Menampilkan Nama User dari LocalStorage & Status Login/Guest
+    // 2. Menampilkan Nama User dari LocalStorage & Pengondisian Guest Mode
     const namaUser = localStorage.getItem("namaPengguna") || localStorage.getItem("username");
     const guestButtons = document.getElementById("guestButtons");
     const loggedInProfile = document.getElementById("loggedInProfile");
     const displayElemen = document.getElementById("namaUserDisplay");
+    
+    // Pembungkus Tombol Keluar di Bawah
+    const wrapperKeluarDesktop = document.getElementById("wrapperKeluarDesktop");
+    const wrapperKeluarMobile = document.getElementById("wrapperKeluarMobile");
     const btnKeluarDesktop = document.getElementById("btnKeluarDesktop");
     const btnKeluarMobile = document.getElementById("btnKeluarMobile");
 
+    // Elemen Menu yang ingin disembunyikan saat Guest Mode
+    const menuInfoDesktop = document.getElementById("menuInfoPenyewaanDesktop");
+    const menuRiwayatDesktop = document.getElementById("menuRiwayatDesktop");
+    const menuInfoMobile = document.getElementById("menuInfoPenyewaanMobile");
+    const menuRiwayatMobile = document.getElementById("menuRiwayatMobile");
+
     if (namaUser) {
+        // --- JIKA SUDAH LOGIN ---
         if (guestButtons) guestButtons.classList.add("d-none");
         if (loggedInProfile) {
             loggedInProfile.classList.remove("d-none");
@@ -37,38 +48,71 @@ document.addEventListener("DOMContentLoaded", function() {
             displayElemen.textContent = namaUser.startsWith("@") ? namaUser : "@" + namaUser;
         }
 
+        // Tampilkan menu khusus member & Tampilkan tombol Keluar di bawah
+        if (menuInfoDesktop) menuInfoDesktop.classList.remove("d-none");
+        if (menuRiwayatDesktop) menuRiwayatDesktop.classList.remove("d-none");
+        if (menuInfoMobile) menuInfoMobile.classList.remove("d-none");
+        if (menuRiwayatMobile) menuRiwayatMobile.classList.remove("d-none");
+        
+        if (wrapperKeluarDesktop) wrapperKeluarDesktop.classList.remove("d-none");
+        if (wrapperKeluarMobile) wrapperKeluarMobile.classList.remove("d-none");
+
+        // --- DINAMIS IKON NOTIFIKASI (Merah / Bersih) ---
+        const iconNotifImg = document.getElementById("iconNotifImg");
+        const statusNotifBaru = localStorage.getItem("adaNotifikasiBaru"); // "true" jika ada notif baru
+        if (iconNotifImg) {
+            if (statusNotifBaru === "true") {
+                iconNotifImg.src = "../assets/icon-notif-merah.svg";
+            } else {
+                iconNotifImg.src = "../assets/icon-notif.svg";
+            }
+        }
+
+        // Fungsi Logout (Langsung hapus sesi & refresh halaman saat ini tanpa pindah halaman)
         const handleLogout = function(e) {
             e.preventDefault();
             localStorage.removeItem("namaPengguna");
             localStorage.removeItem("username");
-            window.location.href = "4.dashboard utama.html";
+            localStorage.removeItem("adaNotifikasiBaru");
+            window.location.reload(); // Memperbarui halaman saat ini, status berubah jadi guest
         };
 
         if (btnKeluarDesktop) btnKeluarDesktop.addEventListener("click", handleLogout);
         if (btnKeluarMobile) btnKeluarMobile.addEventListener("click", handleLogout);
 
     } else {
+        // --- JIKA BELUM LOGIN (GUEST MODE) ---
         if (guestButtons) guestButtons.classList.remove("d-none");
         if (loggedInProfile) loggedInProfile.classList.add("d-none");
 
-        if (btnKeluarDesktop) btnKeluarDesktop.style.display = "none";
-        if (btnKeluarMobile) btnKeluarMobile.style.display = "none";
+        // Sembunyikan pembungkus tombol Keluar di bawah saat masih guest
+        if (wrapperKeluarDesktop) wrapperKeluarDesktop.classList.add("d-none");
+        if (wrapperKeluarMobile) wrapperKeluarMobile.classList.add("d-none");
+
+        // Sembunyikan menu Info Penyewaan & Riwayat Aktivitas saat Guest
+        if (menuInfoDesktop) menuInfoDesktop.classList.add("d-none");
+        if (menuRiwayatDesktop) menuRiwayatDesktop.classList.add("d-none");
+        if (menuInfoMobile) menuInfoMobile.classList.add("d-none");
+        if (menuRiwayatMobile) menuRiwayatMobile.classList.add("d-none");
 
         const modalEl = document.getElementById('modalWajibLogin');
         const modalWajibLogin = modalEl ? new bootstrap.Modal(modalEl) : null;
 
+        // Proteksi menu lain jika diklik saat guest
         const linkTerproteksi = document.querySelectorAll(
-            '.sidebar .nav-link:not(.active), .offcanvas .nav-link:not(.active), .btn-aksi-sewa'
+            '.sidebar .nav-link:not(.active), .offcanvas .nav-link:not(.active)'
         );
 
         linkTerproteksi.forEach(elemen => {
-            elemen.addEventListener("click", function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                if (modalWajibLogin) {
-                    modalWajibLogin.show();
-                }
-            });
+            if (!elemen.getAttribute('href').includes('5.katalog motor.html') && !elemen.getAttribute('href').includes('4.dashboard utama.html')) {
+                elemen.addEventListener("click", function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    if (modalWajibLogin) {
+                        modalWajibLogin.show();
+                    }
+                });
+            }
         });
     }
 
@@ -82,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // 4. Fitur Filter Kategori Unit (Semua / Tersedia / 110cc / 125cc)
+    // 4. Fitur Filter Kategori Unit
     const filterButtons = document.querySelectorAll('.filter-pill-btn');
     if (filterButtons.length > 0) {
         filterButtons.forEach(btn => {
@@ -106,74 +150,4 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
     }
-
-    // ==================== BUKA / TUTUP SIDEBAR (DESKTOP & MOBILE) ====================
-    const sidebar = document.getElementById("sidebar");
-    const mobileBackdrop = document.getElementById("mobileBackdrop");
-    const toggleSidebarBtn = document.getElementById("toggleSidebarBtn");
-    const closeMobileSidebarBtn = document.getElementById("closeMobileSidebarBtn");
-    const toggleIconOpen = document.getElementById("toggleIconOpen");
-    const toggleIconClosed = document.getElementById("toggleIconClosed");
-    
-    let isDesktopCollapsed = false;
-    
-    function isDesktop() {
-        return window.innerWidth >= 1024;
-    }
-    
-    function updateToggleIcons() {
-        if (isDesktop()) {
-            toggleIconOpen.classList.toggle("hidden", isDesktopCollapsed);
-            toggleIconClosed.classList.toggle("hidden", !isDesktopCollapsed);
-        } else {
-            const isMobileOpen = !sidebar.classList.contains("-translate-x-full");
-            toggleIconOpen.classList.toggle("hidden", !isMobileOpen);
-            toggleIconClosed.classList.toggle("hidden", isMobileOpen);
-        }
-    }
-    
-    function openMobileSidebar() {
-        sidebar.classList.remove("-translate-x-full");
-        mobileBackdrop.classList.remove("hidden");
-        updateToggleIcons();
-    }
-    function closeMobileSidebar() {
-        sidebar.classList.add("-translate-x-full");
-        mobileBackdrop.classList.add("hidden");
-        updateToggleIcons();
-    }
-    
-    toggleSidebarBtn.addEventListener("click", () => {
-        if (isDesktop()) {
-            isDesktopCollapsed = !isDesktopCollapsed;
-            sidebar.classList.toggle("sidebar-collapsed", isDesktopCollapsed);
-            sidebar.classList.toggle("sidebar-expanded", !isDesktopCollapsed);
-            updateToggleIcons();
-        } else {
-            
-            const isClosed = sidebar.classList.contains("-translate-x-full");
-            if (isClosed) {
-                openMobileSidebar();
-            } else {
-                closeMobileSidebar();
-            }
-        }
-    });
-    
-    closeMobileSidebarBtn.addEventListener("click", closeMobileSidebar);
-    mobileBackdrop.addEventListener("click", closeMobileSidebar);
-    
-    window.addEventListener("resize", () => {
-        if (isDesktop()) {
-            mobileBackdrop.classList.add("hidden");
-            sidebar.classList.remove("-translate-x-full");
-            sidebar.classList.toggle("sidebar-collapsed", isDesktopCollapsed);
-            sidebar.classList.toggle("sidebar-expanded", !isDesktopCollapsed);
-        } else {
-            sidebar.classList.remove("sidebar-collapsed");
-            sidebar.classList.add("sidebar-expanded", "-translate-x-full");
-        }
-        updateToggleIcons();
-    });
-
 });

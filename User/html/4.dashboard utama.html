@@ -20,7 +20,7 @@
                 <img src="../assets/1.logo-Ryokou.png" width="30" alt="Logo" class="me-2">
                 <div class="lh-1">
                     <span class="fw-bold fs-6" style="color: #F6D057;">RYOKOU</span>
-                    <span class="fw-bold text-white fs-6 ms-1">RENTAL</span>
+                    <span class="fw-bold text-white fs-6 ms-1">RENTAL MOTOR</span>
                 </div>
             </div>
         </div>
@@ -54,13 +54,14 @@
                             Katalog Motor
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="6.unit yang disewa.html" class="nav-link text-white d-flex align-items-center">
+                    <!-- Menu yang disembunyikan saat Guest (Mobile) -->
+                    <li class="nav-item" id="menuInfoPenyewaanMobile">
+                        <a href="6.info penyewaan.html" class="nav-link text-white d-flex align-items-center">
                             <img src="../assets/icon-kalender.svg" width="18" class="me-3" alt="icon">
                             Info Penyewaan
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" id="menuRiwayatMobile">
                         <a href="#" class="nav-link text-white d-flex align-items-center">
                             <img src="../assets/icon-riwayat-aktivitas.svg" width="18" class="me-3" alt="icon">
                             Riwayat Aktivitas
@@ -74,8 +75,8 @@
                     </li>
                 </ul>
             </div>
-            <div class="pt-3 border-top border-light border-opacity-10">
-                <a href="0.halaman login.html" id="btnKeluarMobile" class="nav-link text-white d-flex align-items-center">
+            <div class="pt-3 border-top border-light border-opacity-10" id="wrapperKeluarMobile">
+                <a href="#" id="btnKeluarMobile" class="nav-link text-white d-flex align-items-center">
                     <img src="../assets/icon-log-out.svg" width="18" class="me-3" alt="icon">
                     Keluar
                 </a>
@@ -109,13 +110,14 @@
                             Katalog Motor
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="6.unit yang disewa.html" class="nav-link d-flex align-items-center">
+                    <!-- Menu yang disembunyikan saat Guest (Desktop) -->
+                    <li class="nav-item" id="menuInfoPenyewaanDesktop">
+                        <a href="6.info penyewaan.html" class="nav-link d-flex align-items-center">
                             <img src="../assets/icon-kalender.svg" width="18" class="me-3" alt="icon">
                             Info Penyewaan
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" id="menuRiwayatDesktop">
                         <a href="#" class="nav-link d-flex align-items-center">
                             <img src="../assets/icon-riwayat-aktivitas.svg" width="18" class="me-3" alt="icon">
                             Riwayat Aktivitas
@@ -130,8 +132,8 @@
                 </ul>
             </div>
 
-            <div class="pt-3 border-top border-light border-opacity-10">
-                <a href="0.halaman login.html" id="btnKeluarDesktop" class="nav-link text-white d-flex align-items-center">
+            <div class="pt-3 border-top border-light border-opacity-10" id="wrapperKeluarDesktop">
+                <a href="#" id="btnKeluarDesktop" class="nav-link text-white d-flex align-items-center">
                     <img src="../assets/icon-log-out.svg" width="18" class="me-3" alt="icon">
                     Keluar
                 </a>
@@ -141,16 +143,19 @@
         <!-- Konten Utama Dashboard -->
         <main class="main-content flex-grow-1 p-3 p-md-4">
             
-            <!-- 1. Floating Topbar: Sapaan, Pencarian, dan Akun -->
-            <div class="topbar-wrapper mb-4">
-                <div class="row align-items-center g-2">
+            <!-- 1. Floating Topbar (Sticky & Rapi di Mobile/Desktop) -->
+            <div class="topbar-wrapper mb-4 sticky-top bg-light py-2" style="top: 0; z-index: 1020;">
+                <div class="row align-items-center justify-content-between g-2">
+                    
+                    <!-- Sapaan (Hanya Desktop) -->
                     <div class="col-lg-3 d-none d-lg-block">
                         <div class="fw-bold text-dark" style="font-size: 0.95rem;">Selamat Datang 👋</div>
                         <div class="text-muted" style="font-size: 0.72rem;">Temukan armada terbaik untuk perjalananmu</div>
                     </div>
 
-                    <div class="col-7 col-md-6 col-lg-5">
-                        <div class="input-group style-search rounded-pill px-3 py-1">
+                    <!-- Kolom Pencarian -->
+                    <div class="col-7 col-md-7 col-lg-5">
+                        <div class="input-group style-search rounded-pill px-3 py-1 bg-white border">
                             <span class="input-group-text bg-transparent border-0 ps-0">
                                 <img src="../assets/icon-pencarian.svg" width="16" alt="icon">
                             </span>
@@ -158,26 +163,32 @@
                         </div>
                     </div>
                     
-                    <div class="col-5 col-md-6 col-lg-4 d-flex justify-content-end align-items-center">
+                    <!-- Tombol Aksi Kanan (Guest / Logged In) -->
+                    <div class="col-5 col-md-5 col-lg-4 d-flex justify-content-end align-items-center gap-2">
                         <!-- Guest Mode -->
                         <div id="guestButtons" class="d-flex align-items-center gap-2">
                             <a href="0.halaman login.html" class="btn btn-outline-teal btn-sm rounded-pill fw-semibold px-3">Masuk</a>
                             <a href="3.halaman daftar.html" class="btn btn-teal btn-sm rounded-pill fw-semibold px-3 text-white">Daftar</a>
                         </div>
 
-                        <!-- Logged In Mode -->
-                        <div id="loggedInProfile" class="d-none align-items-center gap-2 user-profile-box bg-light px-3 py-1 rounded-pill border">
-                            <img src="../assets/icon-profil-user.svg" width="30" height="30" class="rounded-circle object-fit-cover flex-shrink-0" alt="icon">
-                            <div class="text-truncate">
-                                <div class="fw-bold username-display text-truncate" id="namaUserDisplay">@User123</div>
-                                <div class="text-muted user-role">Pelanggan</div>
-                            </div>
+                        <!-- Logged In Mode (Notifikasi + Avatar Profil Bulat Saja) -->
+                        <div id="loggedInProfile" class="d-none align-items-center gap-2">
+                            <!-- Tombol Notifikasi -->
+                            <a href="1.notifikasi.html" id="btnNotifikasi" class="btn btn-white rounded-circle p-2 border d-flex align-items-center justify-content-center shadow-sm bg-white" style="width: 38px; height: 38px; min-width: 38px;" title="Notifikasi">
+                                <img src="../assets/icon-notif.svg" width="18" alt="Notifikasi" id="iconNotifImg">
+                            </a>
+
+                            <!-- Avatar Profil Bulat (Tanpa teks nama panjang) -->
+                            <a href="8.pengaturan.html" class="d-flex align-items-center justify-content-center bg-white rounded-circle border p-1 shadow-sm text-decoration-none" style="width: 40px; height: 40px; min-width: 40px;" title="Profil Pengguna">
+                                <img src="../assets/icon-profil-user.svg" width="28" height="28" class="rounded-circle object-fit-cover" alt="Profil">
+                            </a>
                         </div>
                     </div>
+
                 </div>
             </div>
 
-            <!-- 2. Hero Showroom Banner (Ikut scroll normal) -->
+            <!-- 2. Hero Showroom Banner -->
             <div class="banner-promo mb-4">
                 <div class="row align-items-center">
                     <div class="col-md-7 position-relative z-2">
@@ -240,14 +251,13 @@
                 </div>
             </div>
             
-            <!-- 4. Header Section + Filter Cepat (Menggunakan <button> murni agar aman tidak loncat) -->
+            <!-- 4. Header Section + Filter Cepat -->
             <div id="headerUnitPopuler" class="pt-2 mb-3">
                 <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end gap-2">
                     <div>
                         <h5 class="fw-bold mb-1">Unit Populer Minggu Ini</h5>
                         <p class="text-muted small mb-0">Pilih motor favoritmu dan cek ketersediaan secara langsung</p>
                     </div>
-                    <!-- Tombol Filter Kategori & Status -->
                     <div class="d-flex align-items-center gap-2 overflow-auto pb-1">
                         <button type="button" class="filter-pill-btn active" data-filter="all">Semua (8)</button>
                         <button type="button" class="filter-pill-btn" data-filter="tersedia">Tersedia</button>
@@ -257,7 +267,7 @@
                 </div>
             </div>
 
-            <!-- 5. Container Grid Motor Gaya Showroom -->
+            <!-- 5. Container Grid Motor -->
             <div class="row g-2 g-md-3" id="gridMotor">
                 <!-- Card 1: BeAT Deluxe Tersedia -->
                 <div class="col-6 col-md-3 item-motor" data-status="tersedia" data-cc="110cc">
@@ -324,7 +334,7 @@
                         <div class="pt-2 border-top border-light-subtle d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-2">
                             <div>
                                 <small class="text-muted d-block price-label">Harga Sewa</small>
-                                <span class="fw-bold text-dark price-value">Rp 8.000</span><small class="text-muted price-unit">/hari</small>
+                                <span class="fw-bold text-dark price-value">Rp 85.000</span><small class="text-muted price-unit">/hari</small>
                             </div>
                             <a href="P.detail produk beat deluxe street.html" class="btn btn-sewa btn-sm text-center">Sewa Unit</a>
                         </div>
