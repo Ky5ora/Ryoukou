@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Pengguna - RYOKOU Rental Motor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/4.halaman profil.css">
+</head>
+<body>
+
+    <!-- Navbar Mobile -->
+    <nav class="navbar navbar-dark bg-sidebar-mobile d-md-none px-3 py-2 sticky-top shadow-sm" style="z-index: 1030;">
+        <div class="container-fluid d-flex justify-content-between align-items-center px-0">
+            <button class="navbar-toggler border-0 shadow-none p-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMobile" aria-controls="sidebarMobile">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="d-flex align-items-center">
+                <img src="../assets/1.logo-Ryokou.png" width="30" alt="Logo" class="me-2">
+                <div class="lh-1">
+                    <span class="fw-bold fs-6" style="color: #F6D057;">RYOKOU</span>
+                    <span class="fw-bold text-white fs-6 ms-1">RENTAL</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Offcanvas Sidebar Mobile -->
+    <div class="offcanvas offcanvas-start bg-sidebar-mobile text-white" tabindex="-1" id="sidebarMobile" aria-labelledby="sidebarMobileLabel">
+        <div class="offcanvas-header border-bottom border-light border-opacity-10 py-3">
+            <div class="d-flex align-items-center">
+                <img src="../assets/1.logo-Ryokou.png" width="34" alt="Logo" class="me-2">
+                <div>
+                    <h6 class="offcanvas-title fw-bold mb-0" style="color: #F6D057;" id="sidebarMobileLabel">RYOKOU</h6>
+                    <small class="text-white-50" style="font-size: 0.68rem;">RENTAL MOTOR</small>
+                </div>
+            </div>
+            <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column justify-content-between p-3">
+            <div>
+                <div class="sidebar-menu-label mt-1">Menu Utama</div>
+                <ul class="nav nav-pills flex-column">
+                    <li class="nav-item">
+                        <a href="4.dashboard utama.html" class="nav-link text-white d-flex align-items-center">
+                            <img src="../assets/icon-dashboard.svg" width="18" class="me-3" alt="icon">
+                            Dashboard
+                        </a>
+                    </li> 
+                    <li class="nav-item">
+                        <a href="5.katalog motor.html" class="nav-link text-white d-flex align-items-center">
+                            <img src="../assets/icon-motor.svg" width="18" class="me-3" alt="icon">
+                            Katalog Motor
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="6.info penyewaan.html" class="nav-link text-white d-flex align-items-center">
+                            <img src="../assets/icon-kalender.svg" width="18" class="me-3" alt="icon">
+                            Info Penyewaan
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="7.riwayat aktivitas.html" class="nav-link text-white d-flex align-items-center">
+                            <img src="../assets/icon-riwayat-aktivitas.svg" width="18" class="me-3" alt="icon">
+                            Riwayat Aktivitas
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="8.pengaturan.html" class="nav-link d-flex align-items-center">
+                            <img src="../assets/icon-setting.svg" width="18" class="me-3" alt="icon">
+                            Pengaturan / Profil
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="pt-3 border-top border-light border-opacity-10">
+                <a href="#" id="btnKeluarMobile" class="nav-link text-white d-flex align-items-center">
+                    <img src="../assets/icon-log-out.svg" width="18" class="me-3" alt="icon">
+                    Keluar
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex">
+        <!-- Sidebar Desktop -->
+        <aside class="sidebar p-3 d-none d-md-flex flex-column justify-content-between">
+            <div>
+                <div class="sidebar-brand-box d-flex align-items-center mb-4">
+                    <img src="../assets/1.logo-Ryokou.png" width="40" alt="Logo" class="me-3">
+                    <div>
+                        <h6 class="fw-bold mb-0" style="color: #F6D057; letter-spacing: 0.5px;">RYOKOU</h6>
+                        <small class="text-white-50" style="font-size: 0.68rem; letter-spacing: 1px;">RENTAL MOTOR</small>
+                    </div>
+                </div>
+
+                <div class="sidebar-menu-label">Navigasi</div>
+                <ul class="nav nav-pills flex-column">
+                    <li class="nav-item">
+                        <a href="4.dashboard utama.html" class="nav-link text-white d-flex align-items-center">
+                            <img src="../assets/icon-dashboard.svg" width="18" class="me-3" alt="icon">
+                            Dashboard
+                        </a>
+                    </li> 
+                    <li class="nav-item">
+                        <a href="5.katalog motor.html" class="nav-link text-white d-flex align-items-center">
+                            <img src="../assets/icon-motor.svg" width="18" class="me-3" alt="icon">
+                            Katalog Motor
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="6.info penyewaan.html" class="nav-link text-white d-flex align-items-center">
+                            <img src="../assets/icon-kalender.svg" width="18" class="me-3" alt="icon">
+                            Info Penyewaan
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="7.riwayat aktivitas.html" class="nav-link text-white d-flex align-items-center">
+                            <img src="../assets/icon-riwayat-aktivitas.svg" width="18" class="me-3" alt="icon">
+                            Riwayat Aktivitas
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="8.pengaturan.html" class="nav-link d-flex align-items-center">
+                            <img src="../assets/icon-setting.svg" width="18" class="me-3" alt="icon">
+                            Pengaturan / Profil
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="pt-3 border-top border-light border-opacity-10">
+                <a href="#" id="btnKeluarDesktop" class="nav-link text-white d-flex align-items-center">
+                    <img src="../assets/icon-log-out.svg" width="18" class="me-3" alt="icon">
+                    Keluar
+                </a>
+            </div>
+        </aside>
+
+        <!-- Konten Utama Profil -->
+        <main class="main-content flex-grow-1 p-3 p-md-4">
+            
+            <!-- Topbar Sticky -->
+            <div class="topbar-wrapper mb-4 sticky-top bg-light py-2 shadow-sm" style="top: 0; z-index: 1020;">
+                <div class="row align-items-center justify-content-between g-2">
+                    <!-- Sapaan (Hanya Desktop) -->
+                    <div class="col-lg-3 d-none d-lg-block">
+                        <div class="fw-bold text-dark" style="font-size: 0.95rem;">Selamat Datang 👋</div>
+                        <div class="text-muted" style="font-size: 0.72rem;">Temukan armada terbaik untuk perjalananmu</div>
+                    </div>
+                    
+                    <div class="col-5 col-md-5 col-lg-6 d-flex justify-content-end align-items-center gap-2">
+                        <div id="loggedInProfile" class="d-flex align-items-center gap-2">
+                            <!-- Tombol Notifikasi -->
+                            <a href="4.halaman notifikasi.html" id="btnNotifikasi" class="btn btn-white rounded-circle p-2 border d-flex align-items-center justify-content-center shadow-sm bg-white" style="width: 38px; height: 38px; min-width: 38px;" title="Notifikasi">
+                                <img src="../assets/icon-notif.svg" width="18" alt="Notifikasi" id="iconNotifImg">
+                            </a>
+
+                            <!-- Avatar Profil Bulat -->
+                            <a href="4.halaman profil.html" class="d-flex align-items-center justify-content-center bg-white rounded-circle border p-1 shadow-sm text-decoration-none" style="width: 40px; height: 40px; min-width: 40px;" title="Profil Pengguna">
+                                <img src="../assets/icon-profil-user.svg" width="28" height="28" class="rounded-circle object-fit-cover" alt="Profil">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Container -->
+            <div class="px-2">
+                <h5 class="fw-bold mb-4">Pengaturan Profil Pengguna</h5>
+
+                <div class="row g-4">
+                    <!-- Kartu Informasi & Foto Profil -->
+                    <div class="col-xl-4">
+                        <div class="card card-profile p-4 text-center h-100">
+                            <div class="d-flex justify-content-center mb-3">
+                                <div class="position-relative">
+                                    <img src="../assets/icon-profil-user.svg" width="90" height="90" class="rounded-circle border p-2 bg-light object-fit-cover shadow-sm" alt="Avatar" id="previewAvatar">
+                                </div>
+                            </div>
+                            <h5 class="fw-bold text-dark mb-1" id="displayNamaUser">Pengguna Ryokou</h5>
+                            <p class="text-muted small mb-3" id="displayEmailUser">pembeli@ryokou.com</p>
+                            <span class="badge bg-teal text-white py-2 rounded-pill fw-semibold mb-3" style="background-color: #104652; font-size: 0.75rem;">Akun Terverifikasi</span>
+                            
+                            <hr class="text-muted opacity-25 my-3">
+                            
+                            <div class="text-start small text-muted">
+                                <div class="mb-2"><strong>Nomor Telepon:</strong> <span id="displayTelp">081234567890</span></div>
+                                <div class="mb-0"><strong>Status Anggota:</strong> Member Aktif</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Formulir Ubah Profil & Sandi -->
+                    <div class="col-xl-8">
+                        <div class="card card-profile p-4 h-100">
+                            <h6 class="fw-bold text-dark mb-3">Informasi Akun</h6>
+                            <form id="formProfil">
+                                <div class="mb-3">
+                                    <label class="form-label small fw-semibold text-dark">Nama Lengkap</label>
+                                    <input type="text" class="form-control shadow-none" id="inputNamaLengkap" value="Pengguna Ryokou">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label small fw-semibold text-dark">Email</label>
+                                    <input type="email" class="form-control shadow-none" id="inputEmail" value="pembeli@ryokou.com">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label small fw-semibold text-dark">Nomor Telepon / WhatsApp</label>
+                                    <input type="text" class="form-control shadow-none" id="inputTelepon" value="081234567890">
+                                </div>
+                                
+                                <hr class="text-muted opacity-25 my-4">
+
+                                <h6 class="fw-bold text-dark mb-3">Keamanan Akun (Ganti Kata Sandi)</h6>
+                                <div class="mb-3">
+                                    <label class="form-label small fw-semibold text-dark">Kata Sandi Baru</label>
+                                    <input type="password" class="form-control shadow-none" id="inputPasswordBaru" placeholder="Kosongkan jika tidak ingin mengubah sandi">
+                                </div>
+
+                                <div class="d-flex justify-content-end gap-2 mt-4">
+                                    <button type="submit" class="btn text-white rounded-pill px-4 fw-semibold py-2" style="background-color: #104652; font-size: 0.85rem;">Simpan Perubahan</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- MODAL FLOATING: SUKSES SIMPAN PROFIL       -->
+    <!-- ========================================== -->
+    <div class="modal fade" id="modalSuksesProfil" tabindex="-1" aria-labelledby="modalSuksesProfilLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg rounded-4 p-4 text-center">
+                <div class="modal-header border-0 pb-0 justify-content-end">
+                    <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pt-0 px-3 pb-3">
+                    <div class="mb-3">
+                        <div class="rounded-circle bg-success bg-opacity-10 d-inline-flex p-3 text-success mb-2" style="font-size: 1.8rem;">
+                            ✅
+                        </div>
+                    </div>
+                    <h5 class="fw-bold text-dark mb-2">Perubahan Disimpan!</h5>
+                    <p class="text-muted small mb-4">
+                        Informasi profil dan pengaturan akun Anda berhasil diperbarui secara otomatis ke dalam sistem.
+                    </p>
+                    <div class="d-grid">
+                        <button type="button" class="btn text-white rounded-pill fw-semibold py-2" data-bs-dismiss="modal" style="background-color: #104652;">Mengerti</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/4.halaman profil.js"></script>
+</body>
+</html>

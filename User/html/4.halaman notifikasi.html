@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifikasi - RYOKOU Rental Motor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/4.halaman notifikasi.css">
+</head>
+<body>
+
+    <!-- Navbar Mobile -->
+    <nav class="navbar navbar-dark bg-sidebar-mobile d-md-none px-3 py-2 sticky-top shadow-sm" style="z-index: 1030;">
+        <div class="container-fluid d-flex justify-content-between align-items-center px-0">
+            <button class="navbar-toggler border-0 shadow-none p-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMobile" aria-controls="sidebarMobile">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="d-flex align-items-center">
+                <img src="../assets/1.logo-Ryokou.png" width="30" alt="Logo" class="me-2">
+                <div class="lh-1">
+                    <span class="fw-bold fs-6" style="color: #F6D057;">RYOKOU</span>
+                    <span class="fw-bold text-white fs-6 ms-1">RENTAL</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Offcanvas Sidebar Mobile -->
+    <div class="offcanvas offcanvas-start bg-sidebar-mobile text-white" tabindex="-1" id="sidebarMobile" aria-labelledby="sidebarMobileLabel">
+        <div class="offcanvas-header border-bottom border-light border-opacity-10 py-3">
+            <div class="d-flex align-items-center">
+                <img src="../assets/1.logo-Ryokou.png" width="34" alt="Logo" class="me-2">
+                <div>
+                    <h6 class="offcanvas-title fw-bold mb-0" style="color: #F6D057;" id="sidebarMobileLabel">RYOKOU</h6>
+                    <small class="text-white-50" style="font-size: 0.68rem;">RENTAL MOTOR</small>
+                </div>
+            </div>
+            <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column justify-content-between p-3">
+            <div>
+                <div class="sidebar-menu-label mt-1">Menu Utama</div>
+                <ul class="nav nav-pills flex-column">
+                    <li class="nav-item">
+                        <a href="4.dashboard utama.html" class="nav-link text-white d-flex align-items-center">
+                            <img src="../assets/icon-dashboard.svg" width="18" class="me-3" alt="icon">
+                            Dashboard
+                        </a>
+                    </li> 
+                    <li class="nav-item">
+                        <a href="5.katalog motor.html" class="nav-link text-white d-flex align-items-center">
+                            <img src="../assets/icon-motor.svg" width="18" class="me-3" alt="icon">
+                            Katalog Motor
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="6.info penyewaan.html" class="nav-link text-white d-flex align-items-center">
+                            <img src="../assets/icon-kalender.svg" width="18" class="me-3" alt="icon">
+                            Info Penyewaan
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="7.riwayat aktivitas.html" class="nav-link text-white d-flex align-items-center">
+                            <img src="../assets/icon-riwayat-aktivitas.svg" width="18" class="me-3" alt="icon">
+                            Riwayat Aktivitas
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="8.pengaturan.html" class="nav-link text-white d-flex align-items-center">
+                            <img src="../assets/icon-setting.svg" width="18" class="me-3" alt="icon">
+                            Pengaturan
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="pt-3 border-top border-light border-opacity-10">
+                <a href="#" id="btnKeluarMobile" class="nav-link text-white d-flex align-items-center">
+                    <img src="../assets/icon-log-out.svg" width="18" class="me-3" alt="icon">
+                    Keluar
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex">
+        <!-- Sidebar Desktop -->
+        <aside class="sidebar p-3 d-none d-md-flex flex-column justify-content-between">
+            <div>
+                <div class="sidebar-brand-box d-flex align-items-center mb-4">
+                    <img src="../assets/1.logo-Ryokou.png" width="40" alt="Logo" class="me-3">
+                    <div>
+                        <h6 class="fw-bold mb-0" style="color: #F6D057; letter-spacing: 0.5px;">RYOKOU</h6>
+                        <small class="text-white-50" style="font-size: 0.68rem; letter-spacing: 1px;">RENTAL MOTOR</small>
+                    </div>
+                </div>
+
+                <div class="sidebar-menu-label">Navigasi</div>
+                <ul class="nav nav-pills flex-column">
+                    <li class="nav-item">
+                        <a href="4.dashboard utama.html" class="nav-link text-white d-flex align-items-center">
+                            <img src="../assets/icon-dashboard.svg" width="18" class="me-3" alt="icon">
+                            Dashboard
+                        </a>
+                    </li> 
+                    <li class="nav-item">
+                        <a href="5.katalog motor.html" class="nav-link text-white d-flex align-items-center">
+                            <img src="../assets/icon-motor.svg" width="18" class="me-3" alt="icon">
+                            Katalog Motor
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="6.info penyewaan.html" class="nav-link text-white d-flex align-items-center">
+                            <img src="../assets/icon-kalender.svg" width="18" class="me-3" alt="icon">
+                            Info Penyewaan
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="7.riwayat aktivitas.html" class="nav-link text-white d-flex align-items-center">
+                            <img src="../assets/icon-riwayat-aktivitas.svg" width="18" class="me-3" alt="icon">
+                            Riwayat Aktivitas
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="8.pengaturan.html" class="nav-link text-white d-flex align-items-center">
+                            <img src="../assets/icon-setting.svg" width="18" class="me-3" alt="icon">
+                            Pengaturan
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="pt-3 border-top border-light border-opacity-10">
+                <a href="#" id="btnKeluarDesktop" class="nav-link text-white d-flex align-items-center">
+                    <img src="../assets/icon-log-out.svg" width="18" class="me-3" alt="icon">
+                    Keluar
+                </a>
+            </div>
+        </aside>
+
+        <!-- Konten Utama Notifikasi -->
+        <main class="main-content flex-grow-1 p-3 p-md-4">
+            
+            <!-- Topbar Sticky -->
+            <div class="topbar-wrapper mb-4 sticky-top bg-light py-2 shadow-sm" style="top: 0; z-index: 1020;">
+                <div class="row align-items-center justify-content-between g-2">
+                    <div class="col-7 col-md-7 col-lg-6">
+                        <div class="input-group style-search rounded-pill px-3 py-1 bg-white border">
+                            <span class="input-group-text bg-transparent border-0 ps-0">
+                                <img src="../assets/icon-pencarian.svg" width="16" alt="icon">
+                            </span>
+                            <input type="text" id="inputPencarian" class="form-control border-0 bg-transparent shadow-none px-1" style="font-size: 0.85rem;" placeholder="Cari Notifikasi...">
+                        </div>
+                    </div>
+                    
+                    <div class="col-5 col-md-5 col-lg-6 d-flex justify-content-end align-items-center gap-2">
+                        <div id="loggedInProfile" class="d-flex align-items-center gap-2">
+                            <!-- Tombol Notifikasi Aktif -->
+                            <a href="4.halaman notifikasi.html" id="btnNotifikasi" class="btn btn-white rounded-circle p-2 border d-flex align-items-center justify-content-center shadow-sm bg-white" style="width: 38px; height: 38px; min-width: 38px;" title="Notifikasi">
+                                <img src="../assets/icon-notif-merah.svg" width="18" alt="Notifikasi" id="iconNotifImg">
+                            </a>
+
+                            <!-- Avatar Profil Bulat -->
+                            <a href="4.halaman profil.html" class="d-flex align-items-center justify-content-center bg-white rounded-circle border p-1 shadow-sm text-decoration-none" style="width: 40px; height: 40px; min-width: 40px;" title="Profil Pengguna">
+                                <img src="../assets/icon-profil-user.svg" width="28" height="28" class="rounded-circle object-fit-cover" alt="Profil">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Container -->
+            <div class="px-2">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h5 class="fw-bold mb-0">Notifikasi Terbaru</h5>
+                    <button class="btn btn-sm btn-outline-secondary rounded-pill px-3 fw-semibold" id="btnTandaiSemua">Tandai Semua Dibaca</button>
+                </div>
+
+                <!-- Daftar Notifikasi -->
+                <div class="d-flex flex-column gap-3" id="containerNotifikasi">
+
+                    <!-- Item Notif 1 (Unread) -->
+                    <div class="card card-notif unread rounded-4 p-3 shadow-sm item-notif">
+                        <div class="d-flex align-items-start gap-3">
+                            <div class="rounded-circle bg-teal bg-opacity-15 p-2 d-flex align-items-center justify-content-center mt-1" style="background-color: rgba(16, 70, 82, 0.1); width: 42px; height: 42px; min-width: 42px;">
+                                <img src="../assets/icon-kalender.svg" width="20" alt="icon">
+                            </div>
+                            <div class="flex-grow-1">
+                                <div class="d-flex justify-content-between align-items-center mb-1">
+                                    <h6 class="fw-bold text-dark mb-0 title-notif">Perpanjangan Sewa Berhasil Dikonfirmasi</h6>
+                                    <small class="text-muted" style="font-size: 0.75rem;">Baru saja</small>
+                                </div>
+                                <p class="text-muted small mb-2">
+                                    Unit <strong>Honda BeAT Deluxe</strong> (#RYK-2026-0891) telah berhasil diperpanjang masa sewanya hingga 24 Nov 2026. Silakan selesaikan pembayaran.
+                                </p>
+                                <span class="badge bg-warning bg-opacity-15 text-dark fw-semibold" style="font-size: 0.7rem;">Menunggu Pembayaran</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item Notif 2 (Read) -->
+                    <div class="card card-notif rounded-4 p-3 shadow-sm item-notif">
+                        <div class="d-flex align-items-start gap-3">
+                            <div class="rounded-circle p-2 d-flex align-items-center justify-content-center mt-1" style="background-color: rgba(16, 70, 82, 0.1); width: 42px; height: 42px; min-width: 42px;">
+                                <img src="../assets/icon-motor.svg" width="20" alt="icon">
+                            </div>
+                            <div class="flex-grow-1">
+                                <div class="d-flex justify-content-between align-items-center mb-1">
+                                    <h6 class="fw-bold text-dark mb-0 title-notif">Penyewaan Motor Dimulai</h6>
+                                    <small class="text-muted" style="font-size: 0.75rem;">11 Nov 2026, 09:30</small>
+                                </div>
+                                <p class="text-muted small mb-2">
+                                    Sewa aktif untuk unit <strong>Honda BeAT Deluxe</strong> dan <strong>Honda Vario 125 CBS</strong> sudah berjalan. Nikmati perjalanan aman bersama RYOKOU!
+                                </p>
+                                <span class="badge bg-success bg-opacity-15 text-success fw-semibold" style="font-size: 0.7rem;">Sewa Aktif</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item Notif 3 (Read) -->
+                    <div class="card card-notif rounded-4 p-3 shadow-sm item-notif">
+                        <div class="d-flex align-items-start gap-3">
+                            <div class="rounded-circle p-2 d-flex align-items-center justify-content-center mt-1" style="background-color: rgba(16, 70, 82, 0.1); width: 42px; height: 42px; min-width: 42px;">
+                                <img src="../assets/icon-profil-user.svg" width="20" alt="icon">
+                            </div>
+                            <div class="flex-grow-1">
+                                <div class="d-flex justify-content-between align-items-center mb-1">
+                                    <h6 class="fw-bold text-dark mb-0 title-notif">Selamat Datang di RYOKOU!</h6>
+                                    <small class="text-muted" style="font-size: 0.75rem;">10 Nov 2026</small>
+                                </div>
+                                <p class="text-muted small mb-2">
+                                    Akun Anda berhasil didaftarkan. Terima kasih telah memilih layanan penyewaan motor terpercaya kami.
+                                </p>
+                                <span class="badge bg-secondary bg-opacity-15 text-secondary fw-semibold" style="font-size: 0.7rem;">Informasi Akun</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/4.halaman notifikasi.js"></script>
+</body>
+</html>
