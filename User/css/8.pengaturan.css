@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --teal-primary: #104652;
+    --teal-secondary: #0E4B5B;
+    --teal-btn: #085a6b;
+    --gold-accent: #F6D057;
+    --bg-canvas: #F4F6F8;
+    --surface-white: #ffffff;
+    --border-soft: #E2E8F0;
+    --text-dark: #1E293B;
+    --text-muted: #64748B;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-canvas);
+    color: var(--text-dark);
+    min-height: 100vh;
+}
+
+/* ================= SIDEBAR & NAVBAR MOBILE ================= */
+.bg-sidebar-mobile, .sidebar {
+    background-color: var(--teal-primary);
+}
+
+.sidebar {
+    width: 265px;
+    min-width: 265px;
+    flex-shrink: 0;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    overflow-y: auto;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+    z-index: 1020;
+}
+
+.sidebar-brand-box {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 14px 16px;
+}
+
+.sidebar-menu-label {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: rgba(255, 255, 255, 0.45);
+    font-weight: 600;
+    padding-left: 14px;
+    margin-bottom: 8px;
+}
+
+.sidebar .nav-link, .offcanvas .nav-link {
+    color: rgba(255, 255, 255, 0.78);
+    background-color: transparent;
+    border-radius: 12px;
+    padding: 11px 16px;
+    transition: all 0.22s ease;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+
+.sidebar .nav-link:hover, .offcanvas .nav-link:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.12);
+    transform: translateX(4px);
+}
+
+.sidebar .nav-link.active, .offcanvas .nav-link.active {
+    color: var(--teal-primary);
+    background-color: #ffffff;
+    font-weight: 700;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.14);
+}
+
+.sidebar .nav-link img, .offcanvas .nav-link img {
+    transition: filter 0.2s ease-in-out;
+}
+
+.sidebar .nav-link.active img, .offcanvas .nav-link.active img {
+    filter: brightness(0) saturate(100%) invert(26%) sepia(43%) saturate(542%) hue-rotate(149deg) brightness(95%) contrast(93%);
+}
+
+/* ================= MAIN CONTENT & TOPBAR ================= */
+.main-content {
+    background-color: var(--bg-canvas);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.topbar-wrapper {
+    background-color: var(--surface-white);
+    border: 1px solid var(--border-soft);
+    border-radius: 18px;
+    padding: 10px 16px;
+    box-shadow: 0 4px 20px rgba(16, 70, 82, 0.04);
+}
+
+.style-search {
+    background-color: var(--bg-canvas) !important;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.style-search:focus-within {
+    background-color: #ffffff !important;
+    border-color: var(--teal-primary);
+    box-shadow: 0 0 0 3px rgba(16, 70, 82, 0.1);
+}
+
+/* Kartu Menu Pengaturan Full Width */
+.card-setting {
+    border: 1px solid var(--border-soft);
+    background-color: #ffffff;
+    border-radius: 16px;
+    transition: all 0.2s ease;
+}
+
+.card-setting:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.03);
+}
+
+.setting-item {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border-soft);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+    color: var(--text-dark);
+    transition: background-color 0.2s ease;
+}
+
+.setting-item:last-child {
+    border-bottom: none;
+}
+
+.setting-item:hover {
+    background-color: #f8fafc;
+    color: var(--teal-primary);
+}
