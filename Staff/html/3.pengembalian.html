@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RYOKOU Oto Rent — Pengembalian</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        fontFamily: { sans: ['"Plus Jakarta Sans"', "sans-serif"] },
+        colors: { brand: { dark: "#0C4651", darker: "#093841", light: "#16606E", gold: "#F4CE5C", cream: "#F5F2DC", bg: "#F4F7F8" } },
+      } },
+    };
+  </script>
+
+  <link rel="stylesheet" href="../css/dashboard.css" />
+  <link rel="stylesheet" href="../css/pengembalian.css" />
+</head>
+<body class="bg-[#F4F7F8] text-[#111827] antialiased selection:bg-[#0C4651] selection:text-white">
+
+  <div class="flex min-h-screen w-full overflow-x-clip">
+
+    <!-- SIDEBAR + BACKDROP (sidebar.js) -->
+    <script src="../js/sidebar.js" data-role="staff" data-active="pengembalian"></script>
+
+    <div class="flex-1 flex flex-col min-w-0 w-full">
+
+      <!-- Top Header Bar (sama dengan halaman lain) -->
+      <header class="bg-white border-b border-gray-100 px-4 sm:px-7 py-3.5 flex items-center justify-between gap-4 sticky top-0 z-20 w-full">
+        <div class="flex items-center gap-3 flex-1 max-w-2xl">
+          <button id="toggleSidebarBtn" type="button" title="Buka / Tutup Menu Sidebar" class="p-2.5 rounded-xl bg-[#F3F2F0] hover:bg-[#E7E5E2] text-[#0C4651] transition-colors shrink-0 flex items-center justify-center">
+            <svg id="toggleIconOpen" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <rect x="3" y="4" width="18" height="16" rx="2.5" /><line x1="9" y1="4" x2="9" y2="20" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 10l-2 2 2 2" />
+            </svg>
+            <svg id="toggleIconClosed" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <rect x="3" y="4" width="18" height="16" rx="2.5" /><line x1="9" y1="4" x2="9" y2="20" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 10l2 2-2 2" />
+            </svg>
+          </button>
+          <div class="relative flex-1">
+            <svg class="w-[18px] h-[18px] text-gray-500 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="7" /><path stroke-linecap="round" d="M20 20l-3.5-3.5" />
+            </svg>
+            <input id="searchInput" type="text" placeholder="Pencarian"
+              class="w-full bg-[#F3F2F0] hover:bg-[#ECEAE7] focus:bg-white focus:ring-2 focus:ring-[#0C4651]/20 focus:border-[#0C4651] border border-transparent rounded-xl pl-11 pr-4 py-2.5 text-[13.5px] text-gray-800 placeholder-gray-400 outline-none transition-all" />
+          </div>
+        </div>
+
+        <div class="relative shrink-0">
+          <button id="profileTrigger" class="flex items-center gap-3 py-1 px-2 rounded-xl hover:bg-gray-50 transition-colors text-left">
+            <div class="w-10 h-10 rounded-full bg-[#0C4651] text-white font-bold text-[13.5px] flex items-center justify-center shrink-0">P1</div>
+            <div class="hidden sm:block leading-tight">
+              <div class="text-[13px] font-bold text-gray-900">Pegawai_001</div>
+              <div class="text-[11px] font-medium text-gray-500">Staff</div>
+            </div>
+            <svg id="profileChevron" class="w-4 h-4 text-gray-500 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+          </button>
+          <div id="profilePopover" class="hidden absolute right-0 mt-2.5 w-64 bg-white rounded-2xl shadow-xl border border-gray-100 p-5 z-50">
+            <div class="flex items-center gap-3.5 pb-4 border-b border-gray-100">
+              <div class="w-11 h-11 rounded-full bg-[#0C4651] text-white font-bold text-[14px] flex items-center justify-center shrink-0">P1</div>
+              <div class="min-w-0">
+                <div class="text-[14px] font-bold text-gray-900 truncate">Pegawai_001</div>
+                <div class="text-[11.5px] text-gray-400 truncate">pegawai001@gmail.com</div>
+                <span class="inline-block mt-1.5 px-2.5 py-0.5 rounded-full bg-[#DCFCE7] text-[#15803D] text-[10.5px] font-bold">Staff</span>
+              </div>
+            </div>
+            <button id="popoverLogoutBtn" class="mt-3.5 w-full flex items-center gap-2.5 px-2 py-2 rounded-lg text-[13px] font-semibold text-[#EF4444] hover:bg-red-50 transition-colors">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" /></svg>
+              Keluar Sistem
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- ==================== VIEW: PENGEMBALIAN ==================== -->
+      <main id="view-pengembalian" class="content w-full flex-1">
+
+        <div class="rt-head">
+          <div>
+            <h1>Pengembalian Unit Motor</h1>
+            <p>Validasi pengembalian unit, inspeksi fisik kondisi motor, dan pemeriksaan legalitas berkas delegasi pengembalian pihak ketiga.</p>
+          </div>
+          <div class="rt-head__side">
+            <span class="rt-flag"><i></i>PERLU REVIEW KHUSUS (DELEGASI)</span>
+            <a class="rt-btn rt-btn--soft" href="#"><svg viewBox="0 0 24 24" class="stroke"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Daftar Transaksi</a>
+          </div>
+        </div>
+
+        <div class="rt-grid">
+
+          <!-- ============ KOLOM KIRI ============ -->
+          <div class="rt-col">
+
+            <!-- Informasi Sewa -->
+            <section class="rt-card">
+              <div class="rt-card__head">
+                <span class="rt-ico"><svg viewBox="0 0 24 24" class="stroke"><circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="3"/><path d="M9 17h6l-3-8h-3"/></svg></span>
+                <div><h2>Informasi Sewa &amp; Penyewa Asli</h2><small>ID Transaksi: TRX-2025-0426-088</small></div>
+                <span class="rt-pill">Tepat Waktu (16:45 WIB)</span>
+              </div>
+
+              <div class="rt-unit">
+                <div class="rt-photo">
+                  <svg viewBox="0 0 120 76" role="img" aria-label="Foto Honda Vario 125">
+                    <defs><linearGradient id="gar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5b6770"/><stop offset="1" stop-color="#2a3138"/></linearGradient></defs>
+                    <rect width="120" height="76" fill="url(#gar)"/><rect y="56" width="120" height="20" fill="#3a434b"/>
+                    <circle cx="34" cy="58" r="11" fill="#14181c"/><circle cx="34" cy="58" r="5" fill="#6b747b"/>
+                    <circle cx="90" cy="58" r="11" fill="#14181c"/><circle cx="90" cy="58" r="5" fill="#6b747b"/>
+                    <path d="M26 50c4-14 16-22 30-22h18c6 0 10 4 12 10l8 14-14 2-6-8H44l-10 8z" fill="#1d2329"/>
+                    <path d="M70 30l8-14h8l-4 14z" fill="#2b333a"/>
+                  </svg>
+                  <span class="rt-plate">N 1234 XXX</span>
+                </div>
+                <div>
+                  <span class="rt-eyebrow">MATIK PREMIUM FLEET</span>
+                  <h3>Honda Vario 125 Street (2024)</h3>
+                  <p class="rt-meta">Warna: Matte Titanium • Helm 2 Pcs • Jas Hujan 2 Pcs</p>
+                  <dl class="rt-kv">
+                    <dt>Penyewa Asli:</dt><dd>Budi Santoso</dd>
+                    <dt>No. KTP Asli:</dt><dd class="rt-mono">3578210908870003</dd>
+                    <dt>Kontak Terdaftar:</dt><dd>+62 812-8888-7777</dd>
+                    <dt>Durasi Sewa:</dt><dd>24 Apr - 26 Apr 2025 (2 Hari)</dd>
+                  </dl>
+                </div>
+              </div>
+            </section>
+
+            <!-- Kondisi Fisik & Denda -->
+            <section class="rt-card">
+              <div class="rt-card__head">
+                <span class="rt-ico rt-ico--soft"><svg viewBox="0 0 24 24" class="stroke"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 12l3 3 5-6"/></svg></span>
+                <div><h2>Kondisi Fisik &amp; Kalkulator Denda Check-in</h2><small>Inspeksi bodi interaktif &amp; kalkulasi biaya keterlambatan realtime</small></div>
+                <span class="rt-pill" id="checkBadge">Semua Lolos Checklist</span>
+              </div>
+
+              <div class="rt-metrics">
+                <div class="rt-tile">
+                  <div class="rt-tile__top"><span class="rt-tile__title"><svg viewBox="0 0 24 24" class="stroke"><path d="M5 20V5a1 1 0 011-1h6a1 1 0 011 1v15M3 20h12M13 9h2a2 2 0 012 2v5a1.5 1.5 0 003 0V9l-3-3"/></svg>Tingkat BBM Kembali</span><span class="rt-pill">8/8 Bar (Penuh)</span></div>
+                  <div class="rt-bar" role="img" aria-label="BBM penuh"><i style="width:100%"></i></div>
+                  <small>Sesuai kondisi serah awal (Full-to-Full)</small>
+                </div>
+                <div class="rt-tile">
+                  <div class="rt-tile__top"><span class="rt-tile__title"><svg viewBox="0 0 24 24" class="stroke"><circle cx="12" cy="13" r="8"/><path d="M12 13l4-3"/></svg>Odometer Masuk</span><b class="rt-mono">14.280 KM</b></div>
+                  <div class="rt-kv rt-kv--tight"><span>Odo Pinjam: 14.120 KM</span><span class="rt-right">Pemakaian: +160 KM</span></div>
+                  <small class="rt-good">Dalam toleransi pemakaian harian Malang Raya</small>
+                </div>
+              </div>
+
+              <div class="rt-late">
+                <span class="rt-ico rt-ico--soft"><svg viewBox="0 0 24 24" class="stroke"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+                <div><b>Waktu Keterlambatan Pengembalian</b><small>Tarif overtime: <b>Rp 20.000 / jam</b> (Toleransi 15 menit)</small></div>
+                <label class="rt-late__in"><small>Durasi Telat:</small>
+                  <span><input type="number" id="lateHours" min="0" max="99" value="0" inputmode="numeric" aria-label="Durasi telat dalam jam"><em>Jam</em></span>
+                </label>
+                <b class="rt-late__fee" id="lateFee">Rp 0</b>
+              </div>
+
+              <div class="rt-insp__head"><b>INSPEKSI BODI 4 SISI (KLIK UNTUK CATAT KERUSAKAN)</b><small>Klik tombol kartu untuk toggle kondisi</small></div>
+              <div class="rt-sides" id="sides">
+                <button type="button" class="rt-side" aria-pressed="false" data-ok="Headlamp &amp; Spakbor mulus"><span class="rt-side__t"><svg viewBox="0 0 24 24" class="stroke rt-i-ok"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg><svg viewBox="0 0 24 24" class="stroke rt-i-bad"><path d="M12 3l10 18H2z"/><path d="M12 10v5M12 18v.01"/></svg>Depan</span><span class="rt-side__d">Headlamp &amp; Spakbor mulus</span></button>
+                <button type="button" class="rt-side" aria-pressed="false" data-ok="Cover knalpot utuh"><span class="rt-side__t"><svg viewBox="0 0 24 24" class="stroke rt-i-ok"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg><svg viewBox="0 0 24 24" class="stroke rt-i-bad"><path d="M12 3l10 18H2z"/><path d="M12 10v5M12 18v.01"/></svg>Kanan</span><span class="rt-side__d">Cover knalpot utuh</span></button>
+                <button type="button" class="rt-side" aria-pressed="false" data-ok="CVT cover mulus"><span class="rt-side__t"><svg viewBox="0 0 24 24" class="stroke rt-i-ok"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg><svg viewBox="0 0 24 24" class="stroke rt-i-bad"><path d="M12 3l10 18H2z"/><path d="M12 10v5M12 18v.01"/></svg>Kiri</span><span class="rt-side__d">CVT cover mulus</span></button>
+                <button type="button" class="rt-side" aria-pressed="false" data-ok="Lampu rem &amp; sein aktif"><span class="rt-side__t"><svg viewBox="0 0 24 24" class="stroke rt-i-ok"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg><svg viewBox="0 0 24 24" class="stroke rt-i-bad"><path d="M12 3l10 18H2z"/><path d="M12 10v5M12 18v.01"/></svg>Belakang</span><span class="rt-side__d">Lampu rem &amp; sein aktif</span></button>
+              </div>
+
+              <div class="rt-fine" aria-live="polite">
+                <span class="rt-fine__ico"><svg viewBox="0 0 24 24" class="stroke"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg></span>
+                <div><b>Kalkulasi Denda / Kerusakan</b><small id="fineNote">Tidak ada denda bodi maupun keterlambatan jam</small></div>
+                <div class="rt-fine__sum"><strong id="fineTotal">Rp 0</strong><small id="fineSub">Bebas Biaya Tambahan</small></div>
+              </div>
+            </section>
+          </div>
+
+          <!-- ============ KOLOM KANAN ============ -->
+          <section class="rt-card rt-verif">
+            <div class="rt-verif__top"><span class="rt-tier">VERIFIKASI TINGKAT 2</span><small>Formulir Petugas Pool</small></div>
+            <h2 class="rt-verif__title">Verifikasi Delegasi Pengembalian</h2>
+            <p class="rt-verif__sub">Prosedur khusus pengembalian tidak langsung oleh penyewa asli. Dokumen kuasa &amp; identitas wajib diverifikasi.</p>
+
+            <div class="rt-warn">
+              <svg viewBox="0 0 24 24" class="stroke"><path d="M6 17V11a6 6 0 0112 0v6l2 2H4zM10 21h4"/></svg>
+              <div><b>Waspada Penipuan / Penggelapan Armada</b><p>Pastikan nomor kontak penyewa asli telah dikonfirmasi dan fisik KTP pihak perwakilan asli dicocokkan langsung.</p></div>
+            </div>
+
+            <!-- A -->
+            <div class="rt-block">
+              <div class="rt-block__head"><span class="rt-letter">A</span><b>Identitas Pihak Perwakilan</b><span class="rt-present"><svg viewBox="0 0 24 24" class="stroke"><circle cx="9" cy="8" r="4"/><path d="M2 21c0-4 3-6 7-6M16 17l2 2 4-4"/></svg>Hadir Fisik</span></div>
+              <dl class="rt-kv rt-kv--rows">
+                <dt>Nama Lengkap:</dt><dd>Dimas Setiawan</dd>
+                <dt>Hubungan:</dt><dd>Rekan Kantor / Saudara</dd>
+                <dt>No. NIK KTP:</dt><dd class="rt-mono">3579081203990001</dd>
+                <dt>No. WhatsApp/Telp:</dt><dd>+62 813-9988-1234</dd>
+              </dl>
+              <div class="rt-thumbs">
+                <button type="button" class="rt-thumb" data-preview="Scan KTP Perwakilan">
+                  <svg viewBox="0 0 100 60" aria-hidden="true"><rect width="100" height="60" fill="#33475a"/><rect x="12" y="12" width="76" height="40" rx="4" fill="#dbe8f5"/><rect x="18" y="20" width="18" height="22" rx="2" fill="#9db4cc"/><rect x="42" y="22" width="40" height="4" fill="#9db4cc"/><rect x="42" y="30" width="32" height="4" fill="#b9cade"/><rect x="42" y="38" width="36" height="4" fill="#b9cade"/></svg>
+                  <b>Scan KTP Perwakilan</b><small>NIK Terverifikasi</small>
+                </button>
+                <button type="button" class="rt-thumb" data-preview="Foto Serah-Terima">
+                  <svg viewBox="0 0 100 60" aria-hidden="true"><rect width="100" height="60" fill="#2b2f35"/><circle cx="34" cy="24" r="8" fill="#e4b790"/><path d="M18 56c0-14 7-20 16-20s16 6 16 20z" fill="#e8eaed"/><circle cx="68" cy="26" r="7" fill="#d9a67c"/><path d="M54 56c0-12 6-18 14-18s14 6 14 18z" fill="#4b5a6a"/></svg>
+                  <b>Foto Serah-Terima</b><small>Di Pool Ryokou</small>
+                </button>
+              </div>
+            </div>
+
+            <!-- B -->
+            <div class="rt-block">
+              <div class="rt-block__head"><span class="rt-letter">B</span><b>Surat Kuasa &amp; Pertanggungjawaban</b><span class="rt-pill">Ada Materai Rp10.000</span></div>
+              <div class="rt-file">
+                <span class="rt-pdf">PDF</span>
+                <div><b>Surat_Kuasa_TRX00…</b><small>Digital Scan • 2.4 MB</small><small>• Klausul Penuh</small></div>
+                <button type="button" class="rt-btn rt-btn--dark rt-btn--sm" data-preview="Surat Kuasa"><svg viewBox="0 0 24 24" class="stroke"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>Pratinjau</button>
+              </div>
+            </div>
+
+            <!-- C -->
+            <div class="rt-block">
+              <div class="rt-block__head"><span class="rt-letter">C</span><b>Bukti Valid Penyewa Asli Berhalangan</b><span class="rt-pill">Medis Darurat</span></div>
+              <div class="rt-file">
+                <span class="rt-medic"><svg viewBox="0 0 24 24" class="stroke"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M12 9v7M8.5 12.5h7"/></svg></span>
+                <div><b>Surat_Keterangan_</b><small>RS Hermina Malang</small><small>• Dr. Anita, Sp.PD</small></div>
+                <button type="button" class="rt-btn rt-btn--line rt-btn--sm" data-preview="Surat Keterangan Medis"><svg viewBox="0 0 24 24" class="stroke"><circle cx="11" cy="11" r="7"/><path d="M16 16l5 5"/></svg>Lihat Bukti</button>
+              </div>
+            </div>
+
+            <!-- Keputusan -->
+            <p class="rt-cap">KEPUTUSAN VALIDASI PENGEMBALIAN</p>
+            <div class="rt-opts" role="radiogroup" aria-label="Keputusan validasi pengembalian">
+              <label class="rt-opt is-on">
+                <input type="radio" name="keputusan" value="accept" checked><span class="rt-radio"></span>
+                <span><b>Setujui Pengembalian &amp; Delegasi Sah</b><small>Semua berkas sah, tanda tangan cocok, unit motor dalam kondisi baik tanpa sengketa.</small></span>
+              </label>
+              <label class="rt-opt rt-opt--bad">
+                <input type="radio" name="keputusan" value="reject"><span class="rt-radio"></span>
+                <span><b>Tolak Delegasi &amp; Tahan Jaminan</b><small>Dokumen palsu/tidak lengkap, atau perwakilan menolak diverifikasi identitasnya.</small></span>
+              </label>
+            </div>
+
+            <label class="rt-cap" for="adminNote">CATATAN PEMERIKSAAN ADMIN / POOL STAFF</label>
+            <textarea id="adminNote" class="rt-note" rows="4">Surat kuasa bermaterai telah diverifikasi. Penyewa asli Budi Santoso telah dikonfirmasi via panggilan video (sedang di ruang rawat inap RS Hermina). Identitas Saudara Dimas Setiawan cocok dengan KTP.</textarea>
+            <p class="rt-err" id="noteErr" role="alert" hidden>Catatan wajib diisi untuk menolak delegasi.</p>
+
+            <button type="button" class="rt-btn rt-btn--dark rt-btn--block" id="confirmBtn"><svg viewBox="0 0 24 24" class="stroke"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg><span id="confirmLabel">Konfirmasi Validasi &amp; Tutup Rental</span></button>
+            <a class="rt-call" href="tel:+6281288887777"><svg viewBox="0 0 24 24" class="stroke"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"/></svg>Hubungi Penyewa Asli (Budi Santoso: +62 812-8888-7777)</a>
+          </section>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Modal pratinjau -->
+  <div class="rt-modal" id="docModal" hidden>
+    <div class="rt-modal__box" role="dialog" aria-modal="true" aria-labelledby="docTitle">
+      <div class="rt-modal__head"><h3 id="docTitle">Pratinjau</h3>
+        <button type="button" id="docClose" aria-label="Tutup"><svg viewBox="0 0 24 24" class="stroke"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+      <div class="rt-modal__body">Pratinjau berkas akan tampil di sini.<br><small>Hubungkan dengan file asli dari server.</small></div>
+    </div>
+  </div>
+  <div class="rt-toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="../js/dashboard.js"></script>
+  <script src="../js/pengembalian.js"></script>
+</body>
+</html>
