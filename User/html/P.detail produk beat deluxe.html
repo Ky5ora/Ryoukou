@@ -9,69 +9,75 @@
 </head>
 <body>
 
-    <!-- Tombol Hamburger khusus tampilan Mobile di bagian atas -->
-    <nav class="navbar navbar-dark bg-sidebar-mobile d-md-none px-3 py-2" style="background-color: #085a6b;">
-        <div class="container-fluid d-flex justify-content-between align-items-center">
-            <!-- Tombol Burger di Kiri -->
-            <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMobile" aria-controls="sidebarMobile">
+    <!-- Navbar Mobile -->
+    <nav class="navbar navbar-dark bg-sidebar-mobile d-md-none px-3 py-2 sticky-top shadow-sm" style="z-index: 1030;">
+        <div class="container-fluid d-flex justify-content-between align-items-center px-0">
+            <button class="navbar-toggler border-0 shadow-none p-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMobile" aria-controls="sidebarMobile">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <!-- Logo dan Judul di Kanan -->
             <div class="d-flex align-items-center">
-                <div>
+                <img src="../assets/1.logo-Ryokou.png" width="30" alt="Logo" class="me-2">
+                <div class="lh-1">
                     <span class="fw-bold fs-6" style="color: #F6D057;">RYOKOU</span>
-                    <span class="fw-bold text-white fs-6 ms-1">RENTAL MOTOR</span>
+                    <span class="fw-bold text-white fs-6 ms-1">RENTAL</span>
                 </div>
-                <img src="../assets/1.logo-Ryokou.png" width="32" alt="Logo" class="ms-2">
             </div>
         </div>
     </nav>
 
-    <!-- Offcanvas Sidebar untuk Mobile -->
-    <div class="offcanvas offcanvas-start text-white bg-sidebar-mobile" tabindex="-1" id="sidebarMobile" aria-labelledby="sidebarMobileLabel" style="background-color: #085a6b;">
-        <div class="offcanvas-header border-bottom border-light border-opacity-10">
-            <h5 class="offcanvas-title fw-bold" id="sidebarMobileLabel">RYOKOU RENTAL</h5>
+    <!-- Offcanvas Sidebar Mobile -->
+    <div class="offcanvas offcanvas-start bg-sidebar-mobile text-white" tabindex="-1" id="sidebarMobile" aria-labelledby="sidebarMobileLabel">
+        <div class="offcanvas-header border-bottom border-light border-opacity-10 py-3">
+            <div class="d-flex align-items-center">
+                <img src="../assets/1.logo-Ryokou.png" width="34" alt="Logo" class="me-2">
+                <div>
+                    <h6 class="offcanvas-title fw-bold mb-0" style="color: #F6D057;" id="sidebarMobileLabel">RYOKOU</h6>
+                    <small class="text-white-50" style="font-size: 0.68rem;">RENTAL MOTOR</small>
+                </div>
+            </div>
             <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body d-flex flex-column justify-content-between p-3">
             <div>
+                <div class="sidebar-menu-label mt-1">Menu Utama</div>
                 <ul class="nav nav-pills flex-column">
                     <li class="nav-item">
-                        <a href="4.dashboard utama.html" class="nav-link text-white d-flex align-items-center mb-1">
-                            <img src="../assets/icon-dashboard.svg" width="18" class="me-2" alt="icon">
+                        <a href="4.dashboard utama.html" class="nav-link text-white d-flex align-items-center">
+                            <img src="../assets/icon-dashboard.svg" width="18" class="me-3" alt="icon">
                             Dashboard
                         </a>
-                    </li>
+                    </li> 
                     <li class="nav-item">
-                        <a href="5.katalog motor.html" class="nav-link text-white d-flex align-items-center mb-1">
-                            <img src="../assets/icon-motor.svg" width="18" class="me-2" alt="icon">
+                        <a href="5.katalog motor.html" class="nav-link text-white d-flex align-items-center">
+                            <img src="../assets/icon-motor.svg" width="18" class="me-3" alt="icon">
                             Katalog Motor
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="6.unit yang disewa.html" class="nav-link text-white d-flex align-items-center mb-1">
-                            <img src="../assets/icon-kalender.svg" width="18" class="me-2" alt="icon">
-                            Unit yang Disewa
+                        <a href="6.info penyewaan.html" class="nav-link text-white d-flex align-items-center">
+                            <img src="../assets/icon-kalender.svg" width="18" class="me-3" alt="icon">
+                            Info Penyewaan
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link text-white d-flex align-items-center mb-1">
-                            <img src="../assets/icon-riwayat-aktivitas.svg" width="18" class="me-2" alt="icon">
+                        <a href="7.riwayat aktivitas.html" class="nav-link text-white d-flex align-items-center">
+                            <img src="../assets/icon-riwayat-aktivitas.svg" width="18" class="me-3" alt="icon">
                             Riwayat Aktivitas
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link text-white d-flex align-items-center mb-1">
-                            <img src="../assets/icon-setting.svg" width="18" class="me-2" alt="icon">
+                        <a href="8.pengaturan.html" class="nav-link d-flex align-items-center">
+                            <img src="../assets/icon-setting.svg" width="18" class="me-3" alt="icon">
                             Pengaturan
                         </a>
                     </li>
                 </ul>
             </div>
-            <div>
-                <a href="0.halaman login.html" class="nav-link text-white d-flex align-items-center ps-2">
-                    <img src="../assets/icon-log-out.svg" width="18" class="me-2" alt="icon">
+            
+            <div class="pt-3 border-top border-light border-opacity-10">
+                <a href="0.halaman login.html" class="nav-link text-white d-flex align-items-center">
+                    <img src="../assets/icon-log-out.svg" width="18" class="me-3" alt="icon">
                     Keluar
                 </a>
             </div>
@@ -79,87 +85,85 @@
     </div>
 
     <div class="d-flex">
-        <!-- Sidebar Kiri (Desktop) -->
-        <div class="sidebar p-3 d-none d-md-flex flex-column justify-content-between">
+        <!-- Sidebar Desktop -->
+        <aside class="sidebar p-3 d-none d-md-flex flex-column justify-content-between">
             <div>
-                <div class="d-flex align-items-center mb-4 ps-2">
-                    <img src="../assets/1.logo-Ryokou.png" width="40" alt="Logo" class="me-2">
+                <div class="sidebar-brand-box d-flex align-items-center mb-4">
+                    <img src="../assets/1.logo-Ryokou.png" width="40" alt="Logo" class="me-3">
                     <div>
-                        <h6 class="fw-bold mb-0 text-white">RYOKOU</h6>
-                        <small class="text-white-50" style="font-size: 0.7rem;">RENTAL MOTOR</small>
+                        <h6 class="fw-bold mb-0" style="color: #F6D057; letter-spacing: 0.5px;">RYOKOU</h6>
+                        <small class="text-white-50" style="font-size: 0.68rem; letter-spacing: 1px;">RENTAL MOTOR</small>
                     </div>
                 </div>
 
+                <div class="sidebar-menu-label">Navigasi</div>
                 <ul class="nav nav-pills flex-column">
                     <li class="nav-item">
-                        <a href="4.dashboard utama.html" class="nav-link d-flex align-items-center">
-                            <img src="../assets/icon-dashboard.svg" width="18" class="me-2" alt="icon">
+                        <a href="4.dashboard utama.html" class="nav-link text-white d-flex align-items-center">
+                            <img src="../assets/icon-dashboard.svg" width="18" class="me-3" alt="icon">
                             Dashboard
                         </a>
-                    </li>
+                    </li> 
                     <li class="nav-item">
-                        <a href="5.katalog motor.html" class="nav-link d-flex align-items-center">
-                            <img src="../assets/icon-motor.svg" width="18" class="me-2" alt="icon">
+                        <a href="5.katalog motor.html" class="nav-link text-white d-flex align-items-center">
+                            <img src="../assets/icon-motor.svg" width="18" class="me-3" alt="icon">
                             Katalog Motor
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="6.unit yang disewa.html" class="nav-link d-flex align-items-center">
-                            <img src="../assets/icon-kalender.svg" width="18" class="me-2" alt="icon">
-                            Unit yang Disewa
+                        <a href="6.info penyewaan.html" class="nav-link text-white d-flex align-items-center">
+                            <img src="../assets/icon-kalender.svg" width="18" class="me-3" alt="icon">
+                            Info Penyewaan
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link d-flex align-items-center">
-                            <img src="../assets/icon-riwayat-aktivitas.svg" width="18" class="me-2" alt="icon">
+                        <a href="7.riwayat aktivitas.html" class="nav-link text-white d-flex align-items-center">
+                            <img src="../assets/icon-riwayat-aktivitas.svg" width="18" class="me-3" alt="icon">
                             Riwayat Aktivitas
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link d-flex align-items-center">
-                            <img src="../assets/icon-setting.svg" width="18" class="me-2" alt="icon">
+                        <a href="8.pengaturan.html" class="nav-link d-flex align-items-center">
+                            <img src="../assets/icon-setting.svg" width="18" class="me-3" alt="icon">
                             Pengaturan
                         </a>
                     </li>
                 </ul>
             </div>
 
-            <div>
-                <a href="0.halaman login.html" class="nav-link text-white d-flex align-items-center ps-2">
-                    <img src="../assets/icon-log-out.svg" width="18" class="me-2" alt="icon">
+            <div class="pt-3 border-top border-light border-opacity-10">
+                <a href="0.halaman login.html" class="nav-link text-white d-flex align-items-center">
+                    <img src="../assets/icon-log-out.svg" width="18" class="me-3" alt="icon">
                     Keluar
                 </a>
             </div>
-        </div>
+        </aside>
 
-        <!-- Konten Utama Kanan -->
-        <div class="main-content flex-grow-1 p-3 p-md-4">
-            <!-- Topbar (Hidden di mobile karena sudah ada navbar atas) -->
-            <div class="d-none d-md-flex justify-content-between align-items-center mb-3">
-                <div class="input-group" style="max-width: 400px;"></div>
-                
-                <div class="d-flex align-items-center gap-3">
-                    <div class="d-flex align-items-center gap-2">
-                        <img src="../assets/icon-profil-user.svg" width="32" class="rounded-circle" alt="icon">
-                        <div>
-                            <div class="fw-bold small mb-0" id="namaUserDisplay">@User123</div>
-                            <div class="text-muted" style="font-size: 0.75rem;">Pelanggan</div>
-                        </div>
-                    </div>
+        <!-- Konten Utama Detail Produk -->
+        <main class="main-content flex-grow-1 p-3 p-md-4">
+            
+            <!-- Topbar Sticky -->
+            <div class="topbar-wrapper mb-4 sticky-top bg-light py-2 px-3 shadow-sm d-flex justify-content-end align-items-center" style="top: 0; z-index: 1020;">
+                <div id="loggedInProfile" class="d-flex align-items-center gap-2">
+                    <!-- Tombol Notifikasi -->
+                    <a href="4.halaman notifikasi.html" id="btnNotifikasi" class="btn btn-white rounded-circle p-2 border d-flex align-items-center justify-content-center shadow-sm bg-white" style="width: 38px; height: 38px; min-width: 38px;" title="Notifikasi">
+                        <img src="../assets/icon-notif.svg" width="18" alt="Notifikasi" id="iconNotifImg">
+                    </a>
+
+                    <!-- Avatar Profil Bulat -->
+                    <a href="4.halaman profil.html" class="d-flex align-items-center justify-content-center bg-white rounded-circle border p-1 shadow-sm text-decoration-none" style="width: 40px; height: 40px; min-width: 40px;" title="Profil Pengguna">
+                        <img src="../assets/icon-profil-user.svg" width="28" height="28" class="rounded-circle object-fit-cover" alt="Profil">
+                    </a>
                 </div>
             </div>
-
-            <!-- Tombol Kembali -->
-            <a href="4.dashboard utama.html" class="btn btn-sm text-white mb-3 d-inline-flex align-items-center gap-1 px-3 py-2 rounded-3" style="background-color: #085a6b;">
-                <img src="../assets/icon-button-kembali.svg" width="14" alt="icon"> Kembali
-            </a>
             
             <div class="row g-4">
                 <!-- Kolom Kiri -->
                 <div class="col-lg-7 ps-md-0">
                     <!-- Kotak Gambar Motor -->
-                    <div class="position-relative bg-light rounded-4 overflow-hidden mb-3 d-flex align-items-center justify-content-center box-gambar-motor">
-                        <img src="../assets/A.BeAT Deluxe.png" class="img-fluid gambar-motor-lebar" alt="Honda BeAT Deluxe">
+                    <div class="position-relative bg-light rounded-4 overflow-hidden mb-3 box-gambar-motor shadow-sm">
+                        <!-- Gambar Motor -->
+                        <img src="../assets/3.BeAT Deluxe.png" class="gambar-motor-lebar" alt="Honda BeAT Deluxe">
                     </div>
                     
                     <h4 class="fw-bold mb-0 mt-3">Honda BeAT Deluxe</h4>
@@ -230,61 +234,107 @@
                         <small class="text-muted">Mulai dari</small>
                         <h3 class="fw-bold text-dark mb-4">Rp 83.000 <span class="fs-6 text-muted fw-normal">/ Hari</span></h3>
 
-                        <form>
+                        <form id="formPemesanan">
+                            <!-- Tanggal Ambil (Dibuat dua kolom berjajar seperti Jam Pertemuan) -->
                             <div class="mb-3">
-                                <label class="form-label small fw-semibold">Tanggal Ambil</label>
-                                <div class="input-group">
-                                    <input type="date" lang="id-ID" class="form-control bg-light border-0">
-                                    <span class="input-group-text bg-light border-0"></span>
+                                <label class="form-label small fw-semibold">Tanggal Peminjaman</label>
+                                <div class="d-flex gap-2 align-items-center">
+                                    <div class="input-group">
+                                        <input type="date" id="inputTanggalMulai" class="form-control bg-light border-0" required>
+                                    </div>
+                                    <span class="text-muted">s/d</span>
+                                    <div class="input-group">
+                                        <input type="date" id="inputTanggalSelesai" class="form-control bg-light border-0" required>
+                                    </div>
                                 </div>
                             </div>
 
+                            <!-- Jam Pertemuan -->
                             <div class="mb-3">
                                 <label class="form-label small fw-semibold">Jam Pertemuan</label>
                                 <div class="d-flex gap-2 align-items-center">
                                     <div class="input-group">
-                                        <input type="time" class="form-control bg-light border-0">
-                                        <span class="input-group-text bg-light border-0"></span>
+                                        <input type="time" id="inputJamMulai" class="form-control bg-light border-0" value="00:00" required>
                                     </div>
-                                    <span>-</span>
+                                    <span class="text-muted">s/d</span>
                                     <div class="input-group">
-                                        <input type="time" class="form-control bg-light border-0">
-                                        <span class="input-group-text bg-light border-0"></span>
+                                        <input type="time" id="inputJamSelesai" class="form-control bg-light border-0" value="00:00" required>
                                     </div>
                                 </div>
                             </div>
 
+                            <!-- Jumlah Hari Peminjaman (Bisa diketik manual & tombol berfungsi) -->
                             <div class="mb-3">
                                 <label class="form-label small fw-semibold">Jumlah Hari Peminjaman</label>
                                 <div class="input-group">
-                                    <button class="btn btn-outline-secondary border-0 bg-light" type="button">
+                                    <button class="btn btn-outline-secondary border-0 bg-light" type="button" id="btnMinusHari">
                                         <img src="../assets/icon-pemesanan-minus.svg" width="12" alt="icon">
                                     </button>
-                                    <input type="text" class="form-control text-center bg-light border-0" value="1">
-                                    <button class="btn btn-outline-secondary border-0 bg-light" type="button">
+                                    <input type="text" id="inputJumlahHari" class="form-control text-center bg-light border-0" value="1">
+                                    <button class="btn btn-outline-secondary border-0 bg-light" type="button" id="btnPlusHari">
                                         <img src="../assets/icon-pemesanan-plus.svg" width="12" alt="icon">
                                     </button>
                                 </div>
                             </div>
 
+                            <!-- Lokasi Pertemuan -->
                             <div class="mb-4">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <label class="form-label small fw-semibold mb-0">Lokasi Pertemuan</label>
-                                    <a href="#" class="small text-decoration-none">Lihat di Peta</a>
+                                    <!-- Tombol Lihat di Peta mengarah langsung ke Google Maps -->
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Mall+Dinoyo+City+Malang" target="_blank" id="linkLihatPeta" class="small text-decoration-none">Lihat di Peta</a>
                                 </div>
-                                <div class="d-flex align-items-center gap-2 mt-2 bg-light p-2 rounded-3">
-                                    <img src="../assets/2.gambar-peta-pertemuan.png" width="45" class="rounded-2" alt="peta">
-                                    <div>
-                                        <strong class="d-block small">Kota Malang,</strong>
-                                        <small class="text-muted">Mall Dinoyo</small>
+                                <div class="d-flex align-items-center justify-content-between gap-2 mt-2 bg-light p-2 rounded-3" data-bs-toggle="modal" data-bs-target="#modalPilihLokasi" style="cursor: pointer;" title="Klik untuk mengubah lokasi">
+                                    <div class="d-flex align-items-center gap-2">
+                                        <img src="../assets/2.gambar-peta-pertemuan.png" width="45" class="rounded-2" alt="peta">
+                                        <div>
+                                            <strong class="d-block small" id="displayKotaLokasi">Kota Malang,</strong>
+                                            <small class="text-muted" id="displayDetailLokasi">Mall Dinoyo City</small>
+                                        </div>
                                     </div>
+                                    <span class="badge bg-white text-dark border shadow-sm px-2 py-1" style="font-size: 0.7rem;">Pilih</span>
                                 </div>
                             </div>
 
-                            <button type="submit" class="btn btn-sewa w-100 py-2 d-flex align-items-center justify-content-center gap-2 text-white" style="background-color: #085a6b;">
+                            <button type="submit" class="btn btn-sewa w-100 py-2 d-flex align-items-center justify-content-center gap-2 text-white fw-semibold rounded-3" style="background-color: #085a6b;">
                                 <img src="../assets/icon-pemesanan-kunci.svg" width="16" alt="icon"> Sewa Sekarang
                             </button>
                         </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Floating Modal Pilih Lokasi (Di luar form dan main) -->
+    <div class="modal fade" id="modalPilihLokasi" tabindex="-1" aria-labelledby="modalPilihLokasiLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content border-0 shadow-lg rounded-4 p-2">
+                <div class="modal-header border-bottom-0 pb-1">
+                    <h6 class="modal-title fw-bold fs-6 mb-0" id="modalPilihLokasiLabel" style="color: #104652;">Pilih Titik Pertemuan</h6>
+                    <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pt-1">
+                    <div class="list-group list-group-flush gap-1">
+                        <button type="button" class="list-group-item list-group-item-action border rounded-3 p-2 text-start small" onclick="pilihLokasi('Kota Malang,', 'Mall Dinoyo City', 'https://www.google.com/maps/search/?api=1&query=Mall+Dinoyo+City+Malang')">
+                            <strong>Mall Dinoyo City</strong>
+                            <small class="text-muted d-block" style="font-size: 0.7rem;">Jl. MT. Haryono No.195</small>
+                        </button>
+
+                        <button type="button" class="list-group-item list-group-item-action border rounded-3 p-2 text-start small" onclick="pilihLokasi('Kota Malang,', 'Stasiun Kotabaru', 'https://www.google.com/maps/search/?api=1&query=Stasiun+Malang+Kotabaru')">
+                            <strong>Stasiun Kotabaru</strong>
+                            <small class="text-muted d-block" style="font-size: 0.7rem;">Jl. Trunojoyo No.10</small>
+                        </button>
+
+                        <button type="button" class="list-group-item list-group-item-action border rounded-3 p-2 text-start small" onclick="pilihLokasi('Kota Malang,', 'Matos (Veteran)', 'https://www.google.com/maps/search/?api=1&query=Malang+Town+Square')">
+                            <strong>Matos (Veteran)</strong>
+                            <small class="text-muted d-block" style="font-size: 0.7rem;">Jl. Veteran No.2</small>
+                        </button>
+
+                        <button type="button" class="list-group-item list-group-item-action border rounded-3 p-2 text-start small" onclick="pilihLokasi('Kota Malang,', 'Suhat (Taman Krida)', 'https://www.google.com/maps/search/?api=1&query=Taman+Krida+Budaya+Malang')">
+                            <strong>Suhat (Taman Krida)</strong>
+                            <small class="text-muted d-block" style="font-size: 0.7rem;">Jl. Soekarno Hatta</small>
+                        </button>
                     </div>
                 </div>
             </div>
