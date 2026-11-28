@@ -1,1 +1,239 @@
-<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Pengembalian | RYOKOU</title><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"><link rel="stylesheet" href="../css/admin_pages.css"></head><body><div class="layout"><aside class="sidebar" id="sidebar"><a class="brand" href="dashboard.html"><span class="brand-mark"><i class="bi bi-scooter"></i></span>RYOKOU</a><p class="caption">MENU UTAMA</p><nav><a class="nav-item " href="dashboard.html"><i class="bi bi-grid"></i><span>Dashboard</span></a><a class="nav-item " href="Kelola_data_motor.html"><i class="bi bi-bicycle"></i><span>Kelola Data Motor</span></a><a class="nav-item " href="Kelola_transaksi.html"><i class="bi bi-clipboard-check"></i><span>Kelola Transaksi</span></a><a class="nav-item " href="Info_penyewaan.html"><i class="bi bi-calendar2-week"></i><span>Info Penyewaan</span></a><a class="nav-item " href="Pembayaran.html"><i class="bi bi-cash-stack"></i><span>Pembayaran</span></a><a class="nav-item active" href="Pengembalian.html"><i class="bi bi-arrow-return-left"></i><span>Pengembalian</span></a><a class="nav-item " href="Riwayat_penyewaan.html"><i class="bi bi-clock-history"></i><span>Riwayat Penyewaan</span></a><a class="nav-item " href="Laporan_data_motor.html"><i class="bi bi-file-earmark-text"></i><span>Laporan Data Motor</span></a><a class="nav-item " href="Pengaturan.html"><i class="bi bi-gear"></i><span>Pengaturan</span></a></nav><a class="logout" href="login.html"><i class="bi bi-box-arrow-right"></i> Keluar</a></aside><main class="main"><header class="topbar"><button id="menuToggle" class="menu-toggle" aria-label="Buka menu"><i class="bi bi-list"></i></button><strong>Admin RYOKOU</strong><span class="admin-label">Administrator</span></header><section class="content"><div class="eyebrow">ADMIN PANEL</div><h1>Pengembalian</h1><p class="description">Halaman untuk mencatat dan memeriksa proses pengembalian motor.</p><div class="notice"><i class="bi bi-info-circle"></i><div><strong>Halaman sudah terhubung.</strong><p>Bagian ini disiapkan agar navigasi Sidebar berfungsi. Konten pengelolaan dapat ditambahkan pada halaman ini.</p></div></div><a class="back-link" href="dashboard.html"><i class="bi bi-arrow-left"></i> Kembali ke Dashboard</a></section></main></div><div id="overlay" class="overlay"></div><script src="../js/admin_pages.js"></script></body></html>
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pengembalian | RYOKOU Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/admin_pages.css">
+  <link rel="stylesheet" href="../css/admin-sidebar.css">
+  <link rel="stylesheet" href="../css/workflow-pages.css">
+  <link rel="stylesheet" href="../css/admin-report-pages.css">
+</head>
+<body class="workflow-body rp-page" data-page="pengembalian">
+<div class="workflow-layout">
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="dashboard.html"><span class="brand-mark"><img src="../assets/ryokou-logo.png" alt="Logo RYOKOU"></span><span>RYOKOU</span></a>
+    <p class="caption">MENU UTAMA</p>
+    <nav>
+      <a class="nav-item" href="dashboard.html"><i class="bi bi-grid"></i><span>Dashboard</span></a>
+      <a class="nav-item" href="Kelola_data_motor.html"><i class="bi bi-bicycle"></i><span>Kelola Data Motor</span></a>
+      <a class="nav-item" href="Kelola_transaksi.html"><i class="bi bi-clipboard-check"></i><span>Kelola Transaksi</span></a>
+      <a class="nav-item" href="Info_penyewaan.html"><i class="bi bi-calendar2-week"></i><span>Info Penyewaan</span></a>
+      <a class="nav-item" href="Pembayaran.html"><i class="bi bi-cash-stack"></i><span>Pembayaran</span></a>
+      <a class="nav-item active" href="Pengembalian.html"><i class="bi bi-arrow-return-left"></i><span>Pengembalian</span></a>
+      <a class="nav-item" href="Riwayat_penyewaan.html"><i class="bi bi-clock-history"></i><span>Riwayat Penyewaan</span></a>
+      <a class="nav-item" href="Laporan_data_motor.html"><i class="bi bi-file-earmark-text"></i><span>Laporan Data Motor</span></a>
+      <a class="nav-item" href="invoice.html"><i class="bi bi-receipt"></i><span>Invoice</span></a>
+    </nav>
+    <a class="logout" href="login.html"><i class="bi bi-box-arrow-right"></i><span>Keluar</span></a>
+  </aside>
+
+  <main class="workflow-main">
+    <header class="workflow-topbar">
+      <button id="menuToggle" class="menu-toggle" type="button" aria-label="Buka menu"><i class="bi bi-list"></i></button>
+      <div class="workflow-search"><i class="bi bi-search"></i><input type="search" placeholder="Pencarian cepat"></div>
+      <div class="workflow-profile"><span class="avatar">A1</span><div class="profile-copy"><strong>Admin_001</strong><small>Admin/Owner</small></div><i class="bi bi-chevron-down small"></i></div>
+    </header>
+
+    <section class="workflow-content">
+      <p class="rp-breadcrumb"><a href="dashboard.html">Dashboard</a><i class="bi bi-chevron-right"></i><span>Operasional</span><i class="bi bi-chevron-right"></i><span>Pengembalian</span></p>
+      <div class="workflow-heading">
+        <div>
+          <h1><i class="bi bi-arrow-return-left me-2" style="color:#104650"></i>Pengembalian Motor</h1>
+          <p>Periksa kondisi unit, verifikasi pihak pengembalian, hitung denda, dan tutup transaksi penyewaan.</p>
+        </div>
+        <div class="rp-heading-actions">
+          <a class="workflow-btn" href="Kelola_transaksi.html"><i class="bi bi-arrow-left"></i> Kelola Transaksi</a>
+          <button type="button" class="workflow-btn" id="rpReturnExport"><i class="bi bi-download"></i> Ekspor Daftar</button>
+        </div>
+      </div>
+
+      <div class="row g-3 mb-3">
+        <div class="col-md-6 col-xl-3"><div class="workflow-card rp-stat"><span class="rp-stat-icon gold"><i class="bi bi-calendar-check"></i></span><div><strong id="rpReturnToday">0</strong><span>Jadwal Pengembalian Hari Ini</span><small>Berdasarkan jadwal sewa</small></div></div></div>
+        <div class="col-md-6 col-xl-3"><div class="workflow-card rp-stat"><span class="rp-stat-icon blue"><i class="bi bi-hourglass-split"></i></span><div><strong id="rpReturnWaiting">0</strong><span>Menunggu Pemeriksaan</span><small>Perlu tindak lanjut admin</small></div></div></div>
+        <div class="col-md-6 col-xl-3"><div class="workflow-card rp-stat"><span class="rp-stat-icon red"><i class="bi bi-exclamation-triangle"></i></span><div><strong id="rpReturnLate">0</strong><span>Terlambat</span><small>Denda otomatis berjalan</small></div></div></div>
+        <div class="col-md-6 col-xl-3"><div class="workflow-card rp-stat"><span class="rp-stat-icon green"><i class="bi bi-check2-circle"></i></span><div><strong id="rpReturnDone">0</strong><span>Selesai Dikembalikan</span><small>Unit siap disewakan lagi</small></div></div></div>
+      </div>
+
+      <article class="workflow-card rp-card mb-3">
+        <div class="workflow-card-title">
+          <div><h2>Antrean Pengembalian</h2><p class="rp-panel-hint">Klik baris untuk membuka formulir pemeriksaan di bawah.</p></div>
+          <span class="rp-pill blue"><i class="bi bi-list-check"></i> 4 Cabang RYOKOU</span>
+        </div>
+        <div class="rp-toolbar">
+          <div class="rp-search"><i class="bi bi-search"></i><input type="search" id="rpReturnSearch" class="form-control" placeholder="Cari ID, nama, atau no. polisi..."></div>
+          <select id="rpReturnStatus" class="form-select rp-filter" aria-label="Filter status">
+            <option value="">Semua Status</option>
+            <option value="Terjadwal">Terjadwal</option>
+            <option value="Menunggu Pemeriksaan">Menunggu Pemeriksaan</option>
+            <option value="Dalam Pemeriksaan">Dalam Pemeriksaan</option>
+            <option value="Terlambat">Terlambat</option>
+            <option value="Selesai">Selesai</option>
+          </select>
+          <select id="rpReturnBranch" class="form-select rp-filter" aria-label="Filter cabang">
+            <option value="">Semua Cabang</option>
+            <option>Batu · Sarimun</option>
+            <option>Batu · Diponegoro</option>
+            <option>Malang · Lowokwaru</option>
+            <option>Malang · Klojen</option>
+          </select>
+          <span class="rp-count" id="rpReturnInfo">Menampilkan 0 data</span>
+        </div>
+        <div class="rp-chip-list">
+          <button type="button" class="rp-chip active" data-return-chip="">Semua</button>
+          <button type="button" class="rp-chip" data-return-chip="Terjadwal">Terjadwal</button>
+          <button type="button" class="rp-chip" data-return-chip="Menunggu Pemeriksaan">Menunggu Pemeriksaan</button>
+          <button type="button" class="rp-chip" data-return-chip="Terlambat">Terlambat</button>
+          <button type="button" class="rp-chip" data-return-chip="Selesai">Selesai</button>
+        </div>
+        <div class="rp-table-wrap">
+          <table class="table invoice-table rp-table">
+            <thead><tr><th>ID Transaksi</th><th>Pelanggan</th><th>Unit Motor</th><th>Cabang</th><th>Jadwal Kembali</th><th>Status</th><th>Aksi</th></tr></thead>
+            <tbody id="rpReturnRows"></tbody>
+          </table>
+        </div>
+      </article>
+
+      <section id="rpReturnForm">
+        <div class="rp-return-layout">
+          <div class="rp-stack">
+            <article class="workflow-card rp-card">
+              <div class="workflow-card-title">
+                <div><h2>Detail Penyewaan</h2><p class="rp-panel-hint">Data ini menjadi dasar perhitungan tagihan akhir.</p></div>
+                <span class="rp-pill gold" id="rpReturnStatusPill"><span data-return-field="pillStatus">—</span></span>
+              </div>
+              <h3 class="rp-section-title"><i class="bi bi-person-circle"></i> Data Penyewa <span class="rp-step">Langkah 1</span></h3>
+              <dl class="rp-kv">
+                <dt>ID Penyewaan</dt><dd data-return-field="id">—</dd>
+                <dt>Nama Penyewa</dt><dd data-return-field="customer">—</dd>
+                <dt>No. HP</dt><dd data-return-field="phone">—</dd>
+                <dt>Jaminan Identitas</dt><dd data-return-field="guarantee">—</dd>
+              </dl>
+              <div class="rp-inline-alert info mt-2"><i class="bi bi-shield-check"></i><span>Verifikasi jaminan fisik (KTP/SIM) sebelum unit diserahkan kembali. Jaminan tidak disimpan digital.</span></div>
+
+              <h3 class="rp-section-title"><i class="bi bi-scooter"></i> Unit &amp; Waktu Sewa <span class="rp-step">Langkah 2</span></h3>
+              <dl class="rp-kv">
+                <dt>Unit Motor</dt><dd data-return-field="motor">—</dd>
+                <dt>No. Polisi</dt><dd data-return-field="plate">—</dd>
+                <dt>Cabang</dt><dd data-return-field="branch">—</dd>
+                <dt>Periode Sewa</dt><dd data-return-field="period">—</dd>
+                <dt>Lokasi Pengembalian</dt><dd data-return-field="location">—</dd>
+                <dt>Total Sewa</dt><dd data-return-field="rentTotal">—</dd>
+                <dt>Tarif Denda / Jam</dt><dd data-return-field="lateRate">—</dd>
+              </dl>
+            </article>
+
+            <article class="workflow-card rp-card">
+              <div class="workflow-card-title"><div><h2>Pemeriksaan Pengembalian</h2><p class="rp-panel-hint">Lengkapi seluruh langkah sebelum transaksi ditutup.</p></div></div>
+
+              <h3 class="rp-section-title"><i class="bi bi-clock-history"></i> 1. Waktu Pengembalian</h3>
+              <div class="row g-2">
+                <div class="col-md-6"><label class="workflow-form-label" for="returnDeadline">Jadwal Pengembalian</label><input type="datetime-local" class="form-control" id="returnDeadline" readonly></div>
+                <div class="col-md-6"><label class="workflow-form-label" for="returnActual">Waktu Pengembalian Aktual <span class="text-danger">*</span></label><input type="datetime-local" class="form-control" id="returnActual"></div>
+              </div>
+              <div class="rp-inline-alert mt-2" id="rpLateInfo"><i class="bi bi-info-circle"></i><span>Belum ada keterlambatan. Isi waktu pengembalian aktual untuk menghitung denda otomatis.</span></div>
+
+              <h3 class="rp-section-title"><i class="bi bi-person-badge"></i> 2. Pihak yang Mengembalikan</h3>
+              <label class="validation-option"><input type="radio" name="returnBy" id="returnBySelf" value="self" checked><span><strong>Penyewa sendiri</strong><small>Identitas dan jaminan sesuai dengan data pesanan.</small></span></label>
+              <label class="validation-option"><input type="radio" name="returnBy" id="returnByProxy" value="proxy"><span><strong>Diwakilkan</strong><small>Wajib melampirkan surat pertanggungjawaban dan bukti penyewa tidak dapat hadir.</small></span></label>
+              <div class="rp-subform is-hidden" id="rpProxyForm">
+                <div class="row g-2">
+                  <div class="col-md-6"><label class="workflow-form-label" for="proxyName">Nama Penerima Kuasa <span class="text-danger">*</span></label><input type="text" class="form-control" id="proxyName" placeholder="Nama lengkap penerima kuasa"></div>
+                  <div class="col-md-6"><label class="workflow-form-label" for="proxyRelation">Hubungan dengan Penyewa <span class="text-danger">*</span></label><input type="text" class="form-control" id="proxyRelation" placeholder="Contoh: teman, saudara"></div>
+                </div>
+                <div class="row g-2 mt-1">
+                  <div class="col-md-6"><label class="workflow-form-label" for="proxyLetter">Surat Pertanggungjawaban <span class="text-danger">*</span></label><input type="file" class="form-control" id="proxyLetter" accept="image/*,.pdf"></div>
+                  <div class="col-md-6"><label class="workflow-form-label" for="proxyProof">Bukti Penyewa Tidak Hadir <span class="text-danger">*</span></label><input type="file" class="form-control" id="proxyProof" accept="image/*,.pdf"></div>
+                </div>
+              </div>
+
+              <h3 class="rp-section-title"><i class="bi bi-images"></i> 3. Foto Kondisi Motor <span class="rp-step">4 sisi wajib</span></h3>
+              <div class="rp-photo-grid">
+                <label class="rp-photo-tile"><input type="file" accept="image/*"><span class="rp-photo-inner"><i class="bi bi-camera"></i></span><img alt="Pratinjau motor tampak depan"><span class="rp-photo-label">Tampak Depan</span></label>
+                <label class="rp-photo-tile"><input type="file" accept="image/*"><span class="rp-photo-inner"><i class="bi bi-camera"></i></span><img alt="Pratinjau motor tampak belakang"><span class="rp-photo-label">Tampak Belakang</span></label>
+                <label class="rp-photo-tile"><input type="file" accept="image/*"><span class="rp-photo-inner"><i class="bi bi-camera"></i></span><img alt="Pratinjau motor samping kiri"><span class="rp-photo-label">Samping Kiri</span></label>
+                <label class="rp-photo-tile"><input type="file" accept="image/*"><span class="rp-photo-inner"><i class="bi bi-camera"></i></span><img alt="Pratinjau motor samping kanan"><span class="rp-photo-label">Samping Kanan</span></label>
+              </div>
+
+              <h3 class="rp-section-title"><i class="bi bi-clipboard2-check"></i> 4. Kondisi &amp; Catatan</h3>
+              <div class="row g-2">
+                <div class="col-md-4"><label class="workflow-form-label" for="returnCondition">Kondisi Unit</label><select class="form-select" id="returnCondition"><option>Baik</option><option>Perlu Pemeriksaan</option><option>Rusak</option></select></div>
+                <div class="col-md-4"><label class="workflow-form-label" for="returnOdometer">Kilometer Akhir</label><input type="number" class="form-control" id="returnOdometer" placeholder="Contoh: 12480"></div>
+                <div class="col-md-4"><label class="workflow-form-label" for="returnFuel">Kadar BBM</label><select class="form-select" id="returnFuel"><option>Sesuai saat penyerahan</option><option>Kurang</option><option>Hampir habis</option></select></div>
+              </div>
+              <label class="workflow-form-label mt-2" for="returnNote">Catatan Pemeriksaan</label>
+              <textarea class="form-control" id="returnNote" rows="2" placeholder="Contoh: bodi depan tergores, rem belakang perlu disetel..."></textarea>
+
+              <div class="rp-action-bar no-print">
+                <button type="button" class="workflow-btn" id="resetReturnBtn"><i class="bi bi-arrow-counterclockwise"></i> Atur Ulang</button>
+                <button type="button" class="workflow-btn" id="saveReturnBtn"><i class="bi bi-save"></i> Simpan Draft</button>
+                <button type="button" class="workflow-btn primary" id="finishReturnBtn"><i class="bi bi-check2"></i> Selesaikan Pengembalian</button>
+              </div>
+            </article>
+          </div>
+
+          <div class="rp-stack">
+            <article class="workflow-card rp-card">
+              <div class="workflow-card-title"><div><h2>Rincian Denda</h2><p class="rp-panel-hint">Denda dihitung otomatis kecuali kerusakan unit.</p></div><span class="rp-pill green"><i class="bi bi-cash-coin"></i> Tagihan Akhir</span></div>
+              <div class="rp-fine-row">
+                <label>Keterlambatan <span class="rp-fine-hint" data-fine-field="hours">0 jam</span></label>
+                <span class="rp-money" data-fine-field="late">Rp 0</span>
+              </div>
+              <div class="rp-fine-row">
+                <label class="d-flex align-items-center gap-2"><input type="checkbox" id="fineRegion" class="form-check-input mt-0"> Pelanggaran wilayah <span class="rp-fine-hint">Wilayah aman: Malang–Batu</span></label>
+                <span class="rp-money" data-fine-field="region">Rp 0</span>
+              </div>
+              <div class="rp-fine-row">
+                <label>Kerusakan unit <span class="rp-fine-hint">Diinput manual oleh admin</span></label>
+                <input type="number" min="0" class="form-control" id="fineDamage" value="0">
+              </div>
+              <label class="workflow-form-label" for="damageNote">Perkiraan Biaya / Catatan Kerusakan</label>
+              <textarea class="form-control" id="damageNote" rows="2" placeholder="Contoh: penggantian spion Rp 85.000 (persetujuan perbaikan sendiri tercatat)"></textarea>
+              <label class="rp-guard"><input type="checkbox" id="repairApproval" class="form-check-input mt-0"> Penyewa diperkenankan memperbaiki sendiri (persetujuan admin)</label>
+              <div class="rp-total-box"><span>Total Denda</span><strong data-fine-field="fineTotal">Rp 0</strong></div>
+              <div class="rp-total-box" style="background:#f4f7f8;color:#435267"><span>Total Sewa + Denda</span><strong data-fine-field="grandTotal">Rp 0</strong></div>
+            </article>
+
+            <article class="workflow-card rp-card">
+              <div class="workflow-card-title"><div><h2>Alur Pengembalian</h2><p class="rp-panel-hint">Status berjalan sesuai tahapan pemeriksaan.</p></div></div>
+              <ul class="rp-timeline">
+                <li class="done"><strong>Penjemputan unit</strong><span>Admin menjemput di lokasi yang disepakati</span></li>
+                <li class="done"><strong>Verifikasi pihak pengembalian</strong><span>Penyewa sendiri / penerima kuasa</span></li>
+                <li class="current"><strong>Pemeriksaan 4 sisi &amp; denda</strong><span>Foto, kondisi, keterlambatan, wilayah, kerusakan</span></li>
+                <li><strong>Penyelesaian tagihan</strong><span>Invoice final &amp; bukti pembayaran</span></li>
+                <li><strong>Status motor diperbarui</strong><span>Tersedia atau masuk perbaikan</span></li>
+              </ul>
+            </article>
+
+            <article class="workflow-card rp-card">
+              <div class="workflow-card-title"><div><h2>Kebijakan Pengembalian</h2><p class="rp-panel-hint">Rujukan perhitungan denda RYOKOU.</p></div></div>
+              <ul class="rp-note-list">
+                <li>Denda keterlambatan = tarif per jam unit × jumlah jam keterlambatan (dibulatkan ke atas).</li>
+                <li>Pelanggaran batas wilayah aman Malang–Batu: <b>Rp 300.000,00</b>.</li>
+                <li>Kerusakan unit diganti sesuai perkiraan biaya perbaikan yang diinput admin, atau diperbaiki sendiri setelah mendapat persetujuan.</li>
+                <li>Pengembalian diwakilkan wajib menyertakan surat pertanggungjawaban dan bukti ketidakhadiran penyewa.</li>
+                <li>Jaminan KTP/SIM fisik dikembalikan setelah seluruh tagihan lunas.</li>
+              </ul>
+              <div class="rp-action-bar"><a class="workflow-btn primary" href="invoice.html"><i class="bi bi-receipt"></i> Lihat Invoice</a></div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+</div>
+
+<div class="overlay" id="overlay"></div>
+<div class="rp-toast" id="rpToast" role="status" aria-live="polite"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/admin_pages.js"></script>
+<script src="../js/admin-sidebar.js"></script>
+<script src="../js/profile-dropdown-universal.js"></script>
+<script src="../js/admin-report-pages.js"></script>
+</body>
+</html>

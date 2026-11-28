@@ -1,1 +1,107 @@
-<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Info Penyewaan | RYOKOU</title><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"><link rel="stylesheet" href="../css/admin_pages.css"></head><body><div class="layout"><aside class="sidebar" id="sidebar"><a class="brand" href="dashboard.html"><span class="brand-mark"><i class="bi bi-scooter"></i></span>RYOKOU</a><p class="caption">MENU UTAMA</p><nav><a class="nav-item " href="dashboard.html"><i class="bi bi-grid"></i><span>Dashboard</span></a><a class="nav-item " href="Kelola_data_motor.html"><i class="bi bi-bicycle"></i><span>Kelola Data Motor</span></a><a class="nav-item " href="Kelola_transaksi.html"><i class="bi bi-clipboard-check"></i><span>Kelola Transaksi</span></a><a class="nav-item active" href="Info_penyewaan.html"><i class="bi bi-calendar2-week"></i><span>Info Penyewaan</span></a><a class="nav-item " href="Pembayaran.html"><i class="bi bi-cash-stack"></i><span>Pembayaran</span></a><a class="nav-item " href="Pengembalian.html"><i class="bi bi-arrow-return-left"></i><span>Pengembalian</span></a><a class="nav-item " href="Riwayat_penyewaan.html"><i class="bi bi-clock-history"></i><span>Riwayat Penyewaan</span></a><a class="nav-item " href="Laporan_data_motor.html"><i class="bi bi-file-earmark-text"></i><span>Laporan Data Motor</span></a><a class="nav-item " href="Pengaturan.html"><i class="bi bi-gear"></i><span>Pengaturan</span></a></nav><a class="logout" href="login.html"><i class="bi bi-box-arrow-right"></i> Keluar</a></aside><main class="main"><header class="topbar"><button id="menuToggle" class="menu-toggle" aria-label="Buka menu"><i class="bi bi-list"></i></button><strong>Admin RYOKOU</strong><span class="admin-label">Administrator</span></header><section class="content"><div class="eyebrow">ADMIN PANEL</div><h1>Info Penyewaan</h1><p class="description">Halaman untuk melihat informasi pemesanan dan jadwal penyewaan motor.</p><div class="notice"><i class="bi bi-info-circle"></i><div><strong>Halaman sudah terhubung.</strong><p>Bagian ini disiapkan agar navigasi Sidebar berfungsi. Konten pengelolaan dapat ditambahkan pada halaman ini.</p></div></div><a class="back-link" href="dashboard.html"><i class="bi bi-arrow-left"></i> Kembali ke Dashboard</a></section></main></div><div id="overlay" class="overlay"></div><script src="../js/admin_pages.js"></script></body></html>
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Info Penyewaan | RYOKOU Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/admin_pages.css">
+  <link rel="stylesheet" href="../css/admin-sidebar.css">
+  <link rel="stylesheet" href="../css/workflow-pages.css">
+</head>
+<body class="workflow-body">
+<div class="workflow-layout">
+<aside class="sidebar" id="sidebar">
+      <a class="brand" href="dashboard.html"><span class="brand-mark"><img src="../assets/ryokou-logo.png" alt="Logo RYOKOU"></span><span>RYOKOU</span></a>
+      <p class="caption">MENU UTAMA</p>
+      <nav><a class="nav-item " href="dashboard.html"><i class="bi bi-grid"></i><span>Dashboard</span></a>
+<a class="nav-item " href="Kelola_data_motor.html"><i class="bi bi-bicycle"></i><span>Kelola Data Motor</span></a>
+<a class="nav-item " href="Kelola_transaksi.html"><i class="bi bi-clipboard-check"></i><span>Kelola Transaksi</span></a>
+<a class="nav-item active" href="Info_penyewaan.html"><i class="bi bi-calendar2-week"></i><span>Info Penyewaan</span></a>
+<a class="nav-item " href="Pembayaran.html"><i class="bi bi-cash-stack"></i><span>Pembayaran</span></a>
+<a class="nav-item " href="Pengembalian.html"><i class="bi bi-arrow-return-left"></i><span>Pengembalian</span></a>
+<a class="nav-item " href="Riwayat_penyewaan.html"><i class="bi bi-clock-history"></i><span>Riwayat Penyewaan</span></a>
+<a class="nav-item " href="Laporan_data_motor.html"><i class="bi bi-file-earmark-text"></i><span>Laporan Data Motor</span></a>
+<a class="nav-item " href="invoice.html"><i class="bi bi-receipt"></i><span>Invoice</span></a></nav>
+      <a class="logout" href="login.html"><i class="bi bi-box-arrow-right"></i><span>Keluar</span></a>
+    </aside>
+<main class="workflow-main">
+<header class="workflow-topbar">
+      <button id="menuToggle" class="menu-toggle" type="button" aria-label="Buka menu"><i class="bi bi-list"></i></button>
+      <div class="workflow-search"><i class="bi bi-search"></i><input type="search" placeholder="Pencarian"></div>
+      <div class="workflow-profile"><span class="avatar">A1</span><div class="profile-copy"><strong>Admin_001</strong><small>Admin/Owner</small></div><i class="bi bi-chevron-down text-secondary small"></i></div>
+    </header>
+<section class="workflow-content">
+  <div class="workflow-heading">
+    <div><h1>Info Penyewaan</h1><p>Ringkasan pesanan penyewaan sebelum diproses ke pengecekan atau pembayaran.</p></div>
+  </div>
+  <div class="row g-3">
+    <div class="col-xl-8">
+      <article class="workflow-card">
+        <div class="workflow-card-title"><div><h2><i class="bi bi-file-earmark-text me-2 text-success"></i>Detail Pesanan</h2><p>Informasi lengkap mengenai pesanan penyewaan</p></div><span class="workflow-status"><i class="bi bi-clock-history"></i> Menunggu Verifikasi</span></div>
+        <h3 class="workflow-section-title"><i class="bi bi-person-circle"></i> Data Pelanggan</h3>
+        <div class="workflow-data">
+          <span class="key">ID Penyewaan</span><span class="value">PSN-001</span>
+          <span class="key">Tanggal Pesan</span><span class="value">26 Apr 2025, 09:12 WIB</span>
+          <span class="key">Nama Pelanggan</span><span class="value">Budi Santoso</span>
+          <span class="key">No. HP</span><span class="value">0812 8888 7777</span>
+          <span class="key">Alamat</span><span class="value">Jl. Melati No. 12, Kota Malang</span>
+        </div>
+        <hr class="workflow-divider">
+        <h3 class="workflow-section-title"><i class="bi bi-scooter"></i> Unit Motor</h3>
+        <div class="workflow-data">
+          <span class="key">Motor</span><span class="value">Honda Beat (B 1234 KZ)</span>
+          <span class="key">Lokasi Pengambilan</span><span class="value">Rental Motor RYOKOU - Malang</span>
+        </div>
+        <hr class="workflow-divider">
+        <h3 class="workflow-section-title"><i class="bi bi-calendar-week"></i> Waktu Penyewaan</h3>
+        <div class="workflow-data">
+          <span class="key">Tanggal Mulai</span><span class="value">26 Apr 2025</span>
+          <span class="key">Tanggal Selesai</span><span class="value">27 Apr 2025</span>
+          <span class="key">Durasi</span><span class="value">2 Hari</span>
+        </div>
+        <hr class="workflow-divider">
+        <h3 class="workflow-section-title"><i class="bi bi-cash-coin"></i> Rincian Biaya</h3>
+        <div class="workflow-data mb-3">
+          <span class="key">Harga Sewa (per hari)</span><span class="value">Rp 70.000</span>
+          <span class="key">Biaya Layanan</span><span class="value">Rp 10.000</span>
+        </div>
+        <div class="workflow-total"><span>Total Biaya</span><strong>Rp 150.000</strong></div>
+      </article>
+    </div>
+    <div class="col-xl-4">
+      <article class="workflow-card mb-3">
+        <div class="workflow-card-title"><div><h2><i class="bi bi-card-image me-2 text-success"></i>Bukti Pendukung</h2><p>Dokumen yang diunggah oleh pelanggan</p></div></div>
+        <div class="workflow-side-preview mb-2"><img src="../assets/proof-ticket-demo.svg" alt="Contoh bukti pendukung"><div class="preview-copy"><strong>tiket_pesawat.jpg</strong><small>JPG · 2,4 MB</small></div><button class="workflow-btn" data-preview="../assets/proof-ticket-demo.svg" data-title="Bukti Pendukung">Lihat Gambar</button></div>
+      </article>
+      <article class="workflow-card mb-3">
+        <div class="workflow-card-title"><div><h2><i class="bi bi-person-bounding-box me-2 text-success"></i>Foto Pengguna</h2><p>Foto pelanggan saat melakukan pemesanan</p></div></div>
+        <div class="workflow-side-preview"><img src="../assets/user-demo.svg" alt="Contoh foto pengguna"><div class="preview-copy"><strong>foto_pengguna.jpg</strong><small>Foto pengguna · JPG</small></div><button class="workflow-btn" data-preview="../assets/user-demo.svg" data-title="Foto Pengguna">Lihat Foto</button></div>
+      </article>
+      <div class="workflow-note"><i class="bi bi-info-circle-fill"></i><strong>Catatan</strong><br>Mohon periksa kembali seluruh data pesanan sebelum melanjutkan ke proses berikutnya.</div>
+    </div>
+  </div>
+  <div class="info-page-actions">
+    <a class="workflow-btn" href="Kelola_transaksi.html"><i class="bi bi-arrow-left"></i> Kembali</a>
+    <a class="workflow-btn primary" href="Kelola_transaksi.html#konfirmasi-motor"><i class="bi bi-check2"></i> Lanjut ke Pengecekan Motor</a>
+  </div>
+</section>
+</main>
+</div>
+<div class="overlay" id="overlay"></div>
+<div class="modal fade" id="previewModal" tabindex="-1" aria-hidden="true"><div class="modal-dialog modal-dialog-centered modal-lg"><div class="modal-content border-0 rounded-4"><div class="modal-header"><h5 class="modal-title fs-6" id="previewTitle">Pratinjau</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body text-center"><img id="previewImage" src="" alt="Pratinjau dokumen" class="img-fluid rounded-3"></div></div></div></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/admin_pages.js"></script><script src="../js/admin-sidebar.js"></script>
+<script>
+document.querySelectorAll('[data-preview]').forEach(button => button.addEventListener('click', () => {
+  document.getElementById('previewImage').src = button.dataset.preview;
+  document.getElementById('previewTitle').textContent = button.dataset.title || 'Pratinjau';
+  bootstrap.Modal.getOrCreateInstance(document.getElementById('previewModal')).show();
+}));
+</script>
+<script src="../js/profile-dropdown-universal.js"></script>
+</body></html>

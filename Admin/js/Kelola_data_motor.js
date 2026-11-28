@@ -472,7 +472,9 @@
     // ==================== NAVIGASI VIEW & SIDEBAR ====================
     window.switchView = function (target) {
       document.querySelectorAll(".nav-item").forEach(btn => {
-        const active = btn.dataset.nav === target || (target === "add-motor" && btn.dataset.nav === "motor");
+        const hrefName = (btn.getAttribute("href") || "").split("/").pop().toLowerCase();
+        const isMotorManagerLink = hrefName === "kelola_data_motor.html";
+        const active = btn.dataset.nav === target || ((target === "add-motor" || target === "motor") && isMotorManagerLink);
         btn.classList.toggle("bg-white", active);
         btn.classList.toggle("text-[#0C4651]", active);
         btn.classList.toggle("font-semibold", active);

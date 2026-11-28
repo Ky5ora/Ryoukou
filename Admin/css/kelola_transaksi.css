@@ -1320,3 +1320,6 @@ body {
   }
 
 }
+
+.profile-settings-link { display:flex; align-items:center; gap:9px; padding:10px 12px; border-radius:8px; color:#26364a; text-decoration:none; font-size:11px; font-weight:600; }
+.profile-settings-link:hover { background:#f2f6f7; color:#104650; }

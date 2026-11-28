@@ -1,1 +1,131 @@
-<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Pembayaran | RYOKOU</title><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"><link rel="stylesheet" href="../css/admin_pages.css"></head><body><div class="layout"><aside class="sidebar" id="sidebar"><a class="brand" href="dashboard.html"><span class="brand-mark"><i class="bi bi-scooter"></i></span>RYOKOU</a><p class="caption">MENU UTAMA</p><nav><a class="nav-item " href="dashboard.html"><i class="bi bi-grid"></i><span>Dashboard</span></a><a class="nav-item " href="Kelola_data_motor.html"><i class="bi bi-bicycle"></i><span>Kelola Data Motor</span></a><a class="nav-item " href="Kelola_transaksi.html"><i class="bi bi-clipboard-check"></i><span>Kelola Transaksi</span></a><a class="nav-item " href="Info_penyewaan.html"><i class="bi bi-calendar2-week"></i><span>Info Penyewaan</span></a><a class="nav-item active" href="Pembayaran.html"><i class="bi bi-cash-stack"></i><span>Pembayaran</span></a><a class="nav-item " href="Pengembalian.html"><i class="bi bi-arrow-return-left"></i><span>Pengembalian</span></a><a class="nav-item " href="Riwayat_penyewaan.html"><i class="bi bi-clock-history"></i><span>Riwayat Penyewaan</span></a><a class="nav-item " href="Laporan_data_motor.html"><i class="bi bi-file-earmark-text"></i><span>Laporan Data Motor</span></a><a class="nav-item " href="Pengaturan.html"><i class="bi bi-gear"></i><span>Pengaturan</span></a></nav><a class="logout" href="login.html"><i class="bi bi-box-arrow-right"></i> Keluar</a></aside><main class="main"><header class="topbar"><button id="menuToggle" class="menu-toggle" aria-label="Buka menu"><i class="bi bi-list"></i></button><strong>Admin RYOKOU</strong><span class="admin-label">Administrator</span></header><section class="content"><div class="eyebrow">ADMIN PANEL</div><h1>Pembayaran</h1><p class="description">Halaman untuk memantau status pembayaran pelanggan.</p><div class="notice"><i class="bi bi-info-circle"></i><div><strong>Halaman sudah terhubung.</strong><p>Bagian ini disiapkan agar navigasi Sidebar berfungsi. Konten pengelolaan dapat ditambahkan pada halaman ini.</p></div></div><a class="back-link" href="dashboard.html"><i class="bi bi-arrow-left"></i> Kembali ke Dashboard</a></section></main></div><div id="overlay" class="overlay"></div><script src="../js/admin_pages.js"></script></body></html>
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pembayaran | RYOKOU Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/admin_pages.css">
+  <link rel="stylesheet" href="../css/admin-sidebar.css">
+  <link rel="stylesheet" href="../css/workflow-pages.css">
+  <link rel="stylesheet" href="../css/payment-page.css">
+</head>
+<body class="workflow-body">
+<div class="workflow-layout">
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="dashboard.html"><span class="brand-mark"><img src="../assets/ryokou-logo.png" alt="Logo RYOKOU"></span><span>RYOKOU</span></a>
+    <p class="caption">MENU UTAMA</p>
+    <nav>
+      <a class="nav-item" href="dashboard.html"><i class="bi bi-grid"></i><span>Dashboard</span></a>
+      <a class="nav-item" href="Kelola_data_motor.html"><i class="bi bi-bicycle"></i><span>Kelola Data Motor</span></a>
+      <a class="nav-item" href="Kelola_transaksi.html"><i class="bi bi-clipboard-check"></i><span>Kelola Transaksi</span></a>
+      <a class="nav-item" href="Info_penyewaan.html"><i class="bi bi-calendar2-week"></i><span>Info Penyewaan</span></a>
+      <a class="nav-item" href="Pembayaran.html"><i class="bi bi-cash-stack"></i><span>Pembayaran</span></a>
+      <a class="nav-item" href="Pengembalian.html"><i class="bi bi-arrow-return-left"></i><span>Pengembalian</span></a>
+      <a class="nav-item" href="Riwayat_penyewaan.html"><i class="bi bi-clock-history"></i><span>Riwayat Penyewaan</span></a>
+      <a class="nav-item" href="Laporan_data_motor.html"><i class="bi bi-file-earmark-text"></i><span>Laporan Data Motor</span></a>
+      <a class="nav-item" href="invoice.html"><i class="bi bi-receipt"></i><span>Invoice</span></a>
+    </nav>
+    <a class="logout" href="login.html"><i class="bi bi-box-arrow-right"></i><span>Keluar</span></a>
+  </aside>
+  <main class="workflow-main">
+    <header class="workflow-topbar">
+      <button id="menuToggle" class="menu-toggle" type="button" aria-label="Buka menu"><i class="bi bi-list"></i></button>
+      <div class="workflow-search"><i class="bi bi-search"></i><input type="search" placeholder="Pencarian"></div>
+      <div class="workflow-profile"><span class="avatar">A1</span><div class="profile-copy"><strong>Admin_001</strong><small>Admin/Owner</small></div><i class="bi bi-chevron-down small"></i></div>
+    </header>
+    <section class="workflow-content payment-content">
+      <div class="workflow-heading payment-heading">
+        <div><h1><i class="bi bi-wallet2 payment-heading-icon"></i> Pembayaran</h1><p>Validasi status pembayaran dari pelanggan.</p></div>
+        <a class="workflow-btn" href="Kelola_transaksi.html"><i class="bi bi-arrow-left"></i> Kembali ke Transaksi</a>
+      </div>
+      <div class="row g-3 align-items-stretch">
+        <div class="col-xl-6">
+          <article class="workflow-card payment-detail-card">
+            <div class="workflow-card-title"><div><h2>Detail Transaksi</h2></div><span class="payment-id-badge">TRX-001</span><span class="workflow-status ms-auto"> <i class="bi bi-clock"></i> Menunggu Pembayaran</span></div>
+            <div class="payment-customer-row">
+              <div class="payment-person-icon"><i class="bi bi-person-fill"></i></div>
+              <div><strong>Hash Aurelia</strong><small>0812 8888 7777<br>Jl. Melati No. 12, Kota Malang</small></div>
+            </div>
+            <div class="payment-motor-row">
+              <div class="payment-motor-icon"><i class="bi bi-bicycle"></i></div>
+              <div><strong>Honda Beat Deluxe 2023/2024 (B 1234 KZ)</strong><small>Lokasi: Rental Motor RYOKOU - Malang</small></div>
+            </div>
+            <div class="payment-rental-meta">
+              <div><i class="bi bi-calendar-event"></i><span><small>Tanggal Sewa</small><strong>26 Apr 2025</strong></span></div>
+              <div><i class="bi bi-hourglass-split"></i><span><small>Durasi</small><strong>2 Hari</strong></span></div>
+            </div>
+            <h3 class="workflow-section-title"><i class="bi bi-receipt"></i> Rincian Biaya</h3>
+            <div class="payment-price-line"><span>Harga Sewa (2 hari)</span><strong>Rp 70.000</strong></div>
+            <div class="payment-price-line"><span>Biaya Layanan</span><strong>Rp 10.000</strong></div>
+            <div class="workflow-total"><span>Total Biaya</span><strong id="paymentTotal">Rp 80.000</strong></div>
+            <div class="payment-tip"><i class="bi bi-info-circle-fill"></i>Silakan validasi pembayaran pelanggan sebelum melanjutkan proses transaksi.</div>
+          </article>
+        </div>
+        <div class="col-xl-6">
+          <article class="workflow-card payment-validation-card">
+            <div class="workflow-card-title"><div><h2>Informasi Pembayaran</h2><p>Periksa bukti sebelum menyimpan hasil validasi</p></div></div>
+            <div class="payment-info-grid">
+              <div><span class="workflow-form-label">Metode Pembayaran</span><strong class="payment-method"><i class="bi bi-qr-code"></i> QRIS</strong></div>
+              <div><span class="workflow-form-label">Status Pembayaran</span><span class="payment-status-pill" id="paymentStatus"><i class="bi bi-clock"></i> Belum Lunas</span></div>
+            </div>
+            <span class="workflow-form-label">Bukti Pembayaran</span>
+            <div class="workflow-side-preview payment-proof-preview">
+              <img src="../assets/payment-proof-demo.jpg" alt="Bukti pembayaran QRIS">
+              <div class="preview-copy"><strong>bukti_pembayaran.jpg</strong><small>JPG · 1,8 MB</small></div>
+              <button type="button" class="workflow-btn" data-preview-payment><i class="bi bi-search"></i> Lihat Gambar</button>
+            </div>
+            <form id="paymentValidationForm" novalidate>
+              <span class="workflow-form-label mt-3">Validasi Pembayaran</span>
+              <label class="validation-option payment-accept-option"><input type="radio" name="validation" value="Diterima" checked><span><strong>Pembayaran Diterima</strong><small>Lanjutkan ke proses transaksi berikutnya.</small></span></label>
+              <label class="validation-option payment-reject-option"><input type="radio" name="validation" value="Ditolak"><span><strong>Pembayaran Ditolak</strong><small>Tambahkan alasan penolakan agar pelanggan dapat memperbaiki bukti.</small></span></label>
+              <div class="rejection-reasons d-none" id="rejectionReasons">
+                <span class="workflow-form-label">Pilih Alasan Penolakan <span class="text-danger">*</span></span>
+                <div class="reason-chip-list">
+                  <button type="button" class="reason-chip" data-reason="Bukti pembayaran tidak jelas">Bukti pembayaran tidak jelas</button>
+                  <button type="button" class="reason-chip" data-reason="Nama rekening berbeda">Nama rekening berbeda</button>
+                  <button type="button" class="reason-chip" data-reason="Nominal pembayaran kurang">Nominal pembayaran kurang</button>
+                  <button type="button" class="reason-chip" data-reason="Bukti pembayaran tidak valid">Bukti pembayaran tidak valid</button>
+                </div>
+                <div class="invalid-feedback d-block d-none" id="rejectionError">Pilih minimal satu alasan atau tulis catatan penolakan.</div>
+              </div>
+              <label class="workflow-form-label mt-3" for="paymentNote">Catatan <span id="noteOptional">(Opsional)</span></label>
+              <textarea class="form-control" rows="2" id="paymentNote" placeholder="Masukkan catatan validasi..."></textarea>
+              <div class="d-grid mt-3"><button type="submit" class="workflow-btn primary payment-save-btn"><i class="bi bi-check2"></i> Simpan Validasi</button></div>
+              <div class="mt-3 d-none" id="invoiceResult" aria-live="polite">
+                <div class="workflow-note mb-2" id="validationMessage"></div>
+                <a class="workflow-btn primary w-100" id="invoiceActionLink" href="invoice.html"><i class="bi bi-receipt"></i> Lihat / Kirim Invoice</a>
+              </div>
+            </form>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+<div class="overlay" id="overlay"></div>
+
+<div class="modal fade payment-proof-modal" id="paymentPreviewModal" tabindex="-1" aria-labelledby="paymentPreviewTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="d-flex align-items-center gap-2"><span class="proof-modal-icon"><i class="bi bi-qr-code"></i></span><div><h5 class="modal-title" id="paymentPreviewTitle">Bukti Pembayaran QRIS</h5><small>Transaksi #TRX-001</small></div></div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+      </div>
+      <div class="proof-modal-meta"><strong>TRX-001 · Rp 80.000 · Hash Aurelia</strong><span>26 Apr 2025, 09:15 WIB</span></div>
+      <div class="modal-body"><div class="proof-image-wrap"><img src="../assets/payment-proof-demo.jpg" alt="Tampilan bukti pembayaran QRIS" id="paymentProofLarge"></div><p class="proof-caption">Ryokou Rental Motor · Bukti pembayaran pelanggan</p></div>
+      <div class="modal-footer"><button type="button" class="workflow-btn" data-bs-dismiss="modal">Tutup</button><a class="workflow-btn primary" href="../assets/payment-proof-demo.jpg" download="Bukti-Pembayaran-TRX-001.jpg"><i class="bi bi-download"></i> Unduh Bukti Bayar</a></div>
+    </div>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/admin_pages.js"></script>
+<script src="../js/admin-sidebar.js"></script>
+<script src="../js/payment-page.js"></script>
+<script src="../js/profile-dropdown-universal.js"></script>
+</body>
+</html>

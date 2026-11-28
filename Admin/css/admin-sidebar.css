@@ -1,0 +1,181 @@
+/* RYOKOU admin sidebar: shared visual system for every admin page */
+:root { --ryokou-teal:#104650; --ryokou-teal-dark:#0b3942; --ryokou-gold:#f4ce5c; --ryokou-bg:#f1f5f8; }
+#sidebar, .sidebar, .side-bar {
+  background:var(--ryokou-teal) !important; color:#fff !important;
+}
+#sidebar {
+  box-sizing:border-box !important; width:244px !important; min-width:244px !important;
+  flex:0 0 244px !important; padding:18px 12px 12px !important;
+  display:flex !important; flex-direction:column !important;
+  border-right:1px solid rgba(255,255,255,.08);
+  transition:width .24s ease, transform .24s ease, left .24s ease;
+}
+#sidebar .brand, #sidebar .side-brand {
+  display:flex !important; align-items:center !important; gap:11px !important;
+  min-height:54px; margin:0 7px 24px !important; padding:0 !important;
+  color:var(--ryokou-gold) !important; text-decoration:none !important;
+  font-size:19px !important; line-height:1.1; font-weight:800 !important; letter-spacing:.25px;
+}
+#sidebar .brand-mark, #sidebar .logo-badge, #sidebar #brandHeader > div > div:first-child {
+  width:46px !important; height:46px !important; min-width:46px !important;
+  display:flex !important; align-items:center !important; justify-content:center !important;
+  border:0 !important; border-radius:0 !important; background:transparent !important;
+  color:var(--ryokou-gold) !important; overflow:visible !important;
+}
+#sidebar .brand-mark img, #sidebar .logo-badge img, #sidebar .sidebar-logo-img {
+  display:block !important; width:100% !important; height:100% !important;
+  object-fit:contain !important; filter:drop-shadow(0 2px 3px rgba(0,0,0,.18));
+}
+#sidebar #brandHeader { padding:2px 7px 18px !important; margin:0 !important; }
+#sidebar .caption, #sidebar .side-caption, #sidebar .sidebar-section-title {
+  margin:0 10px 10px !important; padding:0 !important;
+  color:#a9c6cc !important; font-size:9px !important; font-weight:800 !important;
+  letter-spacing:1.25px !important; line-height:1.5;
+}
+#sidebar nav, #sidebar .side-nav, #sidebar #mainNav {
+  display:grid !important; grid-template-columns:1fr; gap:5px !important;
+  padding:0 !important; margin:0 !important;
+}
+#sidebar nav > a, #sidebar .nav-item, #sidebar .side-nav a {
+  display:flex !important; align-items:center !important; gap:11px !important;
+  width:100% !important; min-height:39px; margin:0 !important; padding:9px 11px !important;
+  border:0 !important; border-radius:10px !important; background:transparent !important;
+  color:rgba(255,255,255,.88) !important; text-decoration:none !important;
+  font-size:11px !important; line-height:1.35 !important; font-weight:600 !important;
+  box-shadow:none !important; transition:background .18s ease,color .18s ease, transform .18s ease;
+}
+#sidebar nav > a > i, #sidebar .nav-item > i, #sidebar .side-nav a > i,
+#sidebar .nav-item > svg { flex:0 0 18px !important; width:18px !important; height:18px !important; font-size:15px !important; text-align:center; }
+#sidebar nav > a:hover, #sidebar .nav-item:hover, #sidebar .side-nav a:hover {
+  background:rgba(255,255,255,.12) !important; color:#fff !important; transform:translateX(2px);
+}
+#sidebar nav > a.active, #sidebar .nav-item.active, #sidebar .side-nav a.active {
+  background:#fff !important; color:var(--ryokou-teal) !important;
+  font-weight:800 !important; box-shadow:0 3px 10px rgba(0,0,0,.09) !important;
+}
+#sidebar .logout, #sidebar .logout-btn, #sidebar #sidebarLogoutBtn {
+  display:flex !important; align-items:center !important; gap:10px !important;
+  width:100% !important; margin-top:auto !important; padding:11px 12px !important;
+  border:0 !important; border-radius:9px !important; background:rgba(255,255,255,.10) !important;
+  color:#f1f7f8 !important; text-decoration:none !important; font-size:11px !important;
+  font-weight:700 !important; text-align:left; cursor:pointer;
+}
+#sidebar .logout:hover, #sidebar .logout-btn:hover, #sidebar #sidebarLogoutBtn:hover { background:rgba(255,255,255,.17) !important; }
+#sidebar.sidebar-expanded { width:244px !important; }
+#sidebar.sidebar-collapsed { width:78px !important; min-width:78px !important; flex-basis:78px !important; }
+#sidebar.sidebar-collapsed .sidebar-label, #sidebar.sidebar-collapsed .sidebar-section-title { display:none !important; }
+#sidebar.sidebar-collapsed #brandHeader { justify-content:center !important; }
+#sidebar.sidebar-collapsed .nav-item, #sidebar.sidebar-collapsed #sidebarLogoutBtn { justify-content:center !important; padding-left:0 !important; padding-right:0 !important; }
+#sidebar.sidebar-collapsed .brand { justify-content:center !important; margin-left:0 !important; margin-right:0 !important; }
+/* avoid undersized sidebars on wide screens */
+@media (min-width:992px) {
+  #sidebar.sidebar-expanded, #sidebar:not(.sidebar-collapsed) { width:244px !important; min-width:244px !important; flex-basis:244px !important; }
+  #sidebar.sidebar-collapsed { width:78px !important; min-width:78px !important; flex-basis:78px !important; }
+}
+@media (max-width:991.98px) {
+  #sidebar { width:272px !important; min-width:272px !important; flex-basis:272px !important; }
+  #sidebar .brand, #sidebar .side-brand { margin-bottom:20px !important; }
+}
+
+#sidebar.collapsed { width:78px !important; min-width:78px !important; flex-basis:78px !important; }
+#sidebar.collapsed .brand > span:last-child, #sidebar.collapsed .side-caption,
+#sidebar.collapsed .caption, #sidebar.collapsed .nav-item span, #sidebar.collapsed .logout-btn span,
+#sidebar.collapsed .logout span { display:none !important; }
+#sidebar.collapsed .brand { justify-content:center !important; margin-left:0 !important; margin-right:0 !important; }
+#sidebar.collapsed .nav-item, #sidebar.collapsed .logout-btn { justify-content:center !important; padding-left:0 !important; padding-right:0 !important; }
+/* Consistent drawer behavior for compact screens across all admin page types. */
+#sidebar .brand.active { background:transparent !important; color:var(--ryokou-gold) !important; box-shadow:none !important; }
+.mobile-menu { display:none; }
+@media (max-width:991.98px) {
+  #sidebar {
+    position:fixed !important; top:0 !important; bottom:0 !important; left:0 !important;
+    height:100dvh !important; max-height:100dvh !important; overflow-y:auto !important;
+    z-index:1050 !important; transform:translateX(-105%) !important;
+    transition:transform .24s ease !important;
+  }
+  #sidebar.open, #sidebar.mobile-open { transform:translateX(0) !important; left:0 !important; }
+  #sidebar.sidebar-expanded.-translate-x-full { transform:translateX(-105%) !important; }
+  #sidebar.sidebar-expanded:not(.-translate-x-full) { transform:translateX(0) !important; }
+  .mobile-menu { display:inline-flex !important; align-items:center; justify-content:center; border:0; border-radius:9px; padding:8px 11px; background:#edf3f4; color:#104650; }
+}
+@media (min-width:992px) {
+  #sidebar { position:sticky !important; top:0 !important; height:100vh !important; align-self:flex-start; transform:none !important; }
+  .mobile-menu { display:none !important; }
+}
+@media (max-width:760px) {
+  .app-shell #sidebar { left:0 !important; }
+  .app-shell #sidebar:not(.mobile-open) { transform:translateX(-105%) !important; }
+  .app-shell #sidebar.mobile-open { transform:translateX(0) !important; }
+}
+
+/* Consistent collapsed navigation: hide every text label, including Invoice and Logout. */
+@media (min-width:1024px) {
+  #sidebar.sidebar-collapsed nav > a > span,
+  #sidebar.sidebar-collapsed .nav-item > span,
+  #sidebar.sidebar-collapsed #sidebarLogoutBtn > span,
+  #sidebar.sidebar-collapsed .logout > span,
+  #sidebar.sidebar-collapsed .logout-btn > span { display:none !important; }
+  #sidebar.sidebar-collapsed nav > a,
+  #sidebar.sidebar-collapsed .nav-item { justify-content:center !important; gap:0 !important; }
+}
+#profileTrigger { cursor:pointer; }
+#profilePopover { z-index:1200 !important; }
+
+
+/* ===== RYOKOU unified sidebar controls: used by every admin page ===== */
+#sidebar, .sidebar { position:relative; box-sizing:border-box; }
+#sidebar.sidebar-expanded, #sidebar:not(.sidebar-collapsed) {
+  width:244px !important; min-width:244px !important; flex:0 0 244px !important;
+}
+#sidebar.sidebar-collapsed, #sidebar.collapsed {
+  width:78px !important; min-width:78px !important; flex:0 0 78px !important;
+}
+#sidebar.sidebar-collapsed .sidebar-label,
+#sidebar.sidebar-collapsed .sidebar-section-title,
+#sidebar.sidebar-collapsed .caption,
+#sidebar.sidebar-collapsed .side-caption,
+#sidebar.sidebar-collapsed .brand > span:last-child,
+#sidebar.sidebar-collapsed .side-brand > b,
+#sidebar.sidebar-collapsed nav a > span,
+#sidebar.sidebar-collapsed .nav-item > span,
+#sidebar.sidebar-collapsed #sidebarLogoutBtn > span,
+#sidebar.sidebar-collapsed .logout > span,
+#sidebar.sidebar-collapsed .logout-btn > span { display:none !important; }
+#sidebar.sidebar-collapsed nav a,
+#sidebar.sidebar-collapsed .nav-item,
+#sidebar.sidebar-collapsed #sidebarLogoutBtn,
+#sidebar.sidebar-collapsed .logout,
+#sidebar.sidebar-collapsed .logout-btn { justify-content:center !important; gap:0 !important; padding-left:0 !important; padding-right:0 !important; }
+#sidebar.sidebar-collapsed #brandHeader,
+#sidebar.sidebar-collapsed .brand,
+#sidebar.sidebar-collapsed .side-brand { justify-content:center !important; }
+.ryokou-sidebar-collapse {
+  position:absolute !important; top:24px !important; right:10px !important; z-index:15 !important;
+  width:32px !important; height:32px !important; padding:7px !important;
+  display:flex !important; align-items:center !important; justify-content:center !important;
+  border:1px solid rgba(255,255,255,.2) !important; border-radius:9px !important;
+  background:rgba(255,255,255,.12) !important; color:#fff !important; cursor:pointer !important;
+}
+.ryokou-sidebar-collapse svg { width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+#sidebar.sidebar-collapsed .ryokou-sidebar-collapse { right:23px !important; }
+.ryokou-mobile-menu {
+  display:none; width:38px; height:38px; border:0; border-radius:9px;
+  align-items:center; justify-content:center; background:#edf3f4; color:#104650;
+}
+.ryokou-sidebar-overlay { display:none; }
+@media (max-width:991.98px) {
+  #sidebar, #sidebar.sidebar-expanded, #sidebar.sidebar-collapsed, #sidebar.collapsed {
+    position:fixed !important; top:0 !important; bottom:0 !important; left:0 !important;
+    width:272px !important; min-width:272px !important; max-width:85vw !important;
+    height:100dvh !important; z-index:1200 !important; overflow-y:auto !important;
+    transform:translateX(-110%) !important; transition:transform .24s ease !important;
+  }
+  #sidebar.open, #sidebar.mobile-open { transform:translateX(0) !important; }
+  .ryokou-sidebar-collapse { display:none !important; }
+  .ryokou-mobile-menu { display:inline-flex !important; }
+  .ryokou-sidebar-overlay, #overlay {
+    position:fixed !important; inset:0 !important; z-index:1190 !important;
+    background:rgba(5,22,27,.42) !important; display:none;
+  }
+  .ryokou-sidebar-overlay.show, #overlay.show { display:block !important; }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "ryokou-admin-react",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Admin Website RYOKOU - frontend React (mock API SQLite demo, backend Node.js menyusul)",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.2"
+  },
+  "devDependencies": {
+    "vite": "^5.4.8"
+  }
+}

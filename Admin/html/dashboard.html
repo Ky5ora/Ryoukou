@@ -34,10 +34,14 @@
     };
   </script>
 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+
   <!-- Custom CSS -->
   <link rel="stylesheet" href="../css/dashboard.css" />
+  <link rel="stylesheet" href="../css/admin-sidebar.css">
 </head>
-<body class="bg-[#F4F7F8] text-[#111827] antialiased selection:bg-[#0C4651] selection:text-white">
+<body data-active-page="dashboard.html" class="bg-[#F4F7F8] text-[#111827] antialiased selection:bg-[#0C4651] selection:text-white">
 
   <!-- Backdrop Mobile Drawer -->
   <div id="mobileBackdrop" class="fixed inset-0 bg-slate-900/50 backdrop-blur-[1px] z-30 hidden lg:hidden transition-opacity"></div>
@@ -52,56 +56,7 @@
         <div id="brandHeader" class="flex items-center justify-between px-5 pt-6 pb-5">
           <div class="flex items-center gap-3.5 min-w-0">
             <!-- Custom SVG Logo RYOKOU -->
-            <div class="w-12 h-12 shrink-0 flex items-center justify-center" title="RYOKOU Oto Rent">
-              <svg viewBox="0 0 220 220" class="w-full h-full drop-shadow-sm" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <path id="topArc" d="M 46,96 A 64,64 0 0,1 174,96" />
-                </defs>
-                <!-- Outer Scalloped Badge -->
-                <path d="M110,8 C122,8 128,18 140,21 C152,24 164,20 173,29 C182,38 179,50 185,61 C191,72 203,77 205,89 C207,101 199,111 199,123 C199,135 207,145 204,157 C201,169 189,173 182,183 C175,193 177,205 166,211 C155,217 144,210 132,213 C120,216 116,224 110,224 C104,224 100,216 88,213 C76,210 65,217 54,211 C43,205 45,193 38,183 C31,173 19,169 16,157 C13,145 21,135 21,123 C21,111 13,101 15,89 C17,77 29,72 35,61 C41,50 38,38 47,29 C56,20 68,24 80,21 C92,18 98,8 110,8 Z"
-                      transform="scale(0.92) translate(9.5, 5)"
-                      fill="#0C4651" stroke="#F5F2DC" stroke-width="4.5" />
-                <!-- Curved OTO RENT Text -->
-                <text fill="#F4CE5C" font-size="16" font-weight="800" letter-spacing="3.5" font-family="Plus Jakarta Sans, sans-serif">
-                  <textPath href="#topArc" startOffset="50%" text-anchor="middle">OTO RENT</textPath>
-                </text>
-                <!-- Front Scooter Illustration -->
-                <g stroke="#F5F2DC" stroke-width="4.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="83" cy="70" r="8.5" />
-                  <circle cx="137" cy="70" r="8.5" />
-                  <path d="M91.5,70 Q98,70 101,75" />
-                  <path d="M128.5,70 Q122,70 119,75" />
-                  <rect x="85" y="82" width="12" height="6" rx="2.5" />
-                  <rect x="123" y="82" width="12" height="6" rx="2.5" />
-                  <path d="M101,75 C101,64 119,64 119,75" />
-                  <circle cx="110" cy="86" r="11" fill="#0C4651" />
-                  <circle cx="110" cy="86" r="4.5" />
-                  <path d="M96,90 C91,99 90,115 94,126 L126,126 C130,115 129,99 124,90" />
-                  <path d="M97,94 L110,114 L123,94" />
-                  <rect x="86" y="106" width="6" height="17" rx="3" />
-                  <rect x="128" y="106" width="6" height="17" rx="3" />
-                  <path d="M99,122 C99,112 121,112 121,122 Z" fill="#0C4651" />
-                  <rect x="102" y="122" width="16" height="23" rx="7" fill="#0C4651" />
-                  <line x1="110" y1="123" x2="110" y2="144" stroke-width="3" />
-                  <line x1="103" y1="130" x2="107" y2="130" stroke-width="2.5" />
-                  <line x1="113" y1="130" x2="117" y2="130" stroke-width="2.5" />
-                  <line x1="103" y1="137" x2="107" y2="137" stroke-width="2.5" />
-                  <line x1="113" y1="137" x2="117" y2="137" stroke-width="2.5" />
-                </g>
-                <!-- ESTD Box -->
-                <rect x="36" y="114" width="44" height="24" rx="5" fill="#0C4651" stroke="#F5F2DC" stroke-width="3.2" />
-                <text x="58" y="131" fill="#F4CE5C" font-size="13.5" font-weight="800" text-anchor="middle" letter-spacing="0.8">ESTD</text>
-                <!-- 2023 Box -->
-                <rect x="140" y="114" width="44" height="24" rx="5" fill="#0C4651" stroke="#F5F2DC" stroke-width="3.2" />
-                <text x="162" y="131" fill="#F4CE5C" font-size="13.5" font-weight="800" text-anchor="middle" letter-spacing="0.5">2023</text>
-                <!-- RYOKOU Main Text -->
-                <circle cx="57" cy="161" r="3.5" fill="#F5F2DC" />
-                <text x="110" y="167" fill="#F4CE5C" font-size="22" font-weight="800" text-anchor="middle" letter-spacing="1.5">RYOKOU</text>
-                <circle cx="163" cy="161" r="3.5" fill="#F5F2DC" />
-                <!-- BY : M2 -->
-                <text x="110" y="185" fill="#F4CE5C" font-size="11.5" font-weight="800" text-anchor="middle" letter-spacing="1">BY : M<tspan dy="-3" font-size="8">2</tspan></text>
-              </svg>
-            </div>
+            <div class="w-12 h-12 shrink-0 flex items-center justify-center" title="RYOKOU Oto Rent"><img src="../assets/ryokou-logo.png" alt="Logo RYOKOU" class="sidebar-logo-img"></div>
             <span class="sidebar-label text-[#F4CE5C] font-extrabold text-[20px] tracking-wider uppercase truncate">RYOKOU</span>
           </div>
 
@@ -119,7 +74,7 @@
   <nav class="space-y-1.5" id="mainNav">
 
     <!-- Dashboard (aktif) -->
-    <a href="dashboard.html" data-nav="dashboard" data-tooltip="Dashboard" class="nav-item active w-full flex items-center gap-3.5 px-3.5 py-2.5 rounded-xl text-[13.5px] font-semibold bg-white text-[#0C4651] shadow-sm transition-all" style="text-decoration:none">
+    <a href="dashboard.html" data-tooltip="Dashboard" class="nav-item active w-full flex items-center gap-3.5 px-3.5 py-2.5 rounded-xl text-[13.5px] font-semibold bg-white text-[#0C4651] shadow-sm transition-all" style="text-decoration:none">
       <svg class="w-[18px] h-[18px] shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
         <rect x="3" y="3" width="7" height="7" rx="1.5" />
         <rect x="14" y="3" width="7" height="7" rx="1.5" />
@@ -192,6 +147,7 @@
       </svg>
       <span class="sidebar-label truncate">Laporan Data Motor</span>
     </a>
+<a class="nav-item" href="invoice.html"><i class="bi bi-receipt"></i><span>Invoice</span></a>
 
   </nav>
 </div>
@@ -244,13 +200,13 @@
 
         <!-- Admin Profile & Popover Trigger -->
         <div class="relative shrink-0">
-          <button id="profileTrigger" class="flex items-center gap-3 py-1 px-2 rounded-xl hover:bg-gray-50 transition-colors text-left">
+          <button id="profileTrigger" type="button" class="flex items-center gap-3 py-1 px-2 rounded-xl hover:bg-gray-50 transition-colors text-left">
             <div class="w-10 h-10 rounded-full bg-[#0C4651] text-white font-bold text-[13.5px] flex items-center justify-center shrink-0">
               A1
             </div>
             <div class="hidden sm:block leading-tight">
-              <div class="text-[13px] font-bold text-gray-900">Admin_001</div>
-              <div class="text-[11px] font-medium text-gray-500">Admin/Owner</div>
+              <div class="text-[13px] font-bold text-gray-900 profile-trigger-name">Admin_001</div>
+              <div class="text-[11px] font-medium text-gray-500 profile-trigger-role">Admin/Owner</div>
             </div>
             <svg id="profileChevron" class="w-4 h-4 text-gray-500 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
@@ -259,18 +215,21 @@
 
           <!-- Profile Dropdown Card -->
           <div id="profilePopover" class="hidden absolute right-0 mt-2.5 w-64 bg-white rounded-2xl shadow-xl border border-gray-100 p-5 z-50">
-            <div class="flex items-center gap-3.5 pb-4 border-b border-gray-100">
+            <div class="flex items-center gap-3.5 pb-4 border-b border-gray-100 profile-popover-head">
               <div class="w-11 h-11 rounded-full bg-[#0C4651] text-white font-bold text-[14px] flex items-center justify-center shrink-0">
                 A1
               </div>
               <div class="min-w-0">
-                <div class="text-[14px] font-bold text-gray-900 truncate">Admin_001</div>
-                <div class="text-[11.5px] text-gray-400 truncate">admin001@gmail.com</div>
+                <div class="text-[14px] font-bold text-gray-900 truncate profile-trigger-name">Admin_001</div>
+                <div class="text-[11.5px] text-gray-400 truncate profile-trigger-email">admin001@gmail.com</div>
                 <span class="inline-block mt-1.5 px-2.5 py-0.5 rounded-full bg-[#DCFCE7] text-[#15803D] text-[10.5px] font-bold">
                   Admin/Owner
                 </span>
               </div>
             </div>
+            <a href="Pengaturan.html" class="profile-popover-action" style="display:flex;align-items:center;gap:10px;padding:10px 8px;margin-top:10px;border-radius:9px;color:#172235;text-decoration:none;font-size:13px;font-weight:600;">
+              <i class="bi bi-gear" style="font-size:17px"></i> Pengaturan
+            </a>
             <button id="popoverLogoutBtn" class="mt-3.5 w-full flex items-center gap-2.5 px-2 py-2 rounded-lg text-[13px] font-semibold text-[#EF4444] hover:bg-red-50 transition-colors">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
@@ -285,85 +244,66 @@
       <main id="view-dashboard" class="w-full p-4 sm:p-6 lg:px-7 lg:py-6 space-y-5 flex-1">
 
         <!-- Row 1: 4 Summary KPI Cards -->
-        <section class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5">
+        <section class="dashboard-stat-grid" aria-label="Ringkasan unit motor">
           <!-- Card 1: Total Unit Motor -->
-          <div class="bg-white rounded-2xl p-5 card-shadow border border-gray-100/80 flex flex-col justify-between">
-            <div class="flex items-start justify-between">
-              <span class="text-[13px] font-semibold text-gray-600">Total Unit Motor</span>
-              <div class="w-9 h-9 rounded-xl bg-[#E6F2F4] text-[#0C4651] flex items-center justify-center">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                  <circle cx="5.5" cy="17.5" r="3" />
-                  <circle cx="18.5" cy="17.5" r="3" />
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M8.5 17.5h5l2.5-6h-5l-2 3.5H5.5M14 11.5l-1.5-3.5H10m6 3.5l2.5 6" />
-                </svg>
-              </div>
+          <div class="dashboard-stat-card bg-white rounded-2xl card-shadow border border-gray-100/80">
+            <div class="dashboard-stat-top">
+              <span class="dashboard-stat-label">Total Unit Motor</span>
+              <div class="dashboard-stat-icon total"><i class="bi bi-bicycle"></i></div>
             </div>
-            <div class="my-3 flex items-baseline gap-2.5">
-              <span class="text-[28px] font-extrabold text-gray-900 leading-none">13</span>
+            <div class="dashboard-stat-middle">
+              <span class="dashboard-stat-value">13</span>
         
             </div>
-            <div class="flex items-center gap-2 text-[11px] text-gray-400 font-medium">
+            <div class="dashboard-stat-foot">
               <span class="w-1.5 h-1.5 rounded-full bg-[#0C4651]"></span>
               <span>Total armada terdaftar aktif</span>
             </div>
           </div>
 
           <!-- Card 2: Tersedia -->
-          <div class="bg-white rounded-2xl p-5 card-shadow border border-gray-100/80 flex flex-col justify-between">
-            <div class="flex items-start justify-between">
-              <span class="text-[13px] font-semibold text-gray-600">Tersedia</span>
-              <div class="w-9 h-9 rounded-xl bg-[#E8F8F0] text-[#10B981] flex items-center justify-center">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
-              </div>x`x
+          <div class="dashboard-stat-card bg-white rounded-2xl card-shadow border border-gray-100/80">
+            <div class="dashboard-stat-top">
+              <span class="dashboard-stat-label">Tersedia</span>
+              <div class="dashboard-stat-icon available"><i class="bi bi-check-circle-fill"></i></div>
             </div>
-            <div class="my-3 flex items-center gap-2.5">
-              <span class="text-[28px] font-extrabold text-gray-900 leading-none">6</span>
+            <div class="dashboard-stat-middle">
+              <span class="dashboard-stat-value">6</span>
               <span class="px-2.5 py-0.5 rounded-full bg-[#DCFCE7] text-[#15803D] text-[10.5px] font-bold">Siap Sewa</span>
             </div>
-            <div class="flex items-center gap-2 text-[11px] text-gray-400 font-medium">
+            <div class="dashboard-stat-foot">
               <span class="w-1.5 h-1.5 rounded-full bg-[#10B981]"></span>
               <span>46% dari total kapasitas</span>
             </div>
           </div>
 
           <!-- Card 3: Disewa -->
-          <div class="bg-white rounded-2xl p-5 card-shadow border border-gray-100/80 flex flex-col justify-between">
-            <div class="flex items-start justify-between">
-              <span class="text-[13px] font-semibold text-gray-600">Disewa</span>
-              <div class="w-9 h-9 rounded-xl bg-[#FEF6E6] text-[#E59500] flex items-center justify-center">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                  <circle cx="8" cy="15" r="3" />
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 13L19 4.5M16 7.5l2 2M18 5.5l2 2" />
-                </svg>
-              </div>
+          <div class="dashboard-stat-card bg-white rounded-2xl card-shadow border border-gray-100/80">
+            <div class="dashboard-stat-top">
+              <span class="dashboard-stat-label">Disewa</span>
+              <div class="dashboard-stat-icon rented"><i class="bi bi-key-fill"></i></div>
             </div>
-            <div class="my-3 flex items-center gap-2.5">
-              <span class="text-[28px] font-extrabold text-gray-900 leading-none">4</span>
+            <div class="dashboard-stat-middle">
+              <span class="dashboard-stat-value">4</span>
               <span class="px-2.5 py-0.5 rounded-full bg-[#FEF3C7] text-[#B45309] text-[10.5px] font-bold">Masih dalam Sewa</span>
             </div>
-            <div class="flex items-center gap-2 text-[11px] text-gray-400 font-medium">
+            <div class="dashboard-stat-foot">
               <span class="w-1.5 h-1.5 rounded-full bg-[#E59500]"></span>
               <span>Tingkat utilisasi 31%</span>
             </div>
           </div>
 
           <!-- Card 4: Perbaikan -->
-          <div class="bg-white rounded-2xl p-5 card-shadow border border-gray-100/80 flex flex-col justify-between">
-            <div class="flex items-start justify-between">
-              <span class="text-[13px] font-semibold text-gray-600">Perbaikan</span>
-              <div class="w-9 h-9 rounded-xl bg-[#FEECEC] text-[#EF4444] flex items-center justify-center">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" />
-                </svg>
-              </div>
+          <div class="dashboard-stat-card bg-white rounded-2xl card-shadow border border-gray-100/80">
+            <div class="dashboard-stat-top">
+              <span class="dashboard-stat-label">Perbaikan</span>
+              <div class="dashboard-stat-icon repair"><i class="bi bi-tools"></i></div>
             </div>
-            <div class="my-3 flex items-center gap-2.5">
-              <span class="text-[28px] font-extrabold text-gray-900 leading-none">3</span>
+            <div class="dashboard-stat-middle">
+              <span class="dashboard-stat-value">3</span>
               <span class="px-2.5 py-0.5 rounded-full bg-[#FEE2E2] text-[#DC2626] text-[10.5px] font-bold">Perbaikan</span>
             </div>
-            <div class="flex items-center gap-2 text-[11px] text-gray-400 font-medium">
+            <div class="dashboard-stat-foot">
               <span class="w-1.5 h-1.5 rounded-full bg-[#EF4444]"></span>
               <span>Servis berkala di bengkel</span>
             </div>
@@ -555,8 +495,7 @@
               </div>
 
               <div class="flex items-center gap-3.5 relative z-10">
-                <div class="w-11 h-11 rounded-full bg-white text-[#0C4651] font-extrabold text-[22px] flex items-center justify-center shrink-0 shadow-sm">
-                  $
+                <div></div>
                 </div>
                 <div>
                   <div class="text-[11.5px] text-white/75 font-medium">Akumulasi Harian</div>
@@ -600,13 +539,7 @@
 
   <!-- Custom JavaScript -->
   <script src="../js/dashboard.js"></script>
-</body>
-</html>
-
-<
-</script>
-
-</body>
-</html>
+<script src="../js/admin-sidebar.js"></script>
+<script src="../js/profile-dropdown-universal.js"></script>
 </body>
 </html>

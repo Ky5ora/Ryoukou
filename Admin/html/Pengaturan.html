@@ -1,1 +1,97 @@
-<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Pengaturan | RYOKOU</title><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"><link rel="stylesheet" href="../css/admin_pages.css"></head><body><div class="layout"><aside class="sidebar" id="sidebar"><a class="brand" href="dashboard.html"><span class="brand-mark"><i class="bi bi-scooter"></i></span>RYOKOU</a><p class="caption">MENU UTAMA</p><nav><a class="nav-item " href="dashboard.html"><i class="bi bi-grid"></i><span>Dashboard</span></a><a class="nav-item " href="Kelola_data_motor.html"><i class="bi bi-bicycle"></i><span>Kelola Data Motor</span></a><a class="nav-item " href="Kelola_transaksi.html"><i class="bi bi-clipboard-check"></i><span>Kelola Transaksi</span></a><a class="nav-item " href="Info_penyewaan.html"><i class="bi bi-calendar2-week"></i><span>Info Penyewaan</span></a><a class="nav-item " href="Pembayaran.html"><i class="bi bi-cash-stack"></i><span>Pembayaran</span></a><a class="nav-item " href="Pengembalian.html"><i class="bi bi-arrow-return-left"></i><span>Pengembalian</span></a><a class="nav-item " href="Riwayat_penyewaan.html"><i class="bi bi-clock-history"></i><span>Riwayat Penyewaan</span></a><a class="nav-item " href="Laporan_data_motor.html"><i class="bi bi-file-earmark-text"></i><span>Laporan Data Motor</span></a><a class="nav-item active" href="Pengaturan.html"><i class="bi bi-gear"></i><span>Pengaturan</span></a></nav><a class="logout" href="login.html"><i class="bi bi-box-arrow-right"></i> Keluar</a></aside><main class="main"><header class="topbar"><button id="menuToggle" class="menu-toggle" aria-label="Buka menu"><i class="bi bi-list"></i></button><strong>Admin RYOKOU</strong><span class="admin-label">Administrator</span></header><section class="content"><div class="eyebrow">ADMIN PANEL</div><h1>Pengaturan</h1><p class="description">Pengaturan akun dan tampilan admin RYOKOU.</p><div class="notice"><i class="bi bi-info-circle"></i><div><strong>Halaman sudah terhubung.</strong><p>Bagian ini disiapkan agar navigasi Sidebar berfungsi. Konten pengelolaan dapat ditambahkan pada halaman ini.</p></div></div><a class="back-link" href="dashboard.html"><i class="bi bi-arrow-left"></i> Kembali ke Dashboard</a></section></main></div><div id="overlay" class="overlay"></div><script src="../js/admin_pages.js"></script></body></html>
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pengaturan Akun | RYOKOU Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/admin_pages.css">
+  <link rel="stylesheet" href="../css/admin-sidebar.css">
+  <link rel="stylesheet" href="../css/workflow-pages.css">
+  <link rel="stylesheet" href="../css/profile-settings.css">
+</head>
+<body class="workflow-body">
+<div class="workflow-layout">
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="dashboard.html"><span class="brand-mark"><img src="../assets/ryokou-logo.png" alt="Logo RYOKOU"></span><span>RYOKOU</span></a>
+    <p class="caption">MENU UTAMA</p>
+    <nav>
+      <a class="nav-item" href="dashboard.html"><i class="bi bi-grid"></i><span>Dashboard</span></a>
+      <a class="nav-item" href="Kelola_data_motor.html"><i class="bi bi-bicycle"></i><span>Kelola Data Motor</span></a>
+      <a class="nav-item" href="Kelola_transaksi.html"><i class="bi bi-clipboard-check"></i><span>Kelola Transaksi</span></a>
+      <a class="nav-item" href="Info_penyewaan.html"><i class="bi bi-calendar2-week"></i><span>Info Penyewaan</span></a>
+      <a class="nav-item" href="Pembayaran.html"><i class="bi bi-cash-stack"></i><span>Pembayaran</span></a>
+      <a class="nav-item" href="Pengembalian.html"><i class="bi bi-arrow-return-left"></i><span>Pengembalian</span></a>
+      <a class="nav-item" href="Riwayat_penyewaan.html"><i class="bi bi-clock-history"></i><span>Riwayat Penyewaan</span></a>
+      <a class="nav-item" href="Laporan_data_motor.html"><i class="bi bi-file-earmark-text"></i><span>Laporan Data Motor</span></a>
+      <a class="nav-item" href="invoice.html"><i class="bi bi-receipt"></i><span>Invoice</span></a>
+    </nav>
+    <a class="logout" href="login.html"><i class="bi bi-box-arrow-right"></i><span>Keluar</span></a>
+  </aside>
+
+  <main class="workflow-main">
+    <header class="workflow-topbar">
+      <button id="menuToggle" class="menu-toggle" type="button" aria-label="Buka menu"><i class="bi bi-list"></i></button>
+      <div class="workflow-search"><i class="bi bi-search"></i><input type="search" placeholder="Pencarian"></div>
+      <div class="workflow-profile"><span class="avatar">A1</span><div class="profile-copy"><strong>Admin_001</strong><small>Admin/Owner</small></div><i class="bi bi-chevron-down small"></i></div>
+    </header>
+
+    <section class="workflow-content profile-settings-content">
+      <div class="workflow-heading">
+        <div><h1>Pengaturan</h1><p>Pengaturan Akun</p><span class="settings-subtitle">Kelola identitas akun admin.</span></div>
+      </div>
+      <div class="row g-4 align-items-stretch">
+        <div class="col-lg-4">
+          <article class="profile-summary-card">
+            <div class="profile-avatar-wrap">
+              <div class="profile-avatar-large" id="profileAvatarPreview">A1</div>
+              <label class="profile-avatar-edit" for="profilePhotoInput" title="Ubah foto profil"><i class="bi bi-camera-fill"></i></label>
+            </div>
+            <strong class="profile-summary-name" id="profileSummaryName">Admin_001</strong>
+            <span class="profile-summary-email" id="profileSummaryEmail">admin001@gmail.com</span>
+            <span class="profile-role"><i class="bi bi-circle-fill"></i> Admin / Owner</span>
+            <div class="profile-summary-actions">
+              <button type="button" class="profile-text-action" id="changePhotoBtn"><i class="bi bi-image"></i> Ubah Foto Profil</button>
+              <a class="profile-text-action danger" href="login.html"><i class="bi bi-box-arrow-right"></i> Keluar dari Admin</a>
+            </div>
+          </article>
+        </div>
+        <div class="col-lg-8">
+          <article class="profile-account-card">
+            <div class="profile-account-heading">
+              <div><i class="bi bi-person-vcard"></i><strong>Informasi Akun</strong></div>
+              <span class="verified-label"><i class="bi bi-check-circle-fill"></i> Terverifikasi</span>
+            </div>
+            <form id="settingsForm">
+              <div class="mb-3">
+                <label class="form-label" for="adminName">Nama Lengkap</label>
+                <input class="form-control" id="adminName" value="Admin_001 / Budi Pratama" required>
+              </div>
+              <div class="mb-3 settings-email-field">
+                <label class="form-label" for="adminEmail">Email</label>
+                <input class="form-control" id="adminEmail" type="email" value="admin001@gmail.com" required>
+              </div>
+              <input type="file" class="visually-hidden" id="profilePhotoInput" accept="image/png,image/jpeg,image/webp">
+              <div class="profile-form-actions">
+                <button type="button" class="btn-cancel" id="cancelSettingsBtn">Batal</button>
+                <button type="submit" class="btn-save"><i class="bi bi-floppy"></i> Simpan Perubahan</button>
+              </div>
+              <div class="settings-feedback d-none" id="settingsMessage" role="status">Perubahan akun berhasil disimpan pada browser ini.</div>
+            </form>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+<div class="overlay" id="overlay"></div>
+<script src="../js/admin_pages.js"></script>
+<script src="../js/admin-sidebar.js"></script>
+<script src="../js/profile-settings.js"></script>
+<script src="../js/profile-dropdown-universal.js"></script>
+</body>
+</html>

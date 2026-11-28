@@ -5,12 +5,12 @@ const transactionsData = [
   { no: 3,  user: "Jett Oktavia",     motor: "Honda Vario 125", date: "20 Oktober 2026", status: "Aktif",   total: "Rp 150.000" },
   { no: 4,  user: "Phoenix Saputra",  motor: "Honda Vario 125", date: "21 Oktober 2026", status: "Selesai", total: "Rp 180.000" },
   { no: 5,  user: "Sova Mahendra",    motor: "Honda Vario 125", date: "22 Oktober 2026", status: "Selesai", total: "Rp 200.000" },
-  { no: 6,  user: "Omen Blackwood",   motor: "Honda Vario 125", date: "18 Oktober 2026", status: "Aktif",   total: "Rp 83.000" },
-  { no: 7,  user: "Raze Oktaviani",   motor: "Honda Vario 125", date: "19 Oktober 2026", status: "Aktif",   total: "Rp 130.000" },
-  { no: 8,  user: "Chamber Alfarizi", motor: "Honda Vario 125", date: "20 Oktober 2026", status: "Aktif",   total: "Rp 150.000" },
-  { no: 9,  user: "Yoru Maulana",     motor: "Honda Vario 125", date: "21 Oktober 2026", status: "Selesai", total: "Rp 180.000" },
-  { no: 10, user: "Sage Anggrain",    motor: "Honda Vario 125", date: "22 Oktober 2026", status: "Selesai", total: "Rp 200.000" },
-  { no: 11, user: "Skye Maharani",    motor: "Honda Vario 125", date: "18 Oktober 2026", status: "Aktif",   total: "Rp 83.000" },
+  { no: 6,  user: "Omen Blackwood",   motor: "Honda Vario 125", date: "23 Oktober 2026", status: "Aktif",   total: "Rp 83.000" },
+  { no: 7,  user: "Raze Oktaviani",   motor: "Honda Vario 125", date: "24 Oktober 2026", status: "Aktif",   total: "Rp 130.000" },
+  { no: 8,  user: "Chamber Alfarizi", motor: "Honda Vario 125", date: "25 Oktober 2026", status: "Aktif",   total: "Rp 150.000" },
+  { no: 9,  user: "Yoru Maulana",     motor: "Honda Vario 125", date: "26 Oktober 2026", status: "Selesai", total: "Rp 180.000" },
+  { no: 10, user: "Sage Anggrain",    motor: "Honda Vario 125", date: "27 Oktober 2026", status: "Selesai", total: "Rp 200.000" },
+  { no: 11, user: "Skye Maharani",    motor: "Honda Vario 125", date: "28 Oktober 2026", status: "Aktif",   total: "Rp 83.000" },
   { no: 12, user: "Neon Safira",      motor: "Honda Vario 125", date: "19 Oktober 2026", status: "Aktif",   total: "Rp 130.000" },
   { no: 13, user: "Astra Valencia",   motor: "Honda Vario 125", date: "20 Oktober 2026", status: "Aktif",   total: "Rp 150.000" },
 ];
@@ -321,7 +321,7 @@ const navItems = document.querySelectorAll(".nav-item");
 
 function switchNavigation(targetKey) {
   navItems.forEach(btn => {
-    const isTarget = btn.dataset.nav === targetKey;
+    const isTarget = btn.dataset.nav === targetKey || (targetKey === "dashboard" && (btn.getAttribute("href") || "").endsWith("dashboard.html"));
     if (isTarget) {
       btn.classList.add("bg-white", "text-[#0C4651]", "font-semibold", "shadow-sm");
       btn.classList.remove("text-white/85", "font-medium", "hover:bg-white/10");
@@ -360,9 +360,7 @@ function switchNavigation(targetKey) {
   if (!isDesktop()) closeMobileSidebar();
 }
 
-navItems.forEach(btn => {
-  btn.addEventListener("click", () => switchNavigation(btn.dataset.nav));
-});
+// Sidebar memakai tautan HTML biasa agar setiap menu membuka halaman sebenarnya.
 
 document.getElementById("backToDashboardBtn").addEventListener("click", () => {
   switchNavigation("dashboard");

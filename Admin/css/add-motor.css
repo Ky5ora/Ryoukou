@@ -234,3 +234,22 @@ body {
     width: 100%;
   }
 }
+
+.add-mobile-menu { margin-right:8px; }
+@media(max-width:800px){.admin-add-layout .sidebar{left:-280px}.admin-add-layout .sidebar.open{left:0}.add-page{padding:18px 12px!important}}
+
+.add-profile-wrap { position:absolute; z-index:20; top:12px; right:3.5%; }
+.add-profile-trigger { display:flex; align-items:center; gap:8px; padding:5px 9px; border:1px solid #e7edf0; border-radius:10px; background:#fff; color:#26364b; font-size:10px; font-weight:700; }
+.add-profile-trigger .avatar { width:28px; height:28px; display:grid; place-items:center; border-radius:50%; background:#104955; color:#fff; font-size:9px; }
+.add-profile-trigger i { color:#8b97a5; }
+.add-profile-popover { position:absolute; top:calc(100% + 8px); right:0; width:250px; padding:12px; border:1px solid #e5ebef; border-radius:13px; background:#fff; box-shadow:0 12px 32px #152a3b24; }
+.add-profile-popover > a { display:flex; gap:9px; align-items:center; padding:10px 8px; border-radius:8px; color:#2c3b4e; text-decoration:none; font-size:10px; }
+.add-profile-popover > a:hover { background:#f3f7f8; color:#104955; }
+.add-profile-popover > a.profile-popover-logout { border-top:1px solid #edf1f4; margin-top:4px; color:#d63d55; }
+.add-profile-popover .profile-popover-head { display:flex; gap:10px; align-items:center; padding:3px 3px 11px; margin-bottom:4px; border-bottom:1px solid #edf1f4; }
+.add-profile-popover .profile-popover-head .avatar { width:42px; height:42px; flex:0 0 42px; display:grid; place-items:center; border-radius:50%; background:#104955; color:#fff; font-size:12px; font-weight:800; }
+.add-profile-popover .profile-popover-head strong,.add-profile-popover .profile-popover-head small,.add-profile-popover .profile-popover-head em { display:block; }
+.add-profile-popover .profile-popover-head strong { font-size:11px; }
+.add-profile-popover .profile-popover-head small { margin-top:3px; color:#8390a0; font-size:9px; }
+.add-profile-popover .profile-popover-head em { margin-top:4px; color:#0d8c66; font-size:8px; font-style:normal; }
+@media(max-width:700px) { .add-profile-wrap { top:17px; right:4%; } .add-profile-name { display:none; } }

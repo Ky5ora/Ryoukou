@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Invoice | RYOKOU Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/admin_pages.css">
+  <link rel="stylesheet" href="../css/admin-sidebar.css">
+  <link rel="stylesheet" href="../css/workflow-pages.css">
+</head>
+<body class="workflow-body" data-active-page="invoice.html">
+<div class="workflow-layout">
+<aside class="sidebar" id="sidebar">
+      <a class="brand" href="dashboard.html"><span class="brand-mark"><img src="../assets/ryokou-logo.png" alt="Logo RYOKOU"></span><span>RYOKOU</span></a>
+      <p class="caption">MENU UTAMA</p>
+      <nav><a class="nav-item " href="dashboard.html"><i class="bi bi-grid"></i><span>Dashboard</span></a>
+<a class="nav-item " href="Kelola_data_motor.html"><i class="bi bi-bicycle"></i><span>Kelola Data Motor</span></a>
+<a class="nav-item " href="Kelola_transaksi.html"><i class="bi bi-clipboard-check"></i><span>Kelola Transaksi</span></a>
+<a class="nav-item " href="Info_penyewaan.html"><i class="bi bi-calendar2-week"></i><span>Info Penyewaan</span></a>
+<a class="nav-item " href="Pembayaran.html"><i class="bi bi-cash-stack"></i><span>Pembayaran</span></a>
+<a class="nav-item " href="Pengembalian.html"><i class="bi bi-arrow-return-left"></i><span>Pengembalian</span></a>
+<a class="nav-item " href="Riwayat_penyewaan.html"><i class="bi bi-clock-history"></i><span>Riwayat Penyewaan</span></a>
+<a class="nav-item " href="Laporan_data_motor.html"><i class="bi bi-file-earmark-text"></i><span>Laporan Data Motor</span></a>
+<a class="nav-item active" href="invoice.html"><i class="bi bi-receipt"></i><span>Invoice</span></a></nav>
+      <a class="logout" href="login.html"><i class="bi bi-box-arrow-right"></i><span>Keluar</span></a>
+    </aside>
+<main class="workflow-main">
+<header class="workflow-topbar">
+      <button id="menuToggle" class="menu-toggle" type="button" aria-label="Buka menu"><i class="bi bi-list"></i></button>
+      <div class="workflow-search"><i class="bi bi-search"></i><input type="search" placeholder="Pencarian"></div>
+      <div class="workflow-profile"><span class="avatar">A1</span><div class="profile-copy"><strong>Admin_001</strong><small>Admin/Owner</small></div><i class="bi bi-chevron-down text-secondary small"></i></div>
+    </header>
+<section class="workflow-content">
+  <div class="workflow-heading invoice-actions">
+    <div><h1>Invoice Penyewaan</h1><p>Kelola dan bagikan bukti tagihan penyewaan kepada pelanggan.</p></div>
+    <div class="d-flex gap-2 flex-wrap"><button class="workflow-btn" id="printInvoice"><i class="bi bi-printer"></i> Cetak / PDF</button><button class="workflow-btn primary" id="shareInvoice"><i class="bi bi-whatsapp"></i> Kirim ke User</button></div>
+  </div>
+  <div class="invoice-paper" id="invoicePaper">
+    <div class="d-flex align-items-start justify-content-between gap-3 flex-wrap">
+      <div class="invoice-brand"><img src="../assets/ryokou-logo.png" alt="Logo RYOKOU"><div><h2>RYOKOU</h2><small>OTO RENT · MALANG</small><div class="text-secondary mt-1" style="font-size:9px">Rental motor terpercaya untuk perjalanan Anda</div></div></div>
+      <div class="invoice-title"><h1>INVOICE</h1><small id="invoiceCode">INV-TRX-001</small><div class="mt-2"><span class="workflow-status" id="invoicePaymentStatus">Belum Lunas</span></div></div>
+    </div>
+    <hr class="workflow-divider my-4">
+    <div class="invoice-meta">
+      <div><h3>Ditagihkan Kepada</h3><p><strong id="invoiceCustomer">Hash Aurelia</strong></p><p id="invoicePhone">0812 8888 7777</p><p>Malang, Jawa Timur</p></div>
+      <div class="text-md-end"><h3>Detail Invoice</h3><p>No. Transaksi: <strong id="invoiceTransaction">TRX-001</strong></p><p>Tanggal Invoice: <strong id="invoiceDate">22 November 2026</strong></p><p>Metode Pembayaran: <strong id="invoiceMethod">QRIS</strong></p></div>
+    </div>
+    <div class="table-responsive">
+      <table class="table invoice-table mb-0">
+        <thead><tr><th>Deskripsi</th><th>Periode</th><th class="text-end">Jumlah</th></tr></thead>
+        <tbody><tr><td><strong id="invoiceMotor">Honda Beat Deluxe 2023/2024 (B 1234 KZ)</strong><div class="text-secondary mt-1" style="font-size:9px" id="invoicePickup">Rental Motor RYOKOU - Malang</div></td><td id="invoiceDuration">2 Hari · 26 Apr 2025</td><td class="text-end" id="invoiceSubtotal">Rp 70.000</td></tr><tr><td>Biaya layanan</td><td>—</td><td class="text-end" id="invoiceService">Rp 10.000</td></tr></tbody>
+      </table>
+    </div>
+    <div class="invoice-total mt-3"><div><span>Subtotal</span><strong id="invoiceSubtotalTotal">Rp 70.000</strong></div><div><span>Biaya layanan</span><strong id="invoiceServiceTotal">Rp 10.000</strong></div><div class="grand"><span>Total Tagihan</span><strong id="invoiceTotal">Rp 80.000</strong></div></div>
+    <div class="invoice-footer">Terima kasih telah menggunakan layanan RYOKOU Oto Rent. Simpan invoice ini sebagai bukti transaksi penyewaan.</div>
+  </div>
+  <div class="workflow-card mt-3 invoice-actions">
+    <div class="row g-3 align-items-end">
+      <div class="col-md-8"><label class="workflow-form-label" for="recipientPhone">Nomor WhatsApp Pelanggan</label><input id="recipientPhone" class="form-control" type="tel" placeholder="Contoh: 081234567890" value="081288887777"><small class="text-secondary" style="font-size:8px">WhatsApp akan terbuka dengan pesan invoice yang sudah disiapkan. Admin tetap menekan tombol Kirim di WhatsApp.</small></div>
+      <div class="col-md-4"><button class="workflow-btn primary w-100" id="sendWhatsApp"><i class="bi bi-whatsapp"></i> Bagikan via WhatsApp</button></div>
+    </div>
+  </div>
+</section>
+</main>
+</div>
+<div class="overlay" id="overlay"></div>
+<script src="../js/admin_pages.js"></script><script src="../js/admin-sidebar.js"></script><script src="../js/invoice.js"></script>
+<script src="../js/profile-dropdown-universal.js"></script>
+</body></html>

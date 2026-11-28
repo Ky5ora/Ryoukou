@@ -1,20 +1,22 @@
-PROJECT ADMIN RYOKOU - HASIL PERBAIKAN
+PROJECT ADMIN RYOKOU - PETUNJUK MENJALANKAN
 
-CARA MENJALANKAN
-1. Ekstrak folder Admin.
+1. Ekstrak ZIP ke folder kerja.
 2. Buka folder Admin di VS Code.
-3. Jalankan html/login.html untuk halaman login admin.
-4. Untuk melihat dashboard langsung, buka html/dashboard.html.
-5. Halaman website pelanggan berada di html/index.html.
+3. Jalankan Admin/html/login.html menggunakan Live Server.
+4. Masukkan email dan password demo apa saja yang valid.
+5. Pada halaman OTP, gunakan kode demo 123456.
+6. Setelah berhasil, halaman akan menuju Dashboard Admin.
 
-PERBAIKAN
-- Link Sidebar di halaman transaksi diarahkan ke halaman yang sesuai.
-- Halaman menu yang sebelumnya belum tersedia sudah dibuat agar tidak menghasilkan halaman 404.
-- Sidebar halaman tambahan memiliki menu aktif, tombol buka/tutup untuk layar kecil, dan tombol keluar.
-- Memperbaiki lokasi file CSS Kelola Data Motor.
-- Menghapus pemanggilan file konfigurasi Tailwind yang tidak tersedia.
-- Memperbaiki lokasi gambar motor pada halaman website pelanggan.
-- Menghapus tombol navigasi duplikat yang tersisa di bagian bawah halaman Kelola Data Motor.
+NAVIGASI
+- Pengaturan akun dibuka dari menu profil di pojok kanan atas, bukan dari sidebar.
+- Pada halaman Pengaturan, admin dapat mengganti foto profil, nama lengkap, dan email.
+- Halaman Pembayaran menyediakan pilihan Pembayaran Diterima atau Pembayaran Ditolak. Jika ditolak, pilih alasan atau tulis catatan.
+- Tombol Lihat Gambar membuka modal bukti pembayaran; tombol Unduh Bukti Bayar mengunduh aset contoh.
+- Invoice dapat dilihat dan dibagikan setelah pembayaran diterima.
 
-CATATAN
-Halaman Info Penyewaan, Pembayaran, Pengembalian, Riwayat Penyewaan, Laporan Data Motor, dan Pengaturan saat ini merupakan halaman dasar yang sudah terhubung melalui Sidebar. Isi fitur pengelolaannya belum dibuat karena belum ada rancangan/konten khusus pada file awal.
+FRAMEWORK DAN ASET
+- UI memakai Bootstrap 5.3.3, Bootstrap Icons, CSS3, dan beberapa halaman dashboard lama masih mempertahankan utility Tailwind dari desain awal.
+- Logo RYOKOU bersama berada di folder Admin/assets/ryokou-logo.png.
+
+CATATAN PENTING
+Proyek ini masih berupa frontend demo. Akun dan OTP belum diverifikasi ke server; kode OTP hanya simulasi 123456. Data pengaturan dan data invoice disimpan di localStorage browser. Pengiriman invoice via WhatsApp membuka pesan yang sudah disiapkan, tetapi admin tetap perlu menekan tombol Kirim. Untuk penggunaan nyata, sambungkan proyek ke backend dan database serta layanan email/OTP.

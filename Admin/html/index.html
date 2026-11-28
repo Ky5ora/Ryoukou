@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kelola Transaksi & Verifikasi (Admin) - MotoRent</title>
+    <title>Kelola Transaksi & Verifikasi | RYOKOU Admin</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome Icons -->
@@ -44,31 +44,29 @@
                 <!-- Brand Header -->
                 <div class="flex items-center justify-center h-16 bg-slate-950 px-4">
                     <div class="flex items-center space-x-2">
-                        <div class="bg-indigo-600 p-2 rounded-lg text-white">
-                            <i class="fa-solid fa-motorcycle text-xl"></i>
-                        </div>
-                        <span class="text-xl font-bold tracking-wide">MotoRent <span class="text-indigo-400 text-xs uppercase px-1.5 py-0.5 bg-indigo-950 rounded border border-indigo-800">Admin</span></span>
+                        <img src="../assets/ryokou-logo.png" alt="Logo RYOKOU" class="w-10 h-10 object-contain">
+                        <span class="text-xl font-bold tracking-wide text-[#F4CE5C]">RYOKOU <span class="text-xs uppercase px-1.5 py-0.5 bg-slate-800 rounded border border-slate-700 text-white">Admin</span></span>
                     </div>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="flex flex-col flex-grow px-4 py-6 space-y-1">
-                    <a href="#" class="flex items-center px-4 py-3 text-sm font-medium rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">
+                    <a href="dashboard.html" class="flex items-center px-4 py-3 text-sm font-medium rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">
                         <i class="fa-solid fa-chart-pie w-5 mr-3"></i> Dashboard
                     </a>
-                    <a href="#" class="flex items-center px-4 py-3 text-sm font-medium rounded-lg bg-indigo-600 text-white shadow-md shadow-indigo-900/50">
+                    <a href="Kelola_transaksi.html" class="flex items-center px-4 py-3 text-sm font-medium rounded-lg bg-indigo-600 text-white shadow-md shadow-indigo-900/50">
                         <i class="fa-solid fa-file-invoice-dollar w-5 mr-3"></i> Transaksi & Verifikasi
                     </a>
-                    <a href="#" class="flex items-center px-4 py-3 text-sm font-medium rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">
+                    <a href="Kelola_data_motor.html" class="flex items-center px-4 py-3 text-sm font-medium rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">
                         <i class="fa-solid fa-motorcycle w-5 mr-3"></i> Armada Motor
                     </a>
-                    <a href="#" class="flex items-center px-4 py-3 text-sm font-medium rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">
+                    <a href="Info_penyewaan.html" class="flex items-center px-4 py-3 text-sm font-medium rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">
                         <i class="fa-solid fa-users w-5 mr-3"></i> Pelanggan
                     </a>
-                    <a href="#" class="flex items-center px-4 py-3 text-sm font-medium rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">
+                    <a href="Pengembalian.html" class="flex items-center px-4 py-3 text-sm font-medium rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">
                         <i class="fa-solid fa-shield-halved w-5 mr-3"></i> Denda & Keamanan
                     </a>
-                    <a href="#" class="flex items-center px-4 py-3 text-sm font-medium rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">
+                    <a href="Laporan_data_motor.html" class="flex items-center px-4 py-3 text-sm font-medium rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white transition-colors">
                         <i class="fa-solid fa-chart-line w-5 mr-3"></i> Laporan Keuangan
                     </a>
                 </div>
@@ -82,9 +80,10 @@
                             <p class="text-xs text-slate-400">Super Admin</p>
                         </div>
                     </div>
-                    <button onclick="showToast('Berhasil keluar sesi', 'info')" class="text-slate-400 hover:text-white transition-colors">
-                        <i class="fa-solid fa-right-from-bracket"></i>
-                    </button>
+                    <div class="flex items-center gap-3">
+                        <a href="Pengaturan.html" class="text-slate-300 hover:text-white" title="Pengaturan akun"><i class="fa-solid fa-gear"></i></a>
+                        <a href="login.html" class="text-slate-400 hover:text-white" title="Keluar dari Admin"><i class="fa-solid fa-right-from-bracket"></i></a>
+                    </div>
                 </div>
             </div>
         </aside>

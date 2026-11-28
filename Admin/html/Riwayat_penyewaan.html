@@ -1,1 +1,177 @@
-<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Riwayat Penyewaan | RYOKOU</title><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"><link rel="stylesheet" href="../css/admin_pages.css"></head><body><div class="layout"><aside class="sidebar" id="sidebar"><a class="brand" href="dashboard.html"><span class="brand-mark"><i class="bi bi-scooter"></i></span>RYOKOU</a><p class="caption">MENU UTAMA</p><nav><a class="nav-item " href="dashboard.html"><i class="bi bi-grid"></i><span>Dashboard</span></a><a class="nav-item " href="Kelola_data_motor.html"><i class="bi bi-bicycle"></i><span>Kelola Data Motor</span></a><a class="nav-item " href="Kelola_transaksi.html"><i class="bi bi-clipboard-check"></i><span>Kelola Transaksi</span></a><a class="nav-item " href="Info_penyewaan.html"><i class="bi bi-calendar2-week"></i><span>Info Penyewaan</span></a><a class="nav-item " href="Pembayaran.html"><i class="bi bi-cash-stack"></i><span>Pembayaran</span></a><a class="nav-item " href="Pengembalian.html"><i class="bi bi-arrow-return-left"></i><span>Pengembalian</span></a><a class="nav-item active" href="Riwayat_penyewaan.html"><i class="bi bi-clock-history"></i><span>Riwayat Penyewaan</span></a><a class="nav-item " href="Laporan_data_motor.html"><i class="bi bi-file-earmark-text"></i><span>Laporan Data Motor</span></a><a class="nav-item " href="Pengaturan.html"><i class="bi bi-gear"></i><span>Pengaturan</span></a></nav><a class="logout" href="login.html"><i class="bi bi-box-arrow-right"></i> Keluar</a></aside><main class="main"><header class="topbar"><button id="menuToggle" class="menu-toggle" aria-label="Buka menu"><i class="bi bi-list"></i></button><strong>Admin RYOKOU</strong><span class="admin-label">Administrator</span></header><section class="content"><div class="eyebrow">ADMIN PANEL</div><h1>Riwayat Penyewaan</h1><p class="description">Halaman untuk melihat daftar penyewaan yang telah berlangsung.</p><div class="notice"><i class="bi bi-info-circle"></i><div><strong>Halaman sudah terhubung.</strong><p>Bagian ini disiapkan agar navigasi Sidebar berfungsi. Konten pengelolaan dapat ditambahkan pada halaman ini.</p></div></div><a class="back-link" href="dashboard.html"><i class="bi bi-arrow-left"></i> Kembali ke Dashboard</a></section></main></div><div id="overlay" class="overlay"></div><script src="../js/admin_pages.js"></script></body></html>
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Riwayat Penyewaan | RYOKOU Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/admin_pages.css">
+  <link rel="stylesheet" href="../css/admin-sidebar.css">
+  <link rel="stylesheet" href="../css/workflow-pages.css">
+  <link rel="stylesheet" href="../css/admin-report-pages.css">
+</head>
+<body class="workflow-body rp-page" data-page="riwayat">
+<div class="workflow-layout">
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="dashboard.html"><span class="brand-mark"><img src="../assets/ryokou-logo.png" alt="Logo RYOKOU"></span><span>RYOKOU</span></a>
+    <p class="caption">MENU UTAMA</p>
+    <nav>
+      <a class="nav-item" href="dashboard.html"><i class="bi bi-grid"></i><span>Dashboard</span></a>
+      <a class="nav-item" href="Kelola_data_motor.html"><i class="bi bi-bicycle"></i><span>Kelola Data Motor</span></a>
+      <a class="nav-item" href="Kelola_transaksi.html"><i class="bi bi-clipboard-check"></i><span>Kelola Transaksi</span></a>
+      <a class="nav-item" href="Info_penyewaan.html"><i class="bi bi-calendar2-week"></i><span>Info Penyewaan</span></a>
+      <a class="nav-item" href="Pembayaran.html"><i class="bi bi-cash-stack"></i><span>Pembayaran</span></a>
+      <a class="nav-item" href="Pengembalian.html"><i class="bi bi-arrow-return-left"></i><span>Pengembalian</span></a>
+      <a class="nav-item active" href="Riwayat_penyewaan.html"><i class="bi bi-clock-history"></i><span>Riwayat Penyewaan</span></a>
+      <a class="nav-item" href="Laporan_data_motor.html"><i class="bi bi-file-earmark-text"></i><span>Laporan Data Motor</span></a>
+      <a class="nav-item" href="invoice.html"><i class="bi bi-receipt"></i><span>Invoice</span></a>
+    </nav>
+    <a class="logout" href="login.html"><i class="bi bi-box-arrow-right"></i><span>Keluar</span></a>
+  </aside>
+
+  <main class="workflow-main">
+    <header class="workflow-topbar">
+      <button id="menuToggle" class="menu-toggle" type="button" aria-label="Buka menu"><i class="bi bi-list"></i></button>
+      <div class="workflow-search"><i class="bi bi-search"></i><input type="search" placeholder="Pencarian cepat"></div>
+      <div class="workflow-profile"><span class="avatar">A1</span><div class="profile-copy"><strong>Admin_001</strong><small>Admin/Owner</small></div><i class="bi bi-chevron-down small"></i></div>
+    </header>
+
+    <section class="workflow-content">
+      <p class="rp-breadcrumb"><a href="dashboard.html">Dashboard</a><i class="bi bi-chevron-right"></i><span>Operasional</span><i class="bi bi-chevron-right"></i><span>Riwayat Penyewaan</span></p>
+      <div class="workflow-heading">
+        <div>
+          <h1><i class="bi bi-clock-history me-2" style="color:#104650"></i>Riwayat Penyewaan</h1>
+          <p>Telusuri seluruh transaksi, status pemesanan, pembayaran, denda, dan bukti invoice.</p>
+        </div>
+        <div class="rp-heading-actions">
+          <a class="workflow-btn" href="Kelola_transaksi.html"><i class="bi bi-arrow-left"></i> Kelola Transaksi</a>
+          <button type="button" class="workflow-btn primary" id="rpHistoryExport"><i class="bi bi-download"></i> Ekspor CSV</button>
+        </div>
+      </div>
+
+      <div class="row g-3 mb-3">
+        <div class="col-6 col-lg-4 col-xl-2"><div class="workflow-card rp-stat"><span class="rp-stat-icon"><i class="bi bi-collection"></i></span><div><strong id="rpHistoryTotal">0</strong><span>Total Transaksi</span></div></div></div>
+        <div class="col-6 col-lg-4 col-xl-2"><div class="workflow-card rp-stat"><span class="rp-stat-icon green"><i class="bi bi-check2-circle"></i></span><div><strong id="rpHistoryDone">0</strong><span>Selesai</span></div></div></div>
+        <div class="col-6 col-lg-4 col-xl-2"><div class="workflow-card rp-stat"><span class="rp-stat-icon red"><i class="bi bi-x-circle"></i></span><div><strong id="rpHistoryCancel">0</strong><span>Dibatalkan</span></div></div></div>
+        <div class="col-6 col-lg-4 col-xl-2"><div class="workflow-card rp-stat"><span class="rp-stat-icon blue"><i class="bi bi-wallet2"></i></span><div><strong style="font-size:15px" id="rpHistoryRevenue">Rp 0</strong><span>Pendapatan (Selesai)</span></div></div></div>
+        <div class="col-6 col-lg-4 col-xl-2"><div class="workflow-card rp-stat"><span class="rp-stat-icon gold"><i class="bi bi-exclamation-triangle"></i></span><div><strong style="font-size:15px" id="rpHistoryFine">Rp 0</strong><span>Total Denda</span></div></div></div>
+        <div class="col-6 col-lg-4 col-xl-2"><div class="workflow-card rp-stat"><span class="rp-stat-icon gold"><i class="bi bi-info-circle"></i></span><div><strong style="font-size:14px">4 Cabang</strong><span>Malang &amp; Batu</span></div></div></div>
+      </div>
+
+      <article class="workflow-card rp-card">
+        <div class="workflow-card-title">
+          <div><h2>Daftar Riwayat Transaksi</h2><p class="rp-panel-hint">Data menampilkan penyewaan selesai, berjalan, maupun dibatalkan.</p></div>
+          <span class="rp-pill gray"><i class="bi bi-funnel"></i> Filter aktif</span>
+        </div>
+
+        <div class="rp-toolbar">
+          <div class="rp-search"><i class="bi bi-search"></i><input type="search" id="rpHistorySearch" class="form-control" placeholder="Cari ID, pelanggan, atau motor..."></div>
+          <select id="rpHistoryStatus" class="form-select rp-filter" aria-label="Filter status">
+            <option value="">Semua Status</option>
+            <option value="Menunggu Verifikasi">Menunggu Verifikasi</option>
+            <option value="Dalam Penyewaan">Dalam Penyewaan</option>
+            <option value="Selesai">Selesai</option>
+            <option value="Dibatalkan">Dibatalkan</option>
+          </select>
+          <select id="rpHistoryBranch" class="form-select rp-filter" aria-label="Filter cabang">
+            <option value="">Semua Cabang</option>
+            <option>Batu · Sarimun</option>
+            <option>Batu · Diponegoro</option>
+            <option>Malang · Lowokwaru</option>
+            <option>Malang · Klojen</option>
+          </select>
+          <label class="visually-hidden" for="rpHistoryFrom">Dari tanggal</label>
+          <input type="date" id="rpHistoryFrom" class="form-control" style="width:auto" aria-label="Dari tanggal">
+          <label class="visually-hidden" for="rpHistoryTo">Sampai tanggal</label>
+          <input type="date" id="rpHistoryTo" class="form-control" style="width:auto" aria-label="Sampai tanggal">
+          <button type="button" class="workflow-btn" id="rpHistoryReset"><i class="bi bi-arrow-counterclockwise"></i> Reset</button>
+        </div>
+
+        <div class="rp-table-wrap">
+          <table class="table invoice-table rp-table">
+            <thead><tr><th>ID Transaksi</th><th>Pelanggan</th><th>Unit Motor</th><th>Periode Sewa</th><th>Total</th><th>Denda</th><th>Status</th><th>Aksi</th></tr></thead>
+            <tbody id="rpHistoryRows"></tbody>
+          </table>
+        </div>
+        <div class="rp-footer">
+          <span id="rpHistoryInfo">Menampilkan 0 transaksi</span>
+          <div class="d-flex gap-1">
+            <button type="button" class="rp-page-btn" id="rpHistoryPrev" aria-label="Halaman sebelumnya"><i class="bi bi-chevron-left"></i></button>
+            <button type="button" class="rp-page-btn active" data-page-number="1">1</button>
+            <button type="button" class="rp-page-btn" data-page-number="2">2</button>
+            <button type="button" class="rp-page-btn" data-page-number="3">3</button>
+            <button type="button" class="rp-page-btn" id="rpHistoryNext" aria-label="Halaman berikutnya"><i class="bi bi-chevron-right"></i></button>
+          </div>
+        </div>
+      </article>
+
+      <div class="workflow-card rp-card mt-3">
+        <div class="workflow-card-title"><div><h2>Catatan Pembacaan Riwayat</h2><p class="rp-panel-hint">Interpretasi status dan tindak lanjut yang tersedia bagi admin.</p></div></div>
+        <div class="row g-3">
+          <div class="col-md-4"><span class="rp-pill gold">Menunggu Verifikasi</span><p class="rp-panel-hint mt-2">Dokumen pelanggan sedang diperiksa di halaman Info Penyewaan sebelum pelunasan.</p></div>
+          <div class="col-md-4"><span class="rp-pill blue">Dalam Penyewaan</span><p class="rp-panel-hint mt-2">Unit sedang digunakan. Pantau jadwal pengembalian melalui halaman Pengembalian.</p></div>
+          <div class="col-md-4"><span class="rp-pill green">Selesai</span><p class="rp-panel-hint mt-2">Invoice final tersedia dan dapat dicetak atau dikirim ke pelanggan.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div class="modal fade" id="riwayatDetailModal" tabindex="-1" aria-labelledby="riwayatDetailTitle" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div><h5 class="modal-title" id="riwayatDetailTitle">Detail Penyewaan <span data-history-field="id">—</span></h5><small class="text-secondary">Riwayat lengkap transaksi RYOKOU</small></div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+      </div>
+      <div class="modal-body">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <span class="rp-pill gray" data-history-field="statusBadge">—</span>
+          <span class="rp-pill green"><i class="bi bi-wallet2"></i> <span data-history-field="payment">—</span></span>
+        </div>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <h6 class="workflow-section-title"><i class="bi bi-person"></i> Pelanggan &amp; Unit</h6>
+            <dl class="rp-modal-kv">
+              <dt>Nama</dt><dd data-history-field="customer">—</dd>
+              <dt>No. HP</dt><dd data-history-field="phone">—</dd>
+              <dt>Unit Motor</dt><dd data-history-field="motor">—</dd>
+              <dt>Cabang</dt><dd data-history-field="branch">—</dd>
+              <dt>Periode</dt><dd data-history-field="period">—</dd>
+            </dl>
+          </div>
+          <div class="col-md-6">
+            <h6 class="workflow-section-title"><i class="bi bi-list-check"></i> Timeline Status</h6>
+            <ul class="rp-timeline" id="rpHistoryTimeline"></ul>
+          </div>
+        </div>
+        <hr class="workflow-divider">
+        <h6 class="workflow-section-title"><i class="bi bi-receipt"></i> Rincian Pembayaran</h6>
+        <div class="rp-modal-stats">
+          <div><small>Total Sewa</small><strong data-history-field="total">—</strong></div>
+          <div><small>Total Denda</small><strong data-history-field="fine">—</strong></div>
+          <div><small>Grand Total</small><strong data-history-field="grand">—</strong></div>
+        </div>
+        <div class="rp-inline-alert info mt-3"><i class="bi bi-shield-check"></i><span>Bukti pembayaran dan dokumen pendukung tersimpan pada data transaksi. Admin dapat membuka invoice untuk detail cetak.</span></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="workflow-btn" data-bs-dismiss="modal">Tutup</button>
+        <a href="invoice.html" class="workflow-btn primary" id="rpHistoryInvoiceBtn"><i class="bi bi-receipt"></i> Lihat Invoice</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" id="overlay"></div>
+<div class="rp-toast" id="rpToast" role="status" aria-live="polite"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="../js/admin_pages.js"></script>
+<script src="../js/admin-sidebar.js"></script>
+<script src="../js/profile-dropdown-universal.js"></script>
+<script src="../js/admin-report-pages.js"></script>
+</body>
+</html>

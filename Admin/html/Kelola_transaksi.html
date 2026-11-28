@@ -16,6 +16,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
 
   <link rel="stylesheet" href="../css/kelola_transaksi.css">
+  <link rel="stylesheet" href="../css/admin-sidebar.css">
 </head>
 
 <body>
@@ -26,9 +27,7 @@
   <aside class="sidebar" id="sidebar">
 
     <a class="brand" href="dashboard.html">
-      <span class="brand-mark">
-        
-      </span>
+      <span class="brand-mark"><img src="../assets/ryokou-logo.png" alt="Logo RYOKOU"></span>
       <span>RYOKOU</span>
     </a>
 
@@ -76,10 +75,7 @@
         <span>Laporan Data Motor</span>
       </a>
 
-      <a href="Pengaturan.html" class="nav-item">
-        <i class="bi bi-gear"></i>
-        <span>Pengaturan</span>
-      </a>
+      <a href="invoice.html" class="nav-item"><i class="bi bi-receipt"></i><span>Invoice</span></a>
 
     </nav>
 
@@ -135,10 +131,7 @@
 
           </div>
 
-          <a href="Pengaturan.html">
-            <i class="bi bi-gear"></i>
-            Pengaturan
-          </a>
+          <a class="profile-settings-link" href="Pengaturan.html"><i class="bi bi-gear"></i> Pengaturan</a>
 
           <button id="profileLogout">
             <i class="bi bi-box-arrow-right"></i>
@@ -191,12 +184,7 @@
 
         <div class="toolbar-actions">
 
-          <button class="btn-primary" id="newTransactionBtn">
-            <i class="bi bi-plus-lg"></i>
-            Transaksi Baru
-          </button>
-
-          <button class="btn-outline-light" id="walkinBtn">
+          <button class="btn-primary" id="walkinBtn">
             <i class="bi bi-plus-lg"></i>
             Transaksi Walk-in
           </button>
@@ -573,6 +561,8 @@
               <strong>Rp 0</strong>
             </div>
 
+            <a class="btn-primary invoice-shortcut" id="openInvoiceBtn" href="invoice.html"><i class="bi bi-receipt"></i> Buat / Lihat Invoice</a>
+
           </div>
 
         </section>
@@ -582,79 +572,27 @@
     </section>
 
 
-    <!-- HALAMAN TRANSAKSI BARU -->
+    <!-- FORM TRANSAKSI WALK-IN -->
     <section class="page-content form-page d-none" id="formPage">
 
       <div class="form-card">
 
         <button class="back-link" id="backToList">
           <i class="bi bi-arrow-left"></i>
-          <span>Transaksi Baru</span>
+          <span>Transaksi Walk-in</span>
         </button>
 
         <p class="form-intro" id="formIntro">
-          Proses pemesanan untuk pelanggan melalui website.
+          Catat penyewaan pelanggan yang datang langsung ke rental RYOKOU.
         </p>
-
-        <div class="mode-switch">
-
-          <button class="mode-button active" data-mode="online">
-            <i class="bi bi-globe"></i>
-
-            <span>
-              <b>Transaksi Baru</b>
-              <small>Pelanggan melakukan reservasi online</small>
-            </span>
-          </button>
-
-          <button class="mode-button" data-mode="walkin">
-            <i class="bi bi-person-walking"></i>
-
-            <span>
-              <b>Transaksi Walk-in</b>
-              <small>Pelanggan datang langsung</small>
-            </span>
-          </button>
-
-        </div>
 
 
         <form id="transactionForm">
 
-          <div class="form-section" id="bookingSection">
-
-            <h3>1. Data Pesanan</h3>
-
-            <div class="input-with-button">
-              <input class="form-control" placeholder="PSN-001" id="bookingCode">
-              <button type="button" class="btn-primary" id="findBooking">
-                Cari
-              </button>
-            </div>
-
-            <div class="booking-info">
-              <span>
-                ID Pesanan
-                <strong>PSN-001</strong>
-              </span>
-
-              <span>
-                Tanggal Pesan
-                <strong>26 Apr 2025, 10:15</strong>
-              </span>
-
-              <span>
-                Status
-                <strong class="text-warning">Menunggu Verifikasi</strong>
-              </span>
-            </div>
-
-          </div>
-
 
           <div class="form-section">
 
-            <h3>2. Data Pelanggan</h3>
+            <h3>1. Data Pelanggan</h3>
 
             <div class="form-grid">
 
@@ -680,7 +618,7 @@
 
           <div class="form-section">
 
-            <h3>3. Bukti Pendukung</h3>
+            <h3>2. Bukti Pendukung</h3>
 
             <label class="upload-box">
 
@@ -697,7 +635,7 @@
 
           <div class="form-section">
 
-            <h3>4. Pilih Motor</h3>
+            <h3>3. Pilih Motor</h3>
 
             <select class="form-select" id="motorSelect">
               <option>Honda Beat Deluxe - Rp 83.000 / hari</option>
@@ -744,7 +682,7 @@
 
           <div class="form-section">
 
-            <h3>5. Tanggal Sewa</h3>
+            <h3>4. Tanggal Sewa</h3>
 
             <div class="form-grid three">
 
@@ -776,7 +714,7 @@
 
           <div class="form-section">
 
-            <h3>6. Lokasi Pengembalian</h3>
+            <h3>5. Lokasi Pengembalian</h3>
 
             <select class="form-select">
               <option>Pilih lokasi</option>
@@ -789,7 +727,7 @@
 
           <div class="form-section">
 
-            <h3>7. Rincian Biaya</h3>
+            <h3>6. Rincian Biaya</h3>
 
             <div class="cost-line">
               <span>Harga Sewa per Hari</span>
@@ -836,5 +774,6 @@
 
 <script src="../js/kelola_transaksi.js"></script>
 
+<script src="../js/admin-sidebar.js"></script>
 </body>
 </html>

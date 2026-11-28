@@ -242,6 +242,28 @@ document.querySelectorAll(".detail-tab").forEach(btn => {
 });
 
 
+// Simpan ringkasan invoice lokal untuk demo front-end.
+function saveInvoiceDraft() {
+  const t = transactions.find(x => x.id === selectedId);
+  if (!t) return;
+  const data = {
+    id: t.id,
+    customer: t.name,
+    phone: "081123456789",
+    motor: t.motor,
+    date: t.date,
+    duration: "2 Hari",
+    pickup: "Rental Motor RYOKOU - Malang",
+    subtotal: t.price,
+    service: "Rp 10.000",
+    total: t.price,
+    paymentMethod: "QRIS",
+    paymentStatus: "Belum Lunas"
+  };
+  try { localStorage.setItem("ryokouInvoiceData", JSON.stringify(data)); } catch (error) { console.warn("Invoice draft tidak dapat disimpan", error); }
+}
+$("openInvoiceBtn")?.addEventListener("click", saveInvoiceDraft);
+
 // VERIFIKASI TRANSAKSI
 $("verifyBtn").addEventListener("click", () => {
 
@@ -279,14 +301,10 @@ $("rejectBtn").addEventListener("click", () => {
 
 
 // MENAMPILKAN FORM
-function showForm(mode) {
-
+function showForm() {
   $("listPage").classList.add("d-none");
-
   $("formPage").classList.remove("d-none");
-
-  setMode(mode);
-
+  $("formIntro").textContent = "Catat penyewaan pelanggan yang datang langsung ke rental RYOKOU.";
 }
 
 
@@ -300,15 +318,9 @@ function showList() {
 }
 
 
-// TOMBOL TRANSAKSI BARU
-$("newTransactionBtn").addEventListener("click", () => {
-  showForm("online");
-});
-
-
-// TOMBOL WALK-IN
-$("walkinBtn").addEventListener("click", () => {
-  showForm("walkin");
+// Hanya transaksi Walk-in yang dapat dibuat manual dari halaman ini.
+$("walkinBtn")?.addEventListener("click", () => {
+  showForm();
 });
 
 
@@ -316,44 +328,6 @@ $("walkinBtn").addEventListener("click", () => {
 $("backToList").addEventListener("click", showList);
 
 $("cancelForm").addEventListener("click", showList);
-
-
-// MENGATUR MODE TRANSAKSI
-function setMode(mode) {
-
-  document.querySelectorAll(".mode-button").forEach(b => {
-
-    b.classList.toggle(
-      "active",
-      b.dataset.mode === mode
-    );
-
-  });
-
-  $("bookingSection").style.display =
-    mode === "online" ? "block" : "none";
-
-  $("formIntro").textContent =
-    mode === "online"
-      ? "Proses pemesanan untuk pelanggan melalui website."
-      : "Transaksi untuk pelanggan yang datang langsung ke rental.";
-
-  $("backToList").querySelector("span").textContent =
-    mode === "online"
-      ? "Transaksi Baru"
-      : "Transaksi Walk-in";
-
-}
-
-
-// PILIH MODE TRANSAKSI
-document.querySelectorAll(".mode-button").forEach(b => {
-
-  b.addEventListener("click", () => {
-    setMode(b.dataset.mode);
-  });
-
-});
 
 
 // PILIH MOTOR
@@ -373,7 +347,7 @@ document.querySelectorAll(".motor-option").forEach(option => {
 });
 
 
-// SIMPAN TRANSAKSI BARU
+// SIMPAN TRANSAKSI WALK-IN
 $("transactionForm").addEventListener("submit", e => {
 
   e.preventDefault();
@@ -412,7 +386,7 @@ $("transactionForm").addEventListener("submit", e => {
 
   showList();
 
-  toast("Transaksi baru berhasil ditambahkan.");
+  toast("Transaksi Walk-in berhasil ditambahkan.");
 
   $("transactionForm").reset();
 
@@ -455,13 +429,13 @@ function logout() {
 
 $("logoutBtn").addEventListener("click", logout);
 
-$("profileLogout").addEventListener("click", logout);
+$("profileLogout")?.addEventListener("click", logout);
 
 
 // TOGGLE SIDEBAR
-$("sidebarToggle").addEventListener("click", () => {
+$("sidebarToggle")?.addEventListener("click", () => {
 
-  if (window.innerWidth <= 760) {
+  if (window.innerWidth <= 991) {
 
     $("sidebar").classList.toggle("mobile-open");
 
@@ -474,27 +448,9 @@ $("sidebarToggle").addEventListener("click", () => {
 });
 
 
-// MENU SIDEBAR AKTIF
-document.querySelectorAll(".side-nav .nav-item").forEach(a => {
+// Navigasi sidebar menggunakan tautan HTML biasa agar berpindah halaman dengan benar.
 
-  a.addEventListener("click", e => {
-
-    e.preventDefault();
-
-    document.querySelectorAll(".side-nav .nav-item")
-      .forEach(x => x.classList.remove("active"));
-
-    a.classList.add("active");
-
-    if (a.textContent.trim() !== "Kelola Transaksi") {
-
-      toast(
-        "Menu " + a.textContent.trim() +
-        " dipilih. Hubungkan ke halaman terkait."
-      );
-
-    }
-
-  });
-
-});
+// Buka tab konfirmasi motor bila halaman dipanggil dari tombol di Info Penyewaan.
+if (window.location.hash === "#konfirmasi-motor") {
+  document.querySelector('[data-tab="motor"]')?.click();
+}
